@@ -1,0 +1,40 @@
+{
+  "env": {
+      "browser": true,
+      "es6": true
+  },
+  "extends": [
+    "airbnb" // eslint-config-airbnb
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+      "ecmaFeatures": {
+          "jsx": true
+      },
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-filename-extension": [ //"react/jsx-filename-extension" rule from "eslint-plugin-react"
+      "warn", // violation of the rule will cause a warning
+      {
+        "extensions": [".js", ".jsx"] // option to allow using JSX syntax within both ".js" and ".jsx" file extensions
+      }
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "no-console": "error",
+    "semi": "off",
+    "no-param-reassign": "off",
+    "linebreak-style" : 0,
+    "implicit-arrow-linebreak": "off"
+  }
+}

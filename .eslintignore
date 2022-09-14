@@ -1,0 +1,8 @@
+build
+node_modules
+.github
+ServiceWorker.js
+.github/
+.husky/
+package-lock.json
+*.test.js
