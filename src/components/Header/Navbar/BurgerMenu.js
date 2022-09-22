@@ -53,7 +53,7 @@ BurgerMenu.propTypes = {
   menu: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     text: PropTypes.string,
-    ruote: PropTypes.string,
+    route: PropTypes.string,
   })).isRequired,
   handleOpenMenu: PropTypes.func.isRequired,
   handleCloseMenu: PropTypes.func.isRequired,

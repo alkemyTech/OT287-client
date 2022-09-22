@@ -50,7 +50,7 @@ Header.propTypes = {
   menu: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     text: PropTypes.string,
-    ruote: PropTypes.string,
+    route: PropTypes.string,
   })).isRequired,
   handleCloseMenu: PropTypes.func.isRequired,
   handleOpenMenu: PropTypes.func.isRequired,
