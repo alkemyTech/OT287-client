@@ -3,16 +3,19 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from '@mui/material/styles'
-import App from './App'
+import { BrowserRouter as Router } from 'react-router-dom';
 import store from './app/store'
 import * as serviceWorker from './serviceWorker'
 import theme from './styles/theme'
+import App from './App'
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <Provider store={store}>
-        <App />
+        <Router>
+          <App />
+        </Router>
       </Provider>
     </ThemeProvider>
   </React.StrictMode>,
