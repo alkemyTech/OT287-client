@@ -8,6 +8,9 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: 'Poppins',
+    button: {
+      textTransform: 'capitalize',
+    },
   },
   shape: {
     borderRadius: 20,
