@@ -1,6 +1,7 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FooterContainer from '../../../components/footer/FooterContainer'
 
 const Home = () => (
   <>
@@ -11,6 +12,7 @@ const Home = () => (
     <nav>
       <Link to="/about">About</Link>
     </nav>
+    <FooterContainer />
   </>
 )
 
