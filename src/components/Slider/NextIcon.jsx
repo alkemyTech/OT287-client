@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
-function NextIcon({ direction }) {
+const NextIcon = ({ direction }) => {
   return (
     <Box sx={{
       backgroundColor: '#FFFFFF',

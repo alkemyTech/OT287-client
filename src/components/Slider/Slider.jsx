@@ -6,7 +6,7 @@ import CircleIcon from '@mui/icons-material/Circle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import NextIcon from './NextIcon'
 
-function Slider({ items }) {
+const Slider = ({ items }) => { 
   return (
     <Carousel
       navButtonsAlwaysVisible
