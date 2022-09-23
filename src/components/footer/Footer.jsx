@@ -13,7 +13,7 @@ import AddAPhotoRoundedIcon from '@mui/icons-material/AddAPhotoRounded';
 function Footer({ logo, menu, contact }) {
   return (
     <Toolbar
-      disableGutters={'false'}
+      disableGutters={true}
       sx={{
         width: '100%',
         backgroundColor: 'rgb(200,200,200)',
