@@ -9,7 +9,7 @@ import Box from '@mui/material/Box';
 function Footer({ logo, menu, contact }) {
   return (
     <Toolbar
-      style={{
+      sx={{
         backgroundColor: 'rgb(200,200,200)',
         position: 'absolute',
         bottom: 0,
@@ -20,9 +20,19 @@ function Footer({ logo, menu, contact }) {
         justifyContent: 'center',
       }}
     >
-
       <div>
-        <img src={logo} alt="ong logo" />
+        <hr />
+        <Box
+          sx={{
+            position: 'relative',
+            left: { lg: '35%', xs: '28%' },
+            bottom: '50px',
+          }}
+          component="img"
+          src={logo}
+          alt="ong image"
+
+        />
 
         <Stack direction="row" spacing={{ xs: 2, lg: 6 }}>
           {menu.map((elem) => {
