@@ -5,6 +5,10 @@ import PropTypes from 'prop-types'
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
+import AlternateEmailRoundedIcon from '@mui/icons-material/AlternateEmailRounded';
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
+import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
+import AddAPhotoRoundedIcon from '@mui/icons-material/AddAPhotoRounded';
 
 function Footer({ logo, menu, contact }) {
   return (
@@ -24,12 +28,13 @@ function Footer({ logo, menu, contact }) {
       <div style={{ width: '100%' }}>
         <hr />
         <Box
+          padding={{ xs: '0 40px', lg: '0 80px' }}
           sx={{
             position: 'relative',
-            left: { lg: '47%', xs: '38%' },
+            left: { lg: '42%', xs: '27%' },
             bottom: '30px',
             height: '50px',
-            padding: '0',
+            backgroundColor: 'rgb(200,200,200)',
           }}
           component="img"
           src={logo}
@@ -51,15 +56,12 @@ function Footer({ logo, menu, contact }) {
 
         <hr />
         <Stack justifyContent="center" direction="row" spacing={{ xs: 2, lg: 6 }}>
-          {contact.map((data) => {
-            return (
-              <Typography key={data.id} fontSize={{ xs: '12px', lg: '1rem' }} sx={{ textAlign: 'center' }}>
-                <span>{data.text}</span>
-              </Typography>
-            )
-          })}
+          <AlternateEmailRoundedIcon />
+          <FacebookRoundedIcon />
+          <LocalPhoneRoundedIcon />
+          <AddAPhotoRoundedIcon />
         </Stack>
-        <p style={{ textAlign: 'center' }}>2022 by alkemy all rights reserved</p>
+        <p style={{ textAlign: 'center' }}>2022 by Alkemy. All Rights Reserved</p>
       </div>
     </Toolbar>
   )
