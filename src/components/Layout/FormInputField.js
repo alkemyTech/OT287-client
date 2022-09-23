@@ -8,25 +8,27 @@ function FormInputField({ label, ...props }) {
   return (
     <div>
       <label
-        className="block text-gray-700 text-sm font-bold pt-2 pb-1"
         htmlFor={props.id || props.name}
       >
         {label}
       </label>
       <input
-        className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
         {...field}
         {...props}
       />
-      {meta.touched && meta.error ? <div className="text-red-500 text-sm">{meta.error}</div> : null}
+      {meta.touched && meta.error ? <div>{meta.error}</div> : null}
     </div>
   )
 }
 
 FormInputField.propTypes = {
   label: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   name: PropTypes.string.isRequired,
+}
+
+FormInputField.defaultProps = {
+  id: null,
 }
 
 export default FormInputField

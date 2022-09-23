@@ -4,31 +4,30 @@ import PropTypes from 'prop-types';
 import FormInputField from '../Layout/FormInputField'
 
 function RegisterForm({
-  initialValues, validationSchema, onSubmitForm, error,
+  initialValues, validationSchema, onSubmitForm, error, errorMessage,
 }) {
   return (
-    <div className="w-full p-8">
-      <h1 className="mb-8 text-2xl font-semibold text-gray-600 text-center">Registrarse</h1>
+    <div>
+      <h1>Registrarse</h1>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={(values) => onSubmitForm(values, 1)}
+        onSubmit={(values) => onSubmitForm(values)}
       >
         <Form>
-          <FormInputField label="Nombre" name="name" type="text" />
-          <FormInputField label="Apellido" name="surname" type="text" />
+          <FormInputField label="Nombre" name="firstName" type="text" />
+          <FormInputField label="Apellido" name="lastName" type="text" />
           <FormInputField label="Email" name="email" type="email" />
           <FormInputField label="Contraseña" name="password" type="password" />
           <div>
             <button
-              className="bg-indigo-500 text-white font-bold py-2 px-4 w-full rounded-lg hover:bg-indigo-400"
               type="submit"
             >
               Registrarse
             </button>
           </div>
           {error && (
-            <span className="text-red-500 text-sm">Ya existe un usuario con ese email</span>
+            <span>{errorMessage}</span>
           )}
         </Form>
       </Formik>
@@ -43,13 +42,15 @@ RegisterForm.propTypes = {
     email: PropTypes.string,
     password: PropTypes.string,
   }).isRequired,
-  validationSchema: PropTypes.string.isRequired,
+  validationSchema: PropTypes.oneOfType([PropTypes.object]).isRequired,
   onSubmitForm: PropTypes.func.isRequired,
-  error: PropTypes.string,
+  error: PropTypes.number,
+  errorMessage: PropTypes.string,
 }
 
 RegisterForm.defaultProps = {
   error: null,
+  errorMessage: null,
 }
 
 export default RegisterForm

@@ -5,11 +5,12 @@ import RegisterForm from './RegisterForm'
 
 function RegisterFormContainer() {
   const [errorStatus, setErrorStatus] = useState(null)
+  const [errorMessage, setErrorMessage] = useState(null)
 
   const onSubmitForm = async (values) => {
     try {
       axios
-        .post(`${process.env.REACT_APP_API_DOMAIN}/auth/register`, {
+        .post(`${process.env.REACT_APP_API_DOMAIN}/users/register`, {
           firstName: values.firstName,
           lastName: values.lastName,
           email: values.email,
@@ -17,6 +18,7 @@ function RegisterFormContainer() {
         })
         .catch((error) => {
           setErrorStatus(error.response.status)
+          setErrorMessage(error.response.statusText)
         })
     } catch (error) {
       setErrorStatus(error.response)
@@ -33,8 +35,6 @@ function RegisterFormContainer() {
     firstName: Yup.string()
       .required('Obligatorio'),
     lastName: Yup.string()
-      .min(3, 'Debe tener al menos 6 caracteres')
-      .max(40, 'Debe tener como mucho 40 caracteres')
       .required('Obligatorio'),
     email: Yup.string().email('Dirección de mail inválida').required('Obligatorio'),
     password: Yup.string()
@@ -48,6 +48,7 @@ function RegisterFormContainer() {
       validationSchema={validationSchema}
       onSubmitForm={onSubmitForm}
       error={errorStatus}
+      errorMessage={errorMessage}
     />
   )
 }
