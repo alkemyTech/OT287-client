@@ -9,24 +9,27 @@ import Box from '@mui/material/Box';
 function Footer({ logo, menu, contact }) {
   return (
     <Toolbar
+      disableGutters={'false'}
       sx={{
+        width: '100%',
         backgroundColor: 'rgb(200,200,200)',
         position: 'absolute',
-        bottom: 0,
-        width: '100%',
-        height: '30%',
         margin: 0,
         padding: 0,
+        bottom: 0,
+        height: '30%',
         justifyContent: 'center',
       }}
     >
-      <div>
+      <div style={{ width: '100%' }}>
         <hr />
         <Box
           sx={{
             position: 'relative',
-            left: { lg: '35%', xs: '28%' },
-            bottom: '50px',
+            left: { lg: '47%', xs: '38%' },
+            bottom: '30px',
+            height: '50px',
+            padding: '0',
           }}
           component="img"
           src={logo}
@@ -34,24 +37,29 @@ function Footer({ logo, menu, contact }) {
 
         />
 
-        <Stack direction="row" spacing={{ xs: 2, lg: 6 }}>
+        <Stack justifyContent="center" direction="row" spacing={{ xs: 2, lg: 6 }}>
           {menu.map((elem) => {
             return (
-              <Typography key={elem.id} justifyContent="center" alignItems="center" fontSize={{ xs: '12px', lg: '1rem' }}>
+              <Typography key={elem.id} fontSize={{ xs: '10px', lg: '1rem' }}>
                 <Link style={{ color: 'inherit', textDecoration: 'none' }} to={elem.route}>
                   <span>{elem.text}</span>
                 </Link>
               </Typography>
             )
           })}
-          {/* {contact.map((data) => {
-            return (
-              <span key={data.id}>{data.text}</span>
-            )
-          })} */}
         </Stack>
+
         <hr />
-        {/* <h2>2022 by alkemy all rights reserved</h2> */}
+        <Stack justifyContent="center" direction="row" spacing={{ xs: 2, lg: 6 }}>
+          {contact.map((data) => {
+            return (
+              <Typography key={data.id} fontSize={{ xs: '12px', lg: '1rem' }} sx={{ textAlign: 'center' }}>
+                <span>{data.text}</span>
+              </Typography>
+            )
+          })}
+        </Stack>
+        <p style={{ textAlign: 'center' }}>2022 by alkemy all rights reserved</p>
       </div>
     </Toolbar>
   )
