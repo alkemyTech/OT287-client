@@ -86,5 +86,3 @@ Footer.propTypes = {
 }
 
 export default Footer
-
-// poder hacer un tag <hr> creo q era
