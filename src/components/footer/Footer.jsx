@@ -1,10 +1,10 @@
 import React from 'react'
-import Toolbar from '@mui/material/Toolbar';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types'
-import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
+import {
+  Toolbar, Box, Stack, Typography,
+} from '@mui/material'
+
 import AlternateEmailRoundedIcon from '@mui/icons-material/AlternateEmailRounded';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
@@ -25,7 +25,7 @@ function Footer({ logo, menu, contact }) {
         justifyContent: 'center',
       }}
     >
-      <div style={{ width: '100%' }}>
+      <Box sx={{ width: '100%' }}>
         <hr />
         <Box
           padding={{ xs: '0 40px', lg: '0 80px' }}
@@ -62,7 +62,7 @@ function Footer({ logo, menu, contact }) {
           <AddAPhotoRoundedIcon />
         </Stack>
         <p style={{ textAlign: 'center' }}>2022 by Alkemy. All Rights Reserved</p>
-      </div>
+      </Box>
     </Toolbar>
   )
 }
