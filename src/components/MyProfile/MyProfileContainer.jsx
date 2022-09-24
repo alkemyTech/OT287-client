@@ -16,9 +16,9 @@ function MyProfileContainer() {
   const getUserData = useCallback(async () => {
     const userDataResponse = {
       id: '1',
-      firstName: 'eliana',
-      lastName: 'bga',
-      email: 'eli@gmail.com',
+      firstName: 'Carlos',
+      lastName: 'Garcia',
+      email: 'carlosgarcia@gmail.com',
       deleteAt: null,
     }
     // el usuario se extrae del token almacenado en localStorage

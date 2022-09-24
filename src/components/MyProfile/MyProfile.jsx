@@ -55,7 +55,7 @@ const MyProfile = ({
   )
 
 MyProfile.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape({
+  data: PropTypes.arrayOf(PropTypes.objectOf({
     id: PropTypes.number,
     label: PropTypes.string,
     text: PropTypes.string,
