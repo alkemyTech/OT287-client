@@ -1,6 +1,11 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, ErrorMessage } from 'formik';
 import React from 'react';
-import * as Yup from 'yup'
+import * as Yup from 'yup';
+import FormikField from '../FormikField/text';
+import FormikFieldTextarea from '../FormikField/textarea'
+import {  Button, Grid, Typography, Box } from '@mui/material'
+import IconButton from '@mui/material/IconButton';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
 
 const initialValues = {
     welcomeText: '',
@@ -79,42 +84,80 @@ const validationSchema = Yup.object({
 
 function HomeForm () {
     return(
-        <Formik
-        initialValues = {initialValues}
-        onSubmit = {onSubmit}
-        validationSchema = {validationSchema}>
-                <Form>
-                    <label htmlFor="welcomeText">Welcome text</label> <br />
-                    <Field as="textarea" id='welcomeText' name='welcomeText'/> <br />
-                    <ErrorMessage name='welcomeText'/>
-                    <br />
-                    <label htmlFor="slideOneImg">Image Slide N°1</label> <br />
-                    <Field type="file" id='slideOneImg' name='slideOneImg' accept=".jpg, .png, .tif"/> <br />
-                    <ErrorMessage name='slideOneImg'/>
-                    <br />
-                    <label htmlFor="slideOneText">Text Slide N°1</label> <br />
-                    <Field type="text" id='slideOneText' name='slideOneText'/> <br />
-                    <ErrorMessage name='slideOneText'/>
-                    <br />
-                    <label htmlFor="slideTwoImg">Image Slide N°2</label> <br />
-                    <Field type="file" id='slideTwoImg' name='slideTwoImg' accept=".jpg, .png, .tif"/> <br />
-                    <ErrorMessage name='slideTwoImg'/>
-                    <br />
-                    <label htmlFor="slideTwoText">Text Slide N°2</label> <br />
-                    <Field type="text" id='slideTwoText' name='slideTwoText'/> <br />
-                    <ErrorMessage name='slideTwoText'/>
-                    <br />
-                    <label htmlFor="slideThreeImg">Image Slide N°3</label> <br />
-                    <Field type="file" id='slideThreeImg' name='slideThreeImg' accept=".jpg, .png, .tif"/> <br />
-                    <ErrorMessage name='slideThreeImg'/>
-                    <br />
-                    <label htmlFor="slideThreeText">Text Slide N°3</label> <br />
-                    <Field type="text" id='slideThreeText' name='slideThreeText'/> <br />
-                    <ErrorMessage name='slideThreeText'/>
-                    <br />
-                    <button type='submit'>Submit</button>
-                </Form>
-        </Formik>
+      <Grid container widht="100%" display="flex" direction="column" padding={10} >
+
+        <Box bgcolor="#ebebeb" width="auto"
+         sx={{
+          boxShadow: 0,
+          p: 1,
+          m: 1,
+          borderRadius: 2,
+          textAlign: 'center',
+          fontSize: '0.875rem',
+          fontWeight: '700',
+        }}>
+
+        
+        <Grid container widht="100%" justifyContent= "center" >
+           <Grid item margin={5} ><Typography variant='h5'>Formulario Edicion Home</Typography></Grid>
+        </Grid>
+             <Formik
+             initialValues = {initialValues}
+             onSubmit = {onSubmit}
+             validationSchema = {validationSchema}>
+              <Grid container widht="100%" justifyContent= "center" >
+                     <Form>
+                       <FormikFieldTextarea name={'welcomeText'} label={'welcomeText'} />
+
+                         <br />
+                         <label htmlFor="slideOneImg">Image Slide N°1</label> <br />
+                         <IconButton color="error" id='slideOneImg' name='slideOneImg' aria-label="upload picture" component="label" >
+                         <input hidden accept="image/*" type="file" />
+                         <PhotoCamera />
+                         </IconButton>
+                         <ErrorMessage name='slideOneImg'/>
+
+                         <br />
+                         <FormikField name={'slideOneText'} label={'Text Slide N°1'} />
+
+                         <br />
+                         <label htmlFor="slideTwoImg">Image Slide N°2</label> <br />
+                         <IconButton color="error" id='slideTwoImg' name='slideTwoImg' aria-label="upload picture" component="label" >
+                         <input hidden accept="image/*" type="file" />
+                         <PhotoCamera />
+                         </IconButton>
+                         <ErrorMessage name='slideTwoImg'/>
+
+                         <br />
+                         <FormikField name={'slideTwoText'} label={'Text Slide N°2'} />
+
+                         <br />
+                         <label htmlFor="slideThreeImg">Image Slide N°3</label> <br />
+                         <IconButton color="error" id='slideThreeImg' name='slideThreeImg' aria-label="upload picture" component="label" >
+                         <input hidden accept="image/*" type="file" />
+                         <PhotoCamera />
+                         </IconButton>
+                         <ErrorMessage name='slideThreeImg'/>
+
+                         <br />
+                         <FormikField name={'slideThreeText'} label={'Text Slide N°3'} />
+
+                         <br />
+                         <Grid item width="100%"> 
+                         <Button
+            variant="contained" color="success" type='submit'
+            fullWidth
+          >
+            Submit
+          </Button>
+                         </Grid> 
+          
+                          
+                     </Form>
+                     </Grid>
+             </Formik>
+             </Box>
+        </Grid>
     )
 }
 
