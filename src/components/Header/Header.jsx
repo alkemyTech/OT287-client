@@ -9,9 +9,9 @@ import BrandLogo from './BrandLogo';
 import BurgerMenu from './Navbar/BurgerMenu';
 import Navbar from './Navbar/Navbar';
 
-function Header({
+const Header = ({
   logo, menu, handleOpenMenu, handleCloseMenu, anchorNav,
-}) {
+}) => {
   return (
     <AppBar position="static" sx={{ backgroundColor: 'white' }}>
       <Container maxWidth="xl">
