@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
-function Navbar({ menu }) {
+const Navbar = ({ menu }) => {
   return (
     <Box sx={{ display: { xs: 'none', md: 'flex' }, flexGrow: 1, justifyContent: 'right' }}>
       {menu.map((page) => (
