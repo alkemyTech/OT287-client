@@ -4,9 +4,10 @@ import {
   Grid, TextField, Typography,
 } from '@mui/material'
 import PropTypes from 'prop-types';
+import Alert from '../Alert/Alert';
 
 const MyProfile = ({
-  data, handleDeleteUser, handleEditUser, id,
+  data, handleDeleteUser, handleEditUser, id, userDelete, errorStatus,
 }) =>
   (
     <Grid container widht="100%" display="flex" direction="row" justifyContent="center">
@@ -48,6 +49,8 @@ const MyProfile = ({
           </Button>
         </Grid>
       </Grid>
+      <Alert show={userDelete} title="Su usuario ha sido eliminado" textButton="Ok" />
+      <Alert show={errorStatus} title="Error al eliminar usuario" textButton="Ok" />
     </Grid>
   )
 
@@ -58,6 +61,8 @@ MyProfile.propTypes = {
     text: PropTypes.string,
   })).isRequired,
   id: PropTypes.string.isRequired,
+  userDelete: PropTypes.bool.isRequired,
+  errorStatus: PropTypes.string.isRequired,
   handleEditUser: PropTypes.func.isRequired,
   handleDeleteUser: PropTypes.func.isRequired,
 }
