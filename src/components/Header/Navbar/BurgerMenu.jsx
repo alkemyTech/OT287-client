@@ -7,9 +7,9 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
-function BurgerMenu({
+const BurgerMenu = ({
   menu, handleOpenMenu, handleCloseMenu, anchorNav,
-}) {
+}) => {
   return (
     <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'right', mr: 4 }}>
       <IconButton

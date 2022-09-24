@@ -37,7 +37,7 @@ const data = {
   ],
 }
 
-function HeaderContainer() {
+const HeaderContainer = () => {
   const [anchorNav, setAnchorNav] = React.useState(null);
 
   const handleOpenMenu = (event) => {
