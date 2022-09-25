@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import LoginForm from './LoginForm'
-import validationSchema from '../../schemas/login';
+import validateLogin from '../../schemas/login';
 
 const LoginFormContainer = () => {
   const [errorStatus, setErrorStatus] = useState(null)
@@ -34,7 +34,7 @@ const LoginFormContainer = () => {
   return (
     <LoginForm
       initialValues={initialValues}
-      validationSchema={validationSchema}
+      validationSchema={validateLogin}
       onSubmitForm={onSubmitForm}
       error={errorStatus}
       errorMessage={errorMessage}
