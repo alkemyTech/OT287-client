@@ -6,10 +6,11 @@ import {
 import PropTypes from 'prop-types';
 import Alert from '../Alert/Alert';
 
-const MyProfile = ({
-  data, handleDeleteUser, handleEditUser, id, userDelete, errorStatus,
-}) =>
-  (
+const MyProfile = (props) => {
+  const {
+    data, handleDeleteUser, handleEditUser, id, userDelete, errorStatus,
+  } = props
+  return (
     <Grid container widht="100%" display="flex" direction="row" justifyContent="center">
       <Grid
         container
@@ -53,6 +54,7 @@ const MyProfile = ({
       <Alert show={errorStatus} title="Error al eliminar usuario" textButton="Ok" />
     </Grid>
   )
+}
 
 MyProfile.propTypes = {
   data: PropTypes.arrayOf(PropTypes.objectOf({
