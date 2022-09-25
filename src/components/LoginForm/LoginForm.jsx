@@ -44,15 +44,15 @@ const LoginForm = ({
                   fullWidth
                   variant="contained"
                   sx={{
-                    maxHeight: '60px', minHeight: '60px', fontSize: '1.4rem', backgroundColor: 'red', mb: 20, fontWeight: 'bolder',
+                    maxHeight: '60px', minHeight: '60px', fontSize: '1.4rem', backgroundColor: 'red', fontWeight: 'bolder',
                   }}
                 >
                   Inicia sesión
                 </Button>
                 {error && (
-                <Box component="span" color="red">{error === 409 ? 'El email ingresado ya existe en la base de datos para otro usuario' : errorMessage}</Box>
+                <Box component="span" color="red">{error === 400 ? 'El usuario o la contraseña son invalidos' : `Hay un problema con los datos ingresados: ${errorMessage}`}</Box>
                 )}
-                <Typography className="registerText" component="p" variant="p">
+                <Typography className="registerText" component="p" variant="p" mt={40}>
                   No tienes una cuenta?
                   {' '}
                   <Link to="/register" className="registerLink">Registrate</Link>

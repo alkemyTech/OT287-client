@@ -22,7 +22,7 @@ const LoginFormContainer = () => {
           setErrorMessage(error.response.statusText)
         })
     } catch (error) {
-      setErrorStatus(error.response)
+      setErrorStatus(`Ha ocurrido un error: ${error.response}`)
     }
   }
 
