@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios'
-import * as Yup from 'yup'
 import { useNavigate } from 'react-router-dom'
 import RegisterForm from './RegisterForm'
+import validationSchema from '../../schemas/register'
 
 const RegisterFormContainer = () => {
   const [errorStatus, setErrorStatus] = useState(null)
@@ -34,16 +34,6 @@ const RegisterFormContainer = () => {
     email: '',
     password: '',
   }
-  const validationSchema = Yup.object({
-    firstName: Yup.string()
-      .required('Obligatorio'),
-    lastName: Yup.string()
-      .required('Obligatorio'),
-    email: Yup.string().email('Dirección de mail inválida').required('Obligatorio'),
-    password: Yup.string()
-      .min(6, 'Debe tener al menos 6 caracteres')
-      .required('Obligatorio'),
-  })
 
   return (
     <RegisterForm
