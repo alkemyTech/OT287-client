@@ -6,9 +6,9 @@ import {
 } from '@mui/material'
 import FormInputField from '../Layout/FormInputField'
 
-function RegisterForm({
+const RegisterForm = ({
   initialValues, validationSchema, onSubmitForm, error, errorMessage,
-}) {
+}) => {
   return (
     <Container component="main" maxWidth="sm">
       <CssBaseline />

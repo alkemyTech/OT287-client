@@ -7,7 +7,7 @@ import {
 import { VisibilityOff, Visibility } from '@mui/icons-material';
 
 // Input field component, with label, input and error handler
-function FormInputField({ label, ...props }) {
+const FormInputField = ({ label, ...props }) => {
   const [values, setValues] = useState({
     password: '',
     showPassword: false,

@@ -4,7 +4,7 @@ import * as Yup from 'yup'
 import { useNavigate } from 'react-router-dom'
 import RegisterForm from './RegisterForm'
 
-function RegisterFormContainer() {
+const RegisterFormContainer = () => {
   const [errorStatus, setErrorStatus] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
   const navigate = useNavigate()
