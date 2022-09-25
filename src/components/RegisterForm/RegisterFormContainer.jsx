@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
 import axios from 'axios'
 import * as Yup from 'yup'
+import { useNavigate } from 'react-router-dom'
 import RegisterForm from './RegisterForm'
 
 function RegisterFormContainer() {
   const [errorStatus, setErrorStatus] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
+  const navigate = useNavigate()
 
   const onSubmitForm = async (values) => {
     try {
       axios
-        .post(`${process.env.REACT_APP_API_DOMAIN}/users/register`, {
+        .post(`${process.env.REACT_APP_API_DOMAIN}/auth/register`, {
           firstName: values.firstName,
           lastName: values.lastName,
           email: values.email,
           password: values.password,
         })
+        .then(() => navigate('/login'))
         .catch((error) => {
           setErrorStatus(error.response.status)
           setErrorMessage(error.response.statusText)
