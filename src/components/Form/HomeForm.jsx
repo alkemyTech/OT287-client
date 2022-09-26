@@ -1,101 +1,53 @@
 import { Formik, Form, ErrorMessage } from 'formik';
 import React from 'react';
-import * as Yup from 'yup';
-import FormikField from '../FormikField/text';
-import FormikFieldTextarea from '../FormikField/textarea'
+import FormikField from './text';
+import FormikFieldTextarea from './textarea'
+import FormikFieldFile from './file';
 import {  Button, Grid, Typography, Box } from '@mui/material'
 import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import PropTypes from 'prop-types';
+import validationSchema from './validationSchema'
 
-const initialValues = {
-    welcomeText: '',
-    slideOneImg: '',
-    slideOneText: '',
-    slideTwoImg: '',
-    slideTwoText: '',
-    slideThreeImg: '',
-    slideThreeText: ''
+const HomeForm = ({ data, onSubmit}) => {
+  console.log(data);
+
+  const initialValues = {
+    welcomeText: '', // data[0].text
+    slideOneImg: '', //data[1].imageUrl
+    slideOneText: '', //data[1].text
+    slideTwoImg: '',//data[2].imageUrl
+    slideTwoText: '', //data[2].text
+    slideThreeImg: '',//data[3].imageUrl
+    slideThreeText: ''//data[3].text
 }
 
-const onSubmit = values => {
-    console.log('Form data', values);
-    const homeDataToEdit = {
-    welcomeText: values.welcomeText,
-    slideOneImg: values.slideOneImg,
-    slideOneText: values.slideOneText,
-    slideTwoImg: values.slideTwoImg,
-    slideTwoText: values.slideTwoText,
-    slideThreeImg: values.slideThreeImg,
-    slideThreeText: values.slideThreeText
-    }
-    return homeDataToEdit
-}
+  
 
-const FILE_SIZE = 160 * 1024;
-const SUPPORTED_FORMATS = [
-      "image/jpg",
-      "image/jpeg",
-      "image/gif",
-      "image/png"
-    ];
-
-const validationSchema = Yup.object({
-    welcomeText: Yup.string().required('Required').min(20, 'Welcome text must be of minimum20 characters'),
-    slideOneImg: Yup.mixed()
-    .required("A file is required")
-    .test(
-      "fileSize",
-      "File too large",
-      value => value && value.size <= FILE_SIZE
-    )
-    .test(
-      "fileFormat",
-      "Unsupported Format",
-      value => value && SUPPORTED_FORMATS.includes(value.type)
-    ),
-    slideOneText: Yup.string().required('Required'),
-    slideTwoImg: Yup.mixed()
-    .required("A file is required")
-    .test(
-      "fileSize",
-      "File too large",
-      value => value && value.size <= FILE_SIZE
-    )
-    .test(
-      "fileFormat",
-      "Unsupported Format",
-      value => value && SUPPORTED_FORMATS.includes(value.type)
-    ),
-    slideTwoText: Yup.string().required('Required'),
-    slideThreeImg: Yup.mixed()
-    .required("A file is required")
-    .test(
-      "fileSize",
-      "File too large",
-      value => value && value.size <= FILE_SIZE
-    )
-    .test(
-      "fileFormat",
-      "Unsupported Format",
-      value => value && SUPPORTED_FORMATS.includes(value.type)
-    ),
-    slideThreeText: Yup.string().required('Required'),
-})
-
-function HomeForm () {
     return(
-      <Grid container widht="100%" display="flex" direction="column" padding={10} >
-
+      <Grid container widht="100%" display="flex" direction="column" padding={10} 
+       spacing={0}
+       alignItems="center"
+       justify="center"
+       style={{ minHeight: '100vh' }} >
+        
         <Box bgcolor="#ebebeb" width="auto"
-         sx={{
-          boxShadow: 0,
-          p: 1,
-          m: 1,
-          borderRadius: 2,
-          textAlign: 'center',
-          fontSize: '0.875rem',
-          fontWeight: '700',
-        }}>
+            sx={{
+              width: '40%',
+              p: 1,
+              my: 1,
+              bgcolor: (theme) =>
+                theme.palette.mode === 'dark' ? '#101010' : 'grey.100',
+              color: (theme) =>
+                theme.palette.mode === 'dark' ? 'grey.300' : 'grey.800',
+              border: '1px solid',
+              borderColor: (theme) =>
+                theme.palette.mode === 'dark' ? 'grey.800' : 'grey.300',
+              borderRadius: 2,
+              fontSize: '0.875rem',
+              fontWeight: '700',
+              textAlign: 'center',
+            }}>
 
         
         <Grid container widht="100%" justifyContent= "center" >
@@ -103,27 +55,29 @@ function HomeForm () {
         </Grid>
              <Formik
              initialValues = {initialValues}
-             onSubmit = {onSubmit}
+              onSubmit={(values) => onSubmit(values)}
              validationSchema = {validationSchema}>
               <Grid container widht="100%" justifyContent= "center" >
                      <Form>
                        <FormikFieldTextarea name={'welcomeText'} label={'welcomeText'} />
 
                          <br />
-                         <label htmlFor="slideOneImg">Image Slide N°1</label> <br />
+                         <Grid item xs={12}>
                          <IconButton color="error" id='slideOneImg' name='slideOneImg' aria-label="upload picture" component="label" >
-                         <input hidden accept="image/*" type="file" />
+                         <FormikFieldFile name={'slideOneImg'} label={'Image Slide N°1'} />
                          <PhotoCamera />
                          </IconButton>
-                         <ErrorMessage name='slideOneImg'/>
+                         <ErrorMessage name='slideTwoImg'/>
+                         </Grid>
 
+                         <Grid item xs={12}>
                          <br />
                          <FormikField name={'slideOneText'} label={'Text Slide N°1'} />
+                         </Grid>
 
                          <br />
-                         <label htmlFor="slideTwoImg">Image Slide N°2</label> <br />
                          <IconButton color="error" id='slideTwoImg' name='slideTwoImg' aria-label="upload picture" component="label" >
-                         <input hidden accept="image/*" type="file" />
+                         <FormikFieldFile name={'slideTwoImg'} label={'Image Slide N°2'} />
                          <PhotoCamera />
                          </IconButton>
                          <ErrorMessage name='slideTwoImg'/>
@@ -132,9 +86,8 @@ function HomeForm () {
                          <FormikField name={'slideTwoText'} label={'Text Slide N°2'} />
 
                          <br />
-                         <label htmlFor="slideThreeImg">Image Slide N°3</label> <br />
                          <IconButton color="error" id='slideThreeImg' name='slideThreeImg' aria-label="upload picture" component="label" >
-                         <input hidden accept="image/*" type="file" />
+                         <FormikFieldFile name={'slideThreeImg'} label={'Image Slide N°3'} />
                          <PhotoCamera />
                          </IconButton>
                          <ErrorMessage name='slideThreeImg'/>
@@ -143,16 +96,12 @@ function HomeForm () {
                          <FormikField name={'slideThreeText'} label={'Text Slide N°3'} />
 
                          <br />
-                         <Grid item width="100%"> 
-                         <Button
-            variant="contained" color="success" type='submit'
-            fullWidth
-          >
-            Submit
-          </Button>
+                         <Grid item width="100%">
+                         <Button variant="contained" color="success" type='submit' fullWidth>
+                            Submit
+                         </Button>
                          </Grid> 
-          
-                          
+
                      </Form>
                      </Grid>
              </Formik>
@@ -161,4 +110,19 @@ function HomeForm () {
     )
 }
 
+HomeForm.propTypes = {
+  initialValues: PropTypes.shape({
+    welcomeText: PropTypes.string,
+    slideOneImg: PropTypes.string,
+    slideOneText: PropTypes.string,
+    slideTwoImg: PropTypes.string,
+    slideTwoText: PropTypes.string,
+    slideThreeImg: PropTypes.string,
+    slideThreeText: PropTypes.string,
+  }).isRequired,
+  validationSchema: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  onSubmit: PropTypes.func.isRequired,
+}
+
 export default HomeForm;
+ 
