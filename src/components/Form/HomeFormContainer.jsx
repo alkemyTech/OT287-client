@@ -68,7 +68,7 @@ const HomeFormContainer = () => {
 
 
 return (
-        <HomeForm data={home} onSubmit={onSubmit}/> 
+        <HomeForm data={home} onSubmit={onSubmit} org={org} /> 
   )
 
 }
