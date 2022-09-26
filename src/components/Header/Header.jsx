@@ -13,7 +13,7 @@ const Header = ({
   logo, menu, handleOpenMenu, handleCloseMenu, anchorNav,
 }) => {
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'white' }}>
+    <AppBar position="absolute" sx={{ backgroundColor: 'white', zIndex: 1300 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <BrandLogo logo={logo} breakpointDisplay="md" breakpointHidden="xs" />
