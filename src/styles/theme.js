@@ -13,7 +13,9 @@ const theme = createTheme({
     },
   },
   shape: {
-    borderRadius: 20,
+    color: 'FF0000',
+    borderRadius: 5,
+    height: 80,
   },
 });
 
