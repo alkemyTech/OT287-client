@@ -61,45 +61,54 @@ const HomeForm = ({ data, onSubmit}) => {
                      <Form>
                        <FormikFieldTextarea name={'welcomeText'} label={'welcomeText'} />
 
-                         <br />
+                        
                          <Grid item xs={12}>
-                         <IconButton color="error" id='slideOneImg' name='slideOneImg' aria-label="upload picture" component="label" >
-                         <FormikFieldFile name={'slideOneImg'} label={'Image Slide N°1'} />
-                         <PhotoCamera />
-                         </IconButton>
-                         <ErrorMessage name='slideTwoImg'/>
+                           <br />
+                           <IconButton color="error" id='slideOneImg' name='slideOneImg' aria-label="upload picture" component="label" >
+                              <FormikFieldFile name={'slideOneImg'} label={'Image Slide N°1'} />
+                              <PhotoCamera />
+                           </IconButton>
+                           <ErrorMessage name='slideTwoImg'/>
                          </Grid>
 
                          <Grid item xs={12}>
-                         <br />
-                         <FormikField name={'slideOneText'} label={'Text Slide N°1'} />
+                            <br />
+                            <FormikField name={'slideOneText'} label={'Text Slide N°1'} />
                          </Grid>
 
-                         <br />
-                         <IconButton color="error" id='slideTwoImg' name='slideTwoImg' aria-label="upload picture" component="label" >
-                         <FormikFieldFile name={'slideTwoImg'} label={'Image Slide N°2'} />
-                         <PhotoCamera />
-                         </IconButton>
-                         <ErrorMessage name='slideTwoImg'/>
+                         <Grid item xs={12}>
+                           <br />
+                           <IconButton color="error" id='slideTwoImg' name='slideTwoImg' aria-label="upload picture" component="label" >
+                              <FormikFieldFile name={'slideTwoImg'} label={'Image Slide N°2'} />
+                              <PhotoCamera />
+                           </IconButton>
+                           <ErrorMessage name='slideTwoImg'/>
+                         </Grid>
 
-                         <br />
-                         <FormikField name={'slideTwoText'} label={'Text Slide N°2'} />
+                         <Grid item xs={12}>
+                          <br />
+                          <FormikField name={'slideTwoText'} label={'Text Slide N°2'} />
+                         </Grid>
 
-                         <br />
-                         <IconButton color="error" id='slideThreeImg' name='slideThreeImg' aria-label="upload picture" component="label" >
-                         <FormikFieldFile name={'slideThreeImg'} label={'Image Slide N°3'} />
-                         <PhotoCamera />
-                         </IconButton>
-                         <ErrorMessage name='slideThreeImg'/>
+                         <Grid item xs={12}> 
+                           <br />
+                           <IconButton color="error" id='slideThreeImg' name='slideThreeImg' aria-label="upload picture" component="label" >
+                              <FormikFieldFile name={'slideThreeImg'} label={'Image Slide N°3'} />
+                              <PhotoCamera />
+                           </IconButton>
+                           <ErrorMessage name='slideThreeImg'/>
+                         </Grid>
 
-                         <br />
-                         <FormikField name={'slideThreeText'} label={'Text Slide N°3'} />
+                         <Grid item xs={12}>
+                            <br />
+                            <FormikField name={'slideThreeText'} label={'Text Slide N°3'} />
+                         </Grid>
 
-                         <br />
                          <Grid item width="100%">
-                         <Button variant="contained" color="success" type='submit' fullWidth>
-                            Submit
-                         </Button>
+                            <br />
+                            <Button variant="contained" color="success" type='submit' fullWidth>
+                               Submit
+                            </Button>
                          </Grid> 
 
                      </Form>
