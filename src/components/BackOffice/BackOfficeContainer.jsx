@@ -174,6 +174,7 @@ const BackOfficeContainer = () => {
       handleFilterList={handleFilterList}
       handleDrawerToggle={handleDrawerToggle}
       cardFields={cardFields[activeSection]}
+      handleAction={() => {}}
     />
   )
 }

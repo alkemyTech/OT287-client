@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import HeaderContainer from '../Header/HeaderContainer'
 import Items from './Items'
 import DrawerMenu from './DrawerMenu';
+import AddButton from './AddButton'
 
 const BackOffice = ({
   data,
@@ -13,6 +14,7 @@ const BackOffice = ({
   handleFilterList,
   handleDrawerToggle,
   cardFields,
+  handleAction,
 }) => (
   <>
     <HeaderContainer />
@@ -26,6 +28,7 @@ const BackOffice = ({
       />
       <Items array={data} cardFields={cardFields} />
     </Box>
+    <AddButton handleAction={handleAction} />
   </>
 )
 
@@ -49,6 +52,7 @@ BackOffice.propTypes = {
     content: PropTypes.string,
     imageUrl: PropTypes.string,
   }).isRequired,
+  handleAction: PropTypes.func.isRequired,
 }
 
 export default BackOffice
