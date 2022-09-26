@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import HeaderContainer from '../../../components/Header/HeaderContainer'
 import Home from './Home'
+import httpService from '../../../services/httpService'
 
 const sliderImg = [
   {
@@ -23,10 +23,9 @@ const sliderImg = [
 ]
 const HomeContainer = () => {
   const [data, setData] = useState([])
-
   useEffect(() => {
-    axios.get('http://localhost:3001/news').then((response) => {
-      setData(response.data.body)
+    httpService('GET', '/news').then((response) => {
+      setData(response.body)
     })
   }, [])
   return (
