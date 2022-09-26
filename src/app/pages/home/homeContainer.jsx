@@ -25,7 +25,7 @@ const HomeContainer = () => {
   const [data, setData] = useState([])
   useEffect(() => {
     httpService('GET', '/news').then((response) => {
-      setData(response.body)
+      setData(response.body.slice(response.body.length - 4))
     })
   }, [])
   return (
