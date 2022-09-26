@@ -19,7 +19,9 @@ const httpService = async (method, url, body) => {
       baseURL: 'http://localhost:3001',
       url: `${url}`,
       data: body,
-      headers: {...headers},
+      headers: {
+        ...headers,
+      },
     })
     return data
   } catch (error) {
