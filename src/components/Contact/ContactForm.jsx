@@ -1,26 +1,27 @@
 import React from 'react'
-import { Formik, Form } from 'formik'
-import PropTypes from 'prop-types'
 import {
-  Container, CssBaseline, Box, Typography, Grid, Button,
+  Box, Button, Typography, Grid, Container, InputLabel, OutlinedInput,
 } from '@mui/material'
+import { Form } from 'formik'
 import FormInputField from '../Layout/FormInputField'
 
-const RegisterForm = ({
-  initialValues, validationSchema, onSubmitForm, error, errorMessage,
-}) => (
-  <Container component="main" maxWidth="sm">
-    <CssBaseline />
-    <Box
-      sx={{
-        marginTop: 12,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}
-    >
-      <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold' }}>Registrate!</Typography>
-      <Formik
+const ContactForm = () => (
+
+  <Grid
+    item
+    xs={12}
+    xl={10}
+    height="100vh"
+    sx={{
+      marginTop: 12,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      backgroundColor: 'blue',
+    }}
+  >
+    <Typography>HOLA FORM</Typography>
+    {/* <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={(values) => onSubmitForm(values)}
@@ -56,27 +57,9 @@ const RegisterForm = ({
             </Grid>
           </Form>
         </Box>
-      </Formik>
-    </Box>
-  </Container>
+      </Formik> */}
+  </Grid>
+
 )
 
-RegisterForm.propTypes = {
-  initialValues: PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-    email: PropTypes.string,
-    password: PropTypes.string,
-  }).isRequired,
-  validationSchema: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  onSubmitForm: PropTypes.func.isRequired,
-  error: PropTypes.number,
-  errorMessage: PropTypes.string,
-}
-
-RegisterForm.defaultProps = {
-  error: null,
-  errorMessage: null,
-}
-
-export default RegisterForm
+export default ContactForm
