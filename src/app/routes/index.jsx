@@ -5,6 +5,7 @@ import About from '../pages/dummyAbout/about'
 import HomeFormContainer from '../../components/Form/HomeFormContainer'
 import LoginFormContainer from '../../components/LoginForm/LoginFormContainer'
 import RegisterFormContainer from '../../components/RegisterForm/RegisterFormContainer'
+import NewsContainer from '../../components/News/NewsContainer'
 
 const Router = () => (
   <Routes>
@@ -13,6 +14,7 @@ const Router = () => (
     <Route path="/homeForm" element={<HomeFormContainer />} />
     <Route path="/register" element={<RegisterFormContainer />} />
     <Route path="/login" element={<LoginFormContainer />} />
+    <Route path="/news" element={<NewsContainer />} />
   </Routes>
 )
 
