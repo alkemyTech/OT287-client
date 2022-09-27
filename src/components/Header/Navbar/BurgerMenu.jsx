@@ -1,15 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+import {
+  Box, Typography, Menu, MenuItem, IconButton,
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 
-const BurgerMenu = ({
-  menu, handleOpenMenu, handleCloseMenu, anchorNav,
-}) => {
+const BurgerMenu = (props) => {
+  const {
+    menu, handleOpenMenu, handleCloseMenu, anchorNav,
+  } = props
   return (
     <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'right', mr: 4 }}>
       <IconButton
@@ -40,7 +39,7 @@ const BurgerMenu = ({
         }}
       >
         {menu.map((page) => (
-          <MenuItem key={page.id} onClick={handleCloseMenu}>
+          <MenuItem key={page.id} onClick={() => handleCloseMenu(page.route)}>
             <Typography textAlign="center">{page.text}</Typography>
           </MenuItem>
         ))}
