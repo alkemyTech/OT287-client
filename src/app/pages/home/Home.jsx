@@ -14,7 +14,7 @@ const Home = ({ news, slider }) => (
       {news.length > 1 ? news.map((elem) => (
         <Grid key={elem.createdAt} container height="230px">
           <Grid sx={{ position: { lg: 'relative' }, left: { lg: '120px' } }} item xs={6} lg={4}>
-            <Box sx={{ backgroundColor: '#448fdf', width: { lg: '650px', xs: '150px' } }} border={2} borderColor="#264f7c" borderRadius={1}>
+            <Box sx={{ backgroundColor: '#448fdf', width: { lg: '650px', xs: '150px' } }} border={2} borderColor="#264f7c" borderRadius="20px">
               <Typography
                 sx={{
                   textAlign: 'center', position: { lg: 'relative' }, left: { xs: '100px', lg: ' 210px' }, width: { xs: 'auto', lg: '400px' }, color: '#162f4a',
