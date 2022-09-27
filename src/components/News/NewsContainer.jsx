@@ -1,17 +1,25 @@
 import React, {
     useCallback, useState, useEffect,
   } from 'react'
-  import axios from 'axios'
   import NewsCards from './NewsCards'
+  import httpService from '../../services/httpService';
   
   const NewsContainer = () => {
     const [news, setNews] = useState(null)
+    const [errorStatus, setErrorStatus] = useState(null)
+    const [errorMessage, setErrorMessage] = useState(null)
   
     const getNewsData = useCallback(async () => {
-      const newsDataResponse = await axios.get(`${process.env.REACT_APP_API_DOMAIN}/news`)
-  
-      if (newsDataResponse && newsDataResponse.data.body) {
-        setNews(newsDataResponse.data.body)
+      try{
+        const data = await httpService('get', '/news')
+        if (data.code === 200) {
+          setNews(data.body)
+        } else {
+          setErrorStatus(data.response.status)
+          setErrorMessage(data.response.statusText)
+        }
+      } catch (error) {
+        setErrorStatus(`Error has occurred: ${error.response}`)
       }
     }, [])
   
@@ -23,7 +31,8 @@ import React, {
     return (
         
         <NewsCards data={news}
-        {...console.log(news)}
+        error={errorStatus}
+        errorMessage={errorMessage}
         /> 
     )
   }
