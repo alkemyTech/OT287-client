@@ -11,7 +11,17 @@ import './loginForm.css'
 const LoginForm = ({
   initialValues, validationSchema, onSubmitForm, error, errorMessage,
 }) => (
-  <Box component="main" className="loginContainer">
+  <Box
+    component="main"
+    sx={{
+      margin: '0',
+      padding: '0',
+      width: '100vw',
+      height: '100vh',
+      display: 'flex',
+      flexDirection: 'row',
+    }}
+  >
     <CssBaseline />
     <Container
       sx={{
@@ -26,7 +36,7 @@ const LoginForm = ({
         validationSchema={validationSchema}
         onSubmit={(values) => onSubmitForm(values)}
       >
-        <Box className="formBox" sx={{ mt: 4 }}>
+        <Box className="formBox" sx={{ mt: 4, width: '50%', minWidth: '250px' }}>
           <Typography component="p" variant="p">Bienvenido</Typography>
           <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold', mb: 3 }}>Inicia sesión en tu cuenta! </Typography>
           <Form>
@@ -63,7 +73,14 @@ const LoginForm = ({
         </Box>
       </Formik>
     </Container>
-    <Box className="imgLoginBox">
+    <Box
+      className="imgLoginBox"
+      sx={{
+        width: '50%',
+        maxHeight: '100vh',
+        overflow: 'hidden',
+      }}
+    >
       <img className="loginPic" src="https://i.imgur.com/x93dN4S.png" alt="login" />
     </Box>
   </Box>

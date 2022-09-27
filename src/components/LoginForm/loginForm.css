@@ -1,20 +1,5 @@
-.loginContainer{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;    
-}
-
-.formBox{
-    width: 50%;
-}
-.imgLoginBox{
-    width: 50%;  
-    max-height: 100vh;
-    overflow: hidden;
-}
-
 .loginPic{
+    align-self: flex-end;
     width: 100%;
     min-height: 100vh;
     object-fit: cover;       
@@ -33,8 +18,5 @@
 @media (max-width: 1200px){
     .imgLoginBox{
         display: none;
-    }
-    .formBox{        
-        min-width: 250px; 
     }
 }
