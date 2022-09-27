@@ -63,8 +63,8 @@ const LoginForm = ({
         </Box>
       </Formik>
     </Container>
-    <Box className="imgBox">
-      <img src="https://i.imgur.com/x93dN4S.png" alt="login" />
+    <Box className="imgLoginBox">
+      <img className="loginPic" src="https://i.imgur.com/x93dN4S.png" alt="login" />
     </Box>
   </Box>
 )

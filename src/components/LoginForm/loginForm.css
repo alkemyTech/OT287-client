@@ -2,19 +2,19 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    flex-direction: row;    
+    flex-direction: column;    
 }
 
 .formBox{
     width: 50%;
 }
-.imgBox{
+.imgLoginBox{
     width: 50%;  
     max-height: 100vh;
     overflow: hidden;
 }
 
-img{
+.loginPic{
     width: 100%;
     min-height: 100vh;
     object-fit: cover;       
@@ -31,7 +31,7 @@ img{
 }   
 
 @media (max-width: 1200px){
-    .imgBox{
+    .imgLoginBox{
         display: none;
     }
     .formBox{        
