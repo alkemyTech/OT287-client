@@ -1,0 +1,22 @@
+.loginPic{
+    align-self: flex-end;
+    width: 100%;
+    min-height: 100vh;
+    object-fit: cover;       
+}
+
+.registerText{     
+    text-align: center;
+    font-size: 1.2rem;  
+}
+
+.registerLink{    
+    color: red;
+    text-decoration: none;    
+}   
+
+@media (max-width: 1200px){
+    .imgLoginBox{
+        display: none;
+    }
+}
