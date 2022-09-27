@@ -16,7 +16,7 @@ const httpService = async (method, url, body) => {
     }
     const { data } = await axios({
       method: `${method}`,
-      baseURL: 'http://localhost:3001',
+      baseURL: `${process.env.REACT_APP_API_DOMAIN}`,
       url: `${url}`,
       data: body,
       headers: {
