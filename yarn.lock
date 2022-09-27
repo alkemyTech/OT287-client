@@ -50,11 +50,7 @@
     "json5" "^2.2.1"
     "semver" "^6.3.0"
 
-<<<<<<< HEAD
 "@babel/core@^7.1.0", "@babel/core@^7.4.5", "@babel/core@7.9.0":
-=======
-"@babel/core@7.9.0":
->>>>>>> 71a98422a1f9e566a6e7c3637108c8156f8a0bff
   "integrity" "sha512-kWc7L0fw1xwvI0zi8OKVBuxRVefwGOrKSQMvrQ3dW+bIIavBY3/NpXmpjMy7bQnLgwgzWQZ8TlM57YHpHNHz4w=="
   "resolved" "https://registry.npmjs.org/@babel/core/-/core-7.9.0.tgz"
   "version" "7.9.0"
@@ -1270,16 +1266,12 @@
   "resolved" "https://registry.npmjs.org/@emotion/memoize/-/memoize-0.8.0.tgz"
   "version" "0.8.0"
 
-<<<<<<< HEAD
 "@emotion/memoize@0.7.4":
   "integrity" "sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw=="
   "resolved" "https://registry.npmjs.org/@emotion/memoize/-/memoize-0.7.4.tgz"
   "version" "0.7.4"
 
 "@emotion/react@^11.10.4", "@emotion/react@^11.7.1":
-=======
-"@emotion/react@^11.0.0-rc.0", "@emotion/react@^11.10.4", "@emotion/react@^11.4.1", "@emotion/react@^11.5.0":
->>>>>>> 71a98422a1f9e566a6e7c3637108c8156f8a0bff
   "integrity" "sha512-j0AkMpr6BL8gldJZ6XQsQ8DnS9TxEQu1R+OGmDZiWjBAJtCcbt0tS3I/YffoqHXxH6MjgI7KdMbYKw3MEiU9eA=="
   "resolved" "https://registry.npmjs.org/@emotion/react/-/react-11.10.4.tgz"
   "version" "11.10.4"
@@ -1309,11 +1301,7 @@
   "resolved" "https://registry.npmjs.org/@emotion/sheet/-/sheet-1.2.0.tgz"
   "version" "1.2.0"
 
-<<<<<<< HEAD
 "@emotion/styled@^11.10.4", "@emotion/styled@^11.6.0":
-=======
-"@emotion/styled@^11.10.4", "@emotion/styled@^11.3.0":
->>>>>>> 71a98422a1f9e566a6e7c3637108c8156f8a0bff
   "integrity" "sha512-pRl4R8Ez3UXvOPfc2bzIoV8u9P97UedgHS4FPX594ntwEuAMA114wlaHvOK24HB48uqfXiGlYIZYCxVJ1R1ttQ=="
   "resolved" "https://registry.npmjs.org/@emotion/styled/-/styled-11.10.4.tgz"
   "version" "11.10.4"
@@ -1619,11 +1607,7 @@
   dependencies:
     "@babel/runtime" "^7.19.0"
 
-<<<<<<< HEAD
 "@mui/material@^5.10.6", "@mui/material@^5.4.1":
-=======
-"@mui/material@^5.0.0", "@mui/material@^5.10.6":
->>>>>>> 71a98422a1f9e566a6e7c3637108c8156f8a0bff
   "integrity" "sha512-QilW5PAAGSQdN7Cpp4rwSQ1doJAt3ca1a2PHZtr8RLVlpHnXb+qQ8CeDo9+9V2fK5CDNdtTN1F+iJKO43aFBpQ=="
   "resolved" "https://registry.npmjs.org/@mui/material/-/material-5.10.6.tgz"
   "version" "5.10.6"
@@ -3129,11 +3113,7 @@
   dependencies:
     "pako" "~1.0.5"
 
-<<<<<<< HEAD
 "browserslist@^4.0.0", "browserslist@^4.12.0", "browserslist@^4.20.2", "browserslist@^4.21.3", "browserslist@^4.6.2", "browserslist@^4.6.4", "browserslist@^4.9.1":
-=======
-"browserslist@^4", "browserslist@^4.0.0", "browserslist@^4.12.0", "browserslist@^4.21.3", "browserslist@^4.6.2", "browserslist@^4.6.4", "browserslist@^4.9.1", "browserslist@>= 4.21.0":
->>>>>>> 71a98422a1f9e566a6e7c3637108c8156f8a0bff
   "integrity" "sha512-898rgRXLAyRkM1GryrrBHGkqA5hlpkV5MhtZwg9QXeiyLUYs2k00Un05aX5l2/yJIOObYKOpS2JNo8nJDE7fWQ=="
   "resolved" "https://registry.npmjs.org/browserslist/-/browserslist-4.21.3.tgz"
   "version" "4.21.3"
@@ -9720,11 +9700,7 @@
     "strip-ansi" "6.0.0"
     "text-table" "0.2.0"
 
-<<<<<<< HEAD
 "react-dom@^16.13.1":
-=======
-"react-dom@*", "react-dom@^16.0.0 || ^17.0.0 || ^18.0.0", "react-dom@^16.13.1", "react-dom@^17.0.0 || ^18.0.0", "react-dom@>= 16.8.0", "react-dom@>=16.6.0", "react-dom@>=16.8":
->>>>>>> 71a98422a1f9e566a6e7c3637108c8156f8a0bff
   "integrity" "sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-16.14.0.tgz"
   "version" "16.14.0"
@@ -9740,8 +9716,11 @@
   "version" "6.0.11"
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 "react-is@^16.12.0", "react-is@^16.13.1", "react-is@^16.7.0", "react-is@^16.8.4":
 =======
+>>>>>>> main
 "react-fast-compare@^2.0.1":
   "integrity" "sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw=="
   "resolved" "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-2.0.4.tgz"
