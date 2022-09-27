@@ -3,7 +3,7 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: 'rgba(255, 0, 0, 1)',
+      main: '#DB5752',
     },
   },
   typography: {
@@ -13,7 +13,9 @@ const theme = createTheme({
     },
   },
   shape: {
-    borderRadius: 20,
+    color: 'FF0000',
+    borderRadius: 5,
+    height: 80,
   },
 });
 

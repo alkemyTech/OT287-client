@@ -1,0 +1,40 @@
+.loginContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;    
+}
+
+.formBox{
+    width: 50%;
+}
+.imgBox{
+    width: 50%;  
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+img{
+    width: 100%;
+    min-height: 100vh;
+    object-fit: cover;       
+}
+
+.registerText{     
+    text-align: center;
+    font-size: 1.2rem;  
+}
+
+.registerLink{    
+    color: red;
+    text-decoration: none;    
+}   
+
+@media (max-width: 1200px){
+    .imgBox{
+        display: none;
+    }
+    .formBox{        
+        min-width: 250px; 
+    }
+}
