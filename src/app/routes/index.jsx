@@ -6,6 +6,7 @@ import BackOfficeContainer from "../../components/BackOffice/BackOfficeContainer
 import HomeFormContainer from '../../components/Form/HomeFormContainer'
 import LoginFormContainer from '../../components/LoginForm/LoginFormContainer'
 import RegisterFormContainer from '../../components/RegisterForm/RegisterFormContainer'
+import NewsByIdContainer from '../../components/News/NewByIdContainer'
 
 const Router = () => (
   <Routes>
@@ -15,6 +16,7 @@ const Router = () => (
     <Route path="/homeForm" element={<HomeFormContainer />} />
     <Route path="/register" element={<RegisterFormContainer />} />
     <Route path="/login" element={<LoginFormContainer />} />
+    <Route path="/news/:id" element={<NewsByIdContainer />} />
   </Routes>
 )
 
