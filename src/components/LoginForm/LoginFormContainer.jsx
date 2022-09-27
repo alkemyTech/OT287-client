@@ -15,7 +15,7 @@ const LoginFormContainer = () => {
         email: values.email,
         password: values.password,
       })
-      if (data.status) {
+      if (data.code === 200) {
         navigate('/')
       } else {
         setErrorStatus(data.response.status)
