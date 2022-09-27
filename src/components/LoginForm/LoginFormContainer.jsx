@@ -12,7 +12,7 @@ const LoginFormContainer = () => {
   const onSubmitForm = async (values) => {
     try {
       axios
-        .post('http://localhost:3000/auth/login', {
+        .post(`${process.env.REACT_APP_API_DOMAIN}/auth/login`, {
           email: values.email,
           password: values.password,
         })
