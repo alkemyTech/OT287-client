@@ -16,13 +16,13 @@ const NewById = ({ data }) => (
 );
 
 NewById.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape({
+  data: PropTypes.shape({
     id: PropTypes.number,
     categoryId: PropTypes.number,
     name: PropTypes.string,
     content: PropTypes.string,
     image: PropTypes.string,
-  })).isRequired,
+  }).isRequired,
 }
 
 export default NewById;

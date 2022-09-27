@@ -9,7 +9,7 @@ const NewByIdContainer = () => {
   useEffect(() => {
     httpService('GET', `/news/${id}`)
       .then((response) => { setData(response.body) })
-  }, [])
+  }, [id])
   return <NewById data={data} />
 }
 
