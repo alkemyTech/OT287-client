@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {
   Box, Typography, Grid, Button,
 } from '@mui/material'
-import Slider from '../../components/Slider/Slider'
+import Slider from '../Slider/Slider'
 
 const Home = ({ news, slider }) => (
   <Box>

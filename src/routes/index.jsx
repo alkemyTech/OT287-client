@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Home from '../pages/home/homeContainer'
+import HomeContainer from '../components/Home/HomeContainer'
 import About from '../pages/dummyAbout/about'
 import BackOfficeContainer from '../components/BackOffice/BackOfficeContainer'
 import HomeFormContainer from '../components/Forms/HomeForm/HomeFormContainer'
@@ -13,7 +13,7 @@ import MyProfileContainer from '../components/MyProfile/MyProfileContainer'
 
 const Router = () => (
   <Routes>
-    <Route path="/" element={<Home />} />
+    <Route path="/" element={<HomeContainer />} />
     <Route path="about" element={<About />} />
     <Route path="/backoffice" element={<BackOfficeContainer />} />
     <Route path="/backoffice/users" element={<BackOficceUsers />} />
