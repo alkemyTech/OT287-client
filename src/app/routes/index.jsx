@@ -8,14 +8,15 @@ import LoginFormContainer from '../../components/LoginForm/LoginFormContainer'
 import RegisterFormContainer from '../../components/RegisterForm/RegisterFormContainer'
 import NewsContainer from '../../components/News/NewsContainer'
 import NewsByIdContainer from '../../components/News/NewByIdContainer'
+import BackOficceUsers from '../../components/BackOffice/users/UsersContainer'
 import MyProfileContainer from '../../components/MyProfile/MyProfileContainer'
-
 
 const Router = () => (
   <Routes>
     <Route path="/" element={<Home />} />
     <Route path="about" element={<About />} />
     <Route path="/backoffice" element={<BackOfficeContainer />} />
+    <Route path="/backoffice/users" element={<BackOficceUsers />} />
     <Route path="/homeForm" element={<HomeFormContainer />} />
     <Route path="/register" element={<RegisterFormContainer />} />
     <Route path="/login" element={<LoginFormContainer />} />
