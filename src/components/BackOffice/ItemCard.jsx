@@ -9,8 +9,12 @@ import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
-const ItemCard = ({ data, fields }) => (
-  <Card sx={{ borderRadius: '8px' }}>
+import { useNavigate } from "react-router-dom"
+
+const ItemCard = ({ data, fields, nestedRoutes }) => {
+  const navigate = useNavigate()
+
+  return (<Card sx={{ borderRadius: '8px' }}>
     { data[fields.imageUrl] && (
       <CardMedia
         component="img"
@@ -28,11 +32,22 @@ const ItemCard = ({ data, fields }) => (
       </Typography>
     </CardContent>
     <CardActions sx={{ justifyContent: 'right' }}>
-      <Button color="warning" size="small" startIcon={<EditIcon />} sx={{ color: '#666666' }}>edit</Button>
-      <Button color="error" size="small" startIcon={<DeleteIcon />}>delete</Button>
+      <Button 
+          color="warning" 
+          size="small" 
+          startIcon={<EditIcon />} 
+          sx={{ color: '#666666' }}
+          onClick={() => navigate(`/backoffice/${nestedRoutes.edit}/${data.id}`)}  
+        >edit</Button>
+      <Button 
+        color="error" 
+        size="small" 
+        startIcon={<DeleteIcon />}
+        onClick={() => navigate(`/backoffice/${nestedRoutes.delete}/${data.id}`)}
+      >delete</Button>
     </CardActions>
-  </Card>
-)
+  </Card>)
+}
 
 ItemCard.propTypes = {
   fields: PropTypes.shape({

@@ -6,6 +6,8 @@ import Items from './Items'
 import DrawerMenu from './DrawerMenu';
 import AddButton from './AddButton'
 
+import { Outlet } from "react-router-dom"
+
 const BackOffice = ({
   data,
   options,
@@ -15,6 +17,7 @@ const BackOffice = ({
   handleDrawerToggle,
   cardFields,
   handleAction,
+  nestedRoutes,
 }) => (
   <>
     <HeaderContainer />
@@ -26,9 +29,10 @@ const BackOffice = ({
         handleFilterList={handleFilterList}
         handleDrawerToggle={handleDrawerToggle}
       />
-      <Items array={data} cardFields={cardFields} />
+      <Items array={data} cardFields={cardFields} nestedRoutes={nestedRoutes}/>
     </Box>
     <AddButton handleAction={handleAction} />
+    <Outlet />
   </>
 )
 

@@ -152,6 +152,12 @@ const cardFields = {
   },
 }
 
+const nestedRoutes = {
+  organizations: {
+    edit: 'organization-edit'
+  }
+}
+
 const BackOfficeContainer = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [activeSection, setActiveSection] = React.useState('news');
@@ -175,6 +181,7 @@ const BackOfficeContainer = () => {
       handleDrawerToggle={handleDrawerToggle}
       cardFields={cardFields[activeSection]}
       handleAction={() => {}}
+      nestedRoutes={nestedRoutes[activeSection]}
     />
   )
 }
