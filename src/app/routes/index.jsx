@@ -3,13 +3,12 @@ import { Routes, Route } from 'react-router-dom'
 import Home from '../pages/home/homeContainer'
 import About from '../pages/dummyAbout/about'
 import BackOfficeContainer from '../../components/BackOffice/BackOfficeContainer'
-import HomeFormContainer from '../../components/Form/HomeFormContainer'
-import LoginFormContainer from '../../components/LoginForm/LoginFormContainer'
-import RegisterFormContainer from '../../components/RegisterForm/RegisterFormContainer'
+import HomeFormContainer from '../../components/Forms/HomeFormContainer'
+import LoginFormContainer from '../../components/Forms/LoginFormContainer'
+import RegisterFormContainer from '../../components/Forms/RegisterFormContainer'
 import NewsContainer from '../../components/News/NewsContainer'
 import NewsByIdContainer from '../../components/News/NewByIdContainer'
 import MyProfileContainer from '../../components/MyProfile/MyProfileContainer'
-
 
 const Router = () => (
   <Routes>
