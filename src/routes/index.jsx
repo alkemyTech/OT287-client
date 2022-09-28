@@ -9,6 +9,7 @@ import RegisterFormContainer from '../components/Forms/RegisterForm/RegisterForm
 import NewsContainer from '../components/News/NewsContainer'
 import NewsByIdContainer from '../components/News/NewByIdContainer'
 import BackOficceUsers from '../components/BackOffice/users/UsersContainer'
+import BackOfficeActivities from '../components/BackOffice/Activities/ActivitiesContainer'
 import MyProfileContainer from '../components/MyProfile/MyProfileContainer'
 
 const Router = () => (
@@ -17,6 +18,7 @@ const Router = () => (
     <Route path="about" element={<About />} />
     <Route path="/backoffice" element={<BackOfficeContainer />} />
     <Route path="/backoffice/users" element={<BackOficceUsers />} />
+    <Route path="/backoffice/activities" element={<BackOfficeActivities />} />
     <Route path="/homeForm" element={<HomeFormContainer />} />
     <Route path="/register" element={<RegisterFormContainer />} />
     <Route path="/login" element={<LoginFormContainer />} />
