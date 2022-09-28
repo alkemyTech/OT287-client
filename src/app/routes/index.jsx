@@ -7,7 +7,6 @@ import HomeFormContainer from '../../components/Form/HomeFormContainer'
 import LoginFormContainer from '../../components/LoginForm/LoginFormContainer'
 import RegisterFormContainer from '../../components/RegisterForm/RegisterFormContainer'
 import NewsByIdContainer from '../../components/News/NewByIdContainer'
-
 import EditOrganizationContainer from "../../components/Forms/OrganizationForm/EditOrganizationContainer"
 
 const Router = () => (
@@ -15,7 +14,7 @@ const Router = () => (
     <Route path="/" element={<Home />} />
     <Route path="about" element={<About />} />
     <Route path="/backoffice" element={<BackOfficeContainer />} >
-      <Route path="organization-edit/:id" element={<EditOrganizationContainer />}  />
+      <Route path="organization-edit" element={<EditOrganizationContainer />}  />
     </Route>
     <Route path="/homeForm" element={<HomeFormContainer />} />
     <Route path="/register" element={<RegisterFormContainer />} />

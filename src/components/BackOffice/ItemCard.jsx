@@ -37,13 +37,13 @@ const ItemCard = ({ data, fields, nestedRoutes }) => {
           size="small" 
           startIcon={<EditIcon />} 
           sx={{ color: '#666666' }}
-          onClick={() => navigate(`/backoffice/${nestedRoutes.edit}/${data.id}`)}  
+          onClick={() => navigate(`/backoffice/${nestedRoutes.edit}`)}  
         >edit</Button>
       <Button 
         color="error" 
         size="small" 
         startIcon={<DeleteIcon />}
-        onClick={() => navigate(`/backoffice/${nestedRoutes.delete}/${data.id}`)}
+        onClick={() => navigate(`/backoffice/${nestedRoutes.delete}`)}
       >delete</Button>
     </CardActions>
   </Card>)
