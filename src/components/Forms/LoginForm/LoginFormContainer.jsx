@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import LoginForm from './LoginForm'
-import validateLogin from '../../schemas/login';
-import httpService from '../../services/httpService';
+import validateLogin from '../../../schemas/login';
+import httpService from '../../../services/httpService';
 
 const LoginFormContainer = () => {
   const [errorStatus, setErrorStatus] = useState(null)

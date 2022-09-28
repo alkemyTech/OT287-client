@@ -6,10 +6,10 @@ import {
 import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import PropTypes from 'prop-types';
-import FormikFieldFile from '../Layout/FormikFieldFile';
-import FormikFieldTextarea from '../Layout/FormikFieldTextarea'
-import FormikField from '../Layout/FormikField';
-import validationSchema from '../../schemas/home'
+import FormikFieldFile from '../../Layout/FormikFieldFile';
+import FormikFieldTextarea from '../../Layout/FormikFieldTextarea'
+import FormikField from '../../Layout/FormikField';
+import validationSchema from '../../../schemas/home'
 
 const HomeForm = ({ data, onSubmit }) => {
   console.log(data);
