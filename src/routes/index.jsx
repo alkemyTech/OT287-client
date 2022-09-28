@@ -1,19 +1,19 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Home from '../pages/home/homeContainer'
+import HomeContainer from '../components/Home/HomeContainer'
 import About from '../pages/dummyAbout/about'
-import BackOfficeContainer from '../../components/BackOffice/BackOfficeContainer'
-import HomeFormContainer from '../../components/Forms/HomeForm/HomeFormContainer'
-import LoginFormContainer from '../../components/Forms/LoginForm/LoginFormContainer'
-import RegisterFormContainer from '../../components/Forms/RegisterForm/RegisterFormContainer'
-import NewsContainer from '../../components/News/NewsContainer'
-import NewsByIdContainer from '../../components/News/NewByIdContainer'
-import BackOficceUsers from '../../components/BackOffice/users/UsersContainer'
-import MyProfileContainer from '../../components/MyProfile/MyProfileContainer'
+import BackOfficeContainer from '../components/BackOffice/BackOfficeContainer'
+import HomeFormContainer from '../components/Forms/HomeForm/HomeFormContainer'
+import LoginFormContainer from '../components/Forms/LoginForm/LoginFormContainer'
+import RegisterFormContainer from '../components/Forms/RegisterForm/RegisterFormContainer'
+import NewsContainer from '../components/News/NewsContainer'
+import NewsByIdContainer from '../components/News/NewByIdContainer'
+import BackOficceUsers from '../components/BackOffice/users/UsersContainer'
+import MyProfileContainer from '../components/MyProfile/MyProfileContainer'
 
 const Router = () => (
   <Routes>
-    <Route path="/" element={<Home />} />
+    <Route path="/" element={<HomeContainer />} />
     <Route path="about" element={<About />} />
     <Route path="/backoffice" element={<BackOfficeContainer />} />
     <Route path="/backoffice/users" element={<BackOficceUsers />} />
