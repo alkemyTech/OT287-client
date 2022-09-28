@@ -4,6 +4,8 @@ import {
   Box, Table, TableRow, TableHead, TableContainer, TableCell, TableBody, Paper, Button,
 } from '@mui/material'
 import { Link } from 'react-router-dom';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import EditIcon from '@mui/icons-material/Edit';
 
 const Users = ({ users }) => (
   <Box>
@@ -28,8 +30,8 @@ const Users = ({ users }) => (
               <TableCell>{elem.nombre}</TableCell>
               <TableCell>{elem.apellido}</TableCell>
               <TableCell>{elem.email}</TableCell>
-              <TableCell>editar</TableCell>
-              <TableCell sx={{ color: 'red' }}>eliminar</TableCell>
+              <TableCell sx={{ color: 'yellow' }}><EditIcon /></TableCell>
+              <TableCell sx={{ color: 'red' }}><HighlightOffIcon /></TableCell>
             </TableRow>
           ))}
         </TableBody>
