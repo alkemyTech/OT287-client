@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import RegisterForm from './RegisterForm'
 import validationSchema from '../../schemas/register'
+import httpService from '../../services/httpService';
 
 const RegisterFormContainer = () => {
   const [errorStatus, setErrorStatus] = useState(null)
@@ -11,18 +11,18 @@ const RegisterFormContainer = () => {
 
   const onSubmitForm = async (values) => {
     try {
-      axios
-        .post(`${process.env.REACT_APP_API_DOMAIN}/auth/register`, {
-          firstName: values.firstName,
-          lastName: values.lastName,
-          email: values.email,
-          password: values.password,
-        })
-        .then(() => navigate('/login'))
-        .catch((error) => {
-          setErrorStatus(error.response.status)
-          setErrorMessage(error.response.statusText)
-        })
+      const data = await httpService('post', 'auth/register', {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+        password: values.password,
+      })
+      if (data.code === 200) {
+        navigate('/')
+      } else {
+        setErrorStatus(data.response.status)
+        setErrorMessage(data.response.statusText)
+      }
     } catch (error) {
       setErrorStatus(error.response)
     }
