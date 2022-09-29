@@ -28,6 +28,10 @@ Items.propTypes = {
     content: PropTypes.string,
     imageUrl: PropTypes.string,
   }).isRequired,
+  nestedRoutes: PropTypes.shape({
+    edit: PropTypes.string,
+    delete: PropTypes.string,
+  }).isRequired,
 };
 
 export default Items

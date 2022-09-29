@@ -62,7 +62,10 @@ BackOffice.propTypes = {
     imageUrl: PropTypes.string,
   }).isRequired,
   handleAction: PropTypes.func.isRequired,
-  nestedRoutes: PropTypes.string.isRequired,
+  nestedRoutes: PropTypes.shape({
+    edit: PropTypes.string,
+    delete: PropTypes.string,
+  }).isRequired,
   location: PropTypes.string.isRequired,
 }
 
