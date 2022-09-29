@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
+import { Outlet } from 'react-router-dom'
 import HeaderContainer from '../Header/HeaderContainer'
 import Items from './Items'
 import DrawerMenu from './DrawerMenu';
 import AddButton from './AddButton'
-
-import { Outlet } from "react-router-dom"
 
 const BackOffice = ({
   data,
@@ -18,6 +17,7 @@ const BackOffice = ({
   cardFields,
   handleAction,
   nestedRoutes,
+  location,
 }) => (
   <>
     <HeaderContainer />
@@ -29,10 +29,15 @@ const BackOffice = ({
         handleFilterList={handleFilterList}
         handleDrawerToggle={handleDrawerToggle}
       />
-      <Items array={data} cardFields={cardFields} nestedRoutes={nestedRoutes}/>
+      { location === '/backoffice'
+        ? <Items array={data} cardFields={cardFields} nestedRoutes={nestedRoutes} />
+        : (
+          <Box maxWidth="md" sx={{ mt: 10, ml: { md: 4 }, width: '100%' }}>
+            <Outlet />
+          </Box>
+        )}
     </Box>
     <AddButton handleAction={handleAction} />
-    <Outlet />
   </>
 )
 
@@ -57,6 +62,8 @@ BackOffice.propTypes = {
     imageUrl: PropTypes.string,
   }).isRequired,
   handleAction: PropTypes.func.isRequired,
+  nestedRoutes: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
 }
 
 export default BackOffice
