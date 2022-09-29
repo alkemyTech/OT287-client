@@ -10,7 +10,7 @@ import EditIcon from '@mui/icons-material/Edit';
 const Users = ({ users }) => (
   <Box>
 
-    <TableContainer component={Paper}>
+    <TableContainer sx={{ position: 'absolute', top: '80px' }} component={Paper}>
       <Table>
         <TableHead>
           <TableRow>
