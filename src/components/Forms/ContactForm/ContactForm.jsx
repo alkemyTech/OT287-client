@@ -4,68 +4,12 @@ import {
 } from '@mui/material'
 import { Formik, Form } from 'formik'
 import PropTypes from 'prop-types'
-import FormInputField from '../Layout/FormInputField'
-
-// const ContactForm = () => (
-
-//   <Grid
-//     item
-//     xs={12}
-//     xl={10}
-//     height="100vh"
-//     sx={{
-//       marginTop: 12,
-//       display: 'flex',
-//       flexDirection: 'column',
-//       alignItems: 'center',
-//       backgroundColor: 'blue',
-//     }}
-//   >
-//     <Typography>HOLA FORM</Typography>
-//     {/* <Formik
-//         initialValues={initialValues}
-//         validationSchema={validationSchema}
-//         onSubmit={(values) => onSubmitForm(values)}
-//       >
-//         <Box sx={{ mt: 4 }}>
-//           <Form>
-//             <Grid container spacing={2}>
-//               <Grid item xs={12}>
-//                 <FormInputField label="Nombre" name="firstName" type="text" variant="outlined" autoFocus sx={{ h: 10 }} />
-//               </Grid>
-//               <Grid item xs={12}>
-//                 <FormInputField label="Apellido" name="lastName" type="text" variant="outlined" />
-//               </Grid>
-//               <Grid item xs={12}>
-//                 <FormInputField label="email" name="email" type="email" variant="outlined" />
-//               </Grid>
-//               <Grid item xs={12}>
-//                 <FormInputField label="Contraseña" name="password" variant="outlined" />
-//               </Grid>
-//               <Grid item xs={12}>
-//                 <Button
-//                   type="submit"
-//                   fullWidth
-//                   variant="contained"
-//                   sx={{ mt: 3, mb: 2, h: 10 }}
-//                 >
-//                   Registrate
-//                 </Button>
-//                 {error && (
-//                 <Box component="span" color="red">{error === 409 ? 'El email ingresado ya existe en la base de datos para otro usuario' : errorMessage}</Box>
-//                 )}
-//               </Grid>
-//             </Grid>
-//           </Form>
-//         </Box>
-//       </Formik> */}
-//   </Grid>
-
-// )
+import FormInputField from '../../Layout/FormInputField'
 
 const ContactForm = (props) => {
   const {
-    initialValues, validationSchema, onSubmitForm, errorStatus, navigate, setErrorStatus, contactCreated, setContactCreated,
+    initialValues, validationSchema, onSubmitForm, errorStatus, navigate,
+    setErrorStatus, contactCreated, setContactCreated,
   } = props
   return (
     <>
@@ -84,7 +28,8 @@ const ContactForm = (props) => {
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
-            onSubmit={(values) => onSubmitForm(values)}
+            onSubmit={(values, actions) =>
+              onSubmitForm(values, actions)}
           >
             <Box sx={{ mt: 4 }}>
               <Form>
@@ -111,7 +56,7 @@ const ContactForm = (props) => {
                     </Button>
                   </Grid>
                   <Grid item>
-                    {errorStatus && (
+                    {errorStatus === 0 && (
                     <Alert severity="error" sx={{ width: '100%' }} onClose={() => { setErrorStatus(null) }}>
                       No se ha podido enviar su consulta —
                     </Alert>
@@ -119,7 +64,13 @@ const ContactForm = (props) => {
                   </Grid>
                   <Grid item>
                     {contactCreated === true ? (
-                      <Alert severity="success" sx={{ width: '100%' }} onClose={() => { setContactCreated(false) }}>
+                      <Alert
+                        severity="success"
+                        sx={{ width: '100%' }}
+                        onClose={() => {
+                          setContactCreated(false)
+                        }}
+                      >
                         Su consulta ha sido enviada! —
                       </Alert>
                     ) : null}
@@ -159,6 +110,7 @@ ContactForm.propTypes = {
   setContactCreated: PropTypes.func.isRequired,
   navigate: PropTypes.func.isRequired,
   errorStatus: PropTypes.number,
+
 }
 ContactForm.defaultProps = {
   errorStatus: null,

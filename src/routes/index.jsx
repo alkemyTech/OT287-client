@@ -8,6 +8,7 @@ import NewsContainer from '../components/News/NewsContainer'
 import NewsByIdContainer from '../components/News/NewByIdContainer'
 import MyProfileContainer from '../components/MyProfile/MyProfileContainer'
 import MainLayout from '../pages/MainLayout'
+import ContactScreen from '../components/Contact/ContactScreen'
 
 const Router = () => (
   <Routes>
@@ -19,6 +20,7 @@ const Router = () => (
       <Route path="/back-office" element={<BackOfficeContainer />} />
       <Route path="/novedades" element={<NewsContainer />} />
       <Route path="/novedades/:id" element={<NewsByIdContainer />} />
+      <Route path="/contacto" element={<ContactScreen />} />
     </Route>
   </Routes>
 )

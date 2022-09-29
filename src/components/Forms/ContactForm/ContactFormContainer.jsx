@@ -1,33 +1,31 @@
 import React, { useState } from 'react'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import Contact from './Contact'
-import validationSchema from '../../schemas/contact'
+import ContactForm from './ContactForm'
+import validationSchema from '../../../schemas/contact'
+import httpService from '../../../services/httpService'
 
-const ContactContainer = () => {
+const ContactFormContainer = () => {
   const [errorStatus, setErrorStatus] = useState(null)
   const [contactCreated, setContactCreated] = useState(false)
 
   const navigate = useNavigate()
 
-  const onSubmitForm = async (values) => {
+  const onSubmitForm = async (values, actions) => {
     try {
-      // acac falta usar el servicio que crearon http
-      axios
-        .post(`${process.env.REACT_APP_API_DOMAIN}/contacts`, {
-          name: values.name,
-          email: values.email,
-          message: values.message,
-        })
-        .then(() => setContactCreated(true))
-        .catch((error) => {
-          setErrorStatus(error.code)// aca cachea el error de axios y esta en error.code
-        })
+      const data = await httpService('post', '/contacts', {
+        name: values.name,
+        email: values.email,
+        message: values.message,
+      })
+      if (data.code === 200) {
+        setContactCreated(true); actions.resetForm()
+      } else {
+        setErrorStatus(data.response.status)
+      }
     } catch (error) {
-      setErrorStatus(error)
+      setErrorStatus(error.response)
     }
   }
-
   const initialValues = {
     name: '',
     email: '',
@@ -35,7 +33,8 @@ const ContactContainer = () => {
   }
   return (
     <>
-      <Contact
+
+      <ContactForm
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmitForm={onSubmitForm}
@@ -48,4 +47,5 @@ const ContactContainer = () => {
     </>
   )
 }
-export default ContactContainer
+
+export default ContactFormContainer
