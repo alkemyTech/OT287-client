@@ -17,7 +17,7 @@ function Footer({ logo, menu, contact }) {
       sx={{
         width: '100%',
         backgroundColor: 'rgb(200,200,200)',
-        position: 'relative',
+        position: 'absolute',
         margin: 0,
         padding: 0,
         bottom: 0,
