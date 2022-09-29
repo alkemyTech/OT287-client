@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import EditOrganizationForm from './EditOrganizationForm'
 import validationSchema from '../../../schemas/organization'
+import httpService from '../../../services/httpService';
 
 const EditOrganizationContainer = () => {
   const [errorStatus, setErrorStatus] = useState(null)
@@ -11,15 +12,11 @@ const EditOrganizationContainer = () => {
 
   const onSubmitForm = async (values) => {
     try {
-      axios
-        .put(`${process.env.REACT_APP_API_DOMAIN}/organizations/1`, values)
-        .then(() => navigate('/backoffice'))
-        .catch((error) => {
-          setErrorStatus(error.response.status)
-          setErrorMessage(error.response.statusText)
-        })
+      await httpService('put', 'organizations/1', values)
+      navigate('/backoffice')
     } catch (error) {
-      setErrorStatus(error.response)
+      setErrorStatus(error.response.status)
+      setErrorMessage(error.response.statusText)
     }
   }
 
