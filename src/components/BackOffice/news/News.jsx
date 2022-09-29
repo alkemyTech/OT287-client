@@ -7,16 +7,21 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
 
 const Users = ({ news }) => (
-  <Box sx={{ width: '100vw', height: '100vh' }}>
-    <Typography component="h1" variant="h5" sx={{ marginY: '40px', fontWeight: 'bold' }}>Lista de Novedades</Typography>
-    <TableContainer sx={{ position: 'absolute', top: '180px', width: { lg: '85%', xs: '100%' } }} component={Paper}>
+  <Box>
+    <Typography component="h1" variant="h5" sx={{ marginY: { lg: '40px', xs: '10px' }, fontWeight: 'bold' }}>Lista de Novedades</Typography>
+    <TableContainer
+      sx={{
+        position: 'absolute', top: '180px', height: '400px', overflow: 'auto', width: { lg: '85%', xs: '100vw' },
+      }}
+      component={Paper}
+    >
       <Table>
         <TableHead>
-          <TableRow>
+          <TableRow sx={{ backgroundColor: 'rgb(240,240,240)' }}>
             <TableCell><b>Nombre</b></TableCell>
             <TableCell><b>URL Imagen</b></TableCell>
             <TableCell><b>Fecha creacion</b></TableCell>
-            <TableCell><b>Acciones</b></TableCell>
+            <TableCell align="center"><b>Acciones</b></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -26,7 +31,7 @@ const Users = ({ news }) => (
               <TableCell>{elem.name}</TableCell>
               <TableCell>{elem.image}</TableCell>
               <TableCell>{elem.createdAt}</TableCell>
-              <TableCell style={{ padding: '0', width: '60px' }}>
+              <TableCell style={{ padding: '0', width: '60px' }} align="center">
                 <>
                   <EditIcon sx={{
                     opacity: '0.5', padding: '1px', border: '1px solid red', borderRadius: '5px', backgroundColor: 'white', color: 'red', fontSize: '1.8rem', margin: '0 5px', cursor: 'pointer', '&:hover': { opacity: '1' },
