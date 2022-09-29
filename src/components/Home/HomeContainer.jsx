@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import HeaderContainer from '../Header/HeaderContainer'
 import Home from './Home'
 import httpService from '../../services/httpService'
 
@@ -29,13 +28,9 @@ const HomeContainer = () => {
     })
   }, [])
   return (
-    <div>
-      <div>
-        <HeaderContainer />
-
-        <Home news={data} slider={sliderImg} />
-      </div>
-    </div>
+    <>
+      <Home news={data} slider={sliderImg} />
+    </>
   )
 }
 export default HomeContainer
