@@ -20,7 +20,6 @@ function Footer({ logo, menu, contact }) {
         position: 'absolute',
         margin: 0,
         padding: 0,
-        bottom: 0,
         height: '30%',
         justifyContent: 'center',
       }}

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {
   Box, Typography, Grid, Button,
 } from '@mui/material'
+import { Link } from 'react-router-dom'
 import Slider from '../Slider/Slider'
 
 const Home = ({ news, slider }) => (
@@ -12,7 +13,7 @@ const Home = ({ news, slider }) => (
     <h2>Ultimas novedades</h2>
     <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, auto)', padding: { xs: '15px' } }}>
       {news.length > 1 ? news.map((elem) => (
-        <Grid key={elem.createdAt} container height="230px">
+        <Grid key={elem.id} container height="230px">
           <Grid sx={{ position: { lg: 'relative' }, left: { lg: '120px' } }} item xs={6} lg={4}>
             <Box sx={{ backgroundColor: '#448fdf', width: { lg: '650px', xs: '150px' } }} border={2} borderColor="#264f7c" borderRadius="20px">
               <Typography
@@ -24,7 +25,9 @@ const Home = ({ news, slider }) => (
               >
                 {elem.name}
                 <p style={{ wordBreak: 'break-all' }}>{elem.content}</p>
-                <Button sx={{ color: 'white', backgroundColor: '#264f7c' }}>ver novedad</Button>
+                <Link to={`/news/${elem.id}`}>
+                  <Button sx={{ color: 'white', backgroundColor: '#264f7c' }}>ver novedad</Button>
+                </Link>
               </Typography>
               <Box
                 component="img"
