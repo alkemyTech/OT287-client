@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import HeaderContainer from '../Header/HeaderContainer'
 import Home from './Home'
-import FooterContainer from '../footer/FooterContainer'
 import httpService from '../../services/httpService'
+import FooterContainer from '../footer/FooterContainer'
 
 const sliderImg = [
   {
@@ -26,7 +26,7 @@ const HomeContainer = () => {
   const [data, setData] = useState([])
   useEffect(() => {
     httpService('GET', '/news').then((response) => {
-      setData(response.body)
+      setData(response.body.slice(response.body.length - 4))
     })
   }, [])
   return (
@@ -34,7 +34,8 @@ const HomeContainer = () => {
       <div>
         <HeaderContainer />
 
-        <Home news={data.slice(data.length - 4)} slider={sliderImg} />
+        <Home news={data} slider={sliderImg} />
+
         <FooterContainer />
       </div>
     </div>
