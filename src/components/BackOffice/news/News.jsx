@@ -1,0 +1,64 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import {
+  Box, Table, TableRow, TableHead, TableContainer, TableCell, TableBody, Paper, Typography,
+} from '@mui/material'
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import EditIcon from '@mui/icons-material/Edit';
+
+const Users = ({ news }) => (
+  <Box sx={{ width: '100vw', height: '100vh' }}>
+    <Typography component="h1" variant="h5" sx={{ marginY: '40px', fontWeight: 'bold' }}>Lista de Novedades</Typography>
+    <TableContainer sx={{ position: 'absolute', top: '180px', width: { lg: '85%', xs: '100%' } }} component={Paper}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell><b>Nombre</b></TableCell>
+            <TableCell><b>URL Imagen</b></TableCell>
+            <TableCell><b>Fecha creacion</b></TableCell>
+            <TableCell><b>Acciones</b></TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {news.map((elem) => (
+
+            <TableRow key={elem.id}>
+              <TableCell>{elem.name}</TableCell>
+              <TableCell>{elem.image}</TableCell>
+              <TableCell>{elem.createdAt}</TableCell>
+              <TableCell style={{ padding: '0', width: '60px' }}>
+                <>
+                  <EditIcon sx={{
+                    opacity: '0.5', padding: '1px', border: '1px solid red', borderRadius: '5px', backgroundColor: 'white', color: 'red', fontSize: '1.8rem', margin: '0 5px', cursor: 'pointer', '&:hover': { opacity: '1' },
+                  }}
+                  />
+                  <HighlightOffIcon sx={{
+                    opacity: '0.5',
+                    padding: '1px',
+                    borderRadius: '5px',
+                    backgroundColor: 'red',
+                    color: 'white',
+                    fontSize: '1.8rem',
+                    margin: '0 5px',
+                    cursor: 'pointer',
+                    '&:hover': { opacity: '1' },
+                  }}
+                  />
+                </>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  </Box>
+
+)
+Users.propTypes = {
+  news: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    image: PropTypes.string,
+    createdAt: PropTypes.string,
+  })).isRequired,
+}
+export default Users
