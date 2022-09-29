@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import { useField } from 'formik'
 import PropTypes from 'prop-types'
-import { Button, Typography } from '@mui/material'
+import { Button, Typography, FormHelperText } from '@mui/material'
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 
 const FormInputImage = ({ label, formProps, ...props }) => {
   const [fileName, setFileName] = useState('')
+  const [meta] = useField(props)
 
   const handleOnChange = (event) => {
     const file = event.target.files[0];
@@ -21,6 +23,7 @@ const FormInputImage = ({ label, formProps, ...props }) => {
       <Typography variant="body2">
         { fileName }
       </Typography>
+      <FormHelperText error={meta.touched && Boolean(meta.error)}>{meta.touched ? meta.error : ''}</FormHelperText>
     </>
   )
 }

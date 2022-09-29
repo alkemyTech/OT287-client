@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import EditOrganizationForm from './EditOrganizationForm'
+import validationSchema from '../../../schemas/organization'
 
 const EditOrganizationContainer = () => {
   const [errorStatus, setErrorStatus] = useState(null)
@@ -9,11 +10,9 @@ const EditOrganizationContainer = () => {
   const navigate = useNavigate()
 
   const onSubmitForm = async (values) => {
-    const entries = Object.entries(values)
-    const validEntries = entries.filter(([, value]) => !!value)
     try {
       axios
-        .put(`${process.env.REACT_APP_API_DOMAIN}/organizations/${values.id}`, validEntries)
+        .put(`${process.env.REACT_APP_API_DOMAIN}/organizations/1`, values)
         .then(() => navigate('/backoffice'))
         .catch((error) => {
           setErrorStatus(error.response.status)
@@ -33,6 +32,9 @@ const EditOrganizationContainer = () => {
     <EditOrganizationForm
       initialValues={initialValues}
       onSubmitForm={onSubmitForm}
+      validationSchema={validationSchema}
+      error={errorStatus}
+      errorMessage={errorMessage}
     />
   )
 }
