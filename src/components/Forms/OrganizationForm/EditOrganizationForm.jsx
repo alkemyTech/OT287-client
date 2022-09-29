@@ -14,7 +14,7 @@ const EditOrganizationForm = ({
   const navigate = useNavigate()
 
   const handleClose = () => {
-    navigate('/backoffice')
+    navigate('/back-office')
   }
 
   return (
