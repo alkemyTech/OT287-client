@@ -6,7 +6,7 @@ import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 
 const FormInputImage = ({ label, formProps, ...props }) => {
   const [fileName, setFileName] = useState('')
-  const [meta] = useField(props)
+  const [field, meta] = useField(props)
 
   const handleOnChange = (event) => {
     const file = event.target.files[0];
