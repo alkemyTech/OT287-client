@@ -6,7 +6,7 @@ import {
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
 
-const Users = ({ news }) => (
+const News = ({ news }) => (
   <Box>
     <Typography component="h1" variant="h5" sx={{ marginY: { lg: '40px', xs: '10px' }, fontWeight: 'bold' }}>Lista de Novedades</Typography>
     <TableContainer
@@ -59,11 +59,11 @@ const Users = ({ news }) => (
   </Box>
 
 )
-Users.propTypes = {
+News.propTypes = {
   news: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     image: PropTypes.string,
     createdAt: PropTypes.string,
   })).isRequired,
 }
-export default Users
+export default News
