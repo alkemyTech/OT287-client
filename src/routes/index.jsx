@@ -8,9 +8,10 @@ import NewsContainer from '../components/News/NewsContainer'
 import NewsByIdContainer from '../components/News/NewByIdContainer'
 import MyProfileContainer from '../components/MyProfile/MyProfileContainer'
 import MainLayout from '../pages/MainLayout'
-import BackofficeUsers from '../components/BackOffice/users/UsersContainer'
 import ContactScreen from '../components/Contact/ContactScreen'
 import EditOrganizationContainer from '../components/Forms/OrganizationForm/EditOrganizationContainer'
+import BackofficeUsers from '../components/BackOffice/users/UsersContainer'
+import BackofficeNews from '../components/BackOffice/news/NewsContainer'
 
 const Router = () => (
   <Routes>
@@ -19,13 +20,15 @@ const Router = () => (
       <Route path="/login" element={<LoginFormContainer />} />
       <Route path="/registrate" element={<RegisterFormContainer />} />
       <Route path="/mi-perfil" element={<MyProfileContainer />} />
-      <Route path="/back-office" element={<BackOfficeContainer />}>
-        <Route path="organization-edit" element={<EditOrganizationContainer />} />
-        <Route path="users" element={<BackofficeUsers />} />
-      </Route>
       <Route path="/novedades" element={<NewsContainer />} />
       <Route path="/novedades/:id" element={<NewsByIdContainer />} />
       <Route path="/contacto" element={<ContactScreen />} />
+      {/* Back-Office Routes for Admin access only */}
+      <Route path="/back-office" element={<BackOfficeContainer />}>
+        <Route path="organization-edit" element={<EditOrganizationContainer />} />
+        <Route path="users" element={<BackofficeUsers />} />
+        <Route path="news" element={<BackofficeNews />} />
+      </Route>
     </Route>
   </Routes>
 )
