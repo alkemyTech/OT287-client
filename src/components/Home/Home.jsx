@@ -25,7 +25,7 @@ const Home = ({ news, slider }) => (
               >
                 {elem.name}
                 <p style={{ wordBreak: 'break-all' }}>{elem.content}</p>
-                <Link to={`/news/${elem.id}`}>
+                <Link to={`/novedades/${elem.id}`} style={{ color: 'inherit', textDecoration: 'none' }}>
                   <Button sx={{ color: 'white', backgroundColor: '#264f7c' }}>ver novedad</Button>
                 </Link>
               </Typography>

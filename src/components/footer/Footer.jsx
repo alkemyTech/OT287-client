@@ -13,7 +13,7 @@ import AddAPhotoRoundedIcon from '@mui/icons-material/AddAPhotoRounded';
 function Footer({ logo, menu, contact }) {
   return (
     <Toolbar
-      disableGutters={true}
+      disableGutters
       sx={{
         width: '100%',
         backgroundColor: 'rgb(200,200,200)',
@@ -42,15 +42,13 @@ function Footer({ logo, menu, contact }) {
         />
 
         <Stack justifyContent="center" direction="row" spacing={{ xs: 2, lg: 6 }}>
-          {menu.map((elem) => {
-            return (
-              <Typography key={elem.id} fontSize={{ xs: '10px', lg: '1rem' }}>
-                <Link style={{ color: 'inherit', textDecoration: 'none' }} to={elem.route}>
-                  <span>{elem.text}</span>
-                </Link>
-              </Typography>
-            )
-          })}
+          {menu.map((elem) => (
+            <Typography key={elem.id} fontSize={{ xs: '10px', lg: '1rem' }}>
+              <Link style={{ color: 'inherit', textDecoration: 'none' }} to={elem.route}>
+                <span>{elem.text}</span>
+              </Link>
+            </Typography>
+          ))}
         </Stack>
 
         <hr />
