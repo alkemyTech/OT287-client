@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import {
   Container, CssBaseline, Box, Typography, Grid, Button,
 } from '@mui/material'
-import FormInputField from '../Layout/FormInputField'
+import FormInputField from '../../Layout/FormInputField'
 
 const RegisterForm = ({
   initialValues, validationSchema, onSubmitForm, error, errorMessage,
