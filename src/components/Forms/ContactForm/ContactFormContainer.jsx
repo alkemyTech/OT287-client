@@ -20,7 +20,7 @@ const ContactFormContainer = () => {
       if (data.code === 200) {
         setContactCreated(true); actions.resetForm()
       } else {
-        setErrorStatus(data.response.status)
+        setErrorStatus(data.code)
       }
     } catch (error) {
       setErrorStatus(error.response)

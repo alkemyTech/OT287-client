@@ -56,7 +56,7 @@ const ContactForm = (props) => {
                     </Button>
                   </Grid>
                   <Grid item>
-                    {errorStatus === 0 && (
+                    {errorStatus && (
                     <Alert severity="error" sx={{ width: '100%' }} onClose={() => { setErrorStatus(null) }}>
                       No se ha podido enviar su consulta —
                     </Alert>
@@ -109,7 +109,7 @@ ContactForm.propTypes = {
   contactCreated: PropTypes.bool.isRequired,
   setContactCreated: PropTypes.func.isRequired,
   navigate: PropTypes.func.isRequired,
-  errorStatus: PropTypes.number,
+  errorStatus: PropTypes.string,
 
 }
 ContactForm.defaultProps = {
