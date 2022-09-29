@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Home from './Home'
 import httpService from '../../services/httpService'
-import FooterContainer from '../footer/FooterContainer'
 
 const sliderImg = [
   {
