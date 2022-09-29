@@ -1,16 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {
-  Box, Table, TableRow, TableHead, TableContainer, TableCell, TableBody, Paper, Button,
+  Box, Table, TableRow, TableHead, TableContainer, TableCell, TableBody, Paper,
 } from '@mui/material'
-import { Link } from 'react-router-dom';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
 
 const Users = ({ users }) => (
   <Box>
 
-    <TableContainer component={Paper}>
+    <TableContainer sx={{ position: 'absolute', top: '80px', width: { lg: '85%', xs: '100%' } }} component={Paper}>
       <Table>
         <TableHead>
           <TableRow>
@@ -37,9 +36,6 @@ const Users = ({ users }) => (
         </TableBody>
       </Table>
     </TableContainer>
-    <Link to="/backoffice">
-      <Button variant="outlined" sx={{ left: { lg: '120px', xs: '80px' } }}>Volver al panel de administrador</Button>
-    </Link>
   </Box>
 
 )
