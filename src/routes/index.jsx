@@ -8,6 +8,7 @@ import NewsContainer from '../components/News/NewsContainer'
 import NewsByIdContainer from '../components/News/NewByIdContainer'
 import MyProfileContainer from '../components/MyProfile/MyProfileContainer'
 import MainLayout from '../pages/MainLayout'
+import EditOrganizationContainer from "../components/Forms/OrganizationForm/EditOrganizationContainer"
 
 const Router = () => (
   <Routes>
@@ -17,6 +18,9 @@ const Router = () => (
       <Route path="/registrate" element={<RegisterFormContainer />} />
       <Route path="/mi-perfil" element={<MyProfileContainer />} />
       <Route path="/back-office" element={<BackOfficeContainer />} />
+      <Route path="/back-office" element={<BackOfficeContainer />} >
+        <Route path="organization-edit" element={<EditOrganizationContainer />}  />
+      </Route>
       <Route path="/novedades" element={<NewsContainer />} />
       <Route path="/novedades/:id" element={<NewsByIdContainer />} />
     </Route>
