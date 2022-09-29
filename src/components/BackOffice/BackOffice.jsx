@@ -20,7 +20,6 @@ const BackOffice = ({
   location,
 }) => (
   <>
-    <HeaderContainer />
     <Box sx={{ display: 'flex', minHeight: '100vh' }} position="relative">
       <DrawerMenu
         options={options}
