@@ -103,6 +103,7 @@ const drawerOptions = [
   {
     text: 'users',
     icon: <GroupsIcon />,
+    route: '/backoffice/users',
   },
   {
     text: 'members',

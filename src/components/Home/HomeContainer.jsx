@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import HeaderContainer from '../../../components/Header/HeaderContainer'
+import HeaderContainer from '../Header/HeaderContainer'
 import Home from './Home'
-import httpService from '../../../services/httpService'
+import httpService from '../../services/httpService'
 
 const sliderImg = [
   {

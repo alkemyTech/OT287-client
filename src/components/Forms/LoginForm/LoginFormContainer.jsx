@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import LoginForm from './LoginForm'
-import validateLogin from '../../schemas/login';
+import validateLogin from '../../../schemas/login';
+import httpService from '../../../services/httpService';
 
 const LoginFormContainer = () => {
   const [errorStatus, setErrorStatus] = useState(null)
@@ -11,16 +11,16 @@ const LoginFormContainer = () => {
 
   const onSubmitForm = async (values) => {
     try {
-      axios
-        .post(`${process.env.REACT_APP_API_DOMAIN}/auth/login`, {
-          email: values.email,
-          password: values.password,
-        })
-        .then(() => navigate('/'))
-        .catch((error) => {
-          setErrorStatus(error.response.status)
-          setErrorMessage(error.response.statusText)
-        })
+      const data = await httpService('post', 'auth/login', {
+        email: values.email,
+        password: values.password,
+      })
+      if (data.code === 200) {
+        navigate('/')
+      } else {
+        setErrorStatus(data.response.status)
+        setErrorMessage(data.response.statusText)
+      }
     } catch (error) {
       setErrorStatus(`Ha ocurrido un error: ${error.response}`)
     }
