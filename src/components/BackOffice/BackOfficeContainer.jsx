@@ -1,4 +1,5 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import CategoryIcon from '@mui/icons-material/Category';
@@ -83,6 +84,7 @@ const drawerOptions = [
   {
     text: 'activities',
     icon: <VolunteerActivismIcon />,
+    route: '/backoffice/activities',
   },
   {
     text: 'categories',
@@ -103,7 +105,7 @@ const drawerOptions = [
   {
     text: 'users',
     icon: <GroupsIcon />,
-    route: '/backoffice/users',
+    route: '/back-office/users',
   },
   {
     text: 'members',
@@ -153,9 +155,20 @@ const cardFields = {
   },
 }
 
+const nestedRoutes = {
+  organizations: {
+    edit: 'organization-edit',
+  },
+  news: {
+    create: 'backoffice/novedades',
+    edit: 'backoffice/novedades/:id',
+  },
+}
+
 const BackOfficeContainer = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [activeSection, setActiveSection] = React.useState('news');
+  const location = useLocation();
 
   const handleFilterList = (filter) => {
     setActiveSection(filter)
@@ -176,6 +189,8 @@ const BackOfficeContainer = () => {
       handleDrawerToggle={handleDrawerToggle}
       cardFields={cardFields[activeSection]}
       handleAction={() => {}}
+      nestedRoutes={nestedRoutes[activeSection]}
+      location={location.pathname}
     />
   )
 }

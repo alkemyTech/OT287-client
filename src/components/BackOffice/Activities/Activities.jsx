@@ -1,34 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {
-  Box, Table, TableRow, TableHead, TableContainer, TableCell, TableBody, Paper,
+  Box, Table, TableRow, TableHead, TableContainer, TableCell, TableBody, Paper, Button,
 } from '@mui/material'
+import { Link } from 'react-router-dom';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
 
-const Users = ({ users }) => (
+const Activities = ({ activities }) => (
   <Box>
 
-    <TableContainer sx={{ position: 'absolute', top: '80px', width: { lg: '85%', xs: '100%' } }} component={Paper}>
+    <TableContainer component={Paper}>
       <Table>
         <TableHead>
           <TableRow>
             <TableCell>Id</TableCell>
             <TableCell>Nombre</TableCell>
-            <TableCell>Apellido</TableCell>
-            <TableCell>Email</TableCell>
             <TableCell>Editar</TableCell>
             <TableCell>Eliminar</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {users.map((elem) => (
-
-            <TableRow key={elem.id}>
-              <TableCell>{elem.id}</TableCell>
-              <TableCell>{elem.nombre}</TableCell>
-              <TableCell>{elem.apellido}</TableCell>
-              <TableCell>{elem.email}</TableCell>
+          {activities.map((el) => (
+            <TableRow key={el.id}>
+              <TableCell>{el.id}</TableCell>
+              <TableCell>{el.name}</TableCell>
               <TableCell sx={{ color: 'yellow' }}><EditIcon /></TableCell>
               <TableCell sx={{ color: 'red' }}><HighlightOffIcon /></TableCell>
             </TableRow>
@@ -36,15 +32,16 @@ const Users = ({ users }) => (
         </TableBody>
       </Table>
     </TableContainer>
+    <Link to="/backoffice">
+      <Button variant="outlined" sx={{ left: { lg: '120px', xs: '80px' } }}>Volver</Button>
+    </Link>
   </Box>
 
 )
-Users.propTypes = {
-  users: PropTypes.arrayOf(PropTypes.shape({
+Activities.propTypes = {
+  activities: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
-    nombre: PropTypes.string,
-    apellido: PropTypes.string,
-    email: PropTypes.string,
+    name: PropTypes.string,
   })).isRequired,
 }
-export default Users
+export default Activities
