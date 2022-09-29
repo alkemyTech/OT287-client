@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import { Outlet } from 'react-router-dom'
-import HeaderContainer from '../Header/HeaderContainer'
 import Items from './Items'
 import DrawerMenu from './DrawerMenu';
 import AddButton from './AddButton'

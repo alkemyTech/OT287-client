@@ -6,6 +6,7 @@ import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 
 const FormInputImage = ({ label, formProps, ...props }) => {
   const [fileName, setFileName] = useState('')
+  // eslint-disable-next-line no-unused-vars
   const [field, meta] = useField(props)
 
   const handleOnChange = (event) => {
