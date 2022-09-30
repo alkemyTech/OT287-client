@@ -12,7 +12,7 @@ import ContactScreen from '../components/Contact/ContactScreen'
 import EditOrganizationContainer from '../components/Forms/OrganizationForm/EditOrganizationContainer'
 import BackofficeUsers from '../components/BackOffice/users/UsersContainer'
 import BackofficeNews from '../components/BackOffice/news/NewsContainer'
-import Logout from '../components/logout/Logout'
+import Logout from '../components/Logout/Logout'
 
 const Router = () => (
   <Routes>
