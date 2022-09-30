@@ -14,7 +14,7 @@ const ActivityContainer = () => {
       setLoading(true)
       try {
         const response = await httpService('get', `activities/${activityId}`)
-        if (response.status !== 200) return
+        if (response.code !== 200) return
         setData(response.body)
       } catch (err) {
         setError(`Ha ocurrido un error: ${err.response}`)
