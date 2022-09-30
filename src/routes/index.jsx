@@ -19,11 +19,12 @@ const Router = () => (
     <Route path="about" element={<About />} />
     <Route path="/backoffice" element={<BackOfficeContainer />} />
     <Route path="/backoffice/users" element={<BackOficceUsers />} />
-    <Route path="/backoffice/activities" element={<BackOfficeActivities />} />
+    <Route path="/backoffice/actividades" element={<BackOfficeActivities />} />
     <Route path="/homeForm" element={<HomeFormContainer />} />
     <Route path="/register" element={<RegisterFormContainer />} />
     <Route path="/login" element={<LoginFormContainer />} />
-    <Route path="/activitiesForm" element={<ActivitiesFormContainer />} />
+    <Route path="backoffice/actividades/crear" element={<ActivitiesFormContainer />} />
+    <Route path="backoffice/actividades/editar/:id" element={<ActivitiesFormContainer />} />
     <Route path="/news" element={<NewsContainer />} />
     <Route path="/news/:id" element={<NewsByIdContainer />} />
     <Route path="/myprofile" element={<MyProfileContainer />} />

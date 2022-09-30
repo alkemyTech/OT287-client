@@ -25,7 +25,7 @@ const Activities = ({ activities }) => (
             <TableRow key={el.id}>
               <TableCell>{el.id}</TableCell>
               <TableCell>{el.name}</TableCell>
-              <TableCell sx={{ color: 'yellow' }}><EditIcon /></TableCell>
+              <TableCell sx={{ color: 'yellow' }}><Link to={`editar/${el.id}`} ><EditIcon /></Link></TableCell>
               <TableCell sx={{ color: 'red' }}><HighlightOffIcon /></TableCell>
             </TableRow>
           ))}
