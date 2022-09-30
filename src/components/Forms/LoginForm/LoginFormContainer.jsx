@@ -15,8 +15,6 @@ const LoginFormContainer = () => {
         email: values.email,
         password: values.password,
       })
-      // eslint-disable-next-line no-console
-      console.log(data)
       if (data.code === 200) {
         navigate('/')
       } else {
