@@ -35,7 +35,6 @@ const RegisterFormContainer = () => {
           }
           dispatch(setUserData(userData))
           navigate('/')
-          window.location.reload()
         } catch (error) {
           setErrorStatus(`Ha ocurrido un error: ${error.response}`)
         }

@@ -27,7 +27,6 @@ const LoginFormContainer = () => {
         }
         dispatch(setUserData(userData))
         navigate('/')
-        window.location.reload()
       } else {
         setErrorStatus(data.response.status)
         setErrorMessage(data.response.statusText)
