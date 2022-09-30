@@ -12,6 +12,7 @@ import ContactScreen from '../components/Contact/ContactScreen'
 import EditOrganizationContainer from '../components/Forms/OrganizationForm/EditOrganizationContainer'
 import BackofficeUsers from '../components/BackOffice/users/UsersContainer'
 import BackofficeNews from '../components/BackOffice/news/NewsContainer'
+import ActivityContainer from '../components/Activity/ActivityContainer'
 
 const Router = () => (
   <Routes>
@@ -23,6 +24,7 @@ const Router = () => (
       <Route path="/novedades" element={<NewsContainer />} />
       <Route path="/novedades/:id" element={<NewsByIdContainer />} />
       <Route path="/contacto" element={<ContactScreen />} />
+      <Route path="/actividades/:id" element={<ActivityContainer />} />
       {/* Back-Office Routes for Admin access only */}
       <Route path="/back-office" element={<BackOfficeContainer />}>
         <Route path="organization-edit" element={<EditOrganizationContainer />} />
