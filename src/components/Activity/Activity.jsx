@@ -14,14 +14,27 @@ const Spinner = () => (
   </Container>
 )
 
-// eslint-disable-next-line no-unused-vars
+const NotFound = () => (
+  <Container sx={{
+    display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh',
+  }}
+  >
+    <Box>
+      <Typography variant="h2" sx={{ fontSize: '1.5rem', fontWeight: 600, maxWidth: '37.5rem' }}>404 - Not found</Typography>
+      <Typography variant="body2" component="p" sx={{ mt: 1, mb: 2, maxWidth: '37.5rem' }}> No se encontró la actividad solicitada, por favor, prueba con otra dirección o inténtalo más tarde.</Typography>
+    </Box>
+  </Container>
+)
+
 const Activity = ({ data, loading, error }) => {
   if (loading) {
     return <Spinner />
   }
 
-  if (!data) {
-    return <h1> no hay nada </h1>
+  if (!data || error) {
+    return (
+      <NotFound />
+    )
   }
 
   return (
