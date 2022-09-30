@@ -3,11 +3,21 @@ import PropTypes from 'prop-types';
 import {
   Typography, Container, Box, Grid,
 } from '@mui/material'
+import Loader from '../Loader/Loader'
+
+const Spinner = () => (
+  <Container sx={{
+    display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh',
+  }}
+  >
+    <Loader />
+  </Container>
+)
 
 // eslint-disable-next-line no-unused-vars
 const Activity = ({ data, loading, error }) => {
   if (loading) {
-    return <h1>loading....</h1>
+    return <Spinner />
   }
 
   if (!data) {
