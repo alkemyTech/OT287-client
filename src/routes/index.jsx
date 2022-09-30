@@ -12,11 +12,13 @@ import ContactScreen from '../components/Contact/ContactScreen'
 import EditOrganizationContainer from '../components/Forms/OrganizationForm/EditOrganizationContainer'
 import BackofficeUsers from '../components/BackOffice/users/UsersContainer'
 import BackofficeNews from '../components/BackOffice/news/NewsContainer'
+import Logout from '../components/Logout/Logout'
 
 const Router = () => (
   <Routes>
     <Route path="/" element={<MainLayout />}>
       <Route path="/" element={<HomeContainer />} />
+      <Route path="/logout" element={<Logout />} />
       <Route path="/login" element={<LoginFormContainer />} />
       <Route path="/registrate" element={<RegisterFormContainer />} />
       <Route path="/mi-perfil" element={<MyProfileContainer />} />

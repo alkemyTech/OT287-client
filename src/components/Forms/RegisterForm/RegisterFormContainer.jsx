@@ -34,10 +34,10 @@ const RegisterFormContainer = () => {
             token: regData.body.token,
           }
           dispatch(setUserData(userData))
+          navigate('/')
         } catch (error) {
           setErrorStatus(`Ha ocurrido un error: ${error.response}`)
         }
-        navigate('/')
       } else {
         setErrorStatus(data.response.status)
         setErrorMessage(data.response.statusText)
