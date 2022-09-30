@@ -13,24 +13,33 @@ const DeleteModal = (props) => {
   return (
     <>
       <Dialog open={openModal}>
-        <DialogTitle>
-          Estas seguro que quieres eliminar
-          { elementToDelete ? elementToDelete.name : null }
-          {' '}
-          ?
-        </DialogTitle>
-        <DialogActions>
-          <Button onClick={() => deleteElement(elementToDelete.id)}>Si</Button>
 
-          <Button
-            onClick={() => {
-              setHandleModal(false)
-            }}
-          >
-            No
-          </Button>
+        { deletedSucces === false ? (
+          <>
+            <DialogTitle>
+              Estas seguro de eliminar
+              { elementToDelete ? elementToDelete.name : null }
+              {' '}
+              ?
+            </DialogTitle>
+            <DialogActions>
 
-        </DialogActions>
+              <Button onClick={() => deleteElement(elementToDelete.id)}>Si</Button>
+
+              <Button
+                onClick={() => {
+                  setHandleModal(false)
+                }}
+              >
+                No
+              </Button>
+
+            </DialogActions>
+
+          </>
+
+        ) : null }
+
         {deletedSucces ? (
 
           <Alert
