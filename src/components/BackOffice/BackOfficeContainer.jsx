@@ -115,10 +115,14 @@ const drawerOptions = {
       text: 'members',
       icon: <PeopleIcon />,
     },
+    {
+      text: 'edit profile',
+      icon: <AccountCircleIcon />,
+    },
   ],
   standard: [
     {
-      text: 'Edit profile',
+      text: 'edit profile',
       icon: <AccountCircleIcon />,
     },
   ],
