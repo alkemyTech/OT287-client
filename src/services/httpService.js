@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const httpService = async (method, url, body) => {
   try {
-    const token = JSON.parse(localStorage.getItem('token'));
+    const { token } = JSON.parse(localStorage.getItem('user'));
     let headers = {}
     if (token) {
       headers = {

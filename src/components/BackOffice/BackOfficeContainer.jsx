@@ -98,6 +98,7 @@ const drawerOptions = [
   {
     text: 'organizations',
     icon: <AccountTreeIcon />,
+    route: '/back-office/organizations',
   },
   {
     text: 'slides',
@@ -158,7 +159,7 @@ const cardFields = {
 
 const nestedRoutes = {
   organizations: {
-    edit: 'organization-edit',
+    edit: 'organizations/:id/edit',
   },
 }
 
