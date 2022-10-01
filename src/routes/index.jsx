@@ -13,11 +13,13 @@ import EditOrganizationContainer from '../components/Forms/OrganizationForm/Edit
 import BackofficeUsers from '../components/BackOffice/users/UsersContainer'
 import BackofficeNews from '../components/BackOffice/news/NewsContainer'
 import ActivityContainer from '../components/Activity/ActivityContainer'
+import Logout from '../components/Logout/Logout'
 
 const Router = () => (
   <Routes>
     <Route path="/" element={<MainLayout />}>
       <Route path="/" element={<HomeContainer />} />
+      <Route path="/logout" element={<Logout />} />
       <Route path="/login" element={<LoginFormContainer />} />
       <Route path="/registrate" element={<RegisterFormContainer />} />
       <Route path="/mi-perfil" element={<MyProfileContainer />} />
@@ -30,6 +32,8 @@ const Router = () => (
         <Route path="organization-edit" element={<EditOrganizationContainer />} />
         <Route path="users" element={<BackofficeUsers />} />
         <Route path="news" element={<BackofficeNews />} />
+        <Route path="news/:id" element={<BackofficeNews />} />
+
       </Route>
     </Route>
   </Routes>
