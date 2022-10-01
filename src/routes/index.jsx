@@ -23,8 +23,8 @@ const Router = () => (
       <Route path="/back-office" element={<BackOfficeContainer />}>
         <Route path="organization-edit" element={<EditOrganizationContainer />} />
         <Route path="users" element={<BackofficeUsers />} />
-        <Route path="backoffice/novedades" element={<NewsFormContainer />} />
-        <Route path="backoffice/novedades/:id" element={<NewsFormContainer />} />
+        <Route path="novedades" element={<NewsFormContainer />} />
+        <Route path="novedades/:id" element={<NewsFormContainer />} />
       </Route>
       <Route path="/novedades" element={<NewsContainer />} />
       <Route path="/novedades/:id" element={<NewsByIdContainer />} />

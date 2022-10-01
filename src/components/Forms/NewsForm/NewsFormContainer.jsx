@@ -10,6 +10,7 @@ const NewsFormContainer = () => {
     name: '',
     content: '',
     image: '',
+    uploadedImage: '',
     categoryId: 1,
   })
   const [errorStatus, setErrorStatus] = useState(null)
@@ -22,10 +23,12 @@ const NewsFormContainer = () => {
       (async () => {
         try {
           const getData = await httpService('get', `news/${id}`)
+          const uploadedImage = getData.body.image.split('com/')
           setInitialValues({
             name: getData.body.name,
             content: getData.body.content,
             image: getData.body.image,
+            uploadedImage: uploadedImage[1],
             categoryId: getData.body.categoryId,
           })
         } catch (error) {
