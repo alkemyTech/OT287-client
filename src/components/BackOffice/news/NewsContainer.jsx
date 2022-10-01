@@ -1,51 +1,62 @@
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
+import httpService from '../../../services/httpService'
 import News from './News'
 
-const news = [
+const NewsContainer = () => {
+  const [handleModal, setHandleModal] = useState(false)
+  const [elementToDelete, setElementToDelete] = useState({})
+  const [errorStatus, setErrorStatus] = useState('')
+  const [deletedSucces, setDeletedSucces] = useState(false)
+  const [dataNews, setDataNews] = useState([])
+  const [errorStatusNews, setErrorStatusNews] = useState('')
 
-  {
-    id: '1',
-    name: 'Lorem Ipsum causes Chaos',
-    image: 'https://picsum.photos/200/300',
-    createdAt: '2022-09-26 23:24:39',
-  },
-  {
-    id: '2',
-    name: 'Lorem Ipsum takes over',
-    image: 'https://picsum.photos/300/300',
-    createdAt: '2022-09-25 23:24:39',
-  },
-  {
-    id: '3',
-    name: 'Lorem Ipsum strikes again',
-    image: 'https://picsum.photos/200/300',
-    createdAt: '2022-09-21 23:24:39',
-  },
-  {
-    id: '4',
-    name: 'Lorem Ipsum the revenge',
-    image: 'https://picsum.photos/200/300',
-    createdAt: '2022-09-19 23:24:39',
-  },
-  {
-    id: '5',
-    name: 'Lorem Ipsum vs asdasdasd',
-    image: 'https://picsum.photos/200/300',
-    createdAt: '2022-09-10 23:24:39',
-  },
-  {
-    id: '6',
-    name: 'Lorem Ipsum goes aaaaaaaaaaaaaaaa',
-    image: 'https://picsum.photos/200/300',
-    createdAt: '2022-08-26 23:24:39',
-  },
+  const getNewsData = useCallback(async () => {
+    try {
+      const data = await httpService('get', '/news')
+      if (data.code === 200) {
+        setDataNews(data.body)
+      } else {
+        setErrorStatusNews(data.code)
+      }
+    } catch (error) {
+      setErrorStatusNews(error.response)
+    }
+  }, [])
+  const deleteElement = async (id) => {
+    try {
+      const data = await httpService('delete', `/news/${id}`)
+      if (data.code === 200) {
+        setDeletedSucces(true)
+        getNewsData()
+      } else {
+        setErrorStatus(data.code)
+      }
+    } catch (error) {
+      setErrorStatus(error.response)
+    }
+  }
 
-]
+  useEffect(() => {
+    getNewsData()
+  }, [getNewsData])
 
-const NewsContainer = () => (
-  <div>
-    <News news={news} />
-  </div>
-)
+  return (
+    <div>
+      <News
+        news={dataNews}
+        handleModal={handleModal}
+        setHandleModal={setHandleModal}
+        setElementToDelete={setElementToDelete}
+        elementToDelete={elementToDelete}
+        deleteElement={deleteElement}
+        deletedSucces={deletedSucces}
+        errorStatus={errorStatus}
+        getNewsData={getNewsData}
+        errorStatusNews={errorStatusNews}
+        setDeletedSucces={setDeletedSucces}
+      />
+    </div>
+  )
+}
 
 export default NewsContainer
