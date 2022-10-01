@@ -16,7 +16,7 @@ const data = {
     },
     {
       id: 3,
-      route: '/news',
+      route: '/novedades',
       text: 'Novedades',
     },
     {
