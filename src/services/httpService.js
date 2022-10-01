@@ -22,6 +22,7 @@ const httpService = async (method, url, body) => {
       headers: {
         ...headers,
       },
+
     })
     return data
   } catch (error) {

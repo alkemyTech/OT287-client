@@ -80,11 +80,12 @@ const drawerOptions = [
   {
     text: 'news',
     icon: <NewspaperIcon />,
+    route: '/back-office/news',
   },
   {
     text: 'activities',
     icon: <VolunteerActivismIcon />,
-    route: '/backoffice/activities',
+    route: '/back-office/activities',
   },
   {
     text: 'categories',

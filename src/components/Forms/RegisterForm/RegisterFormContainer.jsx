@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setUserData } from '../../../app/slices/auth/authSlice'
 import RegisterForm from './RegisterForm'
 import validationSchema from '../../../schemas/register'
 import httpService from '../../../services/httpService';
@@ -7,6 +9,7 @@ import httpService from '../../../services/httpService';
 const RegisterFormContainer = () => {
   const [errorStatus, setErrorStatus] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const onSubmitForm = async (values) => {
@@ -17,8 +20,24 @@ const RegisterFormContainer = () => {
         email: values.email,
         password: values.password,
       })
+
       if (data.code === 200) {
-        navigate('/')
+        try {
+          const regData = await httpService('post', 'auth/login', {
+            email: values.email,
+            password: values.password,
+          })
+          const userData = {
+            id: regData.body.user.id,
+            userName: `${regData.body.user.firstName} ${regData.body.user.lastName}`,
+            image: regData.body.user.image,
+            token: regData.body.token,
+          }
+          dispatch(setUserData(userData))
+          navigate('/')
+        } catch (error) {
+          setErrorStatus(`Ha ocurrido un error: ${error.response}`)
+        }
       } else {
         setErrorStatus(data.response.status)
         setErrorMessage(data.response.statusText)

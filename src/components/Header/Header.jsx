@@ -43,7 +43,7 @@ const Header = (props) => {
                 navigate(buttonsAction[0].route)
               }}
             >
-              Log in
+              {buttonsAction[0].text}
             </Button>
             <Button
               variant="contained"
@@ -54,7 +54,7 @@ const Header = (props) => {
                 navigate(buttonsAction[1].route)
               }}
             >
-              Registrate
+              {buttonsAction[1].text}
             </Button>
           </Box>
         </Toolbar>
