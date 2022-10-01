@@ -26,15 +26,14 @@ const Router = () => (
       <Route path="/novedades" element={<NewsContainer />} />
       <Route path="/novedades/:id" element={<NewsByIdContainer />} />
       <Route path="/contacto" element={<ContactScreen />} />
-      <Route path="back-office/actividades/crear" element={<ActivitiesFormContainer />} />
-      <Route path="back-office/actividades/editar/:id" element={<ActivitiesFormContainer />} />
       {/* Back-Office Routes for Admin access only */}
       <Route path="/back-office" element={<BackOfficeContainer />}>
         <Route path="organization-edit" element={<EditOrganizationContainer />} />
         <Route path="users" element={<BackofficeUsers />} />
         <Route path="news" element={<BackofficeNews />} />
         <Route path="news/:id" element={<BackofficeNews />} />
-
+        <Route path="actividades/crear" element={<ActivitiesFormContainer />} />
+        <Route path="actividades/editar/:id" element={<ActivitiesFormContainer />} />
       </Route>
     </Route>
   </Routes>
