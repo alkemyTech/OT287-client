@@ -1,10 +1,9 @@
 import React, {
   useCallback, useState, useEffect,
 } from 'react'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import MyProfile from './MyProfile'
-
+import httpService from '../../services/httpService'
 // la ruta '/me' es un get que devuelve la información del usuario contenida en un token.
 // A modo de ejemplo se puse utilizar un token válido y setearlo en el header de axios
 // axios.defaults.headers.common.Authorization ='Bearer tokenValido'
@@ -18,26 +17,26 @@ const MyProfileContainer = () => {
   const navigate = useNavigate()
 
   const getUserData = useCallback(async () => {
-    const userDataResponse = await axios.get(`${process.env.REACT_APP_API_DOMAIN}/auth/me`)
-
-    if (userDataResponse && userDataResponse.data.body) {
-      setUser(userDataResponse.data.body)
+    const userDataResponse = await httpService("GET","/auth/me")
+    
+    if (userDataResponse && userDataResponse.body) {
+      setUser(userDataResponse.body)
       setUserData(
         [
           {
             id: 1,
             label: 'Nombre',
-            text: userDataResponse.data.body.firstName,
+            text: userDataResponse.body.firstName,
           },
           {
             id: 2,
             label: 'Apellido',
-            text: userDataResponse.data.body.lastName,
+            text: userDataResponse.body.lastName,
           },
           {
             id: 3,
             label: 'Email',
-            text: userDataResponse.data.body.email,
+            text: userDataResponse.body.email,
           },
         ],
 
@@ -54,8 +53,8 @@ const MyProfileContainer = () => {
   }
   const handleDeleteUser = async (id) => {
     try {
-      const response = await axios.delete(`${process.env.REACT_APP_API_DOMAIN}/users/${id}`)
-      if (response.data) {
+      const response = await httpService("DELETE",`/users/${id}`)
+      if (response) {
         setUserDelete(true)
         navigate('/')
       }
