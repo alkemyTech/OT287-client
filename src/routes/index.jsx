@@ -13,6 +13,7 @@ import EditOrganizationContainer from '../components/Forms/OrganizationForm/Edit
 import BackofficeUsers from '../components/BackOffice/users/UsersContainer'
 import BackofficeNews from '../components/BackOffice/news/NewsContainer'
 import Logout from '../components/Logout/Logout'
+import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute'
 
 const Router = () => (
   <Routes>
@@ -21,17 +22,16 @@ const Router = () => (
       <Route path="/logout" element={<Logout />} />
       <Route path="/login" element={<LoginFormContainer />} />
       <Route path="/registrate" element={<RegisterFormContainer />} />
-      <Route path="/mi-perfil" element={<MyProfileContainer />} />
+      <Route path="/mi-perfil" element={<PrivateRoute><MyProfileContainer/></PrivateRoute>} />
       <Route path="/novedades" element={<NewsContainer />} />
       <Route path="/novedades/:id" element={<NewsByIdContainer />} />
       <Route path="/contacto" element={<ContactScreen />} />
       {/* Back-Office Routes for Admin access only */}
-      <Route path="/back-office" element={<BackOfficeContainer />}>
+      <Route path="/back-office" element={ <PrivateRoute><BackOfficeContainer/></PrivateRoute>}>
         <Route path="organization-edit" element={<EditOrganizationContainer />} />
         <Route path="users" element={<BackofficeUsers />} />
         <Route path="news" element={<BackofficeNews />} />
         <Route path="news/:id" element={<BackofficeNews />} />
-
       </Route>
     </Route>
   </Routes>

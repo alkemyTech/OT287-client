@@ -6,6 +6,7 @@ export const PrivateRoute = ({children}) => {
   const user = useSelector(state => state.auth.userData)
   const navigate = useNavigate()
   useEffect(() => {
+    console.log(user)
     if (!user) {
       navigate("/");
     }
