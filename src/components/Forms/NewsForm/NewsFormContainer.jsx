@@ -39,35 +39,26 @@ const NewsFormContainer = () => {
   }, [id])
 
   const onSubmitForm = async (values, idToEdit) => {
+    let action = 'post'
+    let endpoint = 'news'
+
+    if (idToEdit) {
+      action = 'put'
+      endpoint = `news/${id}`
+    }
+
     try {
-      if (idToEdit) {
-        // If it's an edition, use put
-        const data = await httpService('put', `news/${id}`, {
-          name: values.name,
-          content: values.content,
-          image: values.image,
-          categoryId: values.category,
-        })
-        if (data.code === 200) {
-          navigate('/')
-        } else {
-          setErrorStatus(data.response.status)
-          setErrorMessage(data.response.statusText)
-        }
+      const data = await httpService(action, endpoint, {
+        name: values.name,
+        content: values.content,
+        image: values.image,
+        categoryId: values.category,
+      })
+      if (data.code === 200) {
+        navigate('/')
       } else {
-        // If it's a new entry, then post the data
-        const data = await httpService('post', 'news', {
-          name: values.name,
-          content: values.content,
-          image: values.image,
-          categoryId: values.categoryId,
-        })
-        if (data.code === 200) {
-          navigate('/')
-        } else {
-          setErrorStatus(data.response.status)
-          setErrorMessage(data.response.statusText)
-        }
+        setErrorStatus(data.response.status)
+        setErrorMessage(data.response.statusText)
       }
     } catch (error) {
       setErrorStatus(error.response)
