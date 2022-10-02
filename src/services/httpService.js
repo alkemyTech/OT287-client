@@ -2,12 +2,12 @@ import axios from 'axios'
 
 const httpService = async (method, url, body) => {
   try {
-    const { token } = JSON.parse(localStorage.getItem('user'));
+    const userIsLogged = JSON.parse(localStorage.getItem('user'));
     let headers = {}
-    if (token) {
+    if (userIsLogged) {
       headers = {
         'Content-type': 'application/json; charset=UTF-8',
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${userIsLogged.token}`,
       }
     } else {
       headers = {
