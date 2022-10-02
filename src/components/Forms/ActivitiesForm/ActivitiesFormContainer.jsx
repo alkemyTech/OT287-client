@@ -4,8 +4,6 @@ import ActivitiesForm from '../ActivitiesForm/ActivitiesForm'
 import validationSchema from '../../../schemas/activities'
 import httpService from '../../../services/httpService';
 
- 
-
 const ActivitiesFormContainer = () => {
     const {id} = useParams()
     const [initialValues, setInitialValues] = useState({
@@ -14,27 +12,17 @@ const ActivitiesFormContainer = () => {
     })
     const [errorStatus, setErrorStatus] = useState(null)
     const [errorMessage, setErrorMessage] = useState(null)
-    const [dataCk,setDataCk]=useState('');
-
     const navigate = useNavigate()
-    
-    const handleChange=(event,editor)=>{
-      setDataCk(editor.getData());
-     }
   
       useEffect(() => {
         if (id) {
           (async () => {
             try {
               const getData = await httpService('get', `activities/${id}`)
-              
-              if(getData){
                 setInitialValues({
                   name: getData.body.name,
                   content: getData.body.content
                 })
-                setDataCk(getData.body.content)
-              }
             } catch (error) {
               setErrorStatus(error.response.status)
               setErrorMessage(error.response.statusText)
@@ -43,42 +31,28 @@ const ActivitiesFormContainer = () => {
         }
       }, [id])
     
-
       const onSubmitForm = async (values, idToEdit) => {
+        let action = 'post'
+        let endpoint = 'activities'
+        if(idToEdit){
+          action = 'put'
+          endpoint = `activities/ ${id}`
+        }
         try {
-          if(idToEdit && dataCk !== ''){
-            
-              const data = await httpService('put', `activities/ ${id}` , {
+              const data = await httpService(action, endpoint , {
                 name: values.name,
-                content: dataCk
+                content: values.content
               })
-              if (data.code === 200) {
+              if (data.code === 200 || 201) {
                 navigate('/')
               } else {
                 setErrorStatus(data.response.status)
                 setErrorMessage(data.response.statusText)
-              }
-
-          } 
-          else {
-            const data = await httpService('post', 'activities', {
-              name: values.name,
-              content: dataCk
-            })
-            if (data.code === 201) {
-              navigate('/')
-            } else {
-              setErrorStatus(data.response.status)
-              setErrorMessage(data.response.statusText)
+              }  
+            } catch (error) {
+              setErrorStatus(error.response)
             }
           }
-        } catch (error) {
-          setErrorStatus(error.response)
-        }
-      }
-
-
- 
 
   return (
     <ActivitiesForm 
@@ -86,11 +60,9 @@ const ActivitiesFormContainer = () => {
     error={errorStatus} 
     initialValues={initialValues} 
     onSubmitForm={onSubmitForm} 
-    handleChange={handleChange}
     validationSchema={validationSchema}
     id={id}
     key={id}
-    dataCk={dataCk}
     />
   )
 }

@@ -1,5 +1,5 @@
-import React from 'react'
-import { Formik, Form } from 'formik'
+import React, {useState} from 'react'
+import { Formik, Form, ErrorMessage } from 'formik'
 import PropTypes from 'prop-types'
 import {
   Container, CssBaseline, Box, Typography, Grid, Button,
@@ -10,8 +10,15 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
  
 
 const ActivitiesForm = ({
-  initialValues, id, validationSchema, onSubmitForm, error, errorMessage, handleChange, dataCk
-}) => ( 
+  initialValues, id, validationSchema, onSubmitForm, error, errorMessage
+}) => {
+  const [newContent, setNewContent] = useState(null)
+  const handleChange = (event, editor) => {
+    const data = editor.getData()
+    setNewContent(data)
+  }
+
+return( 
   <Container component="main" maxWidth="sm">
   <CssBaseline />
   <Box
@@ -27,10 +34,10 @@ const ActivitiesForm = ({
       enableReinitialize
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values) => {
+      onSubmit={async (values) => {
+        values.content = newContent
         onSubmitForm(values, id)
-      }
-      }
+      }}
     >
       <Box sx={{ mt: 4 }}>
         <Form>
@@ -38,31 +45,15 @@ const ActivitiesForm = ({
             <Grid item xs={12}>
               <FormInputField label="Nombre actividad" name="name" type="text" variant="outlined" autoFocus sx={{ h: 10 }} />
             </Grid>
-            
             <Grid item xs={12}>
-            
                 <CKEditor
+                    id="content"
+                    name="content"
+                    data={initialValues.content}
                     editor={ ClassicEditor }
-                    data={dataCk}
-                    onReady={ editor => {
-                   
-                     
-                  } }
-                
-                  onChange={ ( event, editor ) => {
-                    handleChange(event,editor)
-                    
-                 } }
-                  
-                  onBlur={ ( event, editor ) => {
-                     
-                  } }
-                  onFocus={ ( event, editor ) => {
-                     
-                  } }
-                    
+                    onChange={handleChange}
                 />
-              
+                <ErrorMessage name="signator_text" />
             </Grid>
             <Grid item xs={12}>
 
@@ -75,7 +66,7 @@ const ActivitiesForm = ({
                 Grabar
               </Button>
               {error && (
-              <Box component="span" color="red">{error === 409 ? 'Error conexion con el servidor' : errorMessage}</Box>
+              <Box component="span" color="red">{error === 409 ? 'La actividad no fue posible de crearse o editarse' : errorMessage}</Box>
               )}
             </Grid>
           </Grid>
@@ -84,9 +75,8 @@ const ActivitiesForm = ({
     </Formik>
   </Box>
 </Container>
-
-  
-)
+  )
+}
 
 ActivitiesForm.propTypes = {
   id: PropTypes.string,
