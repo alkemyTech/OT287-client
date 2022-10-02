@@ -14,7 +14,7 @@ const DrawerMenu = ({
   <>
     <CssBaseline />
     <Box sx={{
-      backgroundColor: 'white', position: 'absolute', zIndex: 1500, top: 0, left: 0, width: 100, height: 50, display: { sm: 'none' },
+      backgroundColor: 'rgb(240,240,240)', position: 'fixed', zIndex: 1500, top: 0, left: 0, width: 100, height: 50, display: { sm: 'none' },
     }}
     >
       <IconButton

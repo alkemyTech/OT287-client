@@ -13,7 +13,12 @@ const Header = (props) => {
     activeButton, buttonsAction,
   } = props
   return (
-    <AppBar position="absolute" sx={{ backgroundColor: 'white', zIndex: 1300 }}>
+    <AppBar
+      position="fixed"
+      sx={{
+        backgroundColor: 'rgb(240,240,240)', zIndex: 1300,
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <BrandLogo logo={logo} breakpointDisplay="md" breakpointHidden="xs" />
