@@ -18,7 +18,6 @@ const NewsFormContainer = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    // If it's and edition, it gets the transaction info from the database
     if (id) {
       (async () => {
         try {
@@ -42,7 +41,7 @@ const NewsFormContainer = () => {
   const onSubmitForm = async (values, idToEdit) => {
     try {
       if (idToEdit) {
-        // If it's an edition, use patch
+        // If it's an edition, use put
         const data = await httpService('put', `news/${id}`, {
           name: values.name,
           content: values.content,
