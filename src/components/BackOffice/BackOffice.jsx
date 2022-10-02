@@ -68,3 +68,4 @@ BackOffice.propTypes = {
 }
 
 export default BackOffice
+
