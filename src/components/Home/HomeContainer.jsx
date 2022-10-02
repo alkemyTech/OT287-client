@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import Home from './Home'
 import httpService from '../../services/httpService'
+import Home from './Home'
 
 const sliderImg = [
   {
@@ -24,13 +24,15 @@ const HomeContainer = () => {
   const [data, setData] = useState([])
   useEffect(() => {
     httpService('GET', '/news').then((response) => {
-      setData(response.body.slice(response.body.length - 4))
+      if (response.body && response.body.length > 4) {
+        setData(response.body.slice(response.body.length - 4))
+      } else {
+        setData(response.body)
+      }
     })
   }, [])
   return (
-    <>
-      <Home news={data} slider={sliderImg} />
-    </>
+    <Home news={data} slider={sliderImg} />
   )
 }
 export default HomeContainer

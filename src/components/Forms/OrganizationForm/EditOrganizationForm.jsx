@@ -9,10 +9,9 @@ import FormInputField from '../../Layout/FormInputField'
 import FormInputImage from '../../Layout/FormInputImage'
 
 const EditOrganizationForm = ({
-  initialValues, onSubmitForm, validationSchema, error, errorMessage,
+  onSubmitForm, initialValues, validationSchema, error, errorMessage,
 }) => {
   const navigate = useNavigate()
-
   const handleClose = () => {
     navigate('/back-office')
   }
@@ -25,6 +24,7 @@ const EditOrganizationForm = ({
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={(values) => onSubmitForm(values)}
+        enableReinitialize
       >
         {(formProps) => (
           <Box sx={{ mx: 2 }}>
@@ -34,7 +34,26 @@ const EditOrganizationForm = ({
                   <FormInputField label="Nombre" name="name" type="text" variant="outlined" sx={{ h: 10 }} />
                 </Grid>
                 <Grid item xs={12}>
-                  <FormInputImage label="Upload" name="image" type="file" formProps={formProps} />
+                  <FormInputField label="Direccion" name="address" type="text" variant="outlined" sx={{ h: 10 }} />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormInputField label="Telefono" name="phone" type="text" variant="outlined" sx={{ h: 10 }} />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormInputField label="email" name="email" type="text" variant="outlined" sx={{ h: 10 }} />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormInputField label="URL Facebook" name="fbUrl" type="text" variant="outlined" sx={{ h: 10 }} />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormInputField label="URL Instagram" name="igUrl" type="text" variant="outlined" sx={{ h: 10 }} />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormInputField label="URL Linkedin" name="ldUrl" type="text" variant="outlined" sx={{ h: 10 }} />
+                </Grid>
+                <Grid item xs={12}>
+                  {/* Cargar imagen todavia no hace nada, no esta asociada la funcionalidad */}
+                  <FormInputImage label="Cargar Imagen" name="image" type="file" formProps={formProps} />
                 </Grid>
               </Grid>
               <DialogActions>
@@ -63,10 +82,14 @@ const EditOrganizationForm = ({
 
 EditOrganizationForm.propTypes = {
   initialValues: PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
+    name: PropTypes.string,
+    image: PropTypes.string,
+    address: PropTypes.string,
+    phone: PropTypes.string,
     email: PropTypes.string,
-    password: PropTypes.string,
+    fbUrl: PropTypes.string,
+    igUrl: PropTypes.string,
+    ldUrl: PropTypes.string,
   }).isRequired,
   onSubmitForm: PropTypes.func.isRequired,
   validationSchema: PropTypes.oneOfType([PropTypes.object]).isRequired,
