@@ -27,7 +27,8 @@ const Router = () => (
       <Route path="/contacto" element={<ContactScreen />} />
       {/* Back-Office Routes for Admin access only */}
       <Route path="/back-office" element={<BackOfficeContainer />}>
-        <Route path="organization-edit" element={<EditOrganizationContainer />} />
+        <Route path="organizations" element={<BackofficeNews />} />
+        <Route path="organizations/:id/edit" element={<EditOrganizationContainer />} />
         <Route path="users" element={<BackofficeUsers />} />
         <Route path="news" element={<BackofficeNews />} />
         <Route path="news/:id" element={<BackofficeNews />} />
