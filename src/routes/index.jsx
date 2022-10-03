@@ -14,6 +14,7 @@ import EditOrganizationContainer from '../components/Forms/OrganizationForm/Edit
 import NewsFormContainer from '../components/Forms/NewsForm/NewsFormContainer'
 import BackofficeUsers from '../components/BackOffice/users/UsersContainer'
 import BackofficeNews from '../components/BackOffice/news/NewsContainer'
+import ActivityContainer from '../components/Activity/ActivityContainer'
 import BackofficeTestimonials from '../components/BackOffice/Testimonials/TestimonialsContainer'
 import Logout from '../components/Logout/Logout'
 import PrivateRoute from '../components/PrivateRoute/PrivateRoute'
@@ -30,6 +31,7 @@ const Router = () => (
       <Route path="/novedades" element={<NewsContainer />} />
       <Route path="/novedades/:id" element={<NewsByIdContainer />} />
       <Route path="/contacto" element={<ContactScreen />} />
+      <Route path="/actividades/:id" element={<ActivityContainer />} />
       {/* Back-Office Routes for Admin access only */}
       <Route path="/back-office" element={<PrivateRoute><BackOfficeContainer /></PrivateRoute>}>
         <Route path="organizations" element={<BackofficeNews />} />
