@@ -14,8 +14,9 @@ import EditOrganizationContainer from '../components/Forms/OrganizationForm/Edit
 import NewsFormContainer from '../components/Forms/NewsForm/NewsFormContainer'
 import BackofficeUsers from '../components/BackOffice/users/UsersContainer'
 import BackofficeNews from '../components/BackOffice/news/NewsContainer'
+import BackofficeTestimonials from '../components/BackOffice/Testimonials/TestimonialsContainer'
 import Logout from '../components/Logout/Logout'
-import PrivateRoute  from '../components/PrivateRoute/PrivateRoute'
+import PrivateRoute from '../components/PrivateRoute/PrivateRoute'
 import BackOfficeActivities from '../components/BackOffice/Activities/ActivitiesContainer'
 
 const Router = () => (
@@ -25,16 +26,17 @@ const Router = () => (
       <Route path="/logout" element={<Logout />} />
       <Route path="/login" element={<LoginFormContainer />} />
       <Route path="/registrate" element={<RegisterFormContainer />} />
-      <Route path="/mi-perfil" element={<PrivateRoute><MyProfileContainer/></PrivateRoute>} />
+      <Route path="/mi-perfil" element={<PrivateRoute><MyProfileContainer /></PrivateRoute>} />
       <Route path="/novedades" element={<NewsContainer />} />
       <Route path="/novedades/:id" element={<NewsByIdContainer />} />
       <Route path="/contacto" element={<ContactScreen />} />
       {/* Back-Office Routes for Admin access only */}
-      <Route path="/back-office" element={<PrivateRoute><BackOfficeContainer/></PrivateRoute>}>
+      <Route path="/back-office" element={<PrivateRoute><BackOfficeContainer /></PrivateRoute>}>
         <Route path="organizations" element={<BackofficeNews />} />
         <Route path="organizations/:id/edit" element={<EditOrganizationContainer />} />
         <Route path="users" element={<BackofficeUsers />} />
         <Route path="news" element={<BackofficeNews />} />
+        <Route path="testimonials" element={<BackofficeTestimonials />} />
         <Route path="news/:id" element={<BackofficeNews />} />
         <Route path="actividades" element={<BackOfficeActivities />} />
         <Route path="actividades/crear" element={<ActivitiesFormContainer />} />

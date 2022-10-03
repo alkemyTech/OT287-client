@@ -94,6 +94,7 @@ const drawerOptions = [
   {
     text: 'testimonials',
     icon: <TextsmsIcon />,
+    route: '/back-office/testimonials',
   },
   {
     text: 'organizations',
