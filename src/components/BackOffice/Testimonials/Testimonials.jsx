@@ -50,13 +50,13 @@ const Testimonials = (
 
                 <TableRow key={elem.id}>
                   <TableCell
-                    sx={{ width: '80px', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    sx={{ width: '15%', overflow: 'hidden', textOverflow: 'ellipsis' }}
                   >
                     {elem.name}
 
                   </TableCell>
                   <TableCell
-                    sx={{ width: '80px', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    sx={{ width: '15%', overflow: 'hidden', textOverflow: 'ellipsis' }}
                   >
                     {elem.image}
 
@@ -68,7 +68,7 @@ const Testimonials = (
 
                   </TableCell>
                   <TableCell
-                    sx={{ width: '220px', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    sx={{ width: '160px', overflow: 'hidden', textOverflow: 'ellipsis' }}
                   >
                     {elem.createdAt}
 
