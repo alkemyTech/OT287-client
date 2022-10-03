@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {
   Box, Table, TableRow, TableHead, TableContainer,
-  TableCell, TableBody, Paper, Typography, IconButton,
+  TableCell, TableBody, Paper, Typography,
 } from '@mui/material'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
@@ -79,12 +79,8 @@ const News = (
                       }}
                       />
 
-                      <IconButton onClick={() => {
-                        setHandleModal(true)
-                        setElementToDelete(elem)
-                      }}
-                      >
-                        <HighlightOffIcon sx={{
+                      <HighlightOffIcon
+                        sx={{
                           opacity: '0.5',
                           padding: '1px',
                           borderRadius: '5px',
@@ -95,8 +91,11 @@ const News = (
                           cursor: 'pointer',
                           '&:hover': { opacity: '1' },
                         }}
-                        />
-                      </IconButton>
+                        onClick={() => {
+                          setHandleModal(true)
+                          setElementToDelete(elem)
+                        }}
+                      />
 
                     </>
                   </TableCell>
