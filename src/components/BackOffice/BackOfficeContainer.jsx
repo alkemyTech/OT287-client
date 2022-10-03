@@ -8,7 +8,10 @@ import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import GroupsIcon from '@mui/icons-material/Groups';
 import PeopleIcon from '@mui/icons-material/People';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useSelector } from 'react-redux'
 import BackOffice from './BackOffice'
+import httpService from '../../services/httpService';
 
 const array = {
   news: [
@@ -76,44 +79,57 @@ const array = {
 
 }
 
-const drawerOptions = [
-  {
-    text: 'news',
-    icon: <NewspaperIcon />,
-    route: '/back-office/news',
-  },
-  {
-    text: 'activities',
-    icon: <VolunteerActivismIcon />,
-    route: '/back-office/actividades',
-  },
-  {
-    text: 'categories',
-    icon: <CategoryIcon />,
-  },
-  {
-    text: 'testimonials',
-    icon: <TextsmsIcon />,
-    route: '/back-office/testimonials',
-  },
-  {
-    text: 'organizations',
-    icon: <AccountTreeIcon />,
-    route: '/back-office/organizations',
-  },
-  {
-    text: 'slides',
-    icon: <InsertDriveFileIcon />,
-  },
-  {
-    text: 'users',
-    icon: <GroupsIcon />,
-    route: '/back-office/users',
-  },
-  {
-    text: 'members',
-    icon: <PeopleIcon />,
-  }]
+const drawerOptions = {
+  admin: [
+    {
+      text: 'news',
+      icon: <NewspaperIcon />,
+      route: '/back-office/news',
+    },
+    {
+      text: 'activities',
+      icon: <VolunteerActivismIcon />,
+      route: '/back-office/actividades',
+    },
+    {
+      text: 'categories',
+      icon: <CategoryIcon />,
+    },
+    {
+      text: 'testimonials',
+      icon: <TextsmsIcon />,
+      route: '/back-office/testimonials',
+    },
+    {
+      text: 'organizations',
+      icon: <AccountTreeIcon />,
+      route: '/back-office/organizations',
+    },
+    {
+      text: 'slides',
+      icon: <InsertDriveFileIcon />,
+    },
+    {
+      text: 'users',
+      icon: <GroupsIcon />,
+      route: '/back-office/users',
+    },
+    {
+      text: 'members',
+      icon: <PeopleIcon />,
+    },
+    {
+      text: 'edit profile',
+      icon: <AccountCircleIcon />,
+    },
+  ],
+  standard: [
+    {
+      text: 'edit profile',
+      icon: <AccountCircleIcon />,
+    },
+  ],
+}
 
 const cardFields = {
   news: {
@@ -171,7 +187,18 @@ const nestedRoutes = {
 const BackOfficeContainer = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [activeSection, setActiveSection] = React.useState('news');
+  const [isAdmin, setIsAdmin] = React.useState(false);
   const location = useLocation();
+  const user = useSelector((state) => state.auth.userData);
+
+  React.useEffect(() => {
+    const verifyAdmin = async () => {
+      const data = await httpService('get', 'users')
+      if (data.code !== 200) return;
+      setIsAdmin(true);
+    }
+    verifyAdmin()
+  }, [user])
 
   const handleFilterList = (filter) => {
     setActiveSection(filter)
@@ -185,7 +212,7 @@ const BackOfficeContainer = () => {
   return (
     <BackOffice
       data={array[activeSection]}
-      options={drawerOptions}
+      options={isAdmin ? drawerOptions.admin : drawerOptions.standard}
       mobileOpen={mobileOpen}
       activeSection={activeSection}
       handleFilterList={handleFilterList}
