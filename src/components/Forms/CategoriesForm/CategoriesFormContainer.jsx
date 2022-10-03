@@ -1,17 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { Typography } from '@mui/material'
+import { useParams } from 'react-router-dom'
+import { ErrorMessage } from 'formik'
 import CategoriesForm from './CategoriesForm'
 import validationSchema from '../../../schemas/categories'
 
+import httpService from '../../../services/httpService'
+
 const CategoriesFormContainer = () => {
-  const initialValues = {
-    name: 'hola',
-    description: 'holaaaa',
-  }
+  const { id } = useParams()
+  const [initialValues, setInitialValues] = useState({
+    name: '',
+    description: '',
+  })
+  const [errorStatus, setErrorStatus] = useState(null)
+  const [errorMessage, setErrorMessage] = useState(null)
 
-  //   useEffect( ()=> {
+  const findCategoryById = useCallback(async () => {
+    const data = await httpService('put', `categories/${id}`)
 
-  //   },[])
+    if (data === 200) {
+      setInitialValues({
+        name: data.body.name,
+        description: data.body.description,
+      })
+    } else {
+      setErrorStatus(data.response.status)
+      setErrorMessage(data.response.statusText)
+    }
+  }, [])
+
+  useEffect(() => {
+    findCategoryById(id)
+  }, [id, findCategoryById])
 
   return (
     <>
