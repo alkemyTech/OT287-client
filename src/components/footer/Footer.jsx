@@ -16,11 +16,9 @@ function Footer({ logo, menu, contact }) {
       disableGutters
       sx={{
         width: '100%',
-        backgroundColor: 'rgb(200,200,200)',
-        position: 'absolute',
-        margin: 0,
+        backgroundColor: 'rgb(240,240,240)',
         padding: 0,
-        height: '30%',
+        height: '240px',
         justifyContent: 'center',
       }}
     >
@@ -33,7 +31,7 @@ function Footer({ logo, menu, contact }) {
             left: { lg: '42%', xs: '27%' },
             bottom: '30px',
             height: '50px',
-            backgroundColor: 'rgb(200,200,200)',
+            backgroundColor: 'rgb(240,240,240)',
           }}
           component="img"
           src={logo}
