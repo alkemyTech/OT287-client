@@ -19,6 +19,7 @@ import BackofficeTestimonials from '../components/BackOffice/Testimonials/Testim
 import Logout from '../components/Logout/Logout'
 import PrivateRoute from '../components/PrivateRoute/PrivateRoute'
 import BackOfficeActivities from '../components/BackOffice/Activities/ActivitiesContainer'
+import CategoriesContainer from '../components/BackOffice/Categories/CategoriesContainer'
 
 const Router = () => (
   <Routes>
@@ -45,6 +46,7 @@ const Router = () => (
         <Route path="actividades/:id/editar" element={<ActivitiesFormContainer />} />
         <Route path="news/create" element={<NewsFormContainer />} />
         <Route path="news/:id/edit" element={<NewsFormContainer />} />
+        <Route path="categorias" element={<CategoriesContainer />} />
       </Route>
     </Route>
   </Routes>

@@ -94,6 +94,7 @@ const drawerOptions = {
     {
       text: 'categories',
       icon: <CategoryIcon />,
+      route: '/back-office/categorias',
     },
     {
       text: 'testimonials',
