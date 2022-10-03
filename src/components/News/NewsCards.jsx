@@ -1,7 +1,6 @@
 import React from 'react'
+import { Grid, Container, Box } from '@mui/material'
 import MediaCard from './MediaCard'
-import { Container } from '@mui/system'
-import { Grid, Box } from '@mui/material'
 
 
 const NewsCards = ({data, error, errorMessage}) => {

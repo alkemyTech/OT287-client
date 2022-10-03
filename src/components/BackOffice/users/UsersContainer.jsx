@@ -1,51 +1,40 @@
-import React from 'react'
+import { Alert } from '@mui/material'
+import React, { useState, useEffect } from 'react'
+import httpService from '../../../services/httpService'
+import Loader from '../../Loader/Loader'
 import Users from './Users'
 
-const users = [
+const UsersContainer = () => {
+  const [users, setUsers] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [errorStatus, setErrorStatus] = useState(null)
 
-  {
-    id: 1,
-    nombre: 'Laureano',
-    apellido: 'Marrero',
-    email: 'email1@gmail.com',
-  },
-  {
-    id: 2,
-    nombre: 'Jordi',
-    apellido: 'Trillo',
-    email: 'email2@gmail.com',
-  },
-  {
-    id: 3,
-    nombre: 'Luis',
-    apellido: 'Vidal',
-    email: 'email3@gmail.com',
-  },
-  {
-    id: 4,
-    nombre: 'Elia',
-    apellido: 'Pineda',
-    email: 'email4@gmail.com',
-  },
-  {
-    id: 5,
-    nombre: 'Feliciana',
-    apellido: 'Castro',
-    email: 'email5@gmail.com',
-  },
-  {
-    id: 6,
-    nombre: 'Octavio',
-    apellido: 'Belmonte',
-    email: 'email6@gmail.com',
-  },
+  useEffect(() => {
+    const getUsers = async () => {
+      setLoading(true)
+      try {
+        const res = await httpService('get', '/users')
+        if (res.code === 200) {
+          setUsers(res.body)
+          setLoading(false)
+        } else {
+          setErrorStatus(res.response.status)
+        }
+        setLoading(false)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getUsers()
+  }, [])
 
-]
-
-const UsersContainer = () => (
-  <div>
-    <Users users={users} />
-  </div>
-)
+  if (loading) {
+    return <Loader />
+  }
+  if (errorStatus === 404) {
+    return <Alert severity="error">No se encontraron usuarios</Alert>
+  }
+  return <Users users={users} />
+}
 
 export default UsersContainer
