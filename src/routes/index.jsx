@@ -15,8 +15,9 @@ import NewsFormContainer from '../components/Forms/NewsForm/NewsFormContainer'
 import BackofficeUsers from '../components/BackOffice/users/UsersContainer'
 import BackofficeNews from '../components/BackOffice/news/NewsContainer'
 import Logout from '../components/Logout/Logout'
-import PrivateRoute  from '../components/PrivateRoute/PrivateRoute'
+import PrivateRoute from '../components/PrivateRoute/PrivateRoute'
 import BackOfficeActivities from '../components/BackOffice/Activities/ActivitiesContainer'
+import CategoriesFormContainer from '../components/Forms/CategoriesForm/CategoriesFormContainer'
 
 const Router = () => (
   <Routes>
@@ -25,12 +26,12 @@ const Router = () => (
       <Route path="/logout" element={<Logout />} />
       <Route path="/login" element={<LoginFormContainer />} />
       <Route path="/registrate" element={<RegisterFormContainer />} />
-      <Route path="/mi-perfil" element={<PrivateRoute><MyProfileContainer/></PrivateRoute>} />
+      <Route path="/mi-perfil" element={<PrivateRoute><MyProfileContainer /></PrivateRoute>} />
       <Route path="/novedades" element={<NewsContainer />} />
       <Route path="/novedades/:id" element={<NewsByIdContainer />} />
       <Route path="/contacto" element={<ContactScreen />} />
       {/* Back-Office Routes for Admin access only */}
-      <Route path="/back-office" element={<PrivateRoute><BackOfficeContainer/></PrivateRoute>}>
+      <Route path="/back-office" element={<PrivateRoute><BackOfficeContainer /></PrivateRoute>}>
         <Route path="organizations" element={<BackofficeNews />} />
         <Route path="organizations/:id/edit" element={<EditOrganizationContainer />} />
         <Route path="users" element={<BackofficeUsers />} />
@@ -41,6 +42,8 @@ const Router = () => (
         <Route path="actividades/:id/editar" element={<ActivitiesFormContainer />} />
         <Route path="news/create" element={<NewsFormContainer />} />
         <Route path="news/:id/edit" element={<NewsFormContainer />} />
+        <Route path="categories/create" element={<CategoriesFormContainer />} />
+        <Route path="categories/:id/edit" element={<CategoriesFormContainer />} />
       </Route>
     </Route>
   </Routes>
