@@ -161,6 +161,10 @@ const nestedRoutes = {
   organizations: {
     edit: 'organizations/:id/edit',
   },
+  news: {
+    create: 'news/create',
+    edit: 'news/:id/edit', // Para más adelante, cuando conectemos todas las rutas, debería ser `novedades/${idState}` y habría que mandarle el ID desde la llamada del componente
+  },
 }
 
 const BackOfficeContainer = () => {

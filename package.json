@@ -7,6 +7,8 @@
     "node": ">=14"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^35.1.0",
+    "@ckeditor/ckeditor5-react": "^5.0.2",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.6",
@@ -19,6 +21,7 @@
     "formik": "^2.2.9",
     "prop-types": "^15.8.1",
     "react": "^16.13.1",
+    "react-aws-s3": "^1.5.0",
     "react-dom": "^16.13.1",
     "react-loader-spinner": "^5.3.4",
     "react-material-ui-carousel": "^3.4.2",
