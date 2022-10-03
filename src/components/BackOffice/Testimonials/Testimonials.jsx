@@ -6,13 +6,15 @@ import {
 } from '@mui/material'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
+import TestimonialDeleteModal from './TestimonialDeleteModal';
 
 const Testimonials = (
   props,
 ) => {
   const {
-    testimonials,
-    errorStatusTestimonials,
+    testimonials, handleModal, setHandleModal, setElementToDelete, elementToDelete,
+    deleteElement, deletedSucces, errorStatus, getTestimonialsData, errorStatusTestimonials,
+    setDeletedSucces,
   } = props
   return (
     <>
@@ -34,9 +36,9 @@ const Testimonials = (
           }}
           component={Paper}
         >
-          <Table>
+          <Table stickyHeader>
             <TableHead>
-              <TableRow sx={{ backgroundColor: 'rgb(240,240,240)' }}>
+              <TableRow>
                 <TableCell><b>Nombre</b></TableCell>
                 <TableCell><b>Testimonio</b></TableCell>
                 <TableCell align="center"><b>Acciones</b></TableCell>
@@ -75,17 +77,22 @@ const Testimonials = (
                       }}
                       />
 
-                      <HighlightOffIcon sx={{
-                        opacity: '0.5',
-                        padding: '1px',
-                        borderRadius: '5px',
-                        backgroundColor: 'red',
-                        color: 'white',
-                        fontSize: '1.8rem',
-                        margin: '0 5px',
-                        cursor: 'pointer',
-                        '&:hover': { opacity: '1' },
-                      }}
+                      <HighlightOffIcon
+                        sx={{
+                          opacity: '0.5',
+                          padding: '1px',
+                          borderRadius: '5px',
+                          backgroundColor: 'red',
+                          color: 'white',
+                          fontSize: '1.8rem',
+                          margin: '0 5px',
+                          cursor: 'pointer',
+                          '&:hover': { opacity: '1' },
+                        }}
+                        onClick={() => {
+                          setHandleModal(true)
+                          setElementToDelete(elem)
+                        }}
                       />
 
                     </>
@@ -97,6 +104,17 @@ const Testimonials = (
           </Table>
         </TableContainer>
       </Box>
+      <TestimonialDeleteModal
+        openModal={handleModal}
+        setHandleModal={setHandleModal}
+        elementToDelete={elementToDelete}
+        deleteElement={deleteElement}
+        deletedSucces={deletedSucces}
+        errorStatus={errorStatus}
+        getTestimonialsData={getTestimonialsData}
+        setElementToDelete={setElementToDelete}
+        setDeletedSucces={setDeletedSucces}
+      />
     </>
   )
 }
@@ -105,10 +123,17 @@ Testimonials.propTypes = {
   testimonials: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
-    image: PropTypes.string,
     content: PropTypes.string,
-    createdAt: PropTypes.string,
   })).isRequired,
+  handleModal: PropTypes.bool.isRequired,
+  setHandleModal: PropTypes.func.isRequired,
+  setElementToDelete: PropTypes.func.isRequired,
+  elementToDelete: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  deleteElement: PropTypes.func.isRequired,
+  deletedSucces: PropTypes.bool.isRequired,
+  errorStatus: PropTypes.string.isRequired,
+  getTestimonialsData: PropTypes.func.isRequired,
   errorStatusTestimonials: PropTypes.string.isRequired,
+  setDeletedSucces: PropTypes.func.isRequired,
 }
 export default Testimonials
