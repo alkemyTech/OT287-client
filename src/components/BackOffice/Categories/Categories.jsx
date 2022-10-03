@@ -1,10 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import { Alert, AlertTitle } from '@mui/material'
 import Items from '../Items'
 
-const Categories = ({ data, cardFields, nestedRoutes }) => (
-  <Items array={data} cardFields={cardFields} nestedRoutes={nestedRoutes} />
-)
+const Categories = ({
+  error, data, cardFields, nestedRoutes,
+}) => {
+  if (error) {
+    return (
+      <Alert severity="error" sx={{ mt: 2 }}>
+        <AlertTitle>Error</AlertTitle>
+        { error }
+      </Alert>
+    )
+  }
+
+  return (
+    <Items array={data} cardFields={cardFields} nestedRoutes={nestedRoutes} />
+  )
+}
 
 Categories.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({
@@ -21,6 +35,11 @@ Categories.propTypes = {
     content: PropTypes.string,
     imageUrl: null,
   }).isRequired,
+  error: PropTypes.string,
+}
+
+Categories.defaultProps = {
+  error: null,
 }
 
 export default Categories

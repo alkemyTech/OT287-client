@@ -22,8 +22,11 @@ const CategoriesContainer = () => {
     const getCategories = async () => {
       try {
         const response = await httpService('get', 'categories')
-        if (response.code !== 200) return
-        setData(response.body)
+        if (response.code === 200) {
+          setData(response.body)
+        } else {
+          setError(`Ha ocurrido un error: ${response.message}`)
+        }
       } catch (err) {
         setError(`Ha ocurrido un error: ${err.response}`)
       }
