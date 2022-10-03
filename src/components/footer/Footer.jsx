@@ -58,17 +58,17 @@ function Footer({ logo, menu, socials }) {
             </a>
           </IconButton>
           <IconButton color="inherit" sx={{ textDecoration: 'none' }}>
-            <a href={socials.facebook} target="_blank" rel="noreferrer">
+            <a href={socials.facebook} target="_blank" rel="noopener noreferrer">
               <FacebookIcon sx={{ fill: 'unset' }} />
             </a>
           </IconButton>
           <IconButton color="inherit">
-            <a href={socials.instagram} target="_blank" rel="noreferrer">
+            <a href={socials.instagram} target="_blank" rel="noopener noreferrer">
               <InstagramIcon sx={{ fill: 'unset' }} />
             </a>
           </IconButton>
           <IconButton color="inherit">
-            <a href={socials.linkedin} target="_blank" rel="noreferrer">
+            <a href={socials.linkedin} target="_blank" rel="noopener noreferrer">
               <LinkedInIcon sx={{ fill: 'unset' }} />
             </a>
           </IconButton>
