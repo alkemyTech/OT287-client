@@ -19,6 +19,7 @@ import BackofficeTestimonials from '../components/BackOffice/Testimonials/Testim
 import Logout from '../components/Logout/Logout'
 import PrivateRoute from '../components/PrivateRoute/PrivateRoute'
 import BackOfficeActivities from '../components/BackOffice/Activities/ActivitiesContainer'
+import MembersContainer from '../components/Members/MembersContainer'
 
 const Router = () => (
   <Routes>
@@ -31,6 +32,7 @@ const Router = () => (
       <Route path="/novedades" element={<NewsContainer />} />
       <Route path="/novedades/:id" element={<NewsByIdContainer />} />
       <Route path="/contacto" element={<ContactScreen />} />
+      <Route path="/miembros" element={<MembersContainer />} />
       <Route path="/actividades/:id" element={<ActivityContainer />} />
       {/* Back-Office Routes for Admin access only */}
       <Route path="/back-office" element={<PrivateRoute><BackOfficeContainer /></PrivateRoute>}>
