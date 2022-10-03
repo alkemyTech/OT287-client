@@ -13,15 +13,12 @@ import AddAPhotoRoundedIcon from '@mui/icons-material/AddAPhotoRounded';
 function Footer({ logo, menu, contact }) {
   return (
     <Toolbar
-      disableGutters={true}
+      disableGutters
       sx={{
         width: '100%',
-        backgroundColor: 'rgb(200,200,200)',
-        position: 'absolute',
-        margin: 0,
+        backgroundColor: 'rgb(240,240,240)',
         padding: 0,
-        bottom: 0,
-        height: '30%',
+        height: '240px',
         justifyContent: 'center',
       }}
     >
@@ -34,7 +31,7 @@ function Footer({ logo, menu, contact }) {
             left: { lg: '42%', xs: '27%' },
             bottom: '30px',
             height: '50px',
-            backgroundColor: 'rgb(200,200,200)',
+            backgroundColor: 'rgb(240,240,240)',
           }}
           component="img"
           src={logo}
@@ -43,15 +40,13 @@ function Footer({ logo, menu, contact }) {
         />
 
         <Stack justifyContent="center" direction="row" spacing={{ xs: 2, lg: 6 }}>
-          {menu.map((elem) => {
-            return (
-              <Typography key={elem.id} fontSize={{ xs: '10px', lg: '1rem' }}>
-                <Link style={{ color: 'inherit', textDecoration: 'none' }} to={elem.route}>
-                  <span>{elem.text}</span>
-                </Link>
-              </Typography>
-            )
-          })}
+          {menu.map((elem) => (
+            <Typography key={elem.id} fontSize={{ xs: '10px', lg: '1rem' }}>
+              <Link style={{ color: 'inherit', textDecoration: 'none' }} to={elem.route}>
+                <span>{elem.text}</span>
+              </Link>
+            </Typography>
+          ))}
         </Stack>
 
         <hr />

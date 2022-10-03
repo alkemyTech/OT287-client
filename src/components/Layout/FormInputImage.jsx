@@ -11,7 +11,7 @@ const FormInputImage = ({ label, formProps, ...props }) => {
 
   const handleOnChange = (event) => {
     const file = event.target.files[0];
-    setFileName(file.name);
+    setFileName(`Imagen a cargar: ${file.name}`);
     formProps.setFieldValue(props.name, file)
   }
 
