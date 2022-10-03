@@ -21,25 +21,23 @@ const EditUserContainer = () => {
   };
 
   // Get user byId
-
-  const getUser = async () => {
-    setLoading(true)
-    try {
-      const res = await httpService('get', `users/${id}`)
-      if (res.code === 200) {
-        setUser(res.body)
-        setRole(res.body.roleId)
-        setLoading(false)
-      } else {
-        setErrorStatus(res.response.status)
-      }
-      setLoading(false)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
   useEffect(() => {
+    const getUser = async () => {
+      setLoading(true)
+      try {
+        const res = await httpService('get', `users/${id}`)
+        if (res.code === 200) {
+          setUser(res.body)
+          setRole(res.body.roleId)
+          setLoading(false)
+        } else {
+          setErrorStatus(res.response.status)
+        }
+        setLoading(false)
+      } catch (error) {
+        console.log(error)
+      }
+    }
     getUser()
   }, [])
 

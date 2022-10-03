@@ -9,7 +9,7 @@ import Alert from '../Alert/Alert';
 
 const MyProfile = (props) => {
   const {
-    data, handleDeleteUser, handleEditUser, id, userDelete, errorStatus,
+    data, handleDeleteUser, id, userDelete, errorStatus,
   } = props
 
   const navigate = useNavigate()
@@ -68,7 +68,6 @@ MyProfile.propTypes = {
   id: PropTypes.string.isRequired,
   userDelete: PropTypes.bool.isRequired,
   errorStatus: PropTypes.string.isRequired,
-  handleEditUser: PropTypes.func.isRequired,
   handleDeleteUser: PropTypes.func.isRequired,
 }
 
