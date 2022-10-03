@@ -53,7 +53,6 @@ const EditUserContainer = () => {
       await httpService('put', `users/${id}`, {
         firstName: values.firstName,
         lastName: values.lastName,
-        password: values.password,
         roleId: role,
       })
       setEditSucces(true)
@@ -67,8 +66,6 @@ const EditUserContainer = () => {
   const initialValues = {
     firstName: user.firstName,
     lastName: user.lastName,
-    password: user.password,
-    email: user.email,
     roleId: user.roleId,
   }
 

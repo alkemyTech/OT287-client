@@ -43,7 +43,6 @@ const EditUserProfileContainer = () => {
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
-        password: values.password,
       })
       setEditSucces(true)
       editSuccesNavigation()
@@ -56,7 +55,6 @@ const EditUserProfileContainer = () => {
     firstName: user.firstName,
     lastName: user.lastName,
     email: user.email,
-    password: user.password,
     id: user.id,
 
   }
