@@ -85,7 +85,7 @@ const drawerOptions = [
   {
     text: 'activities',
     icon: <VolunteerActivismIcon />,
-    route: '/back-office/activities',
+    route: '/back-office/actividades',
   },
   {
     text: 'categories',

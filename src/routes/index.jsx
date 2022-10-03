@@ -4,6 +4,7 @@ import HomeContainer from '../components/Home/HomeContainer'
 import BackOfficeContainer from '../components/BackOffice/BackOfficeContainer'
 import LoginFormContainer from '../components/Forms/LoginForm/LoginFormContainer'
 import RegisterFormContainer from '../components/Forms/RegisterForm/RegisterFormContainer'
+import ActivitiesFormContainer from '../components/Forms/ActivitiesForm/ActivitiesFormContainer'
 import NewsContainer from '../components/News/NewsContainer'
 import NewsByIdContainer from '../components/News/NewByIdContainer'
 import MyProfileContainer from '../components/MyProfile/MyProfileContainer'
@@ -14,6 +15,7 @@ import NewsFormContainer from '../components/Forms/NewsForm/NewsFormContainer'
 import BackofficeUsers from '../components/BackOffice/users/UsersContainer'
 import BackofficeNews from '../components/BackOffice/news/NewsContainer'
 import Logout from '../components/Logout/Logout'
+import BackOfficeActivities from '../components/BackOffice/Activities/ActivitiesContainer'
 
 const Router = () => (
   <Routes>
@@ -33,9 +35,11 @@ const Router = () => (
         <Route path="users" element={<BackofficeUsers />} />
         <Route path="news" element={<BackofficeNews />} />
         <Route path="news/:id" element={<BackofficeNews />} />
+        <Route path="actividades" element={<BackOfficeActivities />} />
+        <Route path="actividades/crear" element={<ActivitiesFormContainer />} />
+        <Route path="actividades/:id/editar" element={<ActivitiesFormContainer />} />
         <Route path="news/create" element={<NewsFormContainer />} />
         <Route path="news/:id/edit" element={<NewsFormContainer />} />
-
       </Route>
     </Route>
   </Routes>
