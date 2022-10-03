@@ -38,9 +38,7 @@ const Testimonials = (
             <TableHead>
               <TableRow sx={{ backgroundColor: 'rgb(240,240,240)' }}>
                 <TableCell><b>Nombre</b></TableCell>
-                <TableCell><b>URL Imagen</b></TableCell>
                 <TableCell><b>Testimonio</b></TableCell>
-                <TableCell><b>Fecha creacion</b></TableCell>
                 <TableCell align="center"><b>Acciones</b></TableCell>
               </TableRow>
             </TableHead>
@@ -56,21 +54,9 @@ const Testimonials = (
 
                   </TableCell>
                   <TableCell
-                    sx={{ width: '15%', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                  >
-                    {elem.image}
-
-                  </TableCell>
-                  <TableCell
                     sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}
                   >
                     {elem.content}
-
-                  </TableCell>
-                  <TableCell
-                    sx={{ width: '160px', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                  >
-                    {elem.createdAt}
 
                   </TableCell>
                   <TableCell sx={{ padding: '0', width: '60px' }} align="center">
