@@ -8,6 +8,7 @@ import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import GroupsIcon from '@mui/icons-material/Groups';
 import PeopleIcon from '@mui/icons-material/People';
+import ThreePIcon from '@mui/icons-material/ThreeP';
 import BackOffice from './BackOffice'
 
 const array = {
@@ -103,6 +104,11 @@ const drawerOptions = [
   {
     text: 'slides',
     icon: <InsertDriveFileIcon />,
+  },
+  {
+    text: 'contacts',
+    icon: <ThreePIcon />,
+    route: '/back-office/contacts',
   },
   {
     text: 'users',
