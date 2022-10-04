@@ -19,7 +19,7 @@ const BackOffice = ({
   location,
 }) => (
   <>
-    <Box sx={{ display: 'flex', minHeight: '100vh' }} position="relative">
+    <Box sx={{ display: 'flex', minHeight: '100vh', top: '-120px' }} position="relative">
       <DrawerMenu
         options={options}
         mobileOpen={mobileOpen}
