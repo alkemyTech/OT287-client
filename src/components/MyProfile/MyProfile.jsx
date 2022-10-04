@@ -4,12 +4,15 @@ import {
   Grid, TextField, Typography,
 } from '@mui/material'
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import Alert from '../Alert/Alert';
 
 const MyProfile = (props) => {
   const {
-    data, handleDeleteUser, handleEditUser, id, userDelete, errorStatus,
+    data, handleDeleteUser, id, userDelete, errorStatus,
   } = props
+
+  const navigate = useNavigate()
   return (
     <Grid container widht="100%" display="flex" direction="row" justifyContent="center">
       <Grid
@@ -37,7 +40,7 @@ const MyProfile = (props) => {
           </Grid>
         ))}
         <Grid item>
-          <Button variant="contained" color="primary" sx={{ fontSize: { xs: '.6rem', md: '.8rem', lg: '1rem' } }} onClick={handleEditUser}>Guardar cambios</Button>
+          <Button variant="contained" color="primary" sx={{ fontSize: { xs: '.6rem', md: '.8rem', lg: '1rem' } }} onClick={() => { navigate('/mi-perfil/editar') }}>Editar</Button>
         </Grid>
         <Grid item>
           <Button
@@ -65,7 +68,6 @@ MyProfile.propTypes = {
   id: PropTypes.string.isRequired,
   userDelete: PropTypes.bool.isRequired,
   errorStatus: PropTypes.string.isRequired,
-  handleEditUser: PropTypes.func.isRequired,
   handleDeleteUser: PropTypes.func.isRequired,
 }
 
