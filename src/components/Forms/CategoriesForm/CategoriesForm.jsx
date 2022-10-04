@@ -1,12 +1,17 @@
 import React from 'react'
-import { Formik, Form, ErrorMessage } from 'formik'
+import PropTypes from 'prop-types'
+import { Formik, Form } from 'formik'
 import {
+  Alert,
   Box, Button, Container, CssBaseline, Grid, Typography,
 } from '@mui/material'
 import FormInputField from '../../Layout/FormInputField'
 
-const CategoriesForm = ({ initialValues, validationSchema }) => {
-  console.log('hola')
+const CategoriesForm = (props) => {
+  const {
+    id, initialValues, validationSchema,
+    onSubmitForm, succesMessage, setSuccesMessage, navigate, error, setErrorStatus,
+  } = props
   return (
     <>
       <Container component="main" maxWidth="sm">
@@ -19,17 +24,16 @@ const CategoriesForm = ({ initialValues, validationSchema }) => {
             alignItems: 'center',
           }}
         >
-          <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold' }}>Novedades!</Typography>
+          <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold' }}>Categorías!</Typography>
           <Formik
             enableReinitialize
             initialValues={initialValues}
             validationSchema={validationSchema}
-            // onSubmit={async (values) => {
-            //   values.content = newContent
-            //   onSubmitForm(values, id)
-            // }}
+            onSubmit={async (values) => {
+              onSubmitForm(values, id)
+            }}
           >
-            {(formProps) => (
+            {() => (
               <Box sx={{ mt: 4 }}>
                 <Form>
                   <Grid container spacing={2}>
@@ -49,9 +53,33 @@ const CategoriesForm = ({ initialValues, validationSchema }) => {
                       >
                         Grabar
                       </Button>
-                      {/* {error && (
-                    <Box component="span" color="red">{error === 409 ? 'El email ingresado ya existe en la base de datos para otro usuario' : errorMessage}</Box>
-                    )} */}
+                      {succesMessage ? (
+                        <Alert
+                          severity="success"
+                          onClose={() => {
+                            setSuccesMessage('')
+                            navigate('/back-office')
+                          }}
+                        >
+                          Tu categoría ha sido
+                          {' '}
+                          {succesMessage}
+                          {' '}
+                        </Alert>
+                      ) : null}
+
+                      {error ? (
+                        <Alert
+                          severity="error"
+                          onClose={() => {
+                            setErrorStatus(null)
+                            navigate('/back-office')
+                          }}
+                        >
+                          { id && error ? 'No se pudo actualizar la categoría' : 'No se pudo crear la categoría'}
+
+                        </Alert>
+                      ) : null}
                     </Grid>
                   </Grid>
                 </Form>
@@ -62,5 +90,24 @@ const CategoriesForm = ({ initialValues, validationSchema }) => {
       </Container>
     </>
   )
+}
+CategoriesForm.propTypes = {
+  id: PropTypes.string,
+  initialValues: PropTypes.shape({
+    name: PropTypes.string,
+    description: PropTypes.string,
+  }).isRequired,
+  validationSchema: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  onSubmitForm: PropTypes.func.isRequired,
+  succesMessage: PropTypes.string.isRequired,
+  setSuccesMessage: PropTypes.func.isRequired,
+  navigate: PropTypes.func.isRequired,
+  error: PropTypes.string,
+  setErrorStatus: PropTypes.func.isRequired,
+}
+
+CategoriesForm.defaultProps = {
+  id: null,
+  error: null,
 }
 export default CategoriesForm
