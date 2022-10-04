@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Footer from './Footer'
+import httpService from '../../services/httpService'
 
-const data = {
+const mockedData = {
   logo: 'https://i.imgur.com/nIclrvm.png',
   menu: [
     {
@@ -65,16 +66,52 @@ const data = {
   ],
 
 }
-const FooterContainer = () => (
 
-  <div>
-    <Footer
-      logo={data.logo}
-      menu={data.menu}
-      contact={data.contact}
-    />
-  </div>
+const FooterContainer = () => {
+  const [data, setData] = useState({
+    logo: '',
+    menu: '',
+    socials: {
+      email: '',
+      facebook: '',
+      instagram: '',
+      linkedin: '',
+    },
+  })
+  const [errorStatus, setErrorStatus] = useState(null)
+  const [errorMessage, setErrorMessage] = useState(null)
 
-)
+  useEffect(() => {
+    (async () => {
+      try {
+        const getData = await httpService('get', 'organizations/1/public')
+        setData({
+          logo: getData.body.image,
+          socials: {
+            email: getData.body.email,
+            facebook: getData.body.fbUrl,
+            instagram: getData.body.igUrl,
+            linkedin: getData.body.ldUrl,
+          },
+        })
+      } catch (error) {
+        setErrorStatus(error.response.status)
+        setErrorMessage(error.response.statusText)
+      }
+    })()
+  }, [])
+
+  return (
+    <div>
+      <Footer
+        logo={mockedData.logo}
+        menu={mockedData.menu}
+        socials={data.socials}
+        error={errorStatus}
+        errorMessage={errorMessage}
+      />
+    </div>
+  )
+}
 
 export default FooterContainer

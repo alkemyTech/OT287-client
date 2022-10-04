@@ -1,26 +1,24 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {
-  Toolbar, Box, Stack, Typography,
+  Toolbar, Box, Stack, Typography, IconButton,
 } from '@mui/material'
 
-import AlternateEmailRoundedIcon from '@mui/icons-material/AlternateEmailRounded';
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
-import AddAPhotoRoundedIcon from '@mui/icons-material/AddAPhotoRounded';
+import AlternateEmailRoundedIcon from '@mui/icons-material/AlternateEmailRounded'
+import FacebookIcon from '@mui/icons-material/Facebook'
+import InstagramIcon from '@mui/icons-material/Instagram'
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
 
-function Footer({ logo, menu, contact }) {
+function Footer({ logo, menu, socials }) {
   return (
     <Toolbar
       disableGutters
       sx={{
         width: '100%',
-        backgroundColor: 'rgb(200,200,200)',
-        position: 'absolute',
-        margin: 0,
+        backgroundColor: 'rgb(240,240,240)',
         padding: 0,
-        height: '30%',
+        height: '240px',
         justifyContent: 'center',
       }}
     >
@@ -33,12 +31,11 @@ function Footer({ logo, menu, contact }) {
             left: { lg: '42%', xs: '27%' },
             bottom: '30px',
             height: '50px',
-            backgroundColor: 'rgb(200,200,200)',
+            backgroundColor: 'rgb(240,240,240)',
           }}
           component="img"
           src={logo}
           alt="ong image"
-
         />
 
         <Stack justifyContent="center" direction="row" spacing={{ xs: 2, lg: 6 }}>
@@ -53,19 +50,31 @@ function Footer({ logo, menu, contact }) {
 
         <hr />
         <Stack justifyContent="center" direction="row" spacing={{ xs: 2, lg: 6 }}>
-          <AlternateEmailRoundedIcon />
-          <FacebookRoundedIcon />
-          <LocalPhoneRoundedIcon />
-          <AddAPhotoRoundedIcon />
+          <IconButton color="inherit">
+            <a href={`mailto:${socials.email}`}>
+              <AlternateEmailRoundedIcon sx={{ fill: 'unset' }} />
+            </a>
+          </IconButton>
+          <IconButton color="inherit" sx={{ textDecoration: 'none' }}>
+            <a href={socials.facebook} target="_blank" rel="noopener noreferrer">
+              <FacebookIcon sx={{ fill: 'unset' }} />
+            </a>
+          </IconButton>
+          <IconButton color="inherit">
+            <a href={socials.instagram} target="_blank" rel="noopener noreferrer">
+              <InstagramIcon sx={{ fill: 'unset' }} />
+            </a>
+          </IconButton>
+          <IconButton color="inherit">
+            <a href={socials.linkedin} target="_blank" rel="noopener noreferrer">
+              <LinkedInIcon sx={{ fill: 'unset' }} />
+            </a>
+          </IconButton>
         </Stack>
         <p style={{ textAlign: 'center' }}>2022 by Alkemy. All Rights Reserved</p>
       </Box>
     </Toolbar>
   )
-}
-
-Footer.defaultProps = {
-  logo: 'logo not found',
 }
 
 Footer.propTypes = {
@@ -75,11 +84,16 @@ Footer.propTypes = {
     text: PropTypes.string,
     route: PropTypes.string,
   })).isRequired,
-  contact: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
-    text: PropTypes.string,
-    url: PropTypes.string,
-  })).isRequired,
+  socials: PropTypes.shape({
+    email: PropTypes.string,
+    facebook: PropTypes.string,
+    instagram: PropTypes.string,
+    linkedin: PropTypes.string,
+  }).isRequired,
+}
+
+Footer.defaultProps = {
+  logo: 'logo not found',
 }
 
 export default Footer
