@@ -6,6 +6,7 @@ import {
 } from '@mui/material'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
+import { useNavigate } from 'react-router-dom';
 
 const Testimonials = (
   props,
@@ -14,6 +15,7 @@ const Testimonials = (
     testimonials,
     errorStatusTestimonials,
   } = props
+  const navigate = useNavigate()
   return (
     <>
       <Box>
@@ -61,18 +63,20 @@ const Testimonials = (
                   </TableCell>
                   <TableCell sx={{ padding: '0', width: '60px' }} align="center">
                     <>
-                      <EditIcon sx={{
-                        opacity: '0.5',
-                        padding: '1px',
-                        border: '1px solid red',
-                        borderRadius: '5px',
-                        backgroundColor: 'white',
-                        color: 'red',
-                        fontSize: '1.8rem',
-                        margin: '0 5px',
-                        cursor: 'pointer',
-                        '&:hover': { opacity: '1' },
-                      }}
+                      <EditIcon
+                        sx={{
+                          opacity: '0.5',
+                          padding: '1px',
+                          border: '1px solid red',
+                          borderRadius: '5px',
+                          backgroundColor: 'white',
+                          color: 'red',
+                          fontSize: '1.8rem',
+                          margin: '0 5px',
+                          cursor: 'pointer',
+                          '&:hover': { opacity: '1' },
+                        }}
+                        onClick={() => { navigate(`/back-office/testimonials/${elem.id}/edit`) }}
                       />
 
                       <HighlightOffIcon sx={{
