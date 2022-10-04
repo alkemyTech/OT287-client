@@ -22,6 +22,7 @@ import EditUserContainer from '../components/BackOffice/UserEditFormBackOffice/E
 import PrivateRoute from '../components/PrivateRoute/PrivateRoute'
 import BackOfficeActivities from '../components/BackOffice/Activities/ActivitiesContainer'
 import MembersContainer from '../components/Members/MembersContainer'
+import ContactsContainer from '../components/BackOffice/Contacts/ContactsContainer'
 
 const Router = () => (
   <Routes>
@@ -52,6 +53,7 @@ const Router = () => (
         <Route path="actividades/:id/editar" element={<ActivitiesFormContainer />} />
         <Route path="news/create" element={<NewsFormContainer />} />
         <Route path="news/:id/edit" element={<NewsFormContainer />} />
+        <Route path="contacts" element={<ContactsContainer />} />
       </Route>
     </Route>
   </Routes>
