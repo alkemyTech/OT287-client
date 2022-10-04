@@ -1,5 +1,6 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import HomeContainer from '../components/Home/HomeContainer'
 import BackOfficeContainer from '../components/BackOffice/BackOfficeContainer'
 import LoginFormContainer from '../components/Forms/LoginForm/LoginFormContainer'
@@ -22,44 +23,53 @@ import EditUserContainer from '../components/BackOffice/UserEditFormBackOffice/E
 import PrivateRoute from '../components/PrivateRoute/PrivateRoute'
 import BackOfficeActivities from '../components/BackOffice/Activities/ActivitiesContainer'
 import MembersContainer from '../components/Members/MembersContainer'
-import ContactsContainer from '../components/BackOffice/Contacts/ContactsContainer'
-import CategoriesFormContainer from '../components/Forms/CategoriesForm/CategoriesFormContainer'
 
-const Router = () => (
-  <Routes>
-    <Route path="/" element={<MainLayout />}>
-      <Route path="/" element={<HomeContainer />} />
-      <Route path="/logout" element={<Logout />} />
-      <Route path="/login" element={<LoginFormContainer />} />
-      <Route path="/registrate" element={<RegisterFormContainer />} />
-      <Route path="/mi-perfil" element={<MyProfileContainer />} />
-      <Route path="/mi-perfil/editar" element={<EditUserProfileContainer />} />
-      <Route path="/mi-perfil" element={<PrivateRoute><MyProfileContainer /></PrivateRoute>} />
-      <Route path="/novedades" element={<NewsContainer />} />
-      <Route path="/novedades/:id" element={<NewsByIdContainer />} />
-      <Route path="/contacto" element={<ContactScreen />} />
-      <Route path="/miembros" element={<MembersContainer />} />
-      <Route path="/actividades/:id" element={<ActivityContainer />} />
-      {/* Back-Office Routes for Admin access only */}
-      <Route path="/back-office" element={<PrivateRoute><BackOfficeContainer /></PrivateRoute>}>
-        <Route path="organizations" element={<BackofficeNews />} />
-        <Route path="organizations/:id/edit" element={<EditOrganizationContainer />} />
-        <Route path="users" element={<BackofficeUsers />} />
-        <Route path="users/:id" element={<EditUserContainer />} />
-        <Route path="news" element={<BackofficeNews />} />
-        <Route path="testimonials" element={<BackofficeTestimonials />} />
-        <Route path="news/:id" element={<BackofficeNews />} />
-        <Route path="actividades" element={<BackOfficeActivities />} />
-        <Route path="actividades/crear" element={<ActivitiesFormContainer />} />
-        <Route path="actividades/:id/editar" element={<ActivitiesFormContainer />} />
-        <Route path="news/create" element={<NewsFormContainer />} />
-        <Route path="news/:id/edit" element={<NewsFormContainer />} />
-        <Route path="contacts" element={<ContactsContainer />} />
-        <Route path="categories/create" element={<CategoriesFormContainer />} />
-        <Route path="categories/:id/edit" element={<CategoriesFormContainer />} />
-      </Route>
-    </Route>
-  </Routes>
-)
+const Router = () => {
+  const location = useLocation();
+
+  return (
+    <SwitchTransition>
+      <CSSTransition
+        key={location.pathname}
+        timeout={200}
+        classNames="page"
+        unmountOnExit
+        appear
+        exit = {false}
+      >
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route path="/" element={<HomeContainer />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/login" element={<LoginFormContainer />} />
+            <Route path="/registrate" element={<RegisterFormContainer />} />
+            <Route path="/mi-perfil" element={<MyProfileContainer />} />
+            <Route path="/mi-perfil/editar" element={<EditUserProfileContainer />} />
+            <Route path="/mi-perfil" element={<PrivateRoute><MyProfileContainer /></PrivateRoute>} />
+            <Route path="/novedades" element={<NewsContainer />} />
+            <Route path="/novedades/:id" element={<NewsByIdContainer />} />
+            <Route path="/contacto" element={<ContactScreen />} />
+            <Route path="/miembros" element={<MembersContainer />} />
+            <Route path="/actividades/:id" element={<ActivityContainer />} />
+            {/* Back-Office Routes for Admin access only */}
+            <Route path="/back-office" element={<PrivateRoute><BackOfficeContainer /></PrivateRoute>}>
+              <Route path="organizations" element={<BackofficeNews />} />
+              <Route path="organizations/:id/edit" element={<EditOrganizationContainer />} />
+              <Route path="users" element={<BackofficeUsers />} />
+              <Route path="users/:id" element={<EditUserContainer />} />
+              <Route path="news" element={<BackofficeNews />} />
+              <Route path="testimonials" element={<BackofficeTestimonials />} />
+              <Route path="news/:id" element={<BackofficeNews />} />
+              <Route path="actividades" element={<BackOfficeActivities />} />
+              <Route path="actividades/crear" element={<ActivitiesFormContainer />} />
+              <Route path="actividades/:id/editar" element={<ActivitiesFormContainer />} />
+              <Route path="news/create" element={<NewsFormContainer />} />
+              <Route path="news/:id/edit" element={<NewsFormContainer />} />
+            </Route>
+          </Route>
+        </Routes>
+      </CSSTransition>
+    </SwitchTransition>
+)}
 
 export default Router
