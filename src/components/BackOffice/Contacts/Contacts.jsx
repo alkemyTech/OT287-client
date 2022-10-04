@@ -76,7 +76,9 @@ const Contacts = (props) => {
                   </TableCell>
                 </TableRow>
               )) }
-              {errorStatus ? 'Error al traer Contactos' : null}
+
+              {errorStatus ? 'No hay contactos para mostrar' : null}
+
             </TableBody>
           </Table>
         </TableContainer>
@@ -86,12 +88,17 @@ const Contacts = (props) => {
 }
 Contacts.propTypes = {
   contacts: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string,
+    id: PropTypes.number,
     name: PropTypes.string,
     email: PropTypes.string,
     message: PropTypes.string,
-  })).isRequired,
-  errorStatus: PropTypes.string.isRequired,
+  })),
+  errorStatus: PropTypes.string,
+}
+
+Contacts.defaultProps = {
+  errorStatus: null,
+  contacts: null,
 }
 
 export default Contacts

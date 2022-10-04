@@ -4,7 +4,7 @@ import Contacts from './Contacts'
 
 const ContactsContainer = () => {
   const [contactsData, setContactsData] = useState(null)
-  const [errorStatus, setErrorStatus] = useState(300)
+  const [errorStatus, setErrorStatus] = useState(null)
 
   const getContactsData = useCallback(async () => {
     try {
@@ -12,10 +12,10 @@ const ContactsContainer = () => {
       if (data.code === 200) {
         setContactsData(data.body)
       } else {
-        setErrorStatus(data.code)
+        setErrorStatus(data.response.statusText)
       }
     } catch (error) {
-      setErrorStatus(error.response)
+      setErrorStatus(error)
     }
   }, [])
 
