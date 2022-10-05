@@ -62,7 +62,7 @@ const LoginForm = ({
                 {error && (
                 <Box component="span">{error === 400 ? 'El usuario o la contraseña son invalidos' : `Hay un problema con los datos ingresados: ${errorMessage}`}</Box>
                 )}
-                <Typography className="registerText" component="p" variant="p" sx={{ mt: { xs: '25px', lg: '120px' } }}>
+                <Typography className="registerText" component="p" variant="p" sx={{ mt: { xs: '25px', lg: '120px' }, fontSize: { xs: '1rem', md: '1.2rem' } }}>
                   No tienes una cuenta?
                   {' '}
                   <Link to="/registrate" backgroundcolor="#DB5752" className="registerLink">Registrate</Link>
