@@ -42,7 +42,7 @@ const LoginForm = ({
           <Form>
             <Grid container spacing={2}>
               <Grid item xs={12}>
-                <FormInputField label="email" name="email" type="email" variant="outlined" />
+                <FormInputField label="email" name="email" type="email" variant="outlined" autoFocus />
               </Grid>
               <Grid item xs={12}>
                 <FormInputField label="Contraseña" name="password" variant="outlined" />
@@ -54,7 +54,7 @@ const LoginForm = ({
                   fullWidth
                   variant="contained"
                   sx={{
-                    maxHeight: '60px', minHeight: '60px', fontSize: '1.4rem', backgroundColor: 'red', fontWeight: 'bolder',
+                    maxHeight: '60px', minHeight: '60px', fontSize: '1.4rem', backgroundColor: '#DB5752', fontWeight: 'bolder',
                   }}
                 >
                   Inicia sesión
@@ -65,7 +65,7 @@ const LoginForm = ({
                 <Typography className="registerText" component="p" variant="p" mt={40}>
                   No tienes una cuenta?
                   {' '}
-                  <Link to="/register" className="registerLink">Registrate</Link>
+                  <Link to="/register" className="registerLink" style={{color:'#DB5752'}} >Registrate</Link>
                 </Typography>
               </Grid>
             </Grid>

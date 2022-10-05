@@ -30,7 +30,7 @@ const ContactScreen = () => (
           flexDirection="column"
           justifyContent="center"
           alignItems="center"
-          sx={{ backgroundColor: '#e3f2fd', borderRadius: '20px' }}
+          sx={{ backgroundColor: '#bacffc', borderRadius: '20px' }}
         >
           <Typography m="20px">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor

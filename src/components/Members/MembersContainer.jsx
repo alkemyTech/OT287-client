@@ -1,7 +1,8 @@
 import React, {
   useCallback, useState, useEffect,
 } from 'react'
-import MembersCard from './MembersCard'
+import { Box } from '@mui/material'
+import MembersCards from './MembersCards'
 import httpService from '../../services/httpService';
 
 const MembersContainer = () => {
@@ -28,12 +29,13 @@ const MembersContainer = () => {
   }, [getMembersData])
 
   return (
-
-    <MembersCard
-      data={members}
-      error={errorStatus}
-      errorMessage={errorMessage}
-    />
+    <Box sx={{m:'120px 100px 20px 100px'}}>
+      <MembersCards
+        data={members}
+        error={errorStatus}
+        errorMessage={errorMessage}
+      />
+    </Box>
   )
 }
 export default MembersContainer
