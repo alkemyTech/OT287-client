@@ -49,9 +49,6 @@ const MyProfileContainer = () => {
     getUserData()
   }, [getUserData])
 
-  const handleEditUser = () => {
-    // esta función dirige al formulario para editar los datos del usuario
-  }
   const handleDeleteUser = async (id) => {
     try {
       const response = await axios.delete(`${process.env.REACT_APP_API_DOMAIN}/users/${id}`)
@@ -70,7 +67,6 @@ const MyProfileContainer = () => {
       <MyProfile
         data={userData}
         handleDeleteUser={handleDeleteUser}
-        handleEditUser={handleEditUser}
         id={user ? user.id : ''}
         userDelete={userDelete}
         errorStatus={errorStatus}

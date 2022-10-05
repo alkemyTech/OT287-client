@@ -6,16 +6,19 @@ import {
 } from '@mui/material'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
+import { useNavigate } from 'react-router-dom';
 
+const Users = ({ users }) => {
+  const navigate = useNavigate()
+  return (
 
-const Users = ({ users }) => (
-  <Box>
+    <Box>
         <Typography
           component="h1"
           variant="h5"
           sx={{ marginY: { lg: '40px', xs: '10px' }, fontWeight: 'bold' }}
         >
-          Lista de Usuarios
+          Lista de Actividades
         </Typography>
         <TableContainer
           sx={{
@@ -23,24 +26,23 @@ const Users = ({ users }) => (
             top: '180px',
             height: '400px',
             overflow: 'auto',
-            width: { lg: '80%', xs: '100%' }
+            width: { lg: '80%', xs: '100%' },
           }}
           component={Paper}
         >
           <Table>
             <TableHead>
               <TableRow sx={{ backgroundColor: 'rgb(240,240,240)' }}>
-                <TableCell><b>Id</b></TableCell>
-                <TableCell><b>Nombre</b></TableCell>
-                <TableCell><b>Apellido</b></TableCell>
-                <TableCell><b>Email</b></TableCell>
-                <TableCell align="center"><b>Acciones</b></TableCell>
+                 <TableCell>Id</TableCell>
+                 <TableCell>Nombre</TableCell>
+                 <TableCell>Apellido</TableCell>
+                 <TableCell>Email</TableCell>
+                 <TableCell align="center"><b>Acciones</b></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
 
               {users && users.map((elem) => (
-
                 <TableRow key={elem.id}>
                   <TableCell>{elem.id}</TableCell>
                   <TableCell>{elem.firstName}</TableCell>
@@ -48,6 +50,10 @@ const Users = ({ users }) => (
                   <TableCell>{elem.email}</TableCell>
                   <TableCell sx={{ padding: '0', width: '60px' }} align="center">
                     <>
+                    <IconButton onClick={() => {
+                        navigate(`/back-office/users/${elem.id}`) 
+                      }}
+                      >
                       <EditIcon sx={{
                         opacity: '0.5',
                         padding: '1px',
@@ -61,6 +67,7 @@ const Users = ({ users }) => (
                         '&:hover': { opacity: '1' },
                       }}
                       />
+                      </IconButton>
 
                       <IconButton onClick={() => {
                        
@@ -79,7 +86,6 @@ const Users = ({ users }) => (
                         }}
                         />
                       </IconButton>
-
                     </>
                   </TableCell>
                 </TableRow>
@@ -89,7 +95,38 @@ const Users = ({ users }) => (
         </TableContainer>
       </Box>
 
-)
+    // <Box>
+    //   <TableContainer sx={{ position: 'absolute', top: '80px', width: { lg: '85%', xs: '100%' } }} component={Paper}>
+    //     <Table>
+    //       <TableHead>
+    //         <TableRow>
+              // <TableCell>Id</TableCell>
+              // <TableCell>Nombre</TableCell>
+              // <TableCell>Apellido</TableCell>
+              // <TableCell>Email</TableCell>
+              // <TableCell>Editar</TableCell>
+    //           <TableCell>Eliminar</TableCell>
+    //         </TableRow>
+    //       </TableHead>
+    //       <TableBody>
+    //         {users.map((user) => (
+
+    //           <TableRow key={user.id}>
+    //             <TableCell>{user.id}</TableCell>
+    //             <TableCell>{user.firstName}</TableCell>
+    //             <TableCell>{user.lastName}</TableCell>
+    //             <TableCell>{user.email}</TableCell>
+    //             <TableCell sx={{ color: 'yellow' }}><EditIcon onClick={() => { navigate(`/back-office/users/${user.id}`) }} /></TableCell>
+    //             <TableCell sx={{ color: 'red' }}><HighlightOffIcon /></TableCell>
+    //           </TableRow>
+    //         ))}
+    //       </TableBody>
+    //     </Table>
+    //   </TableContainer>
+    // </Box>
+
+  )
+}
 Users.propTypes = {
   users: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,

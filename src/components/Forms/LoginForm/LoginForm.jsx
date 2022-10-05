@@ -14,10 +14,11 @@ const LoginForm = ({
   <Box
     component="main"
     sx={{
-      margin: '0',
+      position: 'relative',
+      top: '-48px',
+      bottom: '-120px',
       padding: '0',
       width: '100vw',
-      height: '100vh',
       display: 'flex',
       flexDirection: 'row',
     }}
@@ -25,7 +26,6 @@ const LoginForm = ({
     <CssBaseline />
     <Container
       sx={{
-        marginTop: 12,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -36,7 +36,7 @@ const LoginForm = ({
         validationSchema={validationSchema}
         onSubmit={(values) => onSubmitForm(values)}
       >
-        <Box className="formBox" sx={{ mt: 4, width: '50%', minWidth: '250px' }}>
+        <Box className="formBox" sx={{ mt: { xs: '20px', lg: '150px' }, width: '50%', minWidth: '250px' }}>
           <Typography component="p" variant="p">Bienvenido</Typography>
           <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold', mb: 3 }}>Inicia sesión en tu cuenta! </Typography>
           <Form>
@@ -54,18 +54,18 @@ const LoginForm = ({
                   fullWidth
                   variant="contained"
                   sx={{
-                    maxHeight: '60px', minHeight: '60px', fontSize: '1.4rem', backgroundColor: '#DB5752', fontWeight: 'bolder',
+                    backgroundcolor: '#DB5752', maxHeight: '60px', minHeight: '60px', fontSize: '1.4rem', fontWeight: 'bolder',
                   }}
                 >
                   Inicia sesión
                 </Button>
                 {error && (
-                <Box component="span" color="red">{error === 400 ? 'El usuario o la contraseña son invalidos' : `Hay un problema con los datos ingresados: ${errorMessage}`}</Box>
+                <Box component="span">{error === 400 ? 'El usuario o la contraseña son invalidos' : `Hay un problema con los datos ingresados: ${errorMessage}`}</Box>
                 )}
-                <Typography className="registerText" component="p" variant="p" mt={40}>
+                <Typography className="registerText" component="p" variant="p" sx={{ mt: { xs: '25px', lg: '120px' } }}>
                   No tienes una cuenta?
                   {' '}
-                  <Link to="/register" className="registerLink" style={{color:'#DB5752'}} >Registrate</Link>
+                  <Link to="/registrate" backgroundcolor="#DB5752" className="registerLink">Registrate</Link>
                 </Typography>
               </Grid>
             </Grid>

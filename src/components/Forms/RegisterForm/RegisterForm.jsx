@@ -1,5 +1,6 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {
   Container, CssBaseline, Box, Typography, Grid, Button,
@@ -29,7 +30,7 @@ const RegisterForm = ({
           <Form>
             <Grid container spacing={2}>
               <Grid item xs={12}>
-                <FormInputField label="Nombre" name="firstName" type="text" variant="outlined" autoFocus sx={{ h: 10 }} />
+                <FormInputField label="Nombre" name="firstName" type="text" variant="outlined" sx={{ h: 10 }} />
               </Grid>
               <Grid item xs={12}>
                 <FormInputField label="Apellido" name="lastName" type="text" variant="outlined" />
@@ -45,7 +46,9 @@ const RegisterForm = ({
                   type="submit"
                   fullWidth
                   variant="contained"
-                  sx={{ mt: 3, mb: 2, h: 10 }}
+                  sx={{
+                    mt: 1.5, mb: 2, minHeight: '60px', maxHeight: '60px', fontSize: '1.4rem', fontWeight: 'bolder',
+                  }}
                 >
                   Registrate
                 </Button>
@@ -53,6 +56,18 @@ const RegisterForm = ({
                 <Box component="span" color="red">{error === 409 ? 'El email ingresado ya existe en la base de datos para otro usuario' : errorMessage}</Box>
                 )}
               </Grid>
+              <Typography
+                className="registerText"
+                component="p"
+                variant="p"
+                sx={{
+                  fontSize: '1rem', ml: '20px', mt: { xs: '20px', lg: '30px' }, mb: '60px',
+                }}
+              >
+                Ya tienes una cuenta?
+                {' '}
+                <Link to="/login" backgroundcolor="#DB5752" className="registerLink">Logueate</Link>
+              </Typography>
             </Grid>
           </Form>
         </Box>
