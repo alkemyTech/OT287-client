@@ -10,6 +10,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import PeopleIcon from '@mui/icons-material/People';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useSelector } from 'react-redux'
+import ThreePIcon from '@mui/icons-material/ThreeP';
 import BackOffice from './BackOffice'
 import httpService from '../../services/httpService';
 
@@ -106,6 +107,11 @@ const drawerOptions = {
       text: 'users',
       icon: <GroupsIcon />,
       route: '/back-office/users',
+    },
+    {
+      text: 'contacts',
+      icon: <ThreePIcon />,
+      route: '/back-office/contacts',
     },
     {
       text: 'members',
