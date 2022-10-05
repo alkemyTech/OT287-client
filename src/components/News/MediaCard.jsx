@@ -1,45 +1,53 @@
 import * as React from 'react';
 import {
- Box, Card, CardActions, CardContent, CardMedia, Button, Typography, Link,
+  Box, Card, CardActions, CardContent, CardMedia, Button, Typography, Link,
 } from '@mui/material'
 import PropTypes from 'prop-types';
 
 const MediaCard = ({ data }) => (
-  <Card sx={{ maxWidth:1200, backgroundColor: '#bacffc', borderRadius: '20px', borde: 'solid 1px #0038FF', boxSizing:'border-box', display: 'flex'}}>
-     <Box sx={{width:'100%', m:2}}>
-        <CardMedia
-          component="img"
-          height="233"
-          image={`images/${data.image}`}
-          alt="new image"
-          sx={{borderRadius:'20px'}}
-        />
-     </Box>
-     <Box>
-       <CardContent>
-           <Typography gutterBottom variant="h5" component="div">
-             {data.name}
-           </Typography>
-           <Typography variant="body2" color="#000000">
-             {data.content}
-           </Typography>
-       </CardContent>
-       <CardActions sx={{justifyContent:'center'}}>
-            <Link href={`novedades/${data.id}`} style={{textDecoration:'none'}}>
-              <Button variant="contained" color="secondary" sx={{ width:'190px', border: '1px solid', borderColor: '#0038FF' }}>Ver Novedad</Button>
-            </Link>
-       </CardActions>
-     </Box>
+  <Card sx={{
+    width: '450px', padding: '5px', backgroundColor: '#bacffc', borderRadius: '20px', borde: 'solid 1px #0038FF', boxSizing: 'border-box', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center',
+  }}
+  >
+    <Box width="200px">
+      <CardMedia
+        component="img"
+        image={`${data.image}`}
+        alt="new image"
+        sx={{
+          margin: '10px', borderRadius: '20px', width: '196px', height: '233px',
+        }}
+      />
+    </Box>
+    <Box width="250px" height="100%" display="flex" flexDirection="column">
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {data.name}
+        </Typography>
+        <Typography variant="body2" color="#000000" sx={{ fontSize: '12px' }}>
+          {data.content}
+        </Typography>
+      </CardContent>
+      <CardActions sx={{
+        height: '100%', justifyContent: 'flex-end', alignItems: 'flex-end',
+      }}
+      >
+        <Link href={`novedades/${data.id}`} style={{ textDecoration: 'none' }}>
+          <Button variant="contained" color="secondary" sx={{ fontSize: { xs: '.6rem', md: '.8rem', lg: '.8rem' }, border: '1px solid', borderColor: '#0038FF' }}>Ver Más</Button>
+        </Link>
+      </CardActions>
+    </Box>
   </Card>
 )
 
 MediaCard.propTypes = {
-  data: PropTypes.shape({
+  data: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
     name: PropTypes.string,
     image: PropTypes.string,
     createdAt: PropTypes.string,
     content: PropTypes.string,
-  }).isRequired,
+  })).isRequired,
 };
 
 export default MediaCard
