@@ -7,7 +7,7 @@ const AddButton = ({ handleAction }) => (
   <SpeedDial
     ariaLabel="SpeedDial basic example"
     sx={{
-      position: 'absolute', bottom: 20, right: 20,
+      position: 'sticky', bottom: 30,
     }}
     icon={<SpeedDialIcon />}
     onClick={handleAction}

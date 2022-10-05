@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import { Alert, AlertTitle } from '@mui/material'
+import { Alert, AlertTitle, Typography } from '@mui/material'
 import Items from '../Items'
 
 const Categories = ({
@@ -16,7 +16,17 @@ const Categories = ({
   }
 
   return (
-    <Items array={data} cardFields={cardFields} nestedRoutes={nestedRoutes} />
+    <>
+      <Typography
+        component="h1"
+        variant="h5"
+        sx={{ marginX: { lg: '10px', xs: '10px' }, marginY: { lg: '40px', xs: '10px' }, fontWeight: 'bold' }}
+      >
+        Lista de Categorias
+      </Typography>
+      <Items array={data} cardFields={cardFields} nestedRoutes={nestedRoutes} />
+
+    </>
   )
 }
 
