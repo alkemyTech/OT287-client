@@ -18,8 +18,6 @@ const MediaCard = ({ data }) => (
        bottom: 30,
        left: "50%",
        transform: "translateX(-50%)", 
-       fontFamily:'Mulish',
-       fontWeight:700,
        fontSize:24,
        textAlign:'center',
        width:'100%'}}> {data.name}</Typography>
