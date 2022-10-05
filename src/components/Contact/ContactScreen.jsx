@@ -4,11 +4,10 @@ import ContactFormContainer from '../Forms/ContactForm/ContactFormContainer'
 
 const ContactScreen = () => (
   <>
-    <Grid container height="100vh">
+    <Grid container>
       <Grid
         container
         item
-        height="100%"
         xs={12}
         sm={12}
         md={6}
@@ -17,16 +16,16 @@ const ContactScreen = () => (
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
+        minHeight="500px"
       >
         <Grid
           item
+          container
           xs={10}
           sm={10}
           md={10}
           lg={10}
           xl={8}
-          mt={6}
-          height="100%"
           display="flex"
           flexDirection="column"
           justifyContent="center"
