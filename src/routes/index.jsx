@@ -24,6 +24,7 @@ import BackOfficeActivities from '../components/BackOffice/Activities/Activities
 import MembersContainer from '../components/Members/MembersContainer'
 import ContactsContainer from '../components/BackOffice/Contacts/ContactsContainer'
 import CategoriesFormContainer from '../components/Forms/CategoriesForm/CategoriesFormContainer'
+import CategoriesContainer from '../components/BackOffice/Categories/CategoriesContainer'
 
 const Router = () => (
   <Routes>
@@ -55,6 +56,7 @@ const Router = () => (
         <Route path="news/create" element={<NewsFormContainer />} />
         <Route path="news/:id/edit" element={<NewsFormContainer />} />
         <Route path="contacts" element={<ContactsContainer />} />
+        <Route path="categorias" element={<CategoriesContainer />} />
         <Route path="categories/create" element={<CategoriesFormContainer />} />
         <Route path="categories/:id/edit" element={<CategoriesFormContainer />} />
       </Route>
