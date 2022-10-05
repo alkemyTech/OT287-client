@@ -87,7 +87,7 @@ const LoginForm = ({
       }}
     >
       <img
-        src="https://i.imgur.com/x93dN4S.png"
+        src={`${process.env.PUBLIC_URL}images/login-img.png`}
         alt="login"
         style={{
           alignSelf: 'flex-end', width: '100%', minHeight: '100vh', objectFit: 'cover',
