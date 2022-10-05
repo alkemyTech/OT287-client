@@ -5,7 +5,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import ItemCard from './ItemCard'
 
 const Items = ({ array, cardFields, nestedRoutes }) => (
-  <Box sx={{ m: '1rem', mt: '6rem', width: '100%' }}>
+  <Box sx={{ my: '1rem', width: '100%' }}>
     <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       { array && array.map((el) => (
         <Grid xs={12} sm={6} md={4} key={el.id}>

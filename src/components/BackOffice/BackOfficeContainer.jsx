@@ -10,6 +10,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import PeopleIcon from '@mui/icons-material/People';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useSelector } from 'react-redux'
+import ThreePIcon from '@mui/icons-material/ThreeP';
 import BackOffice from './BackOffice'
 import httpService from '../../services/httpService';
 
@@ -28,14 +29,6 @@ const array = {
       name: 'Lorem Ipsum',
       content: "y. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       image: 'https://via.placeholder.com/500x500.png',
-    },
-  ],
-  categories: [
-    {
-      id: 1,
-      name: 'Lorem Ipsum',
-      description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      image: null,
     },
   ],
   testimonials: [
@@ -94,6 +87,7 @@ const drawerOptions = {
     {
       text: 'categories',
       icon: <CategoryIcon />,
+      route: '/back-office/categorias',
     },
     {
       text: 'testimonials',
@@ -113,6 +107,11 @@ const drawerOptions = {
       text: 'users',
       icon: <GroupsIcon />,
       route: '/back-office/users',
+    },
+    {
+      text: 'contacts',
+      icon: <ThreePIcon />,
+      route: '/back-office/contacts',
     },
     {
       text: 'members',
@@ -141,11 +140,6 @@ const cardFields = {
     title: 'name',
     content: 'content',
     imageUrl: 'image',
-  },
-  categories: {
-    title: 'name',
-    content: 'description',
-    imageUrl: null,
   },
   testimonials: {
     title: 'name',
