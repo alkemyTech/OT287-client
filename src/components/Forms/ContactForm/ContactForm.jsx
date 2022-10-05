@@ -49,7 +49,10 @@ const ContactForm = (props) => {
                       variant="contained"
                       color="secondary"
                       sx={{
-                        mt: 1, mb: 1, h: 10,
+                        mt: 1,
+                        mb: 1,
+                        h: 10,
+                        minWidth: 150,
                       }}
                     >
                       Enviar Consulta

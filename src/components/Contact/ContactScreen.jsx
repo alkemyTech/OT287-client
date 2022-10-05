@@ -10,9 +10,9 @@ const ContactScreen = () => (
         item
         height="100%"
         xs={12}
-        sm={6}
-        lg={6}
-        xl={6}
+        sm={12}
+        md={6}
+        order={{ xs: 2, sm: 2, md: 1 }}
         display="flex"
         flexDirection="column"
         justifyContent="center"
@@ -22,7 +22,8 @@ const ContactScreen = () => (
           item
           xs={10}
           sm={10}
-          lg={8}
+          md={10}
+          lg={10}
           xl={8}
           mt={6}
           height="100%"
@@ -53,9 +54,9 @@ const ContactScreen = () => (
         justifyContent="center"
         alignItems="center"
         xs={12}
-        sm={6}
-        lg={6}
-        xl={6}
+        sm={12}
+        md={6}
+        order={{ xs: 1, sm: 1, md: 2 }}
       >
         <ContactFormContainer />
       </Grid>
