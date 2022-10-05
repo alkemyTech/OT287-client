@@ -3,16 +3,16 @@ import { Grid, Container, Box } from '@mui/material'
 import MediaCard from './MediaCard'
 
 
-const MembersCard = ({data, error, errorMessage}) => {
+const MembersCards = ({data, error, errorMessage}) => {
    
   return (
-   <Container>
+   <Container maxWidth='0px' style={{padding: '0px'}} >
     {error && (
                     <Box component="span" color="red">{error === 409 ? 'Error server conexion' : errorMessage}</Box>
                   )}
-      <Grid container>     
+      <Grid container spacing={3}  >     
       { data && data.map((d, index) => (
-        <Grid item xs={12} sm={6} md={4} key={index} sx={{mt:12, mb:12}} >
+        <Grid item xs={12} sm={6} md={4} lg={2} key={index} sx={{mt:2, mb:10}} >
             <MediaCard 
             data={d}/>
         </Grid>
@@ -23,4 +23,4 @@ const MembersCard = ({data, error, errorMessage}) => {
 }
 
 
-export default MembersCard
+export default MembersCards

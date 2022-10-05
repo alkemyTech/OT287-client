@@ -40,7 +40,7 @@ const Router = () => (
       <Route path="/novedades" element={<NewsContainer />} />
       <Route path="/novedades/:id" element={<NewsByIdContainer />} />
       <Route path="/contacto" element={<ContactScreen />} />
-      <Route path="/miembros" element={<MembersContainer />} />
+      <Route path="/sobre-nosotros" element={<MembersContainer />} />
       <Route path="/actividades/:id" element={<ActivityContainer />} />
       {/* Back-Office Routes for Admin access only */}
       <Route path="/back-office" element={<PrivateRoute><BackOfficeContainer /></PrivateRoute>}>

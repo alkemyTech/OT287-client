@@ -42,7 +42,7 @@ const LoginForm = ({
           <Form>
             <Grid container spacing={2}>
               <Grid item xs={12}>
-                <FormInputField label="email" name="email" type="email" variant="outlined" />
+                <FormInputField label="email" name="email" type="email" variant="outlined" autoFocus />
               </Grid>
               <Grid item xs={12}>
                 <FormInputField label="Contraseña" name="password" variant="outlined" />
