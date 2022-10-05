@@ -36,7 +36,7 @@ const LoginForm = ({
         validationSchema={validationSchema}
         onSubmit={(values) => onSubmitForm(values)}
       >
-        <Box className="formBox" sx={{ mt: { xs: '20px', lg: '150px' }, width: '50%', minWidth: '250px' }}>
+        <Box className="formBox" sx={{ mt: { xs: '20px', lg: '150px' }, width: { xs: '90%', md: '50%' }, minWidth: '250px' }}>
           <Typography component="p" variant="p">Bienvenido</Typography>
           <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold', mb: 3 }}>Inicia sesión en tu cuenta! </Typography>
           <Form>
