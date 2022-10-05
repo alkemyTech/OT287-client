@@ -8,10 +8,15 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import DeleteModal from './Categories/DeleteModal'
 
 import { useNavigate } from "react-router-dom"
 
-const ItemCard = ({ data, fields, nestedRoutes }) => {
+const ItemCard = (props) => {
+  const {
+    data, fields, nestedRoutes, handleModal, setHandleModal, setElementToDelete, elementToDelete,
+    deleteElement, deletedSucces, setDeletedSucces, errorStatus,
+  } = props
   const navigate = useNavigate()
 
   return (<Card sx={{ borderRadius: '8px' }}>
@@ -43,9 +48,23 @@ const ItemCard = ({ data, fields, nestedRoutes }) => {
         color="error" 
         size="small" 
         startIcon={<DeleteIcon />}
-        onClick={() => navigate(`/back-office/${nestedRoutes.delete}`)}
+        onClick={() => {
+          console.log(data)
+          setHandleModal(true)
+          setElementToDelete(data)
+        }}
       >delete</Button>
     </CardActions>
+    <DeleteModal
+        openModal={handleModal}
+        setHandleModal={setHandleModal}
+        elementToDelete={elementToDelete}
+        deleteElement={deleteElement}
+        deletedSucces={deletedSucces}
+        errorStatus={errorStatus}
+        setElementToDelete={setElementToDelete}
+        setDeletedSucces={setDeletedSucces}
+      />
   </Card>)
 }
 
@@ -56,14 +75,22 @@ ItemCard.propTypes = {
     imageUrl: PropTypes.string,
   }).isRequired,
   data: PropTypes.shape({
-    title: PropTypes.string,
-    content: PropTypes.string,
-    imageUrl: PropTypes.string,
+    id: PropTypes.number,
+    name: PropTypes.string,
+    description: PropTypes.string,
   }).isRequired,
   nestedRoutes: PropTypes.shape({
     edit: PropTypes.string,
     delete: PropTypes.string,
   }).isRequired,
+  handleModal: PropTypes.bool.isRequired,
+  setHandleModal: PropTypes.func.isRequired,
+  setElementToDelete: PropTypes.func.isRequired,
+  elementToDelete: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  deleteElement: PropTypes.func.isRequired,
+  deletedSucces: PropTypes.bool.isRequired,
+  setDeletedSucces: PropTypes.func.isRequired,
+  errorStatus: PropTypes.string.isRequired,
 }
 
 export default ItemCard
