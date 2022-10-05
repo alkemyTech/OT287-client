@@ -6,7 +6,6 @@ import {
 } from '@mui/material'
 import { Link } from 'react-router-dom'
 import FormInputField from '../../Layout/FormInputField'
-import './loginForm.css'
 
 const LoginForm = ({
   initialValues, validationSchema, onSubmitForm, error, errorMessage,
@@ -62,10 +61,16 @@ const LoginForm = ({
                 {error && (
                 <Box component="span">{error === 400 ? 'El usuario o la contraseña son invalidos' : `Hay un problema con los datos ingresados: ${errorMessage}`}</Box>
                 )}
-                <Typography className="registerText" component="p" variant="p" sx={{ mt: { xs: '25px', lg: '120px' }, fontSize: { xs: '1rem', md: '1.2rem' } }}>
+                <Typography
+                  component="p"
+                  variant="p"
+                  sx={{
+                    mt: { xs: '25px', lg: '120px' }, fontSize: { xs: '1rem', md: '1.2rem' }, textAlign: 'center', '& > a': { color: '#DB5752', textDecoration: 'none' },
+                  }}
+                >
                   No tienes una cuenta?
                   {' '}
-                  <Link to="/registrate" backgroundcolor="#DB5752" className="registerLink">Registrate</Link>
+                  <Link to="/registrate" backgroundcolor="#DB5752">Registrate</Link>
                 </Typography>
               </Grid>
             </Grid>
@@ -74,14 +79,20 @@ const LoginForm = ({
       </Formik>
     </Container>
     <Box
-      className="imgLoginBox"
       sx={{
         width: '50%',
         maxHeight: '100vh',
         overflow: 'hidden',
+        display: { xs: 'none', lg: 'flex' },
       }}
     >
-      <img className="loginPic" src="https://i.imgur.com/x93dN4S.png" alt="login" />
+      <img
+        src="https://i.imgur.com/x93dN4S.png"
+        alt="login"
+        style={{
+          alignSelf: 'flex-end', width: '100%', minHeight: '100vh', objectFit: 'cover',
+        }}
+      />
     </Box>
   </Box>
 )
