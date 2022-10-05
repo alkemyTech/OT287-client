@@ -6,7 +6,6 @@ import {
 } from '@mui/material'
 import { Link } from 'react-router-dom'
 import FormInputField from '../../Layout/FormInputField'
-import './loginForm.css'
 
 const LoginForm = ({
   initialValues, validationSchema, onSubmitForm, error, errorMessage,
@@ -36,7 +35,7 @@ const LoginForm = ({
         validationSchema={validationSchema}
         onSubmit={(values) => onSubmitForm(values)}
       >
-        <Box className="formBox" sx={{ mt: { xs: '20px', lg: '150px' }, width: '50%', minWidth: '250px' }}>
+        <Box sx={{ mt: { xs: '20px', lg: '150px' }, width: { xs: '90%', md: '50%' }, minWidth: '250px' }}>
           <Typography component="p" variant="p">Bienvenido</Typography>
           <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold', mb: 3 }}>Inicia sesión en tu cuenta! </Typography>
           <Form>
@@ -49,7 +48,6 @@ const LoginForm = ({
               </Grid>
               <Grid item xs={12}>
                 <Button
-                  className="btn"
                   type="submit"
                   fullWidth
                   variant="contained"
@@ -62,10 +60,16 @@ const LoginForm = ({
                 {error && (
                 <Box component="span">{error === 400 ? 'El usuario o la contraseña son invalidos' : `Hay un problema con los datos ingresados: ${errorMessage}`}</Box>
                 )}
-                <Typography className="registerText" component="p" variant="p" sx={{ mt: { xs: '25px', lg: '120px' } }}>
+                <Typography
+                  component="p"
+                  variant="p"
+                  sx={{
+                    mt: { xs: '25px', lg: '120px' }, fontSize: { xs: '1rem', md: '1.2rem' }, textAlign: 'center', '& > a': { color: '#DB5752', textDecoration: 'none' },
+                  }}
+                >
                   No tienes una cuenta?
                   {' '}
-                  <Link to="/registrate" backgroundcolor="#DB5752" className="registerLink">Registrate</Link>
+                  <Link to="/registrate" backgroundcolor="#DB5752">Registrate</Link>
                 </Typography>
               </Grid>
             </Grid>
@@ -74,14 +78,20 @@ const LoginForm = ({
       </Formik>
     </Container>
     <Box
-      className="imgLoginBox"
       sx={{
         width: '50%',
         maxHeight: '100vh',
         overflow: 'hidden',
+        display: { xs: 'none', lg: 'flex' },
       }}
     >
-      <img className="loginPic" src="https://i.imgur.com/x93dN4S.png" alt="login" />
+      <img
+        src={`${process.env.PUBLIC_URL}images/login-img.png`}
+        alt="login"
+        style={{
+          alignSelf: 'flex-end', width: '100%', minHeight: '100vh', objectFit: 'cover',
+        }}
+      />
     </Box>
   </Box>
 )
