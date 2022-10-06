@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import {
-  Button, Box, Container, Toolbar, AppBar,
+  Button, Box, Container, Toolbar, AppBar, Typography,
 } from '@mui/material'
 import { Link } from 'react-router-dom';
 import BrandLogo from './BrandLogo';
 import BurgerMenu from './Navbar/BurgerMenu';
 import Navbar from './Navbar/Navbar';
-import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
+
 
 const Header = (props) => {
   const {
@@ -22,7 +22,7 @@ const Header = (props) => {
       }}
     >
       <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Toolbar disableGutters sx={{ display: 'flex'  }}>
           <Link to="/">
             <BrandLogo logo={logo} breakpointDisplay="md" breakpointHidden="xs" />
           </Link>
@@ -42,12 +42,12 @@ const Header = (props) => {
             buttonsAction={buttonsAction}
           />
           <Box
-          sx={{display:{xs:'contents', sm:'block'}}}
+          sx={{display:{xs:'contents'}}}
           >
             <Button
               variant="outlined"
               sx={{
-                display: { xs: 'inline' },
+                display: { xs: 'none', sm:'inline' },
                 mx: 1.3, 
                 color: 'black',   
                 borderColor: 'black', 
@@ -61,12 +61,28 @@ const Header = (props) => {
                 navigate(buttonsAction[0].route)
               }}
             >
-             <LogoutRoundedIcon sx={{
-              color:'#DB5752', 
-              width:'auto', 
-              height:{sx:'35px', sm:'30px', md:'40px'}, 
-              margin:'0px',
-              }} />
+             <Typography
+              fontSize={{xs: '10px', md: '15px', lg: '18px'}}
+             >{buttonsAction[0].text}</Typography> 
+            </Button>
+            <Button
+              variant="outlined"
+              sx={{
+                display: { xs:'contents', sm:'none' },
+                mx: 1.3, 
+                color: 'black',   
+                borderColor: 'black', 
+                fontSize: { xs: '.1rem', md: '.8rem', lg: '1rem' },
+                border:'solid 0px',
+                padding:'0px',
+                height:'40px'
+              }}
+              onClick={() => {
+                handleActiveButton(buttonsAction[0].route)
+                navigate(buttonsAction[0].route)
+              }}
+            >
+              {buttonsAction[0].icon}
             </Button>
             <Button
               variant="contained"

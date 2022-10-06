@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 // import { useSelector } from 'react-redux'
 import { useNavigate, useLocation } from 'react-router-dom';
 import Header from './Header'
+import LoginIcon from '@mui/icons-material/Login';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 const HeaderContainer = () => {
   const [anchorNav, setAnchorNav] = React.useState(null);
@@ -46,7 +48,22 @@ const HeaderContainer = () => {
       {
         id: 7,
         route: (isLogged ? '/logout' : '/login'),
-        text: (isLogged ? 'Cerrar sesion' : 'Log in'),
+        icon: (isLogged ? <ExitToAppIcon
+          sx={{
+            color:'#DB5752', 
+            width:'auto', 
+            height:{sx:'35px', sm:'30px', md:'40px'}, 
+            margin:'10px',
+            }}
+        /> : <LoginIcon
+        sx={{
+          color:'#DB5752', 
+          width:'auto', 
+          height:{sx:'35px', sm:'30px', md:'40px'}, 
+          margin:'10px' 
+          }}
+        /> ),
+        text:(isLogged ? 'Log out' : 'Log in')
       },
       {
         id: 8,
