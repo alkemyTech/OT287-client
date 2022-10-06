@@ -22,34 +22,36 @@ function Footer({ logo, menu, socials }) {
         justifyContent: 'center',
       }}
     >
-      <Box sx={{ width: '100%',  backgroundColor: 'rgb(240,240,240)' }}>
+      <Box sx={{ width: '100%', backgroundColor: 'rgb(240,240,240)', maxHeight: '100%' }}>
         <hr />
         <Box
           sx={{
             position: 'relative',
-            left: {xs:'40%', sm:'45%', md:'47%'},
+            left: { xs: '40%', sm: '45%', md: '47%' },
             bottom: '30px',
-            height: '50px'
+            height: '50px',
           }}
           component="img"
           src={logo}
           alt="ong image"
         />
 
-        <Stack  
-        sx={{
-          flexDirection:{xs:'column', sm:'row'},
-          alignItems:{xs:'center'},
-          justifyContent:{sm:'space-around'},
-          margin:{md:'0 10% 0 10%', lg:'0  20% 0 20%'}
-        }}
-        spacing={{xs:1}}
+        <Stack
+          sx={{
+            flexDirection: { xs: 'column', sm: 'row' },
+            alignItems: { xs: 'center' },
+            justifyContent: { sm: 'space-around' },
+            margin: { md: '0 10% 0 10%', lg: '0  20% 0 20%' },
+          }}
+          spacing={{ xs: 1 }}
         >
           {menu.map((elem) => (
-            <Typography key={elem.id}  marginTop={{xs:'8px'}}
+            <Typography
+              key={elem.id}
+              marginTop={{ xs: '8px' }}
             >
               <Link style={{ color: 'inherit', textDecoration: 'none' }} to={elem.route}>
-                <span  >{elem.text}</span>
+                <span>{elem.text}</span>
               </Link>
             </Typography>
           ))}

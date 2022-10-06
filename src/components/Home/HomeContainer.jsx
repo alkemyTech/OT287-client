@@ -5,19 +5,19 @@ import Home from './Home'
 const sliderImg = [
   {
     id: 1,
-    imageUrl: 'https://source.unsplash.com/random',
+    imageUrl: 'images/sliderImg1.jpg',
   },
   {
     id: 2,
-    imageUrl: 'https://source.unsplash.com/random',
+    imageUrl: 'images/sliderImg2.jpg',
   },
   {
     id: 3,
-    imageUrl: 'https://source.unsplash.com/random',
+    imageUrl: 'images/sliderImg3.jpg',
   },
   {
     id: 4,
-    imageUrl: 'https://source.unsplash.com/random',
+    imageUrl: 'images/sliderImg4.jpg',
   },
 ]
 const HomeContainer = () => {
@@ -55,15 +55,14 @@ const HomeContainer = () => {
     }
     getNews()
     getMembers()
-     
   }, [])
   return (
-    <Home 
-    news={data} 
-    members={members}
-    slider={sliderImg}
-    error={errorStatus}
-    errorMessage={errorMessage} />
+    <Home
+      news={data}
+      members={members}
+      slider={sliderImg}
+      error={errorStatus}
+      errorMessage={errorMessage} />
   )
 }
 export default HomeContainer
