@@ -10,7 +10,7 @@ const cardFields = {
 
 const nestedRoutes = {
   create: '',
-  edit: '',
+  edit: 'edit',
   delete: '',
 }
 

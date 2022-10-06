@@ -44,9 +44,10 @@ const NewsForm = ({
             }
             onSubmitForm(values, id)
           }}
+          
         >
           {(formProps) => (
-            <Box sx={{ mt: 4 }}>
+            <Box sx={{width:{xs:'50%', sm:'80%', md:'100%'}}}>
               <Form>
                 <Grid container spacing={2}>
                   <Grid item xs={12}>

@@ -22,27 +22,34 @@ function Footer({ logo, menu, socials }) {
         justifyContent: 'center',
       }}
     >
-      <Box sx={{ width: '100%' }}>
+      <Box sx={{ width: '100%',  backgroundColor: 'rgb(240,240,240)' }}>
         <hr />
         <Box
-          padding={{ xs: '0 40px', lg: '0 80px' }}
           sx={{
             position: 'relative',
-            left: { lg: '42%', xs: '27%' },
+            left: {xs:'40%', sm:'45%', md:'47%'},
             bottom: '30px',
-            height: '50px',
-            backgroundColor: 'rgb(240,240,240)',
+            height: '50px'
           }}
           component="img"
           src={logo}
           alt="ong image"
         />
 
-        <Stack justifyContent="center" direction="row" spacing={{ xs: 2, lg: 6 }}>
+        <Stack  
+        sx={{
+          flexDirection:{xs:'column', sm:'row'},
+          alignItems:{xs:'center'},
+          justifyContent:{sm:'space-around'},
+          margin:{md:'0 10% 0 10%', lg:'0  20% 0 20%'}
+        }}
+        spacing={{xs:1}}
+        >
           {menu.map((elem) => (
-            <Typography key={elem.id} fontSize={{ xs: '10px', lg: '1rem' }}>
+            <Typography key={elem.id}  marginTop={{xs:'8px'}}
+            >
               <Link style={{ color: 'inherit', textDecoration: 'none' }} to={elem.route}>
-                <span>{elem.text}</span>
+                <span  >{elem.text}</span>
               </Link>
             </Typography>
           ))}

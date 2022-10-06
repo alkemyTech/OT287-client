@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 import {
   Box, Table, TableRow, TableHead, TableContainer,
   TableCell, TableBody, Paper, Typography,
@@ -7,6 +8,7 @@ import {
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteModal from './DeleteModal';
+
 
 const News = (
   props,
@@ -50,21 +52,25 @@ const News = (
               {news && news.map((elem) => (
 
                 <TableRow key={elem.id}>
-                  <TableCell>{elem.name}</TableCell>
                   <TableCell
-                    sx={{ width: '30px', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    {elem.name}
+                  </TableCell>
+                  <TableCell
+                    sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
                   >
                     {elem.image}
 
                   </TableCell>
                   <TableCell
-                    sx={{ width: '220px', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
                   >
                     {elem.createdAt}
 
                   </TableCell>
-                  <TableCell sx={{ padding: '0', width: '60px' }} align="center">
+                  <TableCell sx={{ padding: '0', width: '25%' }} align="center">
                     <>
+                    <Link to={`${elem.id}/edit`}>
                       <EditIcon sx={{
                         opacity: '0.5',
                         padding: '1px',
@@ -78,6 +84,7 @@ const News = (
                         '&:hover': { opacity: '1' },
                       }}
                       />
+                    </Link>
 
                       <HighlightOffIcon
                         sx={{
