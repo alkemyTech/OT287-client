@@ -5,6 +5,7 @@ import { setUserData } from '../../../app/slices/auth/authSlice'
 import LoginForm from './LoginForm'
 import validateLogin from '../../../schemas/login';
 import httpService from '../../../services/httpService';
+import { setAlertOn } from '../../../app/slices/auth/alertSlice';
 
 const LoginFormContainer = () => {
   const [errorStatus, setErrorStatus] = useState(null)
@@ -26,6 +27,9 @@ const LoginFormContainer = () => {
           token: data.body.token,
         }
         dispatch(setUserData(userData))
+        setTimeout(() => {
+          dispatch(setAlertOn(true))
+        }, 50)
         navigate('/')
       } else {
         setErrorStatus(data.response.status)
