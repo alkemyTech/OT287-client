@@ -20,7 +20,7 @@ const Testimonials = (
   const navigate = useNavigate()
   return (
     <>
-      <Box>
+      <Box sx={{ mx: { xs: 2.5, md: 0 } }}>
         <Typography
           component="h1"
           variant="h5"
