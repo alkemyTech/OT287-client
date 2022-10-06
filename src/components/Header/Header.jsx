@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import BrandLogo from './BrandLogo';
 import BurgerMenu from './Navbar/BurgerMenu';
 import Navbar from './Navbar/Navbar';
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 
 const Header = (props) => {
   const {
@@ -40,23 +41,37 @@ const Header = (props) => {
             activeButton={activeButton}
             buttonsAction={buttonsAction}
           />
-          <Box>
+          <Box
+          sx={{display:{xs:'contents', sm:'block'}}}
+          >
             <Button
               variant="outlined"
               sx={{
-                display: { xs: 'none', md: 'inline' }, mx: 1.3, color: 'black', borderColor: 'black', fontSize: { xs: '.6rem', md: '.8rem', lg: '1rem' },
+                display: { xs: 'inline' },
+                mx: 1.3, 
+                color: 'black',   
+                borderColor: 'black', 
+                fontSize: { xs: '.1rem', md: '.8rem', lg: '1rem' },
+                border:'solid 0px',
+                padding:'0px',
+                height:'40px'
               }}
               onClick={() => {
                 handleActiveButton(buttonsAction[0].route)
                 navigate(buttonsAction[0].route)
               }}
             >
-              {buttonsAction[0].text}
+             <LogoutRoundedIcon sx={{
+              color:'#DB5752', 
+              width:'auto', 
+              height:{sx:'35px', sm:'30px', md:'40px'}, 
+              margin:'0px',
+              }} />
             </Button>
             <Button
               variant="contained"
               color="primary"
-              sx={{ fontSize: { xs: '.6rem', md: '.8rem', lg: '1rem' } }}
+              sx={{ fontSize: { xs: '.5rem', md: '.8rem', lg: '1rem' } }}
               onClick={() => {
                 handleActiveButton(buttonsAction[1].route)
                 navigate(buttonsAction[1].route)
