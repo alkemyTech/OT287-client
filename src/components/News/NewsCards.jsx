@@ -9,7 +9,7 @@ const NewsCards = ({ data, error, errorMessage }) => (
     {error && (
     <Box component="span" color="red">{error === 409 ? 'Error server conexion' : errorMessage}</Box>
     )}
-    <Grid container width="100%" display="flex" justifyContent="center">
+    <Grid container  display="flex" justifyContent="center" sx={{width: {xs: '300px', sm: '100%'}, position: {xs:'relative', sm:'static'}, right: {xs:'75px'}}}>
       { data && data.map((d) => (
         <Grid item display="flex" justifyContent="center" m={2} xs={10} sm={8} md={6} lg={4} xl={4} key={d.id}>
           <MediaCard

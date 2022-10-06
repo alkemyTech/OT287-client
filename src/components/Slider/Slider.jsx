@@ -9,13 +9,14 @@ import NextIcon from './NextIcon'
 const Slider = ({ items }) => { 
   return (
     <Carousel
-      navButtonsAlwaysVisible
+    navButtonsAlwaysInvisible
       stopAutoPlayOnHover
       animation="slide"
-      interval={8000}
+      interval={6000}
       NextIcon={<NextIcon direction="right" />}
       PrevIcon={<NextIcon direction="left" />}
-      IndicatorIcon={<CircleIcon fontSize={useMediaQuery('(min-width:600px)') ? 'medium' : 'small'} />}
+      indicators={false}
+      IndicatorIcon={<CircleIcon  fontSize={useMediaQuery('(min-width:600px)') ? 'medium' : 'small'} />}
       indicatorIconButtonProps={{
         style: {
           zIndex: 1,
@@ -40,7 +41,7 @@ const Slider = ({ items }) => {
       {
                 items.map((item) => (
                   <Box key={item.id} sx={{ maxHeight: '31.25rem', marginTop: '2rem' }}>
-                    <img src={item.imageUrl} alt={item.text} style={{ width: '100%' }} />
+                    <Box component="img" src={item.imageUrl} alt={item.text} sx={{width: '100%', height: {xs: '250px', md: '600px'}, objectFit: 'cover'}} />
                   </Box>
                 ))
         }
