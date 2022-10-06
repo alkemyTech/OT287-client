@@ -8,13 +8,13 @@ import {
 const TestimonialDeleteModal = (props) => {
   const {
     openModal, setHandleModal, elementToDelete, deleteElement,
-    deletedSucces, errorStatus, setElementToDelete, setDeletedSucces,
+    deletedSuccess, errorStatus, setElementToDelete, setDeletedSuccess,
   } = props
   return (
     <>
       <Dialog open={openModal}>
 
-        { deletedSucces === false ? (
+        { deletedSuccess === false ? (
           <>
             <DialogTitle>
               Estas seguro de eliminar el testimonio de
@@ -40,14 +40,14 @@ const TestimonialDeleteModal = (props) => {
 
         ) : null }
 
-        {deletedSucces ? (
+        {deletedSuccess ? (
 
           <Alert
             severity="success"
             onClose={() => {
               setHandleModal(false)
               setElementToDelete(null)
-              setDeletedSucces(false)
+              setDeletedSuccess(false)
             }}
           >
             {elementToDelete ? elementToDelete.name : null}
@@ -78,10 +78,10 @@ TestimonialDeleteModal.propTypes = {
   setHandleModal: PropTypes.func.isRequired,
   elementToDelete: PropTypes.oneOfType([PropTypes.object]).isRequired,
   deleteElement: PropTypes.func.isRequired,
-  deletedSucces: PropTypes.bool.isRequired,
+  deletedSuccess: PropTypes.bool.isRequired,
   errorStatus: PropTypes.string.isRequired,
   setElementToDelete: PropTypes.func.isRequired,
-  setDeletedSucces: PropTypes.func.isRequired,
+  setDeletedSuccess: PropTypes.func.isRequired,
 
 }
 

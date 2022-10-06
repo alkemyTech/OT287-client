@@ -7,7 +7,7 @@ const TestimonialsContainer = () => {
   const [dataTestimonials, setDataTestimonials] = useState([])
   const [errorStatusTestimonials, setErrorStatusTestimonials] = useState('')
   const [elementToDelete, setElementToDelete] = useState({})
-  const [deletedSucces, setDeletedSucces] = useState(false)
+  const [deletedSuccess, setDeletedSuccess] = useState(false)
   const [errorStatus, setErrorStatus] = useState('')
 
   const getTestimonialsData = useCallback(async () => {
@@ -27,7 +27,7 @@ const TestimonialsContainer = () => {
     try {
       const data = await httpService('delete', `/testimonials/${id}`)
       if (data.code === 200) {
-        setDeletedSucces(true)
+        setDeletedSuccess(true)
         getTestimonialsData()
       } else {
         setErrorStatus(data.code)
@@ -56,8 +56,8 @@ const TestimonialsContainer = () => {
       deleteElement={deleteElement}
       setElementToDelete={setElementToDelete}
       elementToDelete={elementToDelete}
-      deletedSucces={deletedSucces}
-      setDeletedSucces={setDeletedSucces}
+      deletedSuccess={deletedSuccess}
+      setDeletedSucces={setDeletedSuccess}
     />
   )
 }
