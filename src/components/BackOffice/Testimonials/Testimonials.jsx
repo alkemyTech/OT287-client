@@ -24,14 +24,14 @@ const Testimonials = (
         <Typography
           component="h1"
           variant="h5"
-          sx={{ marginY: { lg: '2.5rem', xs: '0.63rem' }, fontWeight: 'bold' }}
+          sx={{ my: { lg: '1rem', xs: '0.63rem' }, fontWeight: 'bold' }}
         >
           Lista de Testimonios
         </Typography>
         <TableContainer
           sx={{
             position: 'absolute',
-            top: '11.25rem',
+            top: '9.25rem',
             height: '25rem',
             overflow: 'auto',
             width: { lg: '80%', xs: '100%' },
