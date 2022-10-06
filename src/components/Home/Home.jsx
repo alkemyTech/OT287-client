@@ -11,7 +11,7 @@ import MembersCards from '../Members/MembersCards'
 const Home = ({
   news, members, slider, error, errorMessage,
 }) => (
-  <Box sx={{ maxWidth: '1600px', margin: '0 auto', alignContent: 'center' }}>
+  <Box sx={{ maxWidth: { sm: '1600px' }, margin: '0 auto', alignContent: 'center' }}>
     <Slider items={slider} />
     <Box sx={{ mr: '100px', ml: '100px', mt: '50px' }}>
 
@@ -19,14 +19,14 @@ const Home = ({
         fontWeight={600}
         color="#000000"
         whiteSpace="initial"
-        sx={{ fontSize: { xs: 32, md: 48 } }}
+        sx={{ fontSize: { xs: 32, md: 48 }, marginBottom: { xs: '30px' } }}
       >
         <Typography
           fontWeight={600}
           color="#000000"
           maxWidth="400px"
           sx={{
-            position: 'relative', top: { lg: '8rem' }, margin: '0 auto', textAlign: 'center', left: { lg: '1rem' }, fontSize: { xs: 12, sm: 18 },
+            position: 'relative', top: { lg: '8rem' }, margin: '0 auto', textAlign: 'center', left: { lg: '1rem' }, fontSize: { xs: 12, sm: 18 }, marginBottom: { xs: '30px' },
           }}
         >
           Somos Mas es una ong  que desde 1997 trabajamos con los chicos y chicas,
@@ -44,13 +44,14 @@ const Home = ({
         fontWeight={600}
         fontSize={32}
         color="#000000"
+        sx={{ marginBottom: { xs: '30px' } }}
       >
         Nuestro Staff
         {' '}
       </Typography>
       <Box sx={{ textAlign: 'right', bottom: { xs: '12px', position: 'relative' } }}>
         <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/sobre-nosotros">
-          Ver staf
+          Ver staff
           {'>'}
         </Link>
       </Box>
