@@ -1,17 +1,21 @@
 import React from 'react'
-import PropTypes from 'prop-types';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import EditIcon from '@mui/icons-material/Edit';
-
+import PropTypes from 'prop-types'
+import Card from '@mui/material/Card'
+import CardActions from '@mui/material/CardActions'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography'
+import HighlightOffIcon from '@mui/icons-material/HighlightOff'
+import EditIcon from '@mui/icons-material/Edit'
 import { useNavigate } from 'react-router-dom'
+import DeleteModal from './Categories/DeleteModal'
 
-const ItemCard = ({ data, fields, nestedRoutes }) => {
+const ItemCard = (props) => {
+  const {
+    data, fields, nestedRoutes, handleModal, setHandleModal, setElementToDelete, elementToDelete,
+    deleteElement, deletedSucces, setDeletedSucces, errorStatus,
+  } = props
   const navigate = useNavigate()
 
   return (
@@ -47,11 +51,24 @@ const ItemCard = ({ data, fields, nestedRoutes }) => {
           size="small"
           startIcon={<HighlightOffIcon />}
           sx={{ color: 'white', backgroundColor: '#DB5752', mr: '5px' }}
-          onClick={() => navigate(`/back-office/${nestedRoutes.delete}`)}
+          onClick={() => {
+            setHandleModal(true)
+            setElementToDelete(data)
+          }}
         >
           delete
         </Button>
       </CardActions>
+      <DeleteModal
+        openModal={handleModal}
+        setHandleModal={setHandleModal}
+        elementToDelete={elementToDelete}
+        deleteElement={deleteElement}
+        deletedSucces={deletedSucces}
+        errorStatus={errorStatus}
+        setElementToDelete={setElementToDelete}
+        setDeletedSucces={setDeletedSucces}
+      />
     </Card>
   )
 }
@@ -64,14 +81,21 @@ ItemCard.propTypes = {
   }).isRequired,
   data: PropTypes.shape({
     id: PropTypes.number,
-    title: PropTypes.string,
-    content: PropTypes.string,
-    imageUrl: PropTypes.string,
+    name: PropTypes.string,
+    description: PropTypes.string,
   }).isRequired,
   nestedRoutes: PropTypes.shape({
     edit: PropTypes.string,
     delete: PropTypes.string,
   }).isRequired,
+  handleModal: PropTypes.bool.isRequired,
+  setHandleModal: PropTypes.func.isRequired,
+  setElementToDelete: PropTypes.func.isRequired,
+  elementToDelete: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  deleteElement: PropTypes.func.isRequired,
+  deletedSucces: PropTypes.bool.isRequired,
+  setDeletedSucces: PropTypes.func.isRequired,
+  errorStatus: PropTypes.string.isRequired,
 }
 
 export default ItemCard

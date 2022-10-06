@@ -1,10 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import { Alert, AlertTitle, Typography } from '@mui/material'
 import Items from '../Items'
 
 const Categories = ({
-  error, data, cardFields, nestedRoutes,
+  error, data, cardFields, nestedRoutes, ...props
 }) => {
   if (error) {
     return (
@@ -24,7 +24,7 @@ const Categories = ({
       >
         Lista de Categorias
       </Typography>
-      <Items array={data} cardFields={cardFields} nestedRoutes={nestedRoutes} />
+      <Items array={data} cardFields={cardFields} nestedRoutes={nestedRoutes} {...props} />
 
     </>
   )
@@ -32,7 +32,8 @@ const Categories = ({
 
 Categories.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.number,
+    id: PropTypes.number,
+    name: PropTypes.string,
     description: PropTypes.string,
   })).isRequired,
   nestedRoutes: PropTypes.shape({
@@ -43,7 +44,7 @@ Categories.propTypes = {
   cardFields: PropTypes.shape({
     title: PropTypes.string,
     content: PropTypes.string,
-    imageUrl: null,
+    imageUrl: PropTypes.string,
   }).isRequired,
   error: PropTypes.string,
 }
