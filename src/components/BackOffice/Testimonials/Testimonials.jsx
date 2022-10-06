@@ -24,15 +24,15 @@ const Testimonials = (
         <Typography
           component="h1"
           variant="h5"
-          sx={{ marginY: { lg: '40px', xs: '10px' }, fontWeight: 'bold' }}
+          sx={{ marginY: { lg: '2.5rem', xs: '0.63rem' }, fontWeight: 'bold' }}
         >
           Lista de Testimonios
         </Typography>
         <TableContainer
           sx={{
             position: 'absolute',
-            top: '180px',
-            height: '400px',
+            top: '11.25rem',
+            height: '25rem',
             overflow: 'auto',
             width: { lg: '80%', xs: '100%' },
           }}
@@ -63,18 +63,18 @@ const Testimonials = (
                     {elem.content}
 
                   </TableCell>
-                  <TableCell sx={{ padding: '0', width: '60px' }} align="center">
+                  <TableCell sx={{ padding: '0', width: '3.75rem' }} align="center">
                     <>
                       <EditIcon
                         sx={{
                           opacity: '0.5',
                           padding: '1px',
                           border: '1px solid red',
-                          borderRadius: '5px',
+                          borderRadius: '0.31rem',
                           backgroundColor: 'white',
                           color: 'red',
                           fontSize: '1.8rem',
-                          margin: '0 5px',
+                          margin: '0 0.31rem',
                           cursor: 'pointer',
                           '&:hover': { opacity: '1' },
                         }}
@@ -85,11 +85,11 @@ const Testimonials = (
                         sx={{
                           opacity: '0.5',
                           padding: '1px',
-                          borderRadius: '5px',
+                          borderRadius: '0.31rem',
                           backgroundColor: 'red',
                           color: 'white',
                           fontSize: '1.8rem',
-                          margin: '0 5px',
+                          margin: '0 0.31rem',
                           cursor: 'pointer',
                           '&:hover': { opacity: '1' },
                         }}
