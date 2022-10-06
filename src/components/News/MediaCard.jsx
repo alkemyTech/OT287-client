@@ -3,10 +3,17 @@ import {
   Box, Card, CardActions, CardContent, CardMedia, Button, Typography, Link,
 } from '@mui/material'
 import PropTypes from 'prop-types';
+import './newById.css'
 
 const MediaCard = ({ data }) => (
   <Card sx={{
-    width: '450px', padding: '5px', backgroundColor: '#bacffc', borderRadius: '20px', borde: 'solid 1px #0038FF', boxSizing: 'border-box', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center',
+    width: '450px',
+    padding: '5px',
+    backgroundColor: '#bacffc',
+    borderRadius: '20px',
+    borde: 'solid 1px #0038FF',
+    boxSizing: 'border-box',
+    display: 'flex',
   }}
   >
     <Box width="200px">
@@ -19,13 +26,20 @@ const MediaCard = ({ data }) => (
         }}
       />
     </Box>
-    <Box width="250px" height="100%" display="flex" flexDirection="column">
+    <Box display="flex" flexDirection="column">
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {data.name}
         </Typography>
-        <Typography variant="body2" color="#000000" sx={{ fontSize: '12px' }}>
-          {data.content}
+        <Typography className="contentNewAbstract" color="#000000" sx={{ fontSize: '12px' }}>
+          {/* {data.content} */}
+          {' '}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+          deserunt mollit anim id est laborum.
         </Typography>
       </CardContent>
       <CardActions sx={{

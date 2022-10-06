@@ -1,16 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Grid, Container, Box } from '@mui/material'
+import { Grid, Box } from '@mui/material'
 import MediaCard from './MediaCard'
 
 const NewsCards = ({ data, error, errorMessage }) => (
-  <Container
-    style={{ maxWidth: 'fit-content', padding: '0px' }}
-  >
+
+  <>
     {error && (
     <Box component="span" color="red">{error === 409 ? 'Error server conexion' : errorMessage}</Box>
     )}
-    <Grid container display="flex" justifyContent="center">
+    <Grid container width="100%" display="flex" justifyContent="center">
       { data && data.map((d) => (
         <Grid item display="flex" justifyContent="center" m={2} xs={10} sm={8} md={6} lg={4} xl={4} key={d.id}>
           <MediaCard
@@ -19,7 +18,8 @@ const NewsCards = ({ data, error, errorMessage }) => (
         </Grid>
       ))}
     </Grid>
-  </Container>
+
+  </>
 )
 
 NewsCards.propTypes = {
