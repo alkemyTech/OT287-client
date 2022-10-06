@@ -38,7 +38,7 @@ const Testimonials = (
           }}
           component={Paper}
         >
-          <Table stickyHeader>
+          <Table stickyHeader sx={{ height: '100%' }}>
             <TableHead>
               <TableRow>
                 <TableCell><b>Nombre</b></TableCell>
