@@ -1,7 +1,6 @@
 import React, {
   useCallback, useState, useEffect,
 } from 'react'
-import { Box } from '@mui/material'
 import NewsCards from './NewsCards'
 import httpService from '../../services/httpService';
 
@@ -29,13 +28,11 @@ const NewsContainer = () => {
   }, [getNewsData])
 
   return (
-    <Box sx={{m:'120px 100px 20px 100px'}} >
-      <NewsCards
-        data={news}
-        error={errorStatus}
-        errorMessage={errorMessage}
-      />
-    </Box>
+    <NewsCards
+      data={news}
+      error={errorStatus}
+      errorMessage={errorMessage}
+    />
   )
 }
 export default NewsContainer
