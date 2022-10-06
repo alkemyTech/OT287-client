@@ -20,13 +20,13 @@ const RegisterForm = ({
         alignItems: 'center',
       }}
     >
-      <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold' }}>Registrate!</Typography>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={(values) => onSubmitForm(values)}
       >
-        <Box sx={{ mt: 4 }}>
+        <Box sx={{ width: { xs: '90%', md: '100%' } }}>
+          <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold', alignSelf: 'flex-start', mb: 2.5 }}>Registrate!</Typography>
           <Form>
             <Grid container spacing={2}>
               <Grid item xs={12}>
@@ -56,18 +56,20 @@ const RegisterForm = ({
                 <Box component="span" color="red">{error === 409 ? 'El email ingresado ya existe en la base de datos para otro usuario' : errorMessage}</Box>
                 )}
               </Grid>
-              <Typography
-                className="registerText"
-                component="p"
-                variant="p"
-                sx={{
-                  fontSize: '1rem', ml: '20px', mt: { xs: '20px', lg: '30px' }, mb: '60px',
-                }}
-              >
-                Ya tienes una cuenta?
-                {' '}
-                <Link to="/login" backgroundcolor="#DB5752" className="registerLink">Logueate</Link>
-              </Typography>
+              <Grid item xs={12}>
+                <Typography
+                  className="registerText"
+                  component="p"
+                  variant="p"
+                  sx={{
+                    mt: { lg: '6rem' }, fontSize: { xs: '1rem', md: '1.2rem' }, textAlign: 'center', '& > a': { color: '#DB5752', textDecoration: 'none' },
+                  }}
+                >
+                  Ya tienes una cuenta?
+                  {' '}
+                  <Link to="/login" backgroundcolor="#DB5752" className="registerLink">Inicia sesión</Link>
+                </Typography>
+              </Grid>
             </Grid>
           </Form>
         </Box>

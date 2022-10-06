@@ -27,13 +27,13 @@ const BackOffice = ({
         handleFilterList={handleFilterList}
         handleDrawerToggle={handleDrawerToggle}
       />
-      { location === '/back-office'
-        ? <Items array={data} cardFields={cardFields} nestedRoutes={nestedRoutes} />
-        : (
-          <Box maxWidth="md" sx={{ mt: 10, ml: { md: 4 }, width: '100%' }}>
+      <Box maxWidth="md" sx={{ mt: 10, ml: { md: 4 }, width: '100%' }}>
+        { location === '/back-office'
+          ? <Items array={data} cardFields={cardFields} nestedRoutes={nestedRoutes} />
+          : (
             <Outlet />
-          </Box>
-        )}
+          )}
+      </Box>
     </Box>
     <AddButton handleAction={handleAction} />
   </>
