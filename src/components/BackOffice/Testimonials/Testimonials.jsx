@@ -30,11 +30,7 @@ const Testimonials = (
         </Typography>
         <TableContainer
           sx={{
-            position: 'absolute',
-            top: '9.25rem',
-            height: '25rem',
             overflow: 'auto',
-            width: { lg: '80%', xs: '100%' },
           }}
           component={Paper}
         >

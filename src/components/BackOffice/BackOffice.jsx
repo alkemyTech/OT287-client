@@ -27,7 +27,7 @@ const BackOffice = ({
         handleFilterList={handleFilterList}
         handleDrawerToggle={handleDrawerToggle}
       />
-      <Box maxWidth="md" sx={{ mt: 10, ml: { md: 4 }, width: '100%' }}>
+      <Box sx={{ mt: 10, mx: { md: 4 }, width: '100%' }}>
         { location === '/back-office'
           ? <Items array={data} cardFields={cardFields} nestedRoutes={nestedRoutes} />
           : (
