@@ -22,6 +22,7 @@ const TestimonialsContainer = () => {
       setErrorStatusTestimonials(error.response)
     }
   }, [])
+
   const deleteElement = async (id) => {
     try {
       const data = await httpService('delete', `/testimonials/${id}`)
@@ -41,25 +42,23 @@ const TestimonialsContainer = () => {
   }, [getTestimonialsData])
 
   return (
-    <div>
-      <Testimonials
+    <Testimonials
         // Muestra el modal de aceptar o declinar
-        handleModal={handleModal}
-        setHandleModal={setHandleModal}
+      handleModal={handleModal}
+      setHandleModal={setHandleModal}
         // datos del endpoint
-        testimonials={dataTestimonials}
-        getTestimonialsData={getTestimonialsData}
+      testimonials={dataTestimonials}
+      getTestimonialsData={getTestimonialsData}
         // error handlers
-        errorStatus={errorStatus}
-        errorStatusTestimonials={errorStatusTestimonials}
+      errorStatus={errorStatus}
+      errorStatusTestimonials={errorStatusTestimonials}
         // delete handlers
-        deleteElement={deleteElement}
-        setElementToDelete={setElementToDelete}
-        elementToDelete={elementToDelete}
-        deletedSucces={deletedSucces}
-        setDeletedSucces={setDeletedSucces}
-      />
-    </div>
+      deleteElement={deleteElement}
+      setElementToDelete={setElementToDelete}
+      elementToDelete={elementToDelete}
+      deletedSucces={deletedSucces}
+      setDeletedSucces={setDeletedSucces}
+    />
   )
 }
 
