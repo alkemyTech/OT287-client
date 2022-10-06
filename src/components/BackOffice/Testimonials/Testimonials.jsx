@@ -36,7 +36,7 @@ const Testimonials = (
         >
           <Table stickyHeader sx={{ height: '100%' }}>
             <TableHead>
-              <TableRow>
+              <TableRow sx={{ '& .MuiTableCell-head': { backgroundColor: '#f0f0f0' } }}>
                 <TableCell><b>Nombre</b></TableCell>
                 <TableCell><b>Testimonio</b></TableCell>
                 <TableCell align="center"><b>Acciones</b></TableCell>
