@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import {
   Button, Box, Container, Toolbar, AppBar,
 } from '@mui/material'
+import { Link } from 'react-router-dom';
 import BrandLogo from './BrandLogo';
 import BurgerMenu from './Navbar/BurgerMenu';
 import Navbar from './Navbar/Navbar';
-import { Link } from 'react-router-dom';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 
 const Header = (props) => {
@@ -22,9 +22,9 @@ const Header = (props) => {
       }}
     >
       <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{ display: 'flex' }}>
-          <Link to={'/'}>
-             <BrandLogo logo={logo} breakpointDisplay="md" breakpointHidden="xs" />
+        <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Link to="/">
+            <BrandLogo logo={logo} breakpointDisplay="md" breakpointHidden="xs" />
           </Link>
           <BurgerMenu
             menu={menu}

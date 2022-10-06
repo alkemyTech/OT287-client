@@ -41,3 +41,13 @@
     transform: translateY(0px)
   }
 }
+
+
+.page-enter {
+  opacity: .5;
+}
+
+.page-enter-active {
+  opacity: 1;
+  transition: opacity .75s ease-out;
+}
