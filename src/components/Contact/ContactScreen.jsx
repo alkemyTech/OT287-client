@@ -1,10 +1,20 @@
 import React from 'react'
-import { Grid, Typography } from '@mui/material'
+import {
+  Grid, IconButton, Link, Typography,
+} from '@mui/material'
+import FacebookIcon from '@mui/icons-material/Facebook'
+import InstagramIcon from '@mui/icons-material/Instagram'
+import CallIcon from '@mui/icons-material/Call';
 import ContactFormContainer from '../Forms/ContactForm/ContactFormContainer'
 
 const ContactScreen = () => (
   <>
     <Grid container>
+      <Grid item container justifyContent="center">
+        <Typography m="10px" variant="h5" fontWeight="bold">
+          ¡Contactate con nosotros!
+        </Typography>
+      </Grid>
       <Grid
         container
         item
@@ -16,33 +26,55 @@ const ContactScreen = () => (
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
-        minHeight="500px"
+        minHeight="300px"
       >
         <Grid
           item
           container
-          xs={10}
-          sm={10}
+          xs={11}
+          sm={8}
           md={10}
           lg={10}
           xl={8}
           display="flex"
+          padding={{ xs: '2rem 0', md: '0 2rem' }}
           flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-          sx={{ backgroundColor: '#e3f2fd', borderRadius: '20px' }}
+          sx={{ borderRadius: '20px' }}
         >
-          <Typography m="20px">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+          <Typography variant="subtitle">
+            Puedes solicitarnos información sobre cualquiera de nuestras actividades
+            o enviarnos los comentarios que consideres oportunos para ayudarnos a mejorar.
           </Typography>
+          <Typography variant="subtitle" fontWeight="bold">Dejanos tu mensaje y te responderemos lo antes posible.</Typography>
+          <br />
+          <Typography variant="subtitle" text fontWeight="bold" marginBottom=".5rem">Otros medios de contacto</Typography>
+          <Grid item container flexDirection="column">
+            <Grid item>
+              <Link href="https://www.facebook.com/profile.php?id=100077792335889" target="_blank" rel="noopener noreferrer" underline="none" color="inherit">
+                <IconButton color="inherit">
+                  <FacebookIcon />
+                </IconButton>
+                <Typography variant="span"> Somos_Más</Typography>
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link href="https://www.instagram.com/educandosomosmas/" target="_blank" rel="noopener noreferrer" underline="none" color="inherit">
+                <IconButton color="inherit">
+                  <InstagramIcon />
+                </IconButton>
+                <Typography variant="span"> SomosMás</Typography>
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link href="tel:1160112988" target="_blank" rel="noopener noreferrer" underline="none" color="inherit">
+                <IconButton color="inherit">
+                  <CallIcon />
+                </IconButton>
+                <Typography variant="span"> 1160112988</Typography>
+              </Link>
+            </Grid>
+          </Grid>
         </Grid>
-
       </Grid>
       <Grid
         container

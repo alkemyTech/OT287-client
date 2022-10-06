@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  Container, CssBaseline, Box, Typography, Grid, Button, Alert,
+  Container, CssBaseline, Box, Grid, Button, Alert,
 } from '@mui/material'
 import { Formik, Form } from 'formik'
 import PropTypes from 'prop-types'
@@ -24,7 +24,6 @@ const ContactForm = (props) => {
             justifyContent: 'center',
           }}
         >
-          <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold' }}>¡Contactate con nosotros!</Typography>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
