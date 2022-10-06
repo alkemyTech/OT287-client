@@ -1,22 +1,26 @@
 import * as React from 'react';
 import {
-  Card, CardContent, CardMedia, Typography,
+  Card, CardMedia, Typography,
 } from '@mui/material'
 import PropTypes from 'prop-types';
 
 const MediaCard = ({ data }) => (
-  <Card sx={{ maxWidth: 212 }}>
-    <CardMedia
-      component="img"
-      height="234"
-      image={`images/${data.image}`}
-      alt="member image"
-    />
-    <CardContent>
-      <Typography gutterBottom variant="h5" component="div">
-        {data.name}
-      </Typography>
-    </CardContent>
+  <Card sx={{ maxWidth: 212, borderRadius: '20px', position: "relative" }}>
+     <CardMedia
+       component="img"
+       height="234"
+       image={`images/${data.image}`}
+       alt="member image"
+     />
+     <Typography style={{
+       position: "absolute", 
+       color: "white",
+       bottom: 30,
+       left: "50%",
+       transform: "translateX(-50%)", 
+       fontSize:24,
+       textAlign:'center',
+       width:'100%'}}> {data.name}</Typography>
   </Card>
 )
 

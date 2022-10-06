@@ -6,47 +6,54 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import DeleteIcon from '@mui/icons-material/Delete';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
 
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from 'react-router-dom'
 
 const ItemCard = ({ data, fields, nestedRoutes }) => {
   const navigate = useNavigate()
 
-  return (<Card sx={{ borderRadius: '8px' }}>
-    { data[fields.imageUrl] && (
+  return (
+    <Card sx={{ borderRadius: '8px' }}>
+      { data[fields.imageUrl] && (
       <CardMedia
         component="img"
-        height="140"
+        height="150"
         image={data[fields.imageUrl]}
         alt={data[fields.title]}
       />
-    )}
-    <CardContent>
-      <Typography variant="h6" sx={{ mt: 0 }}>
-        { data[fields.title] }
-      </Typography>
-      <Typography variant="body2" color="text.secondary" sx={{ height: '2.3rem', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-        { data[fields.content] }
-      </Typography>
-    </CardContent>
-    <CardActions sx={{ justifyContent: 'right' }}>
-      <Button 
-          color="warning" 
-          size="small" 
-          startIcon={<EditIcon />} 
-          sx={{ color: '#666666' }}
-          onClick={() => navigate(`/back-office/${nestedRoutes.edit}`)}  
-        >edit</Button>
-      <Button 
-        color="error" 
-        size="small" 
-        startIcon={<DeleteIcon />}
-        onClick={() => navigate(`/back-office/${nestedRoutes.delete}`)}
-      >delete</Button>
-    </CardActions>
-  </Card>)
+      )}
+      <CardContent>
+        <Typography variant="h6" sx={{ mt: 0 }}>
+          { data[fields.title] }
+        </Typography>
+        <Typography variant="body2" color="text.secondary" sx={{ height: '2.3rem', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          { data[fields.content] }
+        </Typography>
+      </CardContent>
+      <CardActions sx={{ justifyContent: 'right' }}>
+        <Button
+          color="warning"
+          size="small"
+          startIcon={<EditIcon />}
+          sx={{ color: '#DB5752', border: '1px solid #DB5752' }}
+          onClick={() => navigate(`/back-office/${data.id}/${nestedRoutes.edit}`)}
+        >
+          edit
+        </Button>
+        <Button
+          color="error"
+          size="small"
+          startIcon={<HighlightOffIcon />}
+          sx={{ color: 'white', backgroundColor: '#DB5752', mr: '5px' }}
+          onClick={() => navigate(`/back-office/${nestedRoutes.delete}`)}
+        >
+          delete
+        </Button>
+      </CardActions>
+    </Card>
+  )
 }
 
 ItemCard.propTypes = {
@@ -56,6 +63,7 @@ ItemCard.propTypes = {
     imageUrl: PropTypes.string,
   }).isRequired,
   data: PropTypes.shape({
+    id: PropTypes.number,
     title: PropTypes.string,
     content: PropTypes.string,
     imageUrl: PropTypes.string,

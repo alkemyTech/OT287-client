@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Button, Box, Container, Toolbar, AppBar,
 } from '@mui/material'
+import { Link } from 'react-router-dom';
 import BrandLogo from './BrandLogo';
 import BurgerMenu from './Navbar/BurgerMenu';
 import Navbar from './Navbar/Navbar';
@@ -21,7 +22,9 @@ const Header = (props) => {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <BrandLogo logo={logo} breakpointDisplay="md" breakpointHidden="xs" />
+          <Link to="/">
+            <BrandLogo logo={logo} breakpointDisplay="md" breakpointHidden="xs" />
+          </Link>
           <BurgerMenu
             menu={menu}
             handleCloseMenu={handleCloseMenu}

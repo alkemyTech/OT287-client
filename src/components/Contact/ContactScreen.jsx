@@ -39,7 +39,6 @@ const ContactScreen = () => (
           display="flex"
           padding={{ xs: '2rem 0', md: '0 2rem' }}
           flexDirection="column"
-          sx={{ borderRadius: '20px' }}
         >
           <Typography variant="subtitle">
             Puedes solicitarnos información sobre cualquiera de nuestras actividades
