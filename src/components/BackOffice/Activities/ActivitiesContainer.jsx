@@ -31,9 +31,9 @@ const activities = [
 ]
 
 const ActivitiesContainer = () => (
-  <div>
+  <>
     <Activities activities={activities} />
-  </div>
+  </>
 )
 
 export default ActivitiesContainer

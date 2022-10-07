@@ -8,7 +8,7 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
 
 const Activities = ({ activities }) => (
-  <Box>
+  <Box sx={{ padding: { xs: '10px'} }}>
         <Typography
           component="h1"
           variant="h5"
@@ -17,23 +17,17 @@ const Activities = ({ activities }) => (
           Lista de Actividades
         </Typography>
         <TableContainer
-          sx={{
-            position: 'absolute',
-            top: '180px',
-            height: '400px',
-            overflow: 'auto',
-            width: { lg: '80%', xs: '100%' },
-          }}
+
           component={Paper}
         >
           <Table>
             <TableHead>
               <TableRow sx={{ backgroundColor: 'rgb(240,240,240)' }}>
-                <TableCell><b>Nombre</b></TableCell>
-                <TableCell><b>URL Imagen</b></TableCell>
-                <TableCell><b>Contenido</b></TableCell>
-                <TableCell><b>Fecha creacion</b></TableCell>
-                <TableCell align="center"><b>Acciones</b></TableCell>
+                <TableCell sx={{lineHeight:'1'}}><b>Nombre</b></TableCell>
+                <TableCell sx={{lineHeight:'1'}}><b>URL Imagen</b></TableCell>
+                <TableCell sx={{lineHeight:'1'}}><b>Contenido</b></TableCell>
+                <TableCell sx={{lineHeight:'1'}}><b>Fecha creacion</b></TableCell>
+                <TableCell sx={{lineHeight:'1'}} align="center"><b>Acciones</b></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -43,35 +37,33 @@ const Activities = ({ activities }) => (
                 <TableRow key={elem.id}>
                   <TableCell>{elem.name}</TableCell>
                   <TableCell
-                    sx={{ width: '30px', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    
                   >
                     {elem.image}
 
                   </TableCell>
                   <TableCell
-                    sx={{ width: '220px', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    
                   >
                     {elem.content}
 
                   </TableCell>
                   <TableCell
-                    sx={{ width: '220px', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    
                   >
                     {elem.createdAt}
 
                   </TableCell>
-                  <TableCell sx={{ padding: '0', width: '60px' }} align="center">
+                  <TableCell sx={{display:'flex', alignItems:'center', justifyContent:'center'}}>
                     <>
                       <EditIcon sx={{
                         opacity: '0.5',
-                        padding: '1px',
                         border: '1px solid red',
                         borderRadius: '5px',
                         backgroundColor: 'white',
                         color: 'red',
-                        fontSize: '1.8rem',
-                        margin: '0 5px',
                         cursor: 'pointer',
+                        fontSize: '1.8rem',
                         '&:hover': { opacity: '1' },
                       }}
                       />
@@ -82,12 +74,10 @@ const Activities = ({ activities }) => (
                       >
                         <HighlightOffIcon sx={{
                           opacity: '0.5',
-                          padding: '1px',
                           borderRadius: '5px',
                           backgroundColor: 'red',
                           color: 'white',
                           fontSize: '1.8rem',
-                          margin: '0 5px',
                           cursor: 'pointer',
                           '&:hover': { opacity: '1' },
                         }}
