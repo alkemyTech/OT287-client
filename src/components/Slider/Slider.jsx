@@ -39,12 +39,12 @@ const Slider = ({ items }) => (
     }}
   >
     {
-                items.map((item) => (
-                  <Box key={item.id} sx={{ maxHeight: '31.25rem', marginTop: '2rem' }}>
-                    <Box component="img" src={item.imageUrl} alt={item.text} sx={{ width: '100%', height: { xs: '250px', md: '500px' } }} />
-                  </Box>
-                ))
-        }
+      items.map((item) => (
+        <Box key={item.id} sx={{ maxHeight: '31.25rem', marginTop: '2rem' }}>
+          <Box component="img" src={item.imageUrl} alt={item.text} sx={{ width: '100%', height: { xs: '250px', md: '500px' }, objectFit: 'cover' }} />
+        </Box>
+      ))
+    }
   </Carousel>
 )
 
