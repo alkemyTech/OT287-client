@@ -14,33 +14,29 @@ const Testimonials = (
 ) => {
   const {
     testimonials, handleModal, setHandleModal, setElementToDelete, elementToDelete,
-    deleteElement, deletedSucces, errorStatus, getTestimonialsData, errorStatusTestimonials,
-    setDeletedSucces,
+    deleteElement, deletedSuccess, errorStatus, getTestimonialsData, errorStatusTestimonials,
+    setDeletedSuccess,
   } = props
   const navigate = useNavigate()
   return (
     <>
-      <Box>
+      <Box sx={{ mx: { xs: 2.5, md: 0 } }}>
         <Typography
           component="h1"
           variant="h5"
-          sx={{ marginY: { lg: '40px', xs: '10px' }, fontWeight: 'bold' }}
+          sx={{ my: { lg: '1rem', xs: '0.63rem' }, fontWeight: 'bold' }}
         >
           Lista de Testimonios
         </Typography>
         <TableContainer
           sx={{
-            position: 'absolute',
-            top: '180px',
-            height: '400px',
             overflow: 'auto',
-            width: { lg: '80%', xs: '100%' },
           }}
           component={Paper}
         >
-          <Table stickyHeader>
+          <Table stickyHeader sx={{ height: '100%' }}>
             <TableHead>
-              <TableRow>
+              <TableRow sx={{ '& .MuiTableCell-head': { backgroundColor: '#f0f0f0' } }}>
                 <TableCell><b>Nombre</b></TableCell>
                 <TableCell><b>Testimonio</b></TableCell>
                 <TableCell align="center"><b>Acciones</b></TableCell>
@@ -63,18 +59,18 @@ const Testimonials = (
                     {elem.content}
 
                   </TableCell>
-                  <TableCell sx={{ padding: '0', width: '60px' }} align="center">
+                  <TableCell sx={{ padding: '0', width: '3.75rem' }} align="center">
                     <>
                       <EditIcon
                         sx={{
                           opacity: '0.5',
                           padding: '1px',
                           border: '1px solid red',
-                          borderRadius: '5px',
+                          borderRadius: '0.31rem',
                           backgroundColor: 'white',
                           color: 'red',
                           fontSize: '1.8rem',
-                          margin: '0 5px',
+                          margin: '0 0.31rem',
                           cursor: 'pointer',
                           '&:hover': { opacity: '1' },
                         }}
@@ -85,11 +81,11 @@ const Testimonials = (
                         sx={{
                           opacity: '0.5',
                           padding: '1px',
-                          borderRadius: '5px',
+                          borderRadius: '0.31rem',
                           backgroundColor: 'red',
                           color: 'white',
                           fontSize: '1.8rem',
-                          margin: '0 5px',
+                          margin: '0 0.31rem',
                           cursor: 'pointer',
                           '&:hover': { opacity: '1' },
                         }}
@@ -113,11 +109,11 @@ const Testimonials = (
         setHandleModal={setHandleModal}
         elementToDelete={elementToDelete}
         deleteElement={deleteElement}
-        deletedSucces={deletedSucces}
+        deletedSuccess={deletedSuccess}
         errorStatus={errorStatus}
         getTestimonialsData={getTestimonialsData}
         setElementToDelete={setElementToDelete}
-        setDeletedSucces={setDeletedSucces}
+        setDeletedSuccess={setDeletedSuccess}
       />
     </>
   )
@@ -134,10 +130,10 @@ Testimonials.propTypes = {
   setElementToDelete: PropTypes.func.isRequired,
   elementToDelete: PropTypes.oneOfType([PropTypes.object]).isRequired,
   deleteElement: PropTypes.func.isRequired,
-  deletedSucces: PropTypes.bool.isRequired,
+  deletedSuccess: PropTypes.bool.isRequired,
   errorStatus: PropTypes.string.isRequired,
   getTestimonialsData: PropTypes.func.isRequired,
   errorStatusTestimonials: PropTypes.string.isRequired,
-  setDeletedSucces: PropTypes.func.isRequired,
+  setDeletedSuccess: PropTypes.func.isRequired,
 }
 export default Testimonials

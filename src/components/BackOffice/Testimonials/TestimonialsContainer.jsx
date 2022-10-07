@@ -7,7 +7,7 @@ const TestimonialsContainer = () => {
   const [dataTestimonials, setDataTestimonials] = useState([])
   const [errorStatusTestimonials, setErrorStatusTestimonials] = useState('')
   const [elementToDelete, setElementToDelete] = useState({})
-  const [deletedSucces, setDeletedSucces] = useState(false)
+  const [deletedSuccess, setDeletedSuccess] = useState(false)
   const [errorStatus, setErrorStatus] = useState('')
 
   const getTestimonialsData = useCallback(async () => {
@@ -22,11 +22,12 @@ const TestimonialsContainer = () => {
       setErrorStatusTestimonials(error.response)
     }
   }, [])
+
   const deleteElement = async (id) => {
     try {
       const data = await httpService('delete', `/testimonials/${id}`)
       if (data.code === 200) {
-        setDeletedSucces(true)
+        setDeletedSuccess(true)
         getTestimonialsData()
       } else {
         setErrorStatus(data.code)
@@ -41,25 +42,23 @@ const TestimonialsContainer = () => {
   }, [getTestimonialsData])
 
   return (
-    <div>
-      <Testimonials
+    <Testimonials
         // Muestra el modal de aceptar o declinar
-        handleModal={handleModal}
-        setHandleModal={setHandleModal}
+      handleModal={handleModal}
+      setHandleModal={setHandleModal}
         // datos del endpoint
-        testimonials={dataTestimonials}
-        getTestimonialsData={getTestimonialsData}
+      testimonials={dataTestimonials}
+      getTestimonialsData={getTestimonialsData}
         // error handlers
-        errorStatus={errorStatus}
-        errorStatusTestimonials={errorStatusTestimonials}
+      errorStatus={errorStatus}
+      errorStatusTestimonials={errorStatusTestimonials}
         // delete handlers
-        deleteElement={deleteElement}
-        setElementToDelete={setElementToDelete}
-        elementToDelete={elementToDelete}
-        deletedSucces={deletedSucces}
-        setDeletedSucces={setDeletedSucces}
-      />
-    </div>
+      deleteElement={deleteElement}
+      setElementToDelete={setElementToDelete}
+      elementToDelete={elementToDelete}
+      deletedSuccess={deletedSuccess}
+      setDeletedSucces={setDeletedSuccess}
+    />
   )
 }
 

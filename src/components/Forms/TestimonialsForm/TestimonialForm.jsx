@@ -23,14 +23,11 @@ const TestimonialForm = ({
   const navigate = useNavigate()
 
   return (
-    <Container component="main" maxWidth="sm">
+    <Container component="main" maxWidth="md">
       <CssBaseline />
       <Box
-        xl={{
-          marginTop: 12,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
+        sx={{
+          marginTop: 2,
         }}
       >
         <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold' }}>Testimonio</Typography>

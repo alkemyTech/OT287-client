@@ -20,6 +20,9 @@ const theme = createTheme({
     borderRadius: 5,
     height: 80,
   },
+  zIndex: {
+    modal: 1600,
+  },
 });
 
 export default theme;
