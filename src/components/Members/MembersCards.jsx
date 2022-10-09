@@ -12,7 +12,7 @@ const MembersCards = ({data, error, errorMessage}) => {
                   )}
       <Grid container spacing={3}  >     
       { data && data.map((d, index) => (
-        <Grid item xs={12} sm={6} md={4} lg={2} key={index} sx={{mt:2, mb:10}} >
+        <Grid item xs={12} sm={6} md={4} lg={2} key={index} sx={{mt:2, mb:10, textAlign:'-webkit-center'}} >
             <MediaCard 
             data={d}/>
         </Grid>
