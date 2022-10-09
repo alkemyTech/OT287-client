@@ -1,24 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 import {
   Box, Table, TableRow, TableHead, TableContainer,
-  TableCell, TableBody, Paper, Typography, IconButton,
+  TableCell, TableBody, Paper, Typography,
 } from '@mui/material'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
-import { useNavigate } from 'react-router-dom';
+import DeleteModal from './DeleteModal';
 
-const Users = ({ users }) => {
-  const navigate = useNavigate()
+const Users = (
+  props,
+  ) => { 
+    const {users, handleModal, setHandleModal, setElementToDelete, elementToDelete,
+    deleteElement, deletedSucces, errorStatus, errorStatusUsers,
+    setDeletedSucces,
+  } = props 
+   
   return (
-
+  <>
     <Box>
         <Typography
           component="h1"
           variant="h5"
           sx={{ marginY: { lg: '40px', xs: '10px' }, fontWeight: 'bold' }}
         >
-          Lista de Actividades
+          Lista de Usuarios
         </Typography>
         <TableContainer
           sx={{
@@ -41,19 +48,27 @@ const Users = ({ users }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-
               {users && users.map((elem) => (
                 <TableRow key={elem.id}>
-                  <TableCell>{elem.id}</TableCell>
-                  <TableCell>{elem.firstName}</TableCell>
-                  <TableCell>{elem.lastName}</TableCell>
-                  <TableCell>{elem.email}</TableCell>
-                  <TableCell sx={{ padding: '0', width: '60px' }} align="center">
+                  <TableCell
+                  sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >{elem.id}
+                  </TableCell>
+                  <TableCell
+                  sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >{elem.firstName}
+                  </TableCell>
+                  <TableCell
+                  sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >{elem.lastName}
+                  </TableCell>
+                  <TableCell
+                  sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >{elem.email}
+                  </TableCell>
+                  <TableCell sx={{width: '25%', padding: '0'}} align="center">
                     <>
-                    <IconButton onClick={() => {
-                        navigate(`/back-office/users/${elem.id}`) 
-                      }}
-                      >
+                    <Link to={`${elem.id}/editar`}>
                       <EditIcon sx={{
                         opacity: '0.5',
                         padding: '1px',
@@ -67,13 +82,10 @@ const Users = ({ users }) => {
                         '&:hover': { opacity: '1' },
                       }}
                       />
-                      </IconButton>
-
-                      <IconButton onClick={() => {
-                       
-                      }}
-                      >
-                        <HighlightOffIcon sx={{
+                    </Link>
+                      
+                    <HighlightOffIcon
+                        sx={{
                           opacity: '0.5',
                           padding: '1px',
                           borderRadius: '5px',
@@ -84,16 +96,32 @@ const Users = ({ users }) => {
                           cursor: 'pointer',
                           '&:hover': { opacity: '1' },
                         }}
-                        />
-                      </IconButton>
+                        onClick={() => {
+                          setHandleModal(true)
+                          setElementToDelete(elem)
+                        }}
+                      />
+                      
                     </>
                   </TableCell>
                 </TableRow>
               )) }
+                {errorStatusUsers ? 'Error al traer Usuarios' : null}
             </TableBody>
           </Table>
         </TableContainer>
       </Box>
+       <DeleteModal
+       openModal={handleModal}
+       setHandleModal={setHandleModal}
+       elementToDelete={elementToDelete}
+       deleteElement={deleteElement}
+       deletedSucces={deletedSucces}
+       errorStatus={errorStatus}
+       setElementToDelete={setElementToDelete}
+       setDeletedSucces={setDeletedSucces}
+     />
+     </>
   )
 }
 Users.propTypes = {

@@ -19,7 +19,7 @@ import ActivityContainer from '../components/Activity/ActivityContainer'
 import BackofficeTestimonials from '../components/BackOffice/Testimonials/TestimonialsContainer'
 import Logout from '../components/Logout/Logout'
 import EditUserProfileContainer from '../components/Forms/EditUserProfile/EditUserProfileContainer'
-import EditUserContainer from '../components/BackOffice/UserEditFormBackOffice/EditUserContainer'
+import EditUserContainer from '../components/Forms/UserEditFormBackOffice/EditUserContainer'
 import PrivateRoute from '../components/PrivateRoute/PrivateRoute'
 import BackOfficeActivities from '../components/BackOffice/Activities/ActivitiesContainer'
 import MembersContainer from '../components/Members/MembersContainer'
@@ -33,7 +33,7 @@ const Router = () => {
   const location = useLocation();
   return (
     <>
-    <ScrollToTop/> 
+    <ScrollToTop/>
       <TransitionGroup component={null}>
         <CSSTransition
           key={location.key}
@@ -63,7 +63,7 @@ const Router = () => {
                      <Route path="organizations" element={<BackofficeNews />} />
                      <Route path="organizations/:id/edit" element={<EditOrganizationContainer />} />
                      <Route path="users" element={<BackofficeUsers />} />
-                     <Route path="users/:id" element={<EditUserContainer />} />
+                     <Route path="users/:id/editar" element={<EditUserContainer />} />
                      <Route path="news" element={<BackofficeNews />} />
                      <Route path="testimonials" element={<BackofficeTestimonials />} />
                      <Route path="testimonials/:id/edit" element={<TestimonialFormContainer />} />
