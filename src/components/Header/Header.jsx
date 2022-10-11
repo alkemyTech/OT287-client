@@ -12,7 +12,7 @@ import { Typography } from '@mui/material';
 const Header = (props) => {
   const {
     logo, menu, handleOpenMenu, handleCloseMenu, anchorNav, navigate, handleActiveButton,
-    activeButton, buttonsAction,
+    activeButton, buttonsAction, MenuIcon,
   } = props
   return (
     <AppBar
@@ -31,6 +31,7 @@ const Header = (props) => {
             handleCloseMenu={handleCloseMenu}
             handleOpenMenu={handleOpenMenu}
             anchorNav={anchorNav}
+            MenuIcon={MenuIcon}
           />
           <BrandLogo logo={logo} breakpointDisplay="xs" breakpointHidden="md" />
           <Navbar
@@ -119,10 +120,12 @@ Header.propTypes = {
     text: PropTypes.string,
     route: PropTypes.string,
   })).isRequired,
+  MenuIcon: PropTypes.instanceOf(Element),
 }
 
 Header.defaultProps = {
   anchorNav: null,
+  MenuIcon: null,
 }
 
 export default Header
