@@ -33,7 +33,7 @@ const Router = () => {
   const location = useLocation();
   return (
     <>
-    <ScrollToTop/>
+    <ScrollToTop/> 
       <TransitionGroup component={null}>
         <CSSTransition
           key={location.key}

@@ -4,10 +4,10 @@ import {
   Box, Table, TableRow, TableHead, TableContainer,
   TableCell, TableBody, Paper, Typography,
 } from '@mui/material'
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import EditIcon from '@mui/icons-material/Edit';
-import { useNavigate } from 'react-router-dom';
-import TestimonialDeleteModal from './TestimonialDeleteModal';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff'
+import EditIcon from '@mui/icons-material/Edit'
+import { useNavigate } from 'react-router-dom'
+import TestimonialDeleteModal from '../../Layout/DeleteModal'
 
 const Testimonials = (
   props,

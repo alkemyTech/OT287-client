@@ -1,14 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import {
   Box, Table, TableRow, TableHead, TableContainer,
   TableCell, TableBody, Paper, Typography,
 } from '@mui/material'
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteModal from './DeleteModal';
-
+import HighlightOffIcon from '@mui/icons-material/HighlightOff'
+import EditIcon from '@mui/icons-material/Edit'
+import DeleteModal from '../../Layout/DeleteModal'
 
 const News = (
   props,
@@ -53,7 +52,8 @@ const News = (
 
                 <TableRow key={elem.id}>
                   <TableCell
-                  sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >
                     {elem.name}
                   </TableCell>
                   <TableCell
@@ -70,21 +70,21 @@ const News = (
                   </TableCell>
                   <TableCell sx={{ padding: '0', width: '25%' }} align="center">
                     <>
-                    <Link to={`${elem.id}/edit`}>
-                      <EditIcon sx={{
-                        opacity: '0.5',
-                        padding: '1px',
-                        border: '1px solid red',
-                        borderRadius: '5px',
-                        backgroundColor: 'white',
-                        color: 'red',
-                        fontSize: '1.8rem',
-                        margin: '0 5px',
-                        cursor: 'pointer',
-                        '&:hover': { opacity: '1' },
-                      }}
-                      />
-                    </Link>
+                      <Link to={`${elem.id}/edit`}>
+                        <EditIcon sx={{
+                          opacity: '0.5',
+                          padding: '1px',
+                          border: '1px solid red',
+                          borderRadius: '5px',
+                          backgroundColor: 'white',
+                          color: 'red',
+                          fontSize: '1.8rem',
+                          margin: '0 5px',
+                          cursor: 'pointer',
+                          '&:hover': { opacity: '1' },
+                        }}
+                        />
+                      </Link>
 
                       <HighlightOffIcon
                         sx={{

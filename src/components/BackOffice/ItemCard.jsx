@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff'
 import EditIcon from '@mui/icons-material/Edit'
 import { useNavigate } from 'react-router-dom'
-import DeleteModal from './Categories/DeleteModal'
+import DeleteModal from '../Layout/DeleteModal'
 
 const ItemCard = (props) => {
   const {
