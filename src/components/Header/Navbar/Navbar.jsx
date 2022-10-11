@@ -13,6 +13,7 @@ const Navbar = ({
         onClick={() => {
           handleActiveButton(page.route)
           navigate(page.route)
+          window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
         }}
         sx={{
           my: 2, mx: { md: 0.5, lg: 0.8 }, display: 'block', color: 'black', fontSize: { lg: '1rem' }, backgroundColor: activeButton === page.route ? '#ffcdd2' : null,
