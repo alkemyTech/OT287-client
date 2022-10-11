@@ -2,12 +2,24 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {
   Box, Table, TableRow, TableHead, TableContainer,
-  TableCell, TableBody, Paper, Typography, IconButton,
+  TableCell, TableBody, Paper, Typography,
 } from '@mui/material'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
+import DeleteModal from './DeleteModal';
+import { Link } from 'react-router-dom';
 
-const Activities = ({ activities }) => (
+const Activities = (
+  props,
+) => {
+
+  const {
+    activities, handleModal, setHandleModal, setElementToDelete, elementToDelete,
+    deleteElement, deletedSucces, errorStatus, errorStatusActivities, setDeletedSucces,
+  } = props
+
+  return (
+    <>
   <Box sx={{ padding: { xs: '10px'} }}>
         <Typography
           component="h1"
@@ -35,65 +47,83 @@ const Activities = ({ activities }) => (
               {activities && activities.map((elem) => (
 
                 <TableRow key={elem.id}>
-                  <TableCell>{elem.name}</TableCell>
+                  <TableCell 
+                  sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >{elem.name}</TableCell>
                   <TableCell
-                    
+                  sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
                   >
                     {elem.image}
-
                   </TableCell>
                   <TableCell
-                    
+                  sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
                   >
                     {elem.content}
-
                   </TableCell>
                   <TableCell
-                    
+                  sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
                   >
                     {elem.createdAt}
 
                   </TableCell>
-                  <TableCell sx={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+                  <TableCell sx={{width: '25%', display:'flex', alignItems:'center', justifyContent:'center'}}>
                     <>
+                    <Link to={`${elem.id}/editar`}>
                       <EditIcon sx={{
                         opacity: '0.5',
+                        padding: '1px',
                         border: '1px solid red',
                         borderRadius: '5px',
                         backgroundColor: 'white',
                         color: 'red',
-                        cursor: 'pointer',
                         fontSize: '1.8rem',
+                        margin: '0 5px',
+                        cursor: 'pointer',
                         '&:hover': { opacity: '1' },
                       }}
                       />
+                      </Link>
 
-                      <IconButton onClick={() => {
-                       
-                      }}
-                      >
                         <HighlightOffIcon sx={{
-                          opacity: '0.5',
-                          borderRadius: '5px',
-                          backgroundColor: 'red',
-                          color: 'white',
-                          fontSize: '1.8rem',
-                          cursor: 'pointer',
-                          '&:hover': { opacity: '1' },
+                         opacity: '0.5',
+                         padding: '1px',
+                         borderRadius: '5px',
+                         backgroundColor: 'red',
+                         color: 'white',
+                         fontSize: '1.8rem',
+                         margin: '0 5px',
+                         cursor: 'pointer',
+                         '&:hover': { opacity: '1' },
+                        }}
+                        onClick={() => {
+                          setHandleModal(true)
+                          setElementToDelete(elem)
                         }}
                         />
-                      </IconButton>
 
                     </>
                   </TableCell>
                 </TableRow>
               )) }
+               {errorStatusActivities ? 'Error al traer Novedades' : null}
             </TableBody>
           </Table>
         </TableContainer>
       </Box>
+      <DeleteModal
+        openModal={handleModal}
+        setHandleModal={setHandleModal}
+        elementToDelete={elementToDelete}
+        deleteElement={deleteElement}
+        deletedSucces={deletedSucces}
+        errorStatus={errorStatus}
+        setElementToDelete={setElementToDelete}
+        setDeletedSucces={setDeletedSucces}
+      />
+      </>
+ )
+}
 
-)
 Activities.propTypes = {
   activities: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
