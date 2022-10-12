@@ -10,10 +10,7 @@ const HeaderContainer = () => {
   const [activeButton, setActiveButton] = useState('/')
   // const userData = useSelector((state) => state.auth.userData);
   const isLogged = Boolean(localStorage.getItem('user'))
-  let isAdmin = false
-  if (isLogged) {
-    isAdmin = Boolean(JSON.parse(localStorage.getItem('user')).roleId === 1)
-  }
+  const isAdmin = isLogged && JSON.parse(localStorage.getItem('user')).roleId === 1
 
   const data = {
     logo: 'https://i.imgur.com/nIclrvm.png',
