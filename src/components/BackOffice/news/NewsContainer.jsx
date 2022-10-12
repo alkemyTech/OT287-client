@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import httpService from '../../../services/httpService'
 import News from './News'
+import Loader from '../../Loader/Loader'
+import { Alert } from '@mui/material'
 
 const NewsContainer = () => {
   const [handleModal, setHandleModal] = useState(false)
@@ -9,15 +11,19 @@ const NewsContainer = () => {
   const [deletedSucces, setDeletedSucces] = useState(false)
   const [dataNews, setDataNews] = useState([])
   const [errorStatusNews, setErrorStatusNews] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const getNewsData = useCallback(async () => {
+    setLoading(true)
     try {
       const data = await httpService('get', '/news')
       if (data.code === 200) {
         setDataNews(data.body)
+        setLoading(false)
       } else {
         setErrorStatusNews(data.code)
       }
+      setLoading(false)
     } catch (error) {
       setErrorStatusNews(error.response)
     }
@@ -40,6 +46,12 @@ const NewsContainer = () => {
     getNewsData()
   }, [getNewsData])
 
+  if (loading) {
+    return <Loader color={'#DB5752'} height={'30%'} width={'50vw'} />
+  }
+  if (errorStatus === 404) {
+    return <Alert severity="error">No se encontraron usuarios</Alert>
+  }
   return (
     <div>
       <News

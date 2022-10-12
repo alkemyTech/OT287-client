@@ -1,18 +1,27 @@
 import React from 'react'
-import { ThreeDots } from 'react-loader-spinner'
+import { MagnifyingGlass } from 'react-loader-spinner'
 import { PropTypes } from 'prop-types'
+import { Box } from '@mui/material'
 
 const Loader = ({
   height, width, color, radius,
 }) => (
-  <ThreeDots
-    height={height}
-    width={width}
-    radius={radius}
-    color={color}
-    ariaLabel="three-dots-loading"
-    visible
-  />
+  <Box  
+  style={{
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh'
+    }}>
+      <MagnifyingGlass
+        height={height}
+        width={width}
+        radius={radius}
+        color={color}
+        ariaLabel="three-dots-loading"
+        visible
+      />
+  </Box>
 )
 
 Loader.propTypes = {
