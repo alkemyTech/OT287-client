@@ -30,7 +30,7 @@ const RegisterForm = ({
           <Form>
             <Grid container spacing={2}>
               <Grid item xs={12}>
-                <FormInputField label="Nombre" name="firstName" type="text" variant="outlined" sx={{ h: 10 }} autoFocus />
+                <FormInputField label="Nombre" name="firstName" type="text" variant="outlined" sx={{ h: 10 }} />
               </Grid>
               <Grid item xs={12}>
                 <FormInputField label="Apellido" name="lastName" type="text" variant="outlined" />
