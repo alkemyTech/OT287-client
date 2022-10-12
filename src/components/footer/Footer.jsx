@@ -42,7 +42,7 @@ function Footer({ logo, menu, socials }) {
             alignItems: { xs: 'center' },
             justifyContent: { sm: 'space-around' },
             margin: { md: '0 10% 0 10%', lg: '0  20% 0 20%' },
-            backgroundColor: 'rgb(240,240,240)'
+            backgroundColor: 'rgb(240,240,240)',
           }}
           spacing={{ xs: 1 }}
         >
