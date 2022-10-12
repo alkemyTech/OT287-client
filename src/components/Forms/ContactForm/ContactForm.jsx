@@ -18,10 +18,6 @@ const ContactForm = (props) => {
         <Box
           sx={{
             marginTop: 2,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            justifyContent: 'center',
           }}
         >
           <Formik
@@ -34,7 +30,7 @@ const ContactForm = (props) => {
               <Form>
                 <Grid container spacing={1}>
                   <Grid item xs={12}>
-                    <FormInputField label="Nombre" name="name" type="text" variant="outlined" autoFocus sx={{ h: 10 }} />
+                    <FormInputField label="Nombre" name="name" type="text" variant="outlined" sx={{ h: 10 }} />
                   </Grid>
                   <Grid item xs={12}>
                     <FormInputField label="Email" name="email" type="email" variant="outlined" />
@@ -42,25 +38,33 @@ const ContactForm = (props) => {
                   <Grid item xs={12}>
                     <FormInputField label="Escribe tu consulta..." name="message" variant="outlined" multiline rows={6} />
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid
+                    item
+                    xs={12}
+                    display="flex"
+                    justifyContent="start"
+                    gap="10px"
+                  >
                     <Button
                       type="submit"
                       variant="contained"
-                      color="secondary"
-                      sx={{
-                        mt: 1,
-                        mb: 1,
-                        h: 10,
-                        minWidth: 150,
-                      }}
+                      color="primary"
                     >
-                      Enviar Consulta
+                      Enviar
+                    </Button>
+                    <Button
+                      onClick={() => navigate('/')}
+                      variant="outlined"
+                    >
+                      Ir al inicio
                     </Button>
                   </Grid>
                   <Grid item>
                     {errorStatus && (
                     <Alert severity="error" sx={{ width: '100%' }} onClose={() => { setErrorStatus(null) }}>
                       No se ha podido enviar su consulta —
+                      {' '}
+                      {errorStatus}
                     </Alert>
                     )}
                   </Grid>
@@ -73,20 +77,9 @@ const ContactForm = (props) => {
                           setContactCreated(false)
                         }}
                       >
-                        Su consulta ha sido enviada! —
+                        Su consulta ha sido enviada!
                       </Alert>
                     ) : null}
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Button
-                      onClick={() => navigate('/')}
-                      variant="outlined"
-                      sx={{
-                        mt: 1, mb: 1, h: 10, color: 'black', borderColor: 'black',
-                      }}
-                    >
-                      Ir al inicio
-                    </Button>
                   </Grid>
                 </Grid>
               </Form>
