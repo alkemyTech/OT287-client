@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import {
   Button, Box, Container, Toolbar, AppBar,
+  Typography,
 } from '@mui/material'
 import { Link } from 'react-router-dom';
 import BrandLogo from './BrandLogo';
 import BurgerMenu from './Navbar/BurgerMenu';
 import Navbar from './Navbar/Navbar';
-import { Typography } from '@mui/material';
 
 const Header = (props) => {
   const {
@@ -22,7 +22,7 @@ const Header = (props) => {
       }}
     >
       <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{ display: 'flex'}}>
+        <Toolbar disableGutters sx={{ display: 'flex' }}>
           <Link to="/">
             <BrandLogo logo={logo} breakpointDisplay="md" breakpointHidden="xs" />
           </Link>
@@ -42,41 +42,45 @@ const Header = (props) => {
             activeButton={activeButton}
             buttonsAction={buttonsAction}
           />
+          {/* <Box sx={{ flexGrow: '1' }} /> */}
           <Box
-          sx={{display:{xs:'contents'}}}
+            sx={{ display: { xs: 'contents' } }}
           >
             <Button
               variant="outlined"
               sx={{
-                display: { xs: 'none', sm:'inline'},
-                mx: 1.3, 
-                color: 'black',   
-                borderColor: 'black', 
+                display: { xs: 'none', sm: 'inline' },
+                mx: 1.3,
+                color: 'black',
+                borderColor: 'black',
                 fontSize: { xs: '.1rem', md: '.8rem', lg: '1rem' },
-                border:'solid 0px',
-                padding:'0px',
-                height:'40px'
+                border: 'solid 0px',
+                padding: '0px',
+                height: '40px',
               }}
               onClick={() => {
                 handleActiveButton(buttonsAction[0].route)
                 navigate(buttonsAction[0].route)
               }}
             >
-            <Typography
-              fontSize={{xs: '.5rem', md: '.8rem', lg: '1rem'}}
-             >{buttonsAction[0].text}</Typography> 
+              <Typography
+                fontSize={{ xs: '.5rem', md: '.8rem', lg: '1rem' }}
+              >
+                {buttonsAction[0].text}
+
+              </Typography>
             </Button>
             <Button
               variant="outlined"
               sx={{
-                display: { xs:'contents', sm:'none' },
-                mx: 1.3, 
-                color: 'black',   
-                borderColor: 'black', 
+                display: { xs: 'contents', sm: 'none' },
+                mx: 1.3,
+                color: 'black',
+                borderColor: 'black',
                 fontSize: { xs: '.1rem', md: '.8rem', lg: '1rem' },
-                border:'solid 0px',
-                padding:'0px',
-                height:'40px'
+                border: 'solid 0px',
+                padding: '0px',
+                height: '40px',
               }}
               onClick={() => {
                 handleActiveButton(buttonsAction[0].route)
