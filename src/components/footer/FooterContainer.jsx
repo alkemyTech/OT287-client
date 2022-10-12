@@ -7,12 +7,12 @@ const mockedData = {
   menu: [
     {
       id: 1,
-      route: '/home',
+      route: '/',
       text: 'inicio',
     },
     {
       id: 2,
-      route: '/aboutUs',
+      route: '/sobre-nosotros',
       text: 'Nosotros',
     },
     {
@@ -22,17 +22,17 @@ const mockedData = {
     },
     {
       id: 4,
-      route: '/testimonials',
+      route: '/testimonios',
       text: 'Testimonios',
     },
     {
       id: 5,
-      route: '/contacs',
+      route: '/contacto',
       text: 'Contacto',
     },
     {
       id: 6,
-      route: '/contributes',
+      route: '/contribuye',
       text: 'Contribuye',
     },
 
