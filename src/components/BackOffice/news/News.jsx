@@ -59,8 +59,17 @@ const News = (
                   <TableCell
                     sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
                   >
-                    {elem.image}
-
+                    <Box
+                      component="img"
+                      sx={{
+                        height: 233,
+                        width: 250,
+                        maxHeight: { xs: 120, md: 167 },
+                        maxWidth: { xs: 140, md: 250 },
+                      }}
+                      src={elem.image}
+                      alt="news image"
+                    />
                   </TableCell>
                   <TableCell
                     sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
@@ -107,7 +116,7 @@ const News = (
                     </>
                   </TableCell>
                 </TableRow>
-              )) }
+              ))}
               {errorStatusNews ? 'Error al traer Novedades' : null}
             </TableBody>
           </Table>
