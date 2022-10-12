@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { updateUserData } from '../../../app/slices/auth/authSlice'
 import httpService from '../../../services/httpService'
 import Loader from '../../Loader/Loader'
 import EditUserProfile from './EditUserProfile'
@@ -10,6 +12,7 @@ const EditUserProfileContainer = () => {
   const [errorMessage, setErrorMessage] = useState(null)
   const [loading, setLoading] = useState(false)
 
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const getUser = async () => {
@@ -39,11 +42,18 @@ const EditUserProfileContainer = () => {
   const onSubmitForm = async (values) => {
     const { id } = values
     try {
-      await httpService('put', `users/${id}`, {
+      const res = await httpService('put', `users/${id}`, {
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
       })
+      const userData = {
+        id: res.body.updateUser.id,
+        userName: `${res.body.updateUser.firstName} ${res.body.updateUser.lastName}`,
+        image: res.body.updateUser.image,
+        token: res.body.token,
+      }
+      dispatch(updateUserData(userData))
       setEditSucces(true)
       editSuccesNavigation()
     } catch (error) {
