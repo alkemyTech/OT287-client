@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types';
 // import { useSelector } from 'react-redux'
 import { useNavigate, useLocation } from 'react-router-dom';
 import Header from './Header'
 import LoginIcon from '@mui/icons-material/Login';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
-const HeaderContainer = () => {
+const HeaderContainer = ({ MenuIcon }) => {
   const [anchorNav, setAnchorNav] = React.useState(null);
   const [activeButton, setActiveButton] = useState('/')
   // const userData = useSelector((state) => state.auth.userData);
@@ -99,6 +100,7 @@ const HeaderContainer = () => {
     <Header
       logo={data.logo}
       menu={data.menu}
+      MenuIcon={MenuIcon}
       buttonsAction={data.buttonsAction}
       anchorNav={anchorNav}
       handleOpenMenu={handleOpenMenu}
@@ -109,6 +111,14 @@ const HeaderContainer = () => {
       isLogged={isLogged}
     />
   )
+}
+
+HeaderContainer.propTypes = {
+  MenuIcon: PropTypes.instanceOf(Element),
+}
+
+HeaderContainer.defaultProps = {
+  MenuIcon: null,
 }
 
 export default HeaderContainer

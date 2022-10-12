@@ -2,9 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import { Outlet } from 'react-router-dom'
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import Items from './Items'
 import DrawerMenu from './DrawerMenu';
 import AddButton from './AddButton'
+import HeaderContainer from '../Header/HeaderContainer'
+import FooterContainer from '../footer/FooterContainer'
 
 const BackOffice = ({
   data,
@@ -17,27 +21,39 @@ const BackOffice = ({
   handleAction,
   nestedRoutes,
   location,
-}) => (
-  <>
-    <Box sx={{ display: 'flex', minHeight: '100vh', top: '-120px' }} position="relative">
-      <DrawerMenu
-        options={options}
-        mobileOpen={mobileOpen}
-        activeSection={activeSection}
-        handleFilterList={handleFilterList}
-        handleDrawerToggle={handleDrawerToggle}
-      />
-      <Box sx={{ mt: 10, mx: { md: 4 }, width: '100%' }}>
-        { location === '/back-office'
-          ? <Items array={data} cardFields={cardFields} nestedRoutes={nestedRoutes} />
-          : (
-            <Outlet />
-          )}
+}) => {
+  const MenuIcon = mobileOpen ? KeyboardDoubleArrowLeftIcon : KeyboardDoubleArrowRightIcon
+
+  return (
+    <>
+      <Box height="100vh">
+        <HeaderContainer
+          MenuIcon={<MenuIcon sx={{ color: 'black', cursor: 'pointer' }} onClick={handleDrawerToggle} />}
+        />
+        <Box sx={{ margin: '120px 0 20px 0' }}>
+          <Box sx={{ display: 'flex', minHeight: '100vh', top: '-120px' }} position="relative">
+            <DrawerMenu
+              options={options}
+              mobileOpen={mobileOpen}
+              activeSection={activeSection}
+              handleFilterList={handleFilterList}
+              handleDrawerToggle={handleDrawerToggle}
+            />
+            <Box sx={{ mt: 10, mx: { md: 4 }, width: '100%' }}>
+              { location === '/back-office'
+                ? <Items array={data} cardFields={cardFields} nestedRoutes={nestedRoutes} />
+                : (
+                  <Outlet />
+                )}
+            </Box>
+          </Box>
+          <AddButton handleAction={handleAction} />
+        </Box>
+        <FooterContainer />
       </Box>
-    </Box>
-    <AddButton handleAction={handleAction} />
-  </>
-)
+    </>
+  )
+}
 
 BackOffice.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({

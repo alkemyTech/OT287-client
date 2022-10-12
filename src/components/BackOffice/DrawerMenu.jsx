@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import DrawerOptions from './DrawerOptions'
 
 const DrawerMenu = ({
@@ -13,20 +10,6 @@ const DrawerMenu = ({
 }) => (
   <>
     <CssBaseline />
-    <Box sx={{
-      backgroundColor: 'rgb(240,240,240)', position: 'fixed', zIndex: 1500, top: 0, left: 0, width: 100, height: 50, display: { sm: 'none' },
-    }}
-    >
-      <IconButton
-        color="inherit"
-        aria-label="open drawer"
-        edge="start"
-        onClick={handleDrawerToggle}
-        sx={{ ml: '.3rem', display: { sm: 'none' }, padding: 2 }}
-      >
-        { mobileOpen ? <KeyboardDoubleArrowLeftIcon /> : <KeyboardDoubleArrowRightIcon /> }
-      </IconButton>
-    </Box>
     <Box
       component="nav"
       sx={{ width: { sm: 240 }, flexShrink: { sm: 0 }, paddingTop: '20rem' }}

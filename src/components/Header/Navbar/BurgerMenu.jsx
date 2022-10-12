@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import {
   Box, Typography, Menu, MenuItem, IconButton,
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import HamburgerIcon from '@mui/icons-material/Menu';
 
 const BurgerMenu = (props) => {
   const {
-    menu, handleOpenMenu, handleCloseMenu, anchorNav,
+    menu, handleOpenMenu, handleCloseMenu, anchorNav, MenuIcon = null,
   } = props
   return (
     <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'right', mr: 4 }}>
+      { MenuIcon || (
       <IconButton
         size="large"
         aria-controls="menu-appbar"
@@ -18,8 +19,9 @@ const BurgerMenu = (props) => {
         onClick={handleOpenMenu}
         color="inherit"
       >
-        <MenuIcon sx={{ color: 'black' }} />
+        <HamburgerIcon sx={{ color: 'black' }} />
       </IconButton>
+      )}
       <Menu
         id="menu-appbar"
         anchorEl={anchorNav}
@@ -57,10 +59,12 @@ BurgerMenu.propTypes = {
   handleOpenMenu: PropTypes.func.isRequired,
   handleCloseMenu: PropTypes.func.isRequired,
   anchorNav: PropTypes.instanceOf(Element),
+  MenuIcon: PropTypes.instanceOf(Element),
 }
 
 BurgerMenu.defaultProps = {
   anchorNav: null,
+  MenuIcon: null,
 }
 
 export default BurgerMenu
