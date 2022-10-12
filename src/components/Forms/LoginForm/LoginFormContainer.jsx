@@ -22,6 +22,7 @@ const LoginFormContainer = () => {
       if (data.code === 200) {
         const userData = {
           id: data.body.user.id,
+          roleId: data.body.user.roleId,
           userName: `${data.body.user.firstName} ${data.body.user.lastName}`,
           image: data.body.user.image,
           token: data.body.token,
