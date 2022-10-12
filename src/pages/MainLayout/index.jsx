@@ -5,9 +5,9 @@ import FooterContainer from '../../components/footer/FooterContainer'
 import HeaderContainer from '../../components/Header/HeaderContainer';
 
 const MainLayout = () => (
-  <Box height="100vh">
+  <Box>
     <HeaderContainer />
-    <Box sx={{ margin: '120px 0 20px 0' }}>
+    <Box sx={{ minHeight: 'calc(100vh - 380px)', margin: '120px 0 20px 0' }}>
       <Outlet />
     </Box>
     <FooterContainer />
