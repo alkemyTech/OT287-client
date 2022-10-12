@@ -9,8 +9,6 @@ import NextIcon from './NextIcon'
 
 const Slider = ({ items }) => (
   <Carousel
-    // navButtonsAlwaysInvisible
-    stopAutoPlayOnHover
     animation="slide"
     interval={6000}
     NextIcon={<NextIcon direction="right" />}
@@ -53,34 +51,33 @@ const Slider = ({ items }) => (
               backgroundColor: 'rgba(0,0,0,.3)',
             }}
           />
-          {item.content ? (
+          {item.text ? (
             <Typography
-              fontSize={{ xs: '.5rem', md: '.8rem', lg: '1rem' }}
+              fontSize={{ xs: '.5rem', md: '.8rem', lg: '1.3rem' }}
               style={{
-                fontWeight: 700,
                 position: 'absolute',
                 color: 'white',
                 bottom: 80,
-                left: '50%',
+                left: '47%',
                 transform: 'translateX(-50%)',
                 textAlign: 'left',
                 width: '80%',
               }}
             >
               {' '}
-              {item.content}
+              {item.text}
 
             </Typography>
           ) : null }
           {item.title ? (
             <Typography
-              fontSize={{ xs: '.8rem', md: '1rem', lg: '2rem' }}
+              fontSize={{ xs: '.8rem', md: '1rem', lg: '2.5rem' }}
               style={{
                 fontWeight: 700,
                 position: 'absolute',
                 color: 'white',
-                bottom: 160,
-                left: '50%',
+                bottom: 220,
+                left: '47%',
                 transform: 'translateX(-50%)',
                 textAlign: 'left',
                 width: '80%',
