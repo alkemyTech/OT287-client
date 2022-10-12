@@ -11,7 +11,6 @@ const MyProfile = (props) => {
   const {
     data, handleDeleteUser, id, userDelete, errorStatus,
   } = props
-
   const navigate = useNavigate()
   return (
     <Grid container widht="100%" display="flex" direction="row" justifyContent="center">
@@ -23,12 +22,20 @@ const MyProfile = (props) => {
         alignItems="center"
         height="100%"
         spacing={4}
-        sx={{ width: { xs: '20rem', md: '25rem', lg: '30rem' } }}
+        sx={{ width: { xs: '20rem', md: '25rem', lg: '50rem' } }}
       >
-        <Grid item><Typography>Mi Perfil</Typography></Grid>
+        <Grid item>
+          <Typography>
+            Perfil de
+            {' '}
+            {data[0].text}
+          </Typography>
+        </Grid>
         {data.map((row) => (
           <Grid item width="100%">
             <TextField
+              color="grey"
+              variant="standard"
               key={row.id}
               label={row.label}
               defaultValue={row.text}
