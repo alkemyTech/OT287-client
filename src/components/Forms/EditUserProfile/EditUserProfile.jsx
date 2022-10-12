@@ -10,7 +10,7 @@ const EditUserProfile = ({
 }) => {
   const navigate = useNavigate()
   return (
-    <material.Box component="main" sx={{ width: '100%' }}>
+    <material.Box component="main" sx={{ margin: 'auto', maxWidth: '1600px', width: { lg: '80%', xs: '100%' } }}>
       <material.CssBaseline />
       <material.Typography component="h1" variant="h5" sx={{ fontWeight: 'bold', m: 2 }}>Editar mi perfil</material.Typography>
       <Formik
@@ -40,6 +40,8 @@ const EditUserProfile = ({
               </material.Button>
               <material.Button
                 type="submit"
+                variant="contained"
+                color="primary"
               >
                 Guardar cambios
               </material.Button>

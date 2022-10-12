@@ -25,8 +25,8 @@ const EditUserProfileContainer = () => {
       } else {
         setErrorMessage(res.response.message)
       }
-    } catch (err) {
-      console.log(err)
+    } catch (error) {
+      setErrorMessage(error)
     }
   }
   useEffect(() => {
@@ -36,7 +36,7 @@ const EditUserProfileContainer = () => {
   const editSuccesNavigation = () => {
     setTimeout(() => {
       navigate('/mi-perfil')
-    }, 2000)
+    }, 1000)
   }
 
   const onSubmitForm = async (values) => {
@@ -57,7 +57,7 @@ const EditUserProfileContainer = () => {
       setEditSucces(true)
       editSuccesNavigation()
     } catch (error) {
-      console.log(error)
+      setErrorMessage(error)
     }
   }
 
@@ -70,7 +70,12 @@ const EditUserProfileContainer = () => {
   }
   if (loading) return <Loader />
   return (
-    <EditUserProfile initialValues={initialValues} onSubmitForm={onSubmitForm} editSucces={editSucces} errorMessage={errorMessage} />
+    <EditUserProfile
+      initialValues={initialValues}
+      onSubmitForm={onSubmitForm}
+      editSucces={editSucces}
+      errorMessage={errorMessage}
+    />
   )
 }
 
