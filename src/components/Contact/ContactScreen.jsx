@@ -9,9 +9,9 @@ import ContactFormContainer from '../Forms/ContactForm/ContactFormContainer'
 
 const ContactScreen = () => (
   <>
-    <Grid container>
+    <Grid container sx={{ maxWidth: '1600px', margin: 'auto' }}>
       <Grid item container justifyContent="center">
-        <Typography m="10px" variant="h5" fontWeight="bold">
+        <Typography margin="10px 5px 25px 15px" variant="h5" fontWeight="bold">
           ¡Contactate con nosotros!
         </Typography>
       </Grid>
@@ -36,8 +36,8 @@ const ContactScreen = () => (
           md={10}
           lg={10}
           xl={8}
-          display="flex"
           padding={{ xs: '2rem 0', md: '0 2rem' }}
+          display="flex"
           flexDirection="column"
         >
           <Typography variant="subtitle">
