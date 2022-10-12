@@ -14,14 +14,14 @@ const DrawerOptions = ({ options, filter, activeSection }) => (
   <Box sx={{ mt: { sm: 3 } }}>
     <Toolbar />
     <List>
-      {options.map((el) => (
-        <Link style={{ color: 'inherit', textDecoration: 'none' }} to={el.route}>
-          <ListItem key={el.text} disablePadding onClick={() => filter(el.text)} sx={{ backgroundColor: activeSection === el.text ? '#ebebeb' : '' }}>
+      {options.map((elem) => (
+        <Link style={{ color: 'inherit', textDecoration: 'none' }} to={elem.route} key={elem.id}>
+          <ListItem disablePadding onClick={() => filter(elem.text)} sx={{ backgroundColor: activeSection === elem.text ? '#ebebeb' : '' }}>
                 <ListItemButton>
             <ListItemIcon>
-              {el.icon}
+              {elem.icon}
             </ListItemIcon>
-            <ListItemText primary={el.text} sx={{ textTransform: 'capitalize' }} />
+            <ListItemText primary={elem.text} sx={{ textTransform: 'capitalize' }} />
                 </ListItemButton>
           </ListItem>
         </Link>

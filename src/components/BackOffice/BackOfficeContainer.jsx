@@ -75,55 +75,66 @@ const array = {
 const drawerOptions = {
   admin: [
     {
+      id:1,
       text: 'news',
       icon: <NewspaperIcon />,
       route: '/back-office/news',
     },
     {
+      id:2,
       text: 'activities',
       icon: <VolunteerActivismIcon />,
       route: '/back-office/actividades',
     },
     {
+      id:3,
       text: 'categories',
       icon: <CategoryIcon />,
       route: '/back-office/categorias',
     },
     {
+      id:4,
       text: 'testimonials',
       icon: <TextsmsIcon />,
       route: '/back-office/testimonials',
     },
     {
+      id:5,
       text: 'organizations',
       icon: <AccountTreeIcon />,
       route: '/back-office/organizations',
     },
     {
+      id:6,
       text: 'slides',
       icon: <InsertDriveFileIcon />,
     },
     {
+      id:7,
       text: 'users',
       icon: <GroupsIcon />,
       route: '/back-office/users',
     },
     {
+      id:8,
       text: 'contacts',
       icon: <ThreePIcon />,
       route: '/back-office/contacts',
     },
     {
+      id:9,
       text: 'members',
       icon: <PeopleIcon />,
     },
     {
+      id:10,
       text: 'edit profile',
       icon: <AccountCircleIcon />,
     },
   ],
   standard: [
     {
+      id:1,
       text: 'edit profile',
       icon: <AccountCircleIcon />,
     },

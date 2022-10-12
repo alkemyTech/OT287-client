@@ -4,10 +4,7 @@ import React, {
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import MyProfile from './MyProfile'
-
-// la ruta '/me' es un get que devuelve la información del usuario contenida en un token.
-// A modo de ejemplo se puse utilizar un token válido y setearlo en el header de axios
-// axios.defaults.headers.common.Authorization ='Bearer tokenValido'
+import httpService from '../../services/httpService'
 
 const MyProfileContainer = () => {
   const [user, setUser] = useState(null)
@@ -18,26 +15,26 @@ const MyProfileContainer = () => {
   const navigate = useNavigate()
 
   const getUserData = useCallback(async () => {
-    const userDataResponse = await axios.get(`${process.env.REACT_APP_API_DOMAIN}/auth/me`)
+    const userDataResponse = await httpService('get', '/auth/me')
 
-    if (userDataResponse && userDataResponse.data.body) {
-      setUser(userDataResponse.data.body)
+    if (userDataResponse && userDataResponse.body) {
+      setUser(userDataResponse.body)
       setUserData(
         [
           {
             id: 1,
             label: 'Nombre',
-            text: userDataResponse.data.body.firstName,
+            text: userDataResponse.body.firstName,
           },
           {
             id: 2,
             label: 'Apellido',
-            text: userDataResponse.data.body.lastName,
+            text: userDataResponse.body.lastName,
           },
           {
             id: 3,
             label: 'Email',
-            text: userDataResponse.data.body.email,
+            text: userDataResponse.body.email,
           },
         ],
 
