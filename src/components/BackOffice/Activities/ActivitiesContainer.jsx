@@ -2,6 +2,8 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import httpService from '../../../services/httpService'
 import Activities from './Activities'
+import Loader from '../../Loader/Loader'
+import { Alert } from '@mui/material'
 
 const ActivitiesContainer = () => {
   const [handleModal, setHandleModal] = useState(false)
@@ -10,15 +12,19 @@ const ActivitiesContainer = () => {
   const [deletedSucces, setDeletedSucces] = useState(false)
   const [dataActivities, setDataActivities] = useState([])
   const [errorStatusActivities, setErrorStatusActivities] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const getActivitiesData = useCallback(async () => {
+    setLoading(true)
     try {
       const data = await httpService('get', '/activities')
       if (data.code === 200) {
         setDataActivities(data.body)
+        setLoading(false)
       } else {
         setErrorStatusActivities(data.code)
       }
+      setLoading(false)
     } catch (error) {
       setErrorStatusActivities(error.response)
     }
@@ -41,6 +47,12 @@ const ActivitiesContainer = () => {
     getActivitiesData()
   }, [getActivitiesData])
 
+  if (loading) {
+    return <Loader color={'#DB5752'} height={'30%'} width={'50vw'} />
+  }
+  if (errorStatus === 404) {
+    return <Alert severity="error">No se encontraron usuarios</Alert>
+  }
   return (
   <>
     <div>

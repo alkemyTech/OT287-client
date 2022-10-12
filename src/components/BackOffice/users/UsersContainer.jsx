@@ -50,12 +50,12 @@ const UsersContainer = () => {
 
 
   if (loading) {
-    return <Loader />
+    return <Loader color={'#DB5752'} height={'30%'} width={'50vw'} />
   }
   if (errorStatus === 404) {
     return <Alert severity="error">No se encontraron usuarios</Alert>
   }
-  return <Users 
+  return  <Users 
   users={users}
   handleModal={handleModal}
   setHandleModal={setHandleModal}

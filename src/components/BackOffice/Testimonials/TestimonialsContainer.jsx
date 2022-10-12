@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import httpService from '../../../services/httpService'
 import Testimonials from './Testimonials'
+import Loader from '../../Loader/Loader'
+import { Alert } from '@mui/material'
 
 const TestimonialsContainer = () => {
   const [handleModal, setHandleModal] = useState(false)
@@ -9,15 +11,19 @@ const TestimonialsContainer = () => {
   const [elementToDelete, setElementToDelete] = useState({})
   const [deletedSuccess, setDeletedSuccess] = useState(false)
   const [errorStatus, setErrorStatus] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const getTestimonialsData = useCallback(async () => {
+    setLoading(true)
     try {
       const data = await httpService('get', '/testimonials')
       if (data.code === 200) {
         setDataTestimonials(data.body)
+        setLoading(false)
       } else {
         setErrorStatusTestimonials(data.code)
       }
+      setLoading(false)
     } catch (error) {
       setErrorStatusTestimonials(error.response)
     }
@@ -41,6 +47,12 @@ const TestimonialsContainer = () => {
     getTestimonialsData()
   }, [getTestimonialsData])
 
+  if (loading) {
+    return <Loader color={'#DB5752'} height={'30%'} width={'50vw'} />
+  }
+  if (errorStatus === 404) {
+    return <Alert severity="error">No se encontraron usuarios</Alert>
+  }
   return (
     <Testimonials
         // Muestra el modal de aceptar o declinar
