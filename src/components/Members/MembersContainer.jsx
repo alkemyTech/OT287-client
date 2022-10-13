@@ -1,45 +1,41 @@
 import React, {
   useCallback, useState, useEffect,
+  useRef,
 } from 'react'
 import { Box, Typography } from '@mui/material'
+import { useLocation } from 'react-router-dom';
 import MembersCards from './MembersCards'
 import httpService from '../../services/httpService';
-import Slider from '../Slider/Slider';
-
-const sliderAboutUsImg = [
-  {
-    id: 1,
-    imageUrl: 'images/SliderAboutUs1.jpg',
-    text: 'not found',
-    content: 'Desde 1997 en Somos Más trabajamos con los chicos y chicas, mamás y papás, abuelos y vecinos del barrio La Cava generando procesos de crecimiento e inserción social. Uniendo las manos de todas las familias, las que viven en el barrio y las que viven fuera de él, es que podemos pensar, crear y garantizar estos procesos',
-    title: 'Nosotros',
-  },
-  {
-    id: 2,
-    imageUrl: 'images/SliderAboutUs2.jpg',
-    text: 'not found',
-    content: 'Mejorar la calidad de vida de niños y familias en situación de vulnerabilidad, otorgando un cambio de rumbo en cada individuo a través de la educación, salud, trabajo, deporte, responsabilidad y compromiso.',
-    title: 'Visión',
-  },
-  {
-    id: 3,
-    imageUrl: 'images/SliderAboutUs3.png',
-    text: 'not found',
-    content: 'Trabajar articuladamente con los distintos aspectos de la vida de las familias, generando espacios de desarrollo personal y familiar, brindando herramientas que logren mejorar la calidad de vida a través de su propio esfuerzo.',
-    title: 'Misión',
-  },
-]
+import MemberBanner from './MemberBanner';
 
 const MembersContainer = () => {
-  const [members, setMembers] = useState(null)
+  const [members, setMembers] = useState([])
   const [errorStatus, setErrorStatus] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
+  const [memberBanner, setMemberBanner] = useState(null)
+  const [membersFiltered, setMembersFiltered] = useState(null)
+  const componentMounted = useRef(true)
+
+  const location = useLocation().pathname;
+
+  const handleMemberBanner = (data) => {
+    setMemberBanner(data)
+  }
+
+  const handleFilteredMembers = (member, memberList) => {
+    const filtered = memberList.filter((m) => m.id !== member.id)
+    setMembersFiltered(filtered)
+  }
 
   const getMembersData = useCallback(async () => {
     try {
       const data = await httpService('get', '/members')
       if (data.code === 200) {
-        setMembers(data.body)
+        if (componentMounted.current) {
+          setMembers(data.body)
+          setMemberBanner(data.body[0])
+          handleFilteredMembers(data.body[0], data.body)
+        }
       } else {
         setErrorStatus(data.response.status)
         setErrorMessage(data.response.statusText)
@@ -51,21 +47,30 @@ const MembersContainer = () => {
 
   useEffect(() => {
     getMembersData()
+    return () => { componentMounted.current = false }
   }, [getMembersData])
 
+  useEffect(() => {
+    if (memberBanner) {
+      handleFilteredMembers(memberBanner, members)
+    }
+  }, [memberBanner, members])
+
   return (
-    <Box sx={{ m: '120px 100px 20px 100px' }}>
-      {sliderAboutUsImg ? <Slider items={sliderAboutUsImg} /> : null }
+    <Box sx={{ m: '120px 60px 20px 60px' }}>
+      <MemberBanner data={memberBanner} />
       <Typography sx={{
-        fontSize: 24, ml: 2, mt: 6, fontWeight: 700,
+        fontSize: 24, mt: 10, fontWeight: 700, textAlign: 'center', mb: 4,
       }}
       >
         Nuestro Staff
       </Typography>
       <MembersCards
-        data={members}
+        data={membersFiltered}
         error={errorStatus}
         errorMessage={errorMessage}
+        handleMemberBanner={handleMemberBanner}
+        location={location}
       />
     </Box>
   )
