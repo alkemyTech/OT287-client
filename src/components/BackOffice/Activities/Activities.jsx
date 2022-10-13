@@ -15,7 +15,7 @@ const Activities = (
 
   const {
     activities, handleModal, setHandleModal, setElementToDelete, elementToDelete,
-    deleteElement, deletedSucces, errorStatus, errorStatusActivities, setDeletedSucces,
+    deleteElement, deletedSuccess, errorStatus, errorStatusActivities, setDeletedSuccess,
   } = props
 
   return (
@@ -115,10 +115,10 @@ const Activities = (
         setHandleModal={setHandleModal}
         elementToDelete={elementToDelete}
         deleteElement={deleteElement}
-        deletedSucces={deletedSucces}
+        deletedSuccess={deletedSuccess}
         errorStatus={errorStatus}
         setElementToDelete={setElementToDelete}
-        setDeletedSucces={setDeletedSucces}
+        setDeletedSuccess={setDeletedSuccess}
       />
       </>
  )

@@ -14,7 +14,7 @@ import DeleteModal from '../Layout/DeleteModal'
 const ItemCard = (props) => {
   const {
     data, fields, nestedRoutes, handleModal, setHandleModal, setElementToDelete, elementToDelete,
-    deleteElement, deletedSucces, setDeletedSucces, errorStatus,
+    deleteElement, deletedSuccess, setDeletedSuccess, errorStatus,
   } = props
   const navigate = useNavigate()
 
@@ -64,10 +64,10 @@ const ItemCard = (props) => {
         setHandleModal={setHandleModal}
         elementToDelete={elementToDelete}
         deleteElement={deleteElement}
-        deletedSucces={deletedSucces}
+        deletedSuccess={deletedSuccess}
         errorStatus={errorStatus}
         setElementToDelete={setElementToDelete}
-        setDeletedSucces={setDeletedSucces}
+        setDeletedSuccess={setDeletedSuccess}
       />
     </Card>
   )
@@ -93,8 +93,8 @@ ItemCard.propTypes = {
   setElementToDelete: PropTypes.func.isRequired,
   elementToDelete: PropTypes.oneOfType([PropTypes.object]).isRequired,
   deleteElement: PropTypes.func.isRequired,
-  deletedSucces: PropTypes.bool.isRequired,
-  setDeletedSucces: PropTypes.func.isRequired,
+  deletedSuccess: PropTypes.bool.isRequired,
+  setDeletedSuccess: PropTypes.func.isRequired,
   errorStatus: PropTypes.string.isRequired,
 }
 

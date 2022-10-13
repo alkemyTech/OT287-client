@@ -69,7 +69,7 @@ const TestimonialsContainer = () => {
       setElementToDelete={setElementToDelete}
       elementToDelete={elementToDelete}
       deletedSuccess={deletedSuccess}
-      setDeletedSucces={setDeletedSuccess}
+      setDeletedSuccess={setDeletedSuccess}
     />
   )
 }

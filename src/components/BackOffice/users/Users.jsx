@@ -13,8 +13,8 @@ const Users = (
   props,
   ) => { 
     const {users, handleModal, setHandleModal, setElementToDelete, elementToDelete,
-    deleteElement, deletedSucces, errorStatus, errorStatusUsers,
-    setDeletedSucces,
+    deleteElement, deletedSuccess, errorStatus, errorStatusUsers,
+    setDeletedSuccess,
   } = props 
    
   return (
@@ -116,10 +116,10 @@ const Users = (
        setHandleModal={setHandleModal}
        elementToDelete={elementToDelete}
        deleteElement={deleteElement}
-       deletedSucces={deletedSucces}
+       deletedSuccess={deletedSuccess}
        errorStatus={errorStatus}
        setElementToDelete={setElementToDelete}
-       setDeletedSucces={setDeletedSucces}
+       setDeletedSuccess={setDeletedSuccess}
      />
      </>
   )

@@ -9,7 +9,7 @@ const ActivitiesContainer = () => {
   const [handleModal, setHandleModal] = useState(false)
   const [elementToDelete, setElementToDelete] = useState({})
   const [errorStatus, setErrorStatus] = useState('')
-  const [deletedSucces, setDeletedSucces] = useState(false)
+  const [deletedSuccess, setDeletedSuccess] = useState(false)
   const [dataActivities, setDataActivities] = useState([])
   const [errorStatusActivities, setErrorStatusActivities] = useState('')
   const [loading, setLoading] = useState(false)
@@ -33,7 +33,7 @@ const ActivitiesContainer = () => {
     try {
       const data = await httpService('delete', `/activities/${id}`)
       if (data.code === 200) {
-        setDeletedSucces(true)
+        setDeletedSuccess(true)
         getActivitiesData()
       } else {
         setErrorStatus(data.code)
@@ -63,10 +63,10 @@ const ActivitiesContainer = () => {
         setElementToDelete={setElementToDelete}
         elementToDelete={elementToDelete}
         deleteElement={deleteElement}
-        deletedSucces={deletedSucces}
+        deletedSuccess={deletedSuccess}
         errorStatus={errorStatus}
         errorStatusActivities={errorStatusActivities}
-        setDeletedSucces={setDeletedSucces}
+        setDeletedSuccess={setDeletedSuccess}
       />
     </div>
   </>

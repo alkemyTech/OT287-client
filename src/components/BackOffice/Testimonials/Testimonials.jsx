@@ -7,7 +7,7 @@ import {
 import HighlightOffIcon from '@mui/icons-material/HighlightOff'
 import EditIcon from '@mui/icons-material/Edit'
 import { useNavigate } from 'react-router-dom'
-import TestimonialDeleteModal from '../../Layout/DeleteModal'
+import DeleteModal from '../../Layout/DeleteModal'
 
 const Testimonials = (
   props,
@@ -104,7 +104,7 @@ const Testimonials = (
           </Table>
         </TableContainer>
       </Box>
-      <TestimonialDeleteModal
+      <DeleteModal
         openModal={handleModal}
         setHandleModal={setHandleModal}
         elementToDelete={elementToDelete}
