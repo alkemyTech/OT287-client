@@ -14,8 +14,8 @@ const Testimonials = (
 ) => {
   const {
     testimonials, handleModal, setHandleModal, setElementToDelete, elementToDelete,
-    deleteElement, deletedSucces, errorStatus, getTestimonialsData, errorStatusTestimonials,
-    setDeletedSucces,
+    deleteElement, deletedSuccess, errorStatus, getTestimonialsData, errorStatusTestimonials,
+    setDeletedSuccess,
   } = props
   const navigate = useNavigate()
   return (
@@ -109,11 +109,11 @@ const Testimonials = (
         setHandleModal={setHandleModal}
         elementToDelete={elementToDelete}
         deleteElement={deleteElement}
-        deletedSucces={deletedSucces}
+        deletedSuccess={deletedSuccess}
         errorStatus={errorStatus}
         getTestimonialsData={getTestimonialsData}
         setElementToDelete={setElementToDelete}
-        setDeletedSucces={setDeletedSucces}
+        setDeletedSuccess={setDeletedSuccess}
       />
     </>
   )
@@ -130,10 +130,10 @@ Testimonials.propTypes = {
   setElementToDelete: PropTypes.func.isRequired,
   elementToDelete: PropTypes.oneOfType([PropTypes.object]).isRequired,
   deleteElement: PropTypes.func.isRequired,
-  deletedSucces: PropTypes.bool.isRequired,
+  deletedSuccess: PropTypes.bool.isRequired,
   errorStatus: PropTypes.string.isRequired,
   getTestimonialsData: PropTypes.func.isRequired,
   errorStatusTestimonials: PropTypes.string.isRequired,
-  setDeletedSucces: PropTypes.func.isRequired,
+  setDeletedSuccess: PropTypes.func.isRequired,
 }
 export default Testimonials

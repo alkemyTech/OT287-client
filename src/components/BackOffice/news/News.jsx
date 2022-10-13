@@ -14,8 +14,8 @@ const News = (
 ) => {
   const {
     news, handleModal, setHandleModal, setElementToDelete, elementToDelete,
-    deleteElement, deletedSucces, errorStatus, getNewsData, errorStatusNews,
-    setDeletedSucces,
+    deleteElement, deletedSuccess, errorStatus, getNewsData, errorStatusNews,
+    setDeletedSuccess,
   } = props
   return (
     <>
@@ -127,11 +127,11 @@ const News = (
         setHandleModal={setHandleModal}
         elementToDelete={elementToDelete}
         deleteElement={deleteElement}
-        deletedSucces={deletedSucces}
+        deletedSuccess={deletedSuccess}
         errorStatus={errorStatus}
         getNewsData={getNewsData}
         setElementToDelete={setElementToDelete}
-        setDeletedSucces={setDeletedSucces}
+        setDeletedSuccess={setDeletedSuccess}
       />
     </>
   )
@@ -149,10 +149,10 @@ News.propTypes = {
   setElementToDelete: PropTypes.func.isRequired,
   elementToDelete: PropTypes.oneOfType([PropTypes.object]).isRequired,
   deleteElement: PropTypes.func.isRequired,
-  deletedSucces: PropTypes.bool.isRequired,
+  deletedSuccess: PropTypes.bool.isRequired,
   errorStatus: PropTypes.string.isRequired,
   getNewsData: PropTypes.func.isRequired,
   errorStatusNews: PropTypes.string.isRequired,
-  setDeletedSucces: PropTypes.func.isRequired,
+  setDeletedSuccess: PropTypes.func.isRequired,
 }
 export default News
