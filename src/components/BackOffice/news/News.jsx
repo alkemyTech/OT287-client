@@ -9,6 +9,10 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff'
 import EditIcon from '@mui/icons-material/Edit'
 import DeleteModal from '../../Layout/DeleteModal'
 
+function isImage(url) {
+  return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
+}
+
 const News = (
   props,
 ) => {
@@ -39,9 +43,10 @@ const News = (
         >
           <Table>
             <TableHead>
-              <TableRow sx={{ backgroundColor: 'rgb(240,240,240)' }}>
+              <TableRow sx={{ backgroundColor: 'rgb(240,240,240)' }} stickyHeader>
                 <TableCell><b>Nombre</b></TableCell>
-                <TableCell><b>URL Imagen</b></TableCell>
+                <TableCell align="center"><b>Imagen</b></TableCell>
+                <TableCell><b>Contenido</b></TableCell>
                 <TableCell><b>Fecha creacion</b></TableCell>
                 <TableCell align="center"><b>Acciones</b></TableCell>
               </TableRow>
@@ -50,34 +55,45 @@ const News = (
 
               {news && news.map((elem) => (
 
-                <TableRow key={elem.id}>
+                <TableRow key={elem.id} height="60px">
                   <TableCell
-                    sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    sx={{ width: '15%', overflow: 'hidden', textOverflow: 'ellipsis' }}
                   >
                     {elem.name}
                   </TableCell>
                   <TableCell
-                    sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    align="center"
+                    sx={{
+                      margin: '1px', padding: '0', width: '10%',
+                    }}
                   >
                     <Box
                       component="img"
                       sx={{
-                        height: 233,
-                        width: 250,
-                        maxHeight: { xs: 120, md: 167 },
-                        maxWidth: { xs: 140, md: 250 },
+                        margin: '3px auto',
+                        height: '60px',
+                        width: '60px',
+                        objectFit: 'cover',
+                        borderRadius: '50%',
                       }}
-                      src={elem.image}
+                      src={isImage(elem.image) || elem.image.length > 10 ? elem.image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKH2cSl_mcI1heNKNhcs7Qpg0OVCh8AsiD5A&usqp=CAU'}
                       alt="news image"
                     />
                   </TableCell>
                   <TableCell
-                    sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    sx={{
+                      width: '45%', textOverflow: 'ellipsis',
+                    }}
+                  >
+                    {elem.content.length < 80 ? elem.content : `${elem.content.substring(0, 80)}...` }
+                  </TableCell>
+                  <TableCell
+                    sx={{ width: '15%', overflow: 'hidden', textOverflow: 'ellipsis' }}
                   >
                     {elem.createdAt}
 
                   </TableCell>
-                  <TableCell sx={{ padding: '0', width: '25%' }} align="center">
+                  <TableCell sx={{ padding: '0', width: '10 %' }} align="center">
                     <>
                       <Link to={`${elem.id}/edit`}>
                         <EditIcon sx={{
