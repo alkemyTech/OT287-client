@@ -44,7 +44,12 @@ const BurgerMenu = (props) => {
         >
           <IconButton
             onClick={() => handleCloseMenu()}
-            sx={{ position: 'absolute', top: 10, left: 10 }}
+            sx={{
+              position: 'absolute',
+              top: 10,
+              left: 15,
+              color: 'black',
+            }}
           >
             <CloseIcon />
           </IconButton>
@@ -52,8 +57,8 @@ const BurgerMenu = (props) => {
             <Box
               key={page.id}
               onClick={() => {
-                navigate(page.route)
                 handleCloseMenu()
+                navigate(page.route)
               }}
               sx={{
                 '&:hover': {
