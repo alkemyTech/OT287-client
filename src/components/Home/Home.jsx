@@ -9,7 +9,7 @@ import NewsCards from '../News/NewsCards'
 import MembersCards from '../Members/MembersCards'
 
 const Home = ({
-  news, members, slider, error, errorMessage,
+  news, members, slider, error, errorMessage, location,
 }) => (
   <Box sx={{ maxWidth: { sm: '1600px' }, margin: '0 auto', alignContent: 'center' }}>
     <Slider items={slider} />
@@ -44,6 +44,7 @@ const Home = ({
         data={members}
         error={error}
         errorMessage={errorMessage}
+        location={location}
       />
       <Typography
         fontWeight={600}
@@ -91,9 +92,11 @@ Home.propTypes = {
   })),
   error: PropTypes.number,
   errorMessage: PropTypes.string,
+  location: PropTypes.string,
 }
 
 Home.defaultProps = {
+  location: null,
   members: null,
   error: null,
   errorMessage: null,
