@@ -6,8 +6,8 @@ import {
 } from '@mui/material'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
-import DeleteModal from './DeleteModal';
 import { Link } from 'react-router-dom';
+import DeleteModal from '../../Layout/DeleteModal'
 
 const Activities = (
   props,

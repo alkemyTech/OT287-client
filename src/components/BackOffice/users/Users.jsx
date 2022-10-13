@@ -7,7 +7,7 @@ import {
 } from '@mui/material'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
-import DeleteModal from './DeleteModal';
+import DeleteModal from '../../Layout/DeleteModal'
 
 const Users = (
   props,
