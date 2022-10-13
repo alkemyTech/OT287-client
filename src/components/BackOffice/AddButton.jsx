@@ -6,8 +6,7 @@ import { useLocation, Link } from 'react-router-dom';
 
 const AddButton = ({ handleAction }) => {
   const location = useLocation();
-  console.log(location.pathname);
-
+  
   return (
     <Link to={`${location.pathname}/create`} >
        <SpeedDial
