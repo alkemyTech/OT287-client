@@ -9,7 +9,7 @@ const TestimonialsContainer = () => {
   const [dataTestimonials, setDataTestimonials] = useState([])
   const [errorStatusTestimonials, setErrorStatusTestimonials] = useState('')
   const [elementToDelete, setElementToDelete] = useState({})
-  const [deletedSuccess, setDeletedSuccess] = useState(false)
+  const [deletedSucces, setDeletedSucces] = useState(false)
   const [errorStatus, setErrorStatus] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -33,7 +33,7 @@ const TestimonialsContainer = () => {
     try {
       const data = await httpService('delete', `/testimonials/${id}`)
       if (data.code === 200) {
-        setDeletedSuccess(true)
+        setDeletedSucces(true)
         getTestimonialsData()
       } else {
         setErrorStatus(data.code)
@@ -68,8 +68,8 @@ const TestimonialsContainer = () => {
       deleteElement={deleteElement}
       setElementToDelete={setElementToDelete}
       elementToDelete={elementToDelete}
-      deletedSuccess={deletedSuccess}
-      setDeletedSucces={setDeletedSuccess}
+      deletedSucces={deletedSucces}
+      setDeletedSucces={setDeletedSucces}
     />
   )
 }
