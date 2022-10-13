@@ -79,6 +79,7 @@ const Router = () => {
               <Route path="contacts" element={<ContactsContainer />} />
               <Route path="members" element={<BackofficeMembers />} />
               <Route path="members/:id/edit" element={<MembersFormContainer />} />
+              <Route path="members/create" element={<MembersFormContainer />} />
               <Route path="categories" element={<CategoriesContainer />} />
               <Route path="categories/create" element={<CategoriesFormContainer />} />
               <Route path="categories/:id/edit" element={<CategoriesFormContainer />} />
