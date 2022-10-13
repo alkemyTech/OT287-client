@@ -30,6 +30,7 @@ import CategoriesContainer from '../components/BackOffice/Categories/CategoriesC
 import ScrollToTop from '../pages/ScrollToTop'
 import BackofficeMembers from '../components/BackOffice/Members/MembersContainer'
 import MembersFormContainer from '../components/Forms/MembersForm/MembersFormContainer'
+import TestimonialsContainer from '../components/Testimonials/TestimonialsContainer'
 
 const Router = () => {
   const location = useLocation();
@@ -58,6 +59,7 @@ const Router = () => {
               <Route path="/novedades/:id" element={<NewsByIdContainer />} />
               <Route path="/contacto" element={<ContactScreen />} />
               <Route path="/sobre-nosotros" element={<MembersContainer />} />
+              <Route path="/testimonios" element={<TestimonialsContainer />} />
               <Route path="/actividades/:id" element={<ActivityContainer />} />
             </Route>
             {/* Back-Office Routes for Admin access only */}

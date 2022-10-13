@@ -38,7 +38,7 @@ const MediaCard = ({ data }) => (
       width: '100%',
     }}
     >
-      Ceo/CoFounder
+      {data.rol || 'Ceo / CoFounder'}
 
     </Typography>
   </Card>
