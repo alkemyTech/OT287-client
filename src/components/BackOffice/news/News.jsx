@@ -41,9 +41,9 @@ const News = (
           }}
           component={Paper}
         >
-          <Table>
+          <Table stickyHeader>
             <TableHead>
-              <TableRow sx={{ backgroundColor: 'rgb(240,240,240)' }} stickyHeader>
+              <TableRow>
                 <TableCell><b>Nombre</b></TableCell>
                 <TableCell align="center"><b>Imagen</b></TableCell>
                 <TableCell><b>Contenido</b></TableCell>
@@ -99,10 +99,10 @@ const News = (
                         <EditIcon sx={{
                           opacity: '0.5',
                           padding: '1px',
-                          border: '1px solid red',
+                          border: '1px solid #DB5752',
                           borderRadius: '5px',
                           backgroundColor: 'white',
-                          color: 'red',
+                          color: '#DB5752',
                           fontSize: '1.8rem',
                           margin: '0 5px',
                           cursor: 'pointer',
@@ -116,7 +116,7 @@ const News = (
                           opacity: '0.5',
                           padding: '1px',
                           borderRadius: '5px',
-                          backgroundColor: 'red',
+                          backgroundColor: '#DB5752',
                           color: 'white',
                           fontSize: '1.8rem',
                           margin: '0 5px',
