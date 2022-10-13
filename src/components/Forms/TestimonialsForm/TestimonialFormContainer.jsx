@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom'
 import validationSchema from '../../../schemas/testimonials'
 import httpService from '../../../services/httpService';
@@ -15,7 +14,6 @@ const TestimonialFormContainer = () => {
   })
   const [errorStatus, setErrorStatus] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
-  const user = useSelector((state) => state.auth.userData)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -54,10 +52,8 @@ const TestimonialFormContainer = () => {
         content: values.content,
         image: values.image.name,
       })
-      if (data.code === 200 && user.roleId === 1) {
+      if (data.code === 200) {
         navigate('/back-office/testimonials')
-      } if (data.code === 200 && user.roleId === 2) {
-        navigate('/testimonios')
       } else {
         setErrorStatus(data.response.status)
         setErrorMessage(data.response.statusText)

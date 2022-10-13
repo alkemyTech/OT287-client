@@ -58,7 +58,6 @@ const Router = () => {
               <Route path="/contacto" element={<ContactScreen />} />
               <Route path="/sobre-nosotros" element={<MembersContainer />} />
               <Route path="/testimonios" element={<TestimonialsContainer />} />
-              <Route path="/testimonios/crear-testimonio" element={<TestimonialFormContainer />} />
               <Route path="/actividades/:id" element={<ActivityContainer />} />
             </Route>
             {/* Back-Office Routes for Admin access only */}

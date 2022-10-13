@@ -7,7 +7,6 @@ import {
 import { useNavigate } from 'react-router-dom'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
-import { useSelector } from 'react-redux'
 import FormInputField from '../../Layout/FormInputField'
 import FormInputImage from '../../Layout/FormInputImage'
 /* import AWSFileUpload from '../../Layout/AWSFileUpload' */
@@ -17,7 +16,6 @@ const TestimonialForm = ({
   id, initialValues, validationSchema, onSubmitForm, error, errorMessage,
 }) => {
   const [newContent, setNewContent] = useState(null)
-  const user = useSelector((state) => state.auth.userData)
 
   const handleChange = (event, editor) => {
     const data = editor.getData()
@@ -81,7 +79,7 @@ const TestimonialForm = ({
                       Guardar
                     </Button>
                     <Button
-                      onClick={() => { navigate(user.roleId === 1 ? '/back-office/testimonials' : '/testimonios') }}
+                      onClick={() => { navigate('/back-office/testimonials') }}
                       fullWidth
                       sx={{ mt: 2, mb: 2, h: 10 }}
                     >
