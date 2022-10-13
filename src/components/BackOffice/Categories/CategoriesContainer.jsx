@@ -1,20 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { Alert } from '@mui/material'
 import Categories from './Categories'
 import httpService from '../../../services/httpService'
 import Loader from '../../Loader/Loader'
-import { Alert } from '@mui/material'
-
-const cardFields = {
-  title: 'name',
-  content: 'description',
-  imageUrl: null,
-}
-
-const nestedRoutes = {
-  create: '',
-  edit: 'edit',
-  delete: '',
-}
 
 const CategoriesContainer = () => {
   const [data, setData] = useState([])
@@ -60,7 +48,7 @@ const CategoriesContainer = () => {
   }
 
   if (loading) {
-    return <Loader color={'#DB5752'} height={'30%'} width={'50vw'} />
+    return <Loader color="#DB5752" height="30%" width="50vw" />
   }
   if (errorStatus === 404) {
     return <Alert severity="error">No se encontraron usuarios</Alert>
@@ -68,8 +56,6 @@ const CategoriesContainer = () => {
   return (
     <Categories
       data={data}
-      cardFields={cardFields}
-      nestedRoutes={nestedRoutes}
       error={error}
       handleModal={handleModal}
       setHandleModal={setHandleModal}
