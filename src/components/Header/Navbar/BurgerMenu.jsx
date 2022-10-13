@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 import {
   Box, Typography, IconButton,
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import HamburgerIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 const BurgerMenu = (props) => {
   const {
     menu, handleOpenMenu, handleCloseMenu, menuIsOpen, MenuIcon = null,
   } = props
+  const navigate = useNavigate()
+
   return (
     <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'right', mr: 4 }}>
       { MenuIcon || (
@@ -38,10 +42,19 @@ const BurgerMenu = (props) => {
           gap: '1.3rem',
         }}
         >
+          <IconButton
+            onClick={() => handleCloseMenu()}
+            sx={{ position: 'absolute', top: 10, left: 10 }}
+          >
+            <CloseIcon />
+          </IconButton>
           { menu.map((page) => (
             <Box
               key={page.id}
-              onClick={() => handleCloseMenu(page.route)}
+              onClick={() => {
+                navigate(page.route)
+                handleCloseMenu()
+              }}
               sx={{
                 '&:hover': {
                   transform: 'scale(1.1)',

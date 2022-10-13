@@ -99,8 +99,7 @@ const HeaderContainer = ({ MenuIcon }) => {
     setMenuIsOpen(true);
   };
 
-  const handleCloseMenu = (route) => {
-    navigate(route)
+  const handleCloseMenu = () => {
     setMenuIsOpen(false);
   };
 
