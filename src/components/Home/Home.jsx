@@ -13,23 +13,24 @@ const Home = ({
 }) => (
   <Box sx={{ maxWidth: { sm: '1600px' }, margin: '0 auto', alignContent: 'center' }}>
     <Slider items={slider} />
-    <Box sx={{ mr: { xs: '15px', lg: '100px' }, ml: { xs: '15px', lg: '100px' }, mt: '50px' }}>
-      <Box sx={{ display: 'flex', justifyContent: 'flex-end', bottom: { xs: '12px', position: 'relative' } }}>
+    <Box sx={{ mr: { xs: '15px', lg: '100px' }, ml: { xs: '15px', lg: '100px' }, mt: '40px' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
         <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/contacto">
           <Button variant="contained" sx={{ mx: 'auto', my: '15px', display: 'block' }}>Contáctanos</Button>
           {' '}
         </Link>
       </Box>
-      <Typography
-        fontWeight={600}
-        color="#000000"
-        sx={{
-          marginTop: 10, marginBottom: { xs: '30px' }, fontSize: { xs: 20, md: 32 }, textAlign: { xs: 'center', lg: 'left' },
-        }}
-      >
-        Nuestro Staff
-      </Typography>
-      <Box display="flex" justifyContent="flex-end" sx={{ textAlign: 'right', bottom: { xs: '12px', position: 'relative' } }}>
+
+      <Box display="flex" justifyContent="space-between" alignItems="center" mt={5}>
+        <Typography
+          fontWeight={600}
+          color="#000000"
+          sx={{
+            fontSize: { xs: 20, md: 32 }, textAlign: { xs: 'center', lg: 'left' },
+          }}
+        >
+          Nuestro Staff
+        </Typography>
         <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/sobre-nosotros">
           <Button variant="outlined" sx={{ mx: 'auto', my: '15px', display: 'block' }}>
             {' '}
@@ -45,15 +46,35 @@ const Home = ({
         error={error}
         errorMessage={errorMessage}
       />
-      <Typography
-        fontWeight={600}
-        fontSize={32}
-        color="#000000"
-        sx={{ marginBottom: { xs: '30px' }, fontSize: { xs: 20, md: 32 }, textAlign: { xs: 'center', lg: 'left' } }}
-      >
-        Últimas novedades
-      </Typography>
-      <Box display="flex" justifyContent="flex-end" sx={{ textAlign: 'right', bottom: { xs: '12px', position: 'relative' } }}>
+      <Box display="flex" justifyContent="space-between" alignItems="center" mt={5}>
+        <Typography
+          fontWeight={600}
+          fontSize={32}
+          color="#000000"
+          sx={{ marginBottom: { xs: '30px' }, fontSize: { xs: 20, md: 32 }, textAlign: { xs: 'center', lg: 'left' } }}
+        >
+          Testimonios
+        </Typography>
+
+        <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/testimonios">
+          <Button variant="outlined" sx={{ mx: 'auto', my: '15px', display: 'block' }}>
+            Ver todos
+            {' >'}
+
+          </Button>
+        </Link>
+      </Box>
+
+      <Box display="flex" justifyContent="space-between" alignItems="center" mt={5}>
+        <Typography
+          fontWeight={600}
+          fontSize={32}
+          color="#000000"
+          sx={{ marginBottom: { xs: '30px' }, fontSize: { xs: 20, md: 32 }, textAlign: { xs: 'center', lg: 'left' } }}
+        >
+          Últimas novedades
+        </Typography>
+
         <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/novedades">
           <Button variant="outlined" sx={{ mx: 'auto', my: '15px', display: 'block' }}>
             Ver todos
