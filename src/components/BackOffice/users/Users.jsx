@@ -68,7 +68,7 @@ const Users = (
                   </TableCell>
                   <TableCell sx={{width: '25%', padding: '0'}} align="center">
                     <>
-                    <Link to={`${elem.id}/editar`}>
+                    <Link to={`${elem.id}/edit`}>
                       <EditIcon sx={{
                         opacity: '0.5',
                         padding: '1px',

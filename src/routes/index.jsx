@@ -63,19 +63,19 @@ const Router = () => {
               <Route path="organizations" element={<BackofficeNews />} />
               <Route path="organizations/:id/edit" element={<EditOrganizationContainer />} />
               <Route path="users" element={<BackofficeUsers />} />
-              <Route path="users/:id/editar" element={<EditUserContainer />} />
+              <Route path="users/:id/edit" element={<EditUserContainer />} />
               <Route path="news" element={<BackofficeNews />} />
               <Route path="testimonials" element={<BackofficeTestimonials />} />
               <Route path="testimonials/:id/edit" element={<TestimonialFormContainer />} />
               <Route path="testimonials/create" element={<TestimonialFormContainer />} />
               <Route path="news/:id" element={<BackofficeNews />} />
-              <Route path="actividades" element={<BackOfficeActivities />} />
-              <Route path="actividades/crear" element={<ActivitiesFormContainer />} />
-              <Route path="actividades/:id/editar" element={<ActivitiesFormContainer />} />
+              <Route path="activities" element={<BackOfficeActivities />} />
+              <Route path="activities/create" element={<ActivitiesFormContainer />} />
+              <Route path="activities/:id/edit" element={<ActivitiesFormContainer />} />
               <Route path="news/create" element={<NewsFormContainer />} />
               <Route path="news/:id/edit" element={<NewsFormContainer />} />
               <Route path="contacts" element={<ContactsContainer />} />
-              <Route path="categorias" element={<CategoriesContainer />} />
+              <Route path="categories" element={<CategoriesContainer />} />
               <Route path="categories/create" element={<CategoriesFormContainer />} />
               <Route path="categories/:id/edit" element={<CategoriesFormContainer />} />
             </Route>
