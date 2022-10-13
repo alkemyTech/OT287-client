@@ -11,7 +11,7 @@ import Navbar from './Navbar/Navbar';
 
 const Header = (props) => {
   const {
-    logo, menu, handleOpenMenu, handleCloseMenu, anchorNav, navigate, handleActiveButton,
+    logo, menu, handleOpenMenu, handleCloseMenu, menuIsOpen, navigate, handleActiveButton,
     activeButton, buttonsAction, MenuIcon,
   } = props
   return (
@@ -30,7 +30,7 @@ const Header = (props) => {
             menu={menu}
             handleCloseMenu={handleCloseMenu}
             handleOpenMenu={handleOpenMenu}
-            anchorNav={anchorNav}
+            menuIsOpen={menuIsOpen}
             MenuIcon={MenuIcon}
           />
           <BrandLogo logo={logo} breakpointDisplay="xs" breakpointHidden="md" />
@@ -116,7 +116,7 @@ Header.propTypes = {
   handleCloseMenu: PropTypes.func.isRequired,
   navigate: PropTypes.func.isRequired,
   handleOpenMenu: PropTypes.func.isRequired,
-  anchorNav: PropTypes.instanceOf(Element),
+  menuIsOpen: PropTypes.bool.isRequired,
   handleActiveButton: PropTypes.func.isRequired,
   activeButton: PropTypes.string.isRequired,
   buttonsAction: PropTypes.arrayOf(PropTypes.shape({
@@ -128,7 +128,6 @@ Header.propTypes = {
 }
 
 Header.defaultProps = {
-  anchorNav: null,
   MenuIcon: null,
 }
 

@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import {
-  Box, Typography, Menu, MenuItem, IconButton,
+  Box, Typography, IconButton,
 } from '@mui/material';
 import HamburgerIcon from '@mui/icons-material/Menu';
 
 const BurgerMenu = (props) => {
   const {
-    menu, handleOpenMenu, handleCloseMenu, anchorNav, MenuIcon = null,
+    menu, handleOpenMenu, handleCloseMenu, menuIsOpen, MenuIcon = null,
   } = props
   return (
     <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'right', mr: 4 }}>
@@ -22,30 +22,41 @@ const BurgerMenu = (props) => {
         <HamburgerIcon sx={{ color: 'black' }} />
       </IconButton>
       )}
-      <Menu
-        id="menu-appbar"
-        anchorEl={anchorNav}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right',
+      { menuIsOpen && (
+        <Box sx={{
+          width: '100%',
+          height: '100vh',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          backgroundColor: '#FFFFFF',
+          zIndex: 2000,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
+          gap: '1.3rem',
         }}
-        keepMounted
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        open={Boolean(anchorNav)}
-        onClose={handleCloseMenu}
-        sx={{
-          display: { xs: 'block', md: 'none' },
-        }}
-      >
-        {menu.map((page) => (
-          <MenuItem key={page.id} onClick={() => handleCloseMenu(page.route)}>
-            <Typography textAlign="center">{page.text}</Typography>
-          </MenuItem>
-        ))}
-      </Menu>
+        >
+          { menu.map((page) => (
+            <Box
+              key={page.id}
+              onClick={() => handleCloseMenu(page.route)}
+              sx={{
+                '&:hover': {
+                  transform: 'scale(1.1)',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  transition: 'transform 300ms',
+                },
+              }}
+            >
+              <Typography textAlign="center" color="textPrimary" sx={{ fontSize: '1.2rem' }}>{page.text}</Typography>
+            </Box>
+          ))}
+        </Box>
+      )}
+
     </Box>
   )
 }
@@ -58,12 +69,11 @@ BurgerMenu.propTypes = {
   })).isRequired,
   handleOpenMenu: PropTypes.func.isRequired,
   handleCloseMenu: PropTypes.func.isRequired,
-  anchorNav: PropTypes.instanceOf(Element),
+  menuIsOpen: PropTypes.bool.isRequired,
   MenuIcon: PropTypes.instanceOf(Element),
 }
 
 BurgerMenu.defaultProps = {
-  anchorNav: null,
   MenuIcon: null,
 }
 
