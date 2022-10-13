@@ -125,6 +125,7 @@ const drawerOptions = {
       id:9,
       text: 'members',
       icon: <PeopleIcon />,
+      route: '/back-office/members',
     },
     {
       id:10,

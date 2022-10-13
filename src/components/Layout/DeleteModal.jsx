@@ -44,7 +44,7 @@ const DeleteModal = (props) => {
         {deletedSuccess ? (
 
           <Alert
-            severity="Successs"
+            severity="success"
             onClose={() => {
               setHandleModal(false)
               setElementToDelete(null)
