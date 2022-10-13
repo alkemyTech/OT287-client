@@ -76,8 +76,8 @@ const CategoriesContainer = () => {
       setElementToDelete={setElementToDelete}
       elementToDelete={elementToDelete}
       deleteElement={deleteElement}
-      deletedSucces={deletedSuccess}
-      setDeletedSucces={setDeletedSuccess}
+      deletedSuccess={deletedSuccess}
+      setDeletedSuccess={setDeletedSuccess}
       errorStatus={errorStatus}
     />
   )

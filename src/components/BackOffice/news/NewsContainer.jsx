@@ -8,7 +8,7 @@ const NewsContainer = () => {
   const [handleModal, setHandleModal] = useState(false)
   const [elementToDelete, setElementToDelete] = useState({})
   const [errorStatus, setErrorStatus] = useState('')
-  const [deletedSucces, setDeletedSucces] = useState(false)
+  const [deletedSuccess, setDeletedSuccess] = useState(false)
   const [dataNews, setDataNews] = useState([])
   const [errorStatusNews, setErrorStatusNews] = useState('')
   const [loading, setLoading] = useState(false)
@@ -32,7 +32,7 @@ const NewsContainer = () => {
     try {
       const data = await httpService('delete', `/news/${id}`)
       if (data.code === 200) {
-        setDeletedSucces(true)
+        setDeletedSuccess(true)
         getNewsData()
       } else {
         setErrorStatus(data.code)
@@ -61,11 +61,11 @@ const NewsContainer = () => {
         setElementToDelete={setElementToDelete}
         elementToDelete={elementToDelete}
         deleteElement={deleteElement}
-        deletedSucces={deletedSucces}
+        deletedSuccess={deletedSuccess}
         errorStatus={errorStatus}
         getNewsData={getNewsData}
         errorStatusNews={errorStatusNews}
-        setDeletedSucces={setDeletedSucces}
+        setDeletedSuccess={setDeletedSuccess}
       />
     </div>
   )

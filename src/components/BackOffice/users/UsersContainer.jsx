@@ -11,7 +11,7 @@ const UsersContainer = () => {
   const [errorStatusUsers, setErrorStatusUsers] = useState('')
   const [handleModal, setHandleModal] = useState(false)
   const [elementToDelete, setElementToDelete] = useState({})
-  const [deletedSucces, setDeletedSucces] = useState(false)
+  const [deletedSuccess, setDeletedSuccess] = useState(false)
 
   const getUsersData = useCallback(async () => {
     setLoading(true)
@@ -33,7 +33,7 @@ const UsersContainer = () => {
     try {
       const data = await httpService('delete', `/users/${id}`)
       if (data.code === 200) {
-        setDeletedSucces(true)
+        setDeletedSuccess(true)
         getUsersData()
       } else {
         setErrorStatus(data.code)
@@ -62,10 +62,10 @@ const UsersContainer = () => {
   setElementToDelete={setElementToDelete}
   elementToDelete={elementToDelete}
   deleteElement={deleteElement}
-  deletedSucces={deletedSucces}
+  deletedSuccess={deletedSuccess}
   errorStatus={errorStatus}
   errorStatusUsers={errorStatusUsers}
-  setDeletedSucces={setDeletedSucces}
+  setDeletedSuccess={setDeletedSuccess}
   />
 }
 
