@@ -68,7 +68,7 @@ const Activities = (
                   </TableCell>
                   <TableCell sx={{ padding: '0', width: '25%' }} align="center">
                     <>
-                    <Link to={`${elem.id}/editar`}>
+                    <Link to={`${elem.id}/edit`}>
                       <EditIcon sx={{
                         opacity: '0.5',
                         padding: '1px',
