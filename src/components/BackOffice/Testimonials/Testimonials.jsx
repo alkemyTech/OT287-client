@@ -7,15 +7,15 @@ import {
 import HighlightOffIcon from '@mui/icons-material/HighlightOff'
 import EditIcon from '@mui/icons-material/Edit'
 import { useNavigate } from 'react-router-dom'
-import TestimonialDeleteModal from '../../Layout/DeleteModal'
+import DeleteModal from '../../Layout/DeleteModal'
 
 const Testimonials = (
   props,
 ) => {
   const {
     testimonials, handleModal, setHandleModal, setElementToDelete, elementToDelete,
-    deleteElement, deletedSuccess, errorStatus, getTestimonialsData, errorStatusTestimonials,
-    setDeletedSuccess,
+    deleteElement, deletedSucces, errorStatus, getTestimonialsData, errorStatusTestimonials,
+    setDeletedSucces,
   } = props
   const navigate = useNavigate()
   return (
@@ -104,16 +104,16 @@ const Testimonials = (
           </Table>
         </TableContainer>
       </Box>
-      <TestimonialDeleteModal
+      <DeleteModal
         openModal={handleModal}
         setHandleModal={setHandleModal}
         elementToDelete={elementToDelete}
         deleteElement={deleteElement}
-        deletedSuccess={deletedSuccess}
+        deletedSucces={deletedSucces}
         errorStatus={errorStatus}
         getTestimonialsData={getTestimonialsData}
         setElementToDelete={setElementToDelete}
-        setDeletedSuccess={setDeletedSuccess}
+        setDeletedSucces={setDeletedSucces}
       />
     </>
   )
@@ -130,10 +130,10 @@ Testimonials.propTypes = {
   setElementToDelete: PropTypes.func.isRequired,
   elementToDelete: PropTypes.oneOfType([PropTypes.object]).isRequired,
   deleteElement: PropTypes.func.isRequired,
-  deletedSuccess: PropTypes.bool.isRequired,
+  deletedSucces: PropTypes.bool.isRequired,
   errorStatus: PropTypes.string.isRequired,
   getTestimonialsData: PropTypes.func.isRequired,
   errorStatusTestimonials: PropTypes.string.isRequired,
-  setDeletedSuccess: PropTypes.func.isRequired,
+  setDeletedSucces: PropTypes.func.isRequired,
 }
 export default Testimonials
