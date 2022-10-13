@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import httpService from '../../services/httpService'
 import Home from './Home'
 
@@ -33,6 +34,8 @@ const HomeContainer = () => {
   const [members, setMembers] = useState(null)
   const [errorStatus, setErrorStatus] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
+
+  const location = useLocation().pathname
 
   useEffect(() => {
     const getNews = async () => {
@@ -71,6 +74,7 @@ const HomeContainer = () => {
       slider={sliderImg}
       error={errorStatus}
       errorMessage={errorMessage}
+      location={location}
     />
   )
 }

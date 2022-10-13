@@ -16,6 +16,7 @@ const TestimonialForm = ({
   id, initialValues, validationSchema, onSubmitForm, error, errorMessage,
 }) => {
   const [newContent, setNewContent] = useState(null)
+
   const handleChange = (event, editor) => {
     const data = editor.getData()
     setNewContent(data)
