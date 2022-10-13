@@ -52,10 +52,10 @@ const NewsFormContainer = () => {
         name: values.name,
         content: values.content,
         image: values.image,
-        categoryId: values.category,
+        categoryId: values.categoryId,
       })
       if (data.code === 200) {
-        navigate('/')
+        navigate('/back-office/news')
       } else {
         setErrorStatus(data.response.status)
         setErrorMessage(data.response.statusText)
