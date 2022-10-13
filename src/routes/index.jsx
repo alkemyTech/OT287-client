@@ -70,12 +70,12 @@ const Router = () => {
               <Route path="testimonials/create" element={<TestimonialFormContainer />} />
               <Route path="news/:id" element={<BackofficeNews />} />
               <Route path="actividades" element={<BackOfficeActivities />} />
-              <Route path="actividades/crear" element={<ActivitiesFormContainer />} />
+              <Route path="actividades/create" element={<ActivitiesFormContainer />} />
               <Route path="actividades/:id/editar" element={<ActivitiesFormContainer />} />
               <Route path="news/create" element={<NewsFormContainer />} />
               <Route path="news/:id/edit" element={<NewsFormContainer />} />
               <Route path="contacts" element={<ContactsContainer />} />
-              <Route path="categorias" element={<CategoriesContainer />} />
+              <Route path="categories" element={<CategoriesContainer />} />
               <Route path="categories/create" element={<CategoriesFormContainer />} />
               <Route path="categories/:id/edit" element={<CategoriesFormContainer />} />
             </Route>
