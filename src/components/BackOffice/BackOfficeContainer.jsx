@@ -90,7 +90,7 @@ const drawerOptions = {
       id:3,
       text: 'categories',
       icon: <CategoryIcon />,
-      route: '/back-office/categorias',
+      route: '/back-office/categories',
     },
     {
       id:4,
