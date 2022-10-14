@@ -38,16 +38,16 @@ const NewsForm = ({
           onSubmit={async (values) => {
             values.content = newContent
             if (values.image.name) {
-              values.image = await AWSFileUpload(values.image)
+              values.image = await AWSFileUpload(values.image, 'news')
             } else {
               values.image = initialValues.image
             }
             onSubmitForm(values, id)
           }}
-          
+
         >
           {(formProps) => (
-            <Box sx={{width:{xs:'50%', sm:'80%', md:'100%'}}}>
+            <Box sx={{ width: { xs: '50%', sm: '80%', md: '100%' } }}>
               <Form>
                 <Grid container spacing={2}>
                   <Grid item xs={12}>
