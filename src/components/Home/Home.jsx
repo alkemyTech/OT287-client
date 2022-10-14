@@ -65,13 +65,13 @@ const Home = ({
           </Button>
         </Link>
       </Box>
-      {/* <Grid container width="100%" display="flex" mt={1} spacing={2}>
+      <Grid container width="100%" display="flex" mt={1} spacing={2}>
         {testimonials && testimonials.map((testimonial) => (
           <Grid item container xs={12} sm={6} md={4} lg={2} key={testimonial.id} justifyContent="center" sx={{ width: { xs: 460, sm: 202 }, minHeight: { xs: 154, sm: 254 } }}>
             <TestimonialCard testimonial={testimonial} />
           </Grid>
         ))}
-      </Grid> */}
+      </Grid>
 
       <Box display="flex" justifyContent="space-between" alignItems="center" mt={10}>
         <Typography
