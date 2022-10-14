@@ -32,6 +32,7 @@ const sliderImg = [
 const HomeContainer = () => {
   const [data, setData] = useState([])
   const [members, setMembers] = useState(null)
+  const [testimonials, setTestimonials] = useState(null)
   const [errorStatus, setErrorStatus] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
 
@@ -64,13 +65,30 @@ const HomeContainer = () => {
         setErrorStatus(`Error has occurred: ${error.response}`)
       }
     }
+    const getTestimonials = async () => {
+      try {
+        const dataTestimonials = await httpService('get', '/testimonials')
+        if (dataTestimonials.code === 200 && dataTestimonials.body
+           && dataTestimonials.body.length > 6) {
+          setTestimonials(dataTestimonials.body.slice(dataTestimonials.body.length - 6))
+        } else {
+          setErrorStatus(dataTestimonials.response.status)
+          setErrorMessage(dataTestimonials.response.statusText)
+        }
+      } catch (error) {
+        setErrorStatus(`Error has occurred: ${error.response}`)
+      }
+    }
     getNews()
     getMembers()
+    getTestimonials()
   }, [])
+
   return (
     <Home
       news={data}
       members={members}
+      testimonials={testimonials}
       slider={sliderImg}
       error={errorStatus}
       errorMessage={errorMessage}

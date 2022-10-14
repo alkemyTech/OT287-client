@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import NewsForm from './NewsForm'
 import validationSchema from '../../../schemas/news'
-import httpService from '../../../services/httpService';
+import httpService from '../../../services/httpService'
+import AWSFileDelete from '../../Layout/AWSFileDelete'
 
 const NewsFormContainer = () => {
   const { id } = useParams()
@@ -13,6 +14,7 @@ const NewsFormContainer = () => {
     uploadedImage: '',
     categoryId: 1,
   })
+  const [previousImage, setPreviousImage] = useState(null)
   const [errorStatus, setErrorStatus] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
   const navigate = useNavigate()
@@ -22,12 +24,12 @@ const NewsFormContainer = () => {
       (async () => {
         try {
           const getData = await httpService('get', `news/${id}`)
-          const uploadedImage = getData.body.image.split('com/')
+          setPreviousImage(getData.body.image.split('com/')[1])
           setInitialValues({
             name: getData.body.name,
             content: getData.body.content,
             image: getData.body.image,
-            uploadedImage: uploadedImage[1],
+            uploadedImage: previousImage,
             categoryId: getData.body.categoryId,
           })
         } catch (error) {
@@ -36,18 +38,25 @@ const NewsFormContainer = () => {
         }
       })()
     }
-  }, [id])
+  }, [id, previousImage])
 
   const onSubmitForm = async (values, idToEdit) => {
     let action = 'post'
     let endpoint = 'news'
+    let deleteImage = 0
 
     if (idToEdit) {
       action = 'put'
       endpoint = `news/${id}`
+      if (values.image !== previousImage) {
+        deleteImage = 1
+      }
     }
 
     try {
+      if (deleteImage === 1) {
+        await AWSFileDelete(previousImage)
+      }
       const data = await httpService(action, endpoint, {
         name: values.name,
         content: values.content,
