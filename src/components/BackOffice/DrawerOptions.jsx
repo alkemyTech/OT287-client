@@ -15,8 +15,8 @@ const DrawerOptions = ({ options, filter, activeSection }) => (
     <Toolbar />
     <List>
       {options.map((elem) => (
-        <Link style={{ color: 'inherit', textDecoration: 'none' }} to={elem.route} key={elem.id}>
-          <ListItem disablePadding onClick={() => filter(elem.text)} sx={{ backgroundColor: activeSection === elem.text ? '#ebebeb' : null }}>
+        <Link style={{ color: 'inherit', textDecoration: 'none' }} to={`/back-office/${elem.route}`} key={elem.id}>
+          <ListItem disablePadding onClick={() => filter(elem)} sx={{ backgroundColor: activeSection && activeSection.includes(elem.route) ? '#ebebeb' : null }}>
                 <ListItemButton>
             <ListItemIcon>
               {elem.icon}
