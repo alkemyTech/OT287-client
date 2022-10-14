@@ -28,6 +28,8 @@ import ContactsContainer from '../components/BackOffice/Contacts/ContactsContain
 import CategoriesFormContainer from '../components/Forms/CategoriesForm/CategoriesFormContainer'
 import CategoriesContainer from '../components/BackOffice/Categories/CategoriesContainer'
 import ScrollToTop from '../pages/ScrollToTop'
+import BackofficeMembers from '../components/BackOffice/Members/MembersContainer'
+import MembersFormContainer from '../components/Forms/MembersForm/MembersFormContainer'
 import TestimonialsContainer from '../components/Testimonials/TestimonialsContainer'
 
 const Router = () => {
@@ -77,6 +79,9 @@ const Router = () => {
               <Route path="news/create" element={<NewsFormContainer />} />
               <Route path="news/:id/edit" element={<NewsFormContainer />} />
               <Route path="contacts" element={<ContactsContainer />} />
+              <Route path="members" element={<BackofficeMembers />} />
+              <Route path="members/:id/edit" element={<MembersFormContainer />} />
+              <Route path="members/create" element={<MembersFormContainer />} />
               <Route path="categories" element={<CategoriesContainer />} />
               <Route path="categories/create" element={<CategoriesFormContainer />} />
               <Route path="categories/:id/edit" element={<CategoriesFormContainer />} />

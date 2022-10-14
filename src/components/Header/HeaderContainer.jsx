@@ -7,7 +7,7 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import Header from './Header'
 
 const HeaderContainer = ({ MenuIcon }) => {
-  const [anchorNav, setAnchorNav] = React.useState(null);
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [activeButton, setActiveButton] = useState('/')
   // const userData = useSelector((state) => state.auth.userData);
   const isLogged = Boolean(localStorage.getItem('user'))
@@ -95,13 +95,12 @@ const HeaderContainer = ({ MenuIcon }) => {
     setActiveButton(buttonName)
   }
 
-  const handleOpenMenu = (event) => {
-    setAnchorNav(event.currentTarget);
+  const handleOpenMenu = () => {
+    setMenuIsOpen(true);
   };
 
-  const handleCloseMenu = (route) => {
-    navigate(route)
-    setAnchorNav(null);
+  const handleCloseMenu = () => {
+    setMenuIsOpen(false);
   };
 
   return (
@@ -110,7 +109,7 @@ const HeaderContainer = ({ MenuIcon }) => {
       menu={data.menu}
       MenuIcon={MenuIcon}
       buttonsAction={data.buttonsAction}
-      anchorNav={anchorNav}
+      menuIsOpen={menuIsOpen}
       handleOpenMenu={handleOpenMenu}
       handleCloseMenu={handleCloseMenu}
       navigate={navigate}
