@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
@@ -75,67 +75,67 @@ const array = {
 const drawerOptions = {
   admin: [
     {
-      id:1,
+      id: 1,
       text: 'news',
       icon: <NewspaperIcon />,
-      route: '/back-office/news',
+      route: 'news',
     },
     {
-      id:2,
+      id: 2,
       text: 'activities',
       icon: <VolunteerActivismIcon />,
-      route: '/back-office/activities',
+      route: 'activities',
     },
     {
-      id:3,
+      id: 3,
       text: 'categories',
       icon: <CategoryIcon />,
-      route: '/back-office/categories',
+      route: 'categories',
     },
     {
-      id:4,
+      id: 4,
       text: 'testimonials',
       icon: <TextsmsIcon />,
-      route: '/back-office/testimonials',
+      route: 'testimonials',
     },
     {
-      id:5,
+      id: 5,
       text: 'organizations',
       icon: <AccountTreeIcon />,
-      route: '/back-office/organizations',
+      route: 'organizations',
     },
     {
-      id:6,
+      id: 6,
       text: 'slides',
       icon: <InsertDriveFileIcon />,
     },
     {
-      id:7,
+      id: 7,
       text: 'users',
       icon: <GroupsIcon />,
-      route: '/back-office/users',
+      route: 'users',
     },
     {
-      id:8,
+      id: 8,
       text: 'contacts',
       icon: <ThreePIcon />,
-      route: '/back-office/contacts',
+      route: 'contacts',
     },
     {
-      id:9,
+      id: 9,
       text: 'members',
       icon: <PeopleIcon />,
-      route: '/back-office/members',
+      route: 'members',
     },
     {
-      id:10,
+      id: 10,
       text: 'edit profile',
       icon: <AccountCircleIcon />,
     },
   ],
   standard: [
     {
-      id:1,
+      id: 1,
       text: 'edit profile',
       icon: <AccountCircleIcon />,
     },
@@ -192,7 +192,7 @@ const nestedRoutes = {
 
 const BackOfficeContainer = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [activeSection, setActiveSection] = React.useState('news');
+  const [activeSection, setActiveSection] = React.useState(null);
   const [isAdmin, setIsAdmin] = React.useState(false);
   const location = useLocation();
   const user = useSelector((state) => state.auth.userData);
@@ -207,13 +207,19 @@ const BackOfficeContainer = () => {
   }, [user])
 
   const handleFilterList = (filter) => {
-    setActiveSection(filter)
+    setActiveSection(filter.text)
     setMobileOpen(false)
   }
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
+  useEffect(() => {
+    if (location.pathname !== activeSection) {
+      setActiveSection(location.pathname)
+    }
+  }, [activeSection, location])
 
   return (
     <BackOffice
