@@ -16,7 +16,7 @@ const DrawerOptions = ({ options, filter, activeSection }) => (
     <List>
       {options.map((elem) => (
         <Link style={{ color: 'inherit', textDecoration: 'none' }} to={elem.route} key={elem.id}>
-          <ListItem disablePadding onClick={() => filter(elem.text)} sx={{ backgroundColor: activeSection === elem.text ? '#ebebeb' : '' }}>
+          <ListItem disablePadding onClick={() => filter(elem.text)} sx={{ backgroundColor: activeSection === elem.text ? '#ebebeb' : null }}>
                 <ListItemButton>
             <ListItemIcon>
               {elem.icon}
