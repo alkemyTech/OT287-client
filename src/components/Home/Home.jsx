@@ -1,15 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {
-  Box, Typography, Button,
+  Box, Typography, Button, Grid,
 } from '@mui/material'
 import { Link } from 'react-router-dom'
 import Slider from '../Slider/Slider'
 import NewsCards from '../News/NewsCards'
 import MembersCards from '../Members/MembersCards'
+import TestimonialCard from '../Testimonials/TestimonialCard'
 
 const Home = ({
-  news, members, slider, error, errorMessage, location,
+  news, members, slider, error, errorMessage, location, testimonials,
 }) => (
   <Box sx={{ maxWidth: { sm: '1600px' }, margin: '0 auto', alignContent: 'center' }}>
     <Slider items={slider} />
@@ -56,7 +57,6 @@ const Home = ({
         >
           Testimonios
         </Typography>
-
         <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/testimonios">
           <Button variant="outlined" sx={{ mx: 'auto', my: '15px', display: 'block' }}>
             Ver todos
@@ -65,8 +65,15 @@ const Home = ({
           </Button>
         </Link>
       </Box>
+      {/* <Grid container width="100%" display="flex" mt={1} spacing={2}>
+        {testimonials && testimonials.map((testimonial) => (
+          <Grid item container xs={12} sm={6} md={4} lg={2} key={testimonial.id} justifyContent="center" sx={{ width: { xs: 460, sm: 202 }, minHeight: { xs: 154, sm: 254 } }}>
+            <TestimonialCard testimonial={testimonial} />
+          </Grid>
+        ))}
+      </Grid> */}
 
-      <Box display="flex" justifyContent="space-between" alignItems="center" mt={5}>
+      <Box display="flex" justifyContent="space-between" alignItems="center" mt={10}>
         <Typography
           fontWeight={600}
           fontSize={32}
@@ -84,7 +91,7 @@ const Home = ({
           </Button>
         </Link>
       </Box>
-      <Box display="flex" justifyContent="center">
+      <Box display="flex" justifyContent="center" mb={20}>
         <NewsCards
           data={news}
           error={error}
@@ -111,12 +118,19 @@ Home.propTypes = {
     name: PropTypes.string,
     imageUrl: PropTypes.string,
   })),
+  testimonials: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    image: PropTypes.string,
+    content: PropTypes.string,
+  })),
   error: PropTypes.number,
   errorMessage: PropTypes.string,
   location: PropTypes.string,
 }
 
 Home.defaultProps = {
+  testimonials: null,
   location: null,
   members: null,
   error: null,
