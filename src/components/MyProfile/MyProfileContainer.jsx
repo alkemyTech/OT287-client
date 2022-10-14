@@ -1,7 +1,6 @@
 import React, {
   useCallback, useState, useEffect,
 } from 'react'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import MyProfile from './MyProfile'
 import httpService from '../../services/httpService'
@@ -48,10 +47,10 @@ const MyProfileContainer = () => {
 
   const handleDeleteUser = async (id) => {
     try {
-      const response = await axios.delete(`${process.env.REACT_APP_API_DOMAIN}/users/${id}`)
-      if (response.data) {
+      const res = await httpService('delete', `/users/${id}`)
+      if (res.code === 200) {
         setUserDelete(true)
-        navigate('/')
+        navigate('/logout')
       }
     } catch (error) {
       setErrorStatus(error.response.status)
