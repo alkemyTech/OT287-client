@@ -27,7 +27,7 @@ const EditOrganizationContainer = () => {
 
   const onSubmitForm = async (values) => {
     try {
-      await httpService('put', `organizations/${id}/edit`, values)
+      await httpService('put', `organizations/${id}`, values)
       navigate('/back-office')
     } catch (error) {
       setErrorStatus(error.response.status)
