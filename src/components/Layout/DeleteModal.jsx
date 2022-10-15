@@ -24,8 +24,9 @@ const DeleteModal = (props) => {
               ?
             </DialogTitle>
             <DialogActions>
-
-              <Button onClick={() => deleteElement(elementToDelete.id)}>Si</Button>
+              <Button onClick={() => deleteElement(elementToDelete.id, elementToDelete.image)}>
+                Si
+              </Button>
 
               <Button
                 onClick={() => {

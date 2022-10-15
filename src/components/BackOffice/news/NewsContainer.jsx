@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import { Alert } from '@mui/material'
 import httpService from '../../../services/httpService'
 import News from './News'
 import Loader from '../../Loader/Loader'
-import { Alert } from '@mui/material'
+import AWSFileDelete from '../../Layout/AWSFileDelete'
 
 const NewsContainer = () => {
   const [handleModal, setHandleModal] = useState(false)
@@ -28,8 +29,9 @@ const NewsContainer = () => {
       setErrorStatusNews(error.response)
     }
   }, [])
-  const deleteElement = async (id) => {
+  const deleteElement = async (id, image) => {
     try {
+      await AWSFileDelete(image.split('com/')[1].split('/')[1], 'news')
       const data = await httpService('delete', `/news/${id}`)
       if (data.code === 200) {
         setDeletedSuccess(true)
@@ -47,7 +49,7 @@ const NewsContainer = () => {
   }, [getNewsData])
 
   if (loading) {
-    return <Loader color={'#DB5752'} height={'30%'} width={'50vw'} />
+    return <Loader color="#DB5752" height="30%" width="50vw" />
   }
   if (errorStatus === 404) {
     return <Alert severity="error">No se encontraron usuarios</Alert>
