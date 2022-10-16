@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import EditOrganizationForm from './EditOrganizationForm'
+import EditOrganizationForm from './OrganizationsForm'
 import validationSchema from '../../../schemas/organization'
 import httpService from '../../../services/httpService';
 

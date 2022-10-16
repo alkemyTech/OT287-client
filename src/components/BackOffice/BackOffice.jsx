@@ -8,7 +8,7 @@ import Items from './Items'
 import DrawerMenu from './DrawerMenu';
 import AddButton from './AddButton'
 import HeaderContainer from '../Header/HeaderContainer'
-import FooterContainer from '../footer/FooterContainer'
+import FooterContainer from '../Footer/FooterContainer'
 
 const BackOffice = ({
   data,

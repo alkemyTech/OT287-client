@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Box } from '@mui/material'
-import FooterContainer from '../../components/footer/FooterContainer'
+import FooterContainer from '../../components/Footer/FooterContainer'
 import HeaderContainer from '../../components/Header/HeaderContainer';
 
 const MainLayout = () => (

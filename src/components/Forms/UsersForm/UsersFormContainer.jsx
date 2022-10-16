@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Alert } from '@mui/material'
 import httpService from '../../../services/httpService'
-import EditUserForm from './EditUserForm'
+import EditUserForm from './UsersForm'
 import Loader from '../../Loader/Loader'
 
 const EditUserContainer = () => {
