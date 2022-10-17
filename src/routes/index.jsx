@@ -31,6 +31,9 @@ import ScrollToTop from '../pages/ScrollToTop'
 import BackofficeMembers from '../components/BackOffice/Members/MembersContainer'
 import MembersFormContainer from '../components/Forms/MembersForm/MembersFormContainer'
 import TestimonialsContainer from '../components/Testimonials/TestimonialsContainer'
+import BackofficeOrganizations from '../components/BackOffice/Organizations/OrganizationsContainer'
+import BackofficeSlides from '../components/BackOffice/Slides/SlidesContainer'
+import SlidesFormContainer from '../components/Forms/SlidesForm/SlidesFormContainer'
 
 const Router = () => {
   const location = useLocation();
@@ -64,8 +67,9 @@ const Router = () => {
             </Route>
             {/* Back-Office Routes for Admin access only */}
             <Route path="/back-office" element={<PrivateRoute><BackOfficeContainer /></PrivateRoute>}>
-              <Route path="organizations" element={<BackofficeNews />} />
+              <Route path="organizations" element={<BackofficeOrganizations />} />
               <Route path="organizations/:id/edit" element={<EditOrganizationContainer />} />
+              <Route path="organizations/create" element={<EditOrganizationContainer />} />
               <Route path="users" element={<BackofficeUsers />} />
               <Route path="users/:id/edit" element={<EditUserContainer />} />
               <Route path="news" element={<BackofficeNews />} />
@@ -85,6 +89,9 @@ const Router = () => {
               <Route path="categories" element={<CategoriesContainer />} />
               <Route path="categories/create" element={<CategoriesFormContainer />} />
               <Route path="categories/:id/edit" element={<CategoriesFormContainer />} />
+              <Route path="slides" element={<BackofficeSlides />} />
+              <Route path="slides/:id/edit" element={<SlidesFormContainer />} />
+              <Route path="slides/create" element={<SlidesFormContainer />} />
             </Route>
           </Routes>
         </CSSTransition>

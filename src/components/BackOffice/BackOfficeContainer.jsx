@@ -108,6 +108,7 @@ const drawerOptions = {
       id: 6,
       text: 'slides',
       icon: <InsertDriveFileIcon />,
+      route: 'slides',
     },
     {
       id: 7,
