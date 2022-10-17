@@ -6,21 +6,20 @@ import { useLocation, Link } from 'react-router-dom';
 
 const AddButton = ({ handleAction }) => {
   const location = useLocation();
-  
+
   return (
-    <Link to={`${location.pathname}/create`} >
-       <SpeedDial
-         ariaLabel="SpeedDial basic example"
-         sx={{
-           position: 'fixed', bottom: 30, right: 30
-         }}
-         icon={<SpeedDialIcon />}
-         onClick={handleAction}
-       />
+    <Link to={`${location.pathname}/create`}>
+      <SpeedDial
+        ariaLabel="SpeedDial basic example"
+        sx={{
+          position: 'fixed', bottom: 30, right: 30,
+        }}
+        icon={<SpeedDialIcon />}
+        onClick={handleAction}
+      />
     </Link>
   )
-} 
- 
+}
 
 AddButton.propTypes = {
   handleAction: PropTypes.func.isRequired,
