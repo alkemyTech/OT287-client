@@ -21,6 +21,7 @@ const BackOffice = ({
   handleAction,
   nestedRoutes,
   location,
+  hiddenAddButton,
 }) => {
   const MenuIcon = mobileOpen ? KeyboardDoubleArrowLeftIcon : KeyboardDoubleArrowRightIcon
 
@@ -47,7 +48,8 @@ const BackOffice = ({
                 )}
             </Box>
           </Box>
-          <AddButton handleAction={handleAction} />
+          {hiddenAddButton[0] === location || hiddenAddButton[1] === location
+            ? null : (<AddButton handleAction={handleAction} />)}
         </Box>
         <FooterContainer />
       </Box>
@@ -70,6 +72,7 @@ BackOffice.propTypes = {
   activeSection: PropTypes.string.isRequired,
   handleFilterList: PropTypes.func.isRequired,
   handleDrawerToggle: PropTypes.func.isRequired,
+  hiddenAddButton: PropTypes.arrayOf(PropTypes.string).isRequired,
   cardFields: PropTypes.shape({
     title: PropTypes.string,
     content: PropTypes.string,

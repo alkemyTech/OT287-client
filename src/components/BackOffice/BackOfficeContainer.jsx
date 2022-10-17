@@ -198,6 +198,10 @@ const BackOfficeContainer = () => {
   const location = useLocation();
   const user = useSelector((state) => state.auth.userData);
 
+  const hiddenAddButton = [
+    '/back-office', '/back-office/contacts',
+  ]
+
   React.useEffect(() => {
     const verifyAdmin = async () => {
       const data = await httpService('get', 'users')
@@ -234,6 +238,7 @@ const BackOfficeContainer = () => {
       handleAction={() => {}}
       nestedRoutes={nestedRoutes[activeSection]}
       location={location.pathname}
+      hiddenAddButton={hiddenAddButton}
     />
   )
 }
