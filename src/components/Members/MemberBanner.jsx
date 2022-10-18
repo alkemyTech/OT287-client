@@ -5,11 +5,9 @@ import {
   CardMedia, Grid, Typography,
 } from '@mui/material'
 
-const MemberBanner = ({ data }) =>
-
-  (
-    <>
-      {data && (
+const MemberBanner = ({ data }) => (
+  <>
+    {data && (
       <Grid container xs={12} width="100%" display="flex" flexDirection="row" justifyContent="center" spacing={2}>
         <Grid item container xs={12} md={5} display="flex" flexDirection="column" justifyContent="center">
           <Typography style={{
@@ -32,7 +30,7 @@ const MemberBanner = ({ data }) =>
             width: '100%',
           }}
           >
-            {data.rol || 'Rol que desempeña'}
+            {data.role}
 
           </Typography>
 
@@ -60,17 +58,16 @@ const MemberBanner = ({ data }) =>
           />
         </Grid>
       </Grid>
-      )}
+    )}
 
-    </>
-  )
-
+  </>
+)
 MemberBanner.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.number,
     image: PropTypes.string,
     name: PropTypes.string,
-    rol: PropTypes.string,
+    role: PropTypes.string,
     description: PropTypes.string,
   }),
 }
