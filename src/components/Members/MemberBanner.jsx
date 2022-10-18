@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react'
 import PropTypes from 'prop-types';
 import {
@@ -43,7 +44,7 @@ const MemberBanner = ({ data }) =>
             width: '100%',
           }}
           >
-            {data.description || 'Texto con descripcion de la persona y rol que desempeñaTexto con descripcion de la persona y rol que desempeñaTexto con descripcion de la persona y rol que desempeñaTexto con descripcion de la persona y rol que desempeñaTexto con descripcion de la persona y rol que desempeñaTexto con descripcion de la persona y rol que desempeñaTexto con descripcion de la persona y rol que desempeñaTexto con descripcion de la persona y rol que desempeña'}
+            Lorem ipsum dolor sit amet, consectetur adip  odio, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam  et  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
           </Typography>
 
@@ -54,8 +55,8 @@ const MemberBanner = ({ data }) =>
               maxWidth: 350, maxHeight: 400, borderRadius: '20px', position: 'relative',
             }}
             component="img"
-            image={`images/${data.image}`}
-            alt="member image"
+            image={data.image}
+            alt={data.name}
           />
         </Grid>
       </Grid>
