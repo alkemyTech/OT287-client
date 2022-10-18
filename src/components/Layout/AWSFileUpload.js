@@ -10,8 +10,13 @@ const AWSFileUpload = async (file, folder) => {
     s3Url: process.env.REACT_APP_AWS_S3URL,
   }
 
-  const date = new Date()
-  const fileNewName = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}${date.getHours()}${date.getMinutes()}${date.getSeconds()}_${file.name}`
+  const getName = (async () => {
+    const date = new Date()
+    const fullName = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}${date.getHours()}${date.getMinutes()}${date.getSeconds()}_${file.name}`
+    return fullName
+  })
+
+  const fileNewName = await getName()
 
   const ReactS3Client = new S3(config)
 
