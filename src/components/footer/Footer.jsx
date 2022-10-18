@@ -23,24 +23,39 @@ function Footer({ logo, menu, socials }) {
       }}
     >
       <Box sx={{ width: '100%', backgroundColor: 'rgb(240,240,240)', maxHeight: '100%' }}>
-        <hr />
         <Box
           sx={{
             position: 'relative',
-            left: { xs: '40%', sm: '45%', md: '47%' },
-            bottom: '30px',
-            height: '50px',
+            top: '10px',
+            marginTop: '20px',
+            height: '1px',
+            width: '100%',
+            background: {
+              lg: 'linear-gradient(90deg, rgba(160,160,160,1) 45%, rgba(255,255,255,0) 45%, rgba(255,255,255,0) 55%, rgba(160,160,160,1) 55%)',
+              xs: 'linear-gradient(90deg, rgba(160,160,160,1) 30%, rgba(255,255,255,0) 30%, rgba(255,255,255,0) 70%, rgba(160,160,160,1) 65%)',
+            },
           }}
-          component="img"
-          src={logo}
-          alt="ong image"
         />
+        <Link to="/">
+          <Box
+            sx={{
+              position: 'relative',
+              top: '-10px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              height: '50px',
+            }}
+            component="img"
+            src={logo}
+            alt="ONG Logo"
+          />
+        </Link>
 
         <Stack
           sx={{
             flexDirection: { xs: 'column', sm: 'row' },
             alignItems: { xs: 'center' },
-            justifyContent: { sm: 'space-around' },
+            justifyContent: { sm: 'center' },
             margin: { md: '0 10% 0 10%', lg: '0  20% 0 20%' },
             backgroundColor: 'rgb(240,240,240)',
           }}
@@ -50,8 +65,24 @@ function Footer({ logo, menu, socials }) {
             <Typography
               key={elem.id}
               marginTop={{ xs: '8px' }}
+              padding="5px"
+              sx={{
+                '&:hover': {
+                  backgroundColor: 'rgba(255,200,200,1)',
+                  borderRadius: '5px',
+                  transition: 'all 0.5s',
+                },
+              }}
             >
-              <Link style={{ color: 'inherit', textDecoration: 'none' }} to={elem.route}>
+              <Link
+                style={{
+                  margin: '5px 20px',
+                  color: 'inherit',
+                  textDecoration: 'none',
+
+                }}
+                to={elem.route}
+              >
                 <span>{elem.text}</span>
               </Link>
             </Typography>
@@ -60,28 +91,69 @@ function Footer({ logo, menu, socials }) {
 
         <hr />
         <Stack justifyContent="center" direction="row" spacing={{ xs: 2, lg: 6 }}>
-          <IconButton color="inherit">
+          <IconButton
+            color="inherit"
+            sx={{
+              '&:hover': {
+                backgroundColor: 'rgba(255,200,200,1)',
+                borderRadius: '5px',
+                transition: 'all 0.5s',
+              },
+            }}
+          >
             <a href={`mailto:${socials.email}`}>
               <AlternateEmailRoundedIcon sx={{ fill: 'unset' }} />
             </a>
           </IconButton>
-          <IconButton color="inherit" sx={{ textDecoration: 'none' }}>
+          <IconButton
+            color="inherit"
+            sx={{
+              '&:hover': {
+                backgroundColor: 'rgba(255,200,200,1)',
+                borderRadius: '5px',
+                transition: 'all 0.5s',
+              },
+            }}
+          >
             <a href={socials.facebook} target="_blank" rel="noopener noreferrer">
               <FacebookIcon sx={{ fill: 'unset' }} />
             </a>
           </IconButton>
-          <IconButton color="inherit">
+          <IconButton
+            color="inherit"
+            sx={{
+              '&:hover': {
+                backgroundColor: 'rgba(255,200,200,1)',
+                borderRadius: '5px',
+                transition: 'all 0.5s',
+              },
+            }}
+          >
             <a href={socials.instagram} target="_blank" rel="noopener noreferrer">
               <InstagramIcon sx={{ fill: 'unset' }} />
             </a>
           </IconButton>
-          <IconButton color="inherit">
+          <IconButton
+            color="inherit"
+            sx={{
+              '&:hover': {
+                backgroundColor: 'rgba(255,200,200,1)',
+                borderRadius: '5px',
+                transition: 'all 0.5s',
+              },
+            }}
+          >
             <a href={socials.linkedin} target="_blank" rel="noopener noreferrer">
               <LinkedInIcon sx={{ fill: 'unset' }} />
             </a>
           </IconButton>
         </Stack>
-        <p style={{ textAlign: 'center' }}>2022 by Alkemy. All Rights Reserved</p>
+        <p style={{ textAlign: 'center' }}>
+          2022 by
+          {' '}
+          <b>Alkemy</b>
+          . All Rights Reserved
+        </p>
       </Box>
     </Toolbar>
   )
