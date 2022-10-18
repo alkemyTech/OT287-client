@@ -18,7 +18,7 @@ function Footer({ logo, menu, socials }) {
         width: '100%',
         backgroundColor: 'rgb(240,240,240)',
         padding: 0,
-        height: '240px',
+        minHeight: '240px',
         justifyContent: 'center',
       }}
     >
