@@ -5,7 +5,7 @@ import { Avatar, Button, Grid } from '@mui/material';
 import { useState } from 'react';
 
 export default function TestimonialCard({ testimonial }) {
-  const { name, content } = testimonial
+  const { name, image, content } = testimonial
   const [readMore, setReadMore] = useState(false)
 
   return (
@@ -18,7 +18,7 @@ export default function TestimonialCard({ testimonial }) {
       flexWrap="wrap"
     >
       <Grid item container flexDirection={{ xs: 'row', sm: 'column' }} flexWrap="nowrap" alignItems={{ xs: 'center', sm: 'start' }}>
-        <Avatar sx={{ width: 65, height: 65 }} alt="" src="" />
+        <Avatar src={image} sx={{ width: 65, height: 65 }} alt="" />
         <Grid item container ml={{ xs: '1rem', sm: '0' }} mt={{ xs: '0', sm: '1rem' }}>
           <Grid item container>
             <Typography variant="subtitle1" fontWeight="semibold">
