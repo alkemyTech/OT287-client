@@ -15,6 +15,7 @@ const NewsFormContainer = () => {
     categoryId: 1,
   })
   const [previousImage, setPreviousImage] = useState(null)
+  const [previousImageFullName, setPreviousImageFullName] = useState(null)
   const [errorStatus, setErrorStatus] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
   const navigate = useNavigate()
@@ -24,7 +25,8 @@ const NewsFormContainer = () => {
       (async () => {
         try {
           const getData = await httpService('get', `news/${id}`)
-          setPreviousImage(getData.body.image.split('com/')[1])
+          setPreviousImageFullName(getData.body.image.split('com/')[1].split('/')[1])
+          setPreviousImage(getData.body.image.split('com/')[1].split('/')[1].slice(15))
           setInitialValues({
             name: getData.body.name,
             content: getData.body.content,
@@ -48,14 +50,14 @@ const NewsFormContainer = () => {
     if (idToEdit) {
       action = 'put'
       endpoint = `news/${id}`
-      if (values.image !== previousImage) {
+      if (values.image.split('com/')[1].split('/')[1] !== previousImageFullName) {
         deleteImage = 1
       }
     }
 
     try {
       if (deleteImage === 1) {
-        await AWSFileDelete(previousImage)
+        await AWSFileDelete(previousImageFullName, 'news')
       }
       const data = await httpService(action, endpoint, {
         name: values.name,
