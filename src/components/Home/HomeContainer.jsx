@@ -3,35 +3,10 @@ import { useLocation } from 'react-router-dom'
 import httpService from '../../services/httpService'
 import Home from './Home'
 
-const sliderImg = [
-  {
-    id: 1,
-    imageUrl: 'images/SliderAboutUs2.jpg',
-    title: 'Bienvenidx!',
-    text: 'En Somos Más trabajamos con chicos y chicas, mamás y papás, abuelos y vecinos del barrio La Cava generando procesos de crecimiento y de inserción social. Uniendo las manos de todas las familias, las que viven en el barrio y las que viven fuera de él, es que podemos pensar, crear y garantizar estos procesos.',
-  },
-  {
-    id: 2,
-    imageUrl: 'images/sliderImg2.jpg',
-    text: 'Somos una ONG que se creó en 1997 con la intención de dar alimento a las familias del barrio. Con el tiempo nos involucramos con la comunidad y hoy somos un centro comunitario que acompaña a más de 700 personas.',
-    title: 'Somos Más',
-  },
-  {
-    id: 3,
-    imageUrl: 'images/SliderAboutUs1.jpg',
-    text: 'Mejorar la calidad de vida de niños y familias en situación de vulnerabilidad, otorgando un cambio de rumbo en cada individuo a través de la educación, salud, trabajo, deporte, responsabilidad y compromiso.',
-    title: 'Visión',
-  },
-  {
-    id: 4,
-    imageUrl: 'images/SliderAboutUs3.png',
-    text: 'Trabajar articuladamente con los distintos aspectos de la vida de las familias, generando espacios de desarrollo personal y familiar, brindando herramientas que logren mejorar la calidad de vida a través de su propio esfuerzo.',
-    title: 'Misión',
-  },
-]
 const HomeContainer = () => {
   const [data, setData] = useState([])
   const [members, setMembers] = useState(null)
+  const [slides, setSlides] = useState(null)
   const [testimonials, setTestimonials] = useState(null)
   const [errorStatus, setErrorStatus] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
@@ -39,6 +14,19 @@ const HomeContainer = () => {
   const location = useLocation().pathname
 
   useEffect(() => {
+    const getSlides = async () => {
+      try {
+        const dataSlides = await httpService('get', '/slides')
+        if (dataSlides.code === 200) {
+          setSlides(dataSlides.body)
+        } else {
+          setErrorStatus(dataSlides.code)
+          setErrorMessage(dataSlides.body.response.statusText)
+        }
+      } catch (error) {
+        setErrorStatus(`Error has occurred: ${error.response}`)
+      }
+    }
     const getNews = async () => {
       try {
         const dataNews = await httpService('get', '/news')
@@ -79,6 +67,7 @@ const HomeContainer = () => {
         setErrorStatus(`Error has occurred: ${error.response}`)
       }
     }
+    getSlides()
     getNews()
     getMembers()
     getTestimonials()
@@ -89,7 +78,7 @@ const HomeContainer = () => {
       news={data}
       members={members}
       testimonials={testimonials}
-      slider={sliderImg}
+      slider={slides}
       error={errorStatus}
       errorMessage={errorMessage}
       location={location}
