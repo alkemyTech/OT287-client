@@ -95,7 +95,7 @@ const Router = () => {
               <Route path="slides/:id/edit" element={<SlidesFormContainer />} />
               <Route path="slides/create" element={<SlidesFormContainer />} />
             </Route>
-            {/* Redireccion ante url invalida */}
+            {/* redirection for invalid routes */}
             <Route path="*" element={<PrivateRoute><BackOfficeContainer /></PrivateRoute>} />
           </Routes>
         </CSSTransition>
