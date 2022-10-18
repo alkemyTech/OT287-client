@@ -13,6 +13,16 @@ const Home = ({
   news, members, slider, error, errorMessage, location, testimonials,
 }) => (
   <Box sx={{ maxWidth: { sm: '1600px' }, margin: '0 auto', alignContent: 'center' }}>
+    <Typography
+      fontWeight={600}
+      color="#000000"
+      ml={15}
+      sx={{
+        fontSize: { xs: 20, md: 32 }, textAlign: { lg: 'left' },
+      }}
+    >
+      Bienvenidxs!
+    </Typography>
     <Slider items={slider} />
     <Box sx={{ mr: { xs: '15px', lg: '100px' }, ml: { xs: '15px', lg: '100px' }, mt: '40px' }}>
       <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
@@ -109,8 +119,8 @@ Home.propTypes = {
   })).isRequired,
   slider: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
-    name: PropTypes.string,
-    content: PropTypes.string,
+    text: PropTypes.string,
+    order: PropTypes.number,
     imageUrl: PropTypes.string,
   })).isRequired,
   members: PropTypes.arrayOf(PropTypes.shape({
