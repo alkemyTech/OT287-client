@@ -132,6 +132,7 @@ const drawerOptions = {
       id: 10,
       text: 'edit profile',
       icon: <AccountCircleIcon />,
+      route: 'profile',
     },
   ],
   standard: [
