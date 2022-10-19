@@ -12,7 +12,7 @@ import Navbar from './Navbar/Navbar';
 const Header = (props) => {
   const {
     logo, menu, handleOpenMenu, handleCloseMenu, menuIsOpen, navigate, handleActiveButton,
-    activeButton, buttonsAction, MenuIcon,
+    activeButton, buttonsAction, MenuIcon, matches,
   } = props
   return (
     <AppBar
@@ -42,7 +42,8 @@ const Header = (props) => {
             activeButton={activeButton}
             buttonsAction={buttonsAction}
           />
-          {/* <Box sx={{ flexGrow: '1' }} /> */}
+          {matches && (<Box sx={{ flexGrow: '1' }} />)}
+
           <Box
             sx={{ display: { xs: 'contents' } }}
           >
@@ -117,6 +118,7 @@ Header.propTypes = {
   navigate: PropTypes.func.isRequired,
   handleOpenMenu: PropTypes.func.isRequired,
   menuIsOpen: PropTypes.bool.isRequired,
+  matches: PropTypes.bool.isRequired,
   handleActiveButton: PropTypes.func.isRequired,
   activeButton: PropTypes.string.isRequired,
   buttonsAction: PropTypes.arrayOf(PropTypes.shape({

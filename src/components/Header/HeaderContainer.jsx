@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { useNavigate, useLocation } from 'react-router-dom';
 import LoginIcon from '@mui/icons-material/Login';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { useMediaQuery, useTheme } from '@mui/material';
 import Header from './Header'
 
 const HeaderContainer = ({ MenuIcon }) => {
@@ -12,6 +13,8 @@ const HeaderContainer = ({ MenuIcon }) => {
   // const userData = useSelector((state) => state.auth.userData);
   const isLogged = Boolean(localStorage.getItem('user'))
   const isAdmin = isLogged && JSON.parse(localStorage.getItem('user')).roleId === 1
+  const theme = useTheme()
+  const matches = useMediaQuery(theme.breakpoints.down('md'))
 
   const data = {
     logo: 'https://i.imgur.com/nIclrvm.png',
@@ -111,6 +114,7 @@ const HeaderContainer = ({ MenuIcon }) => {
       handleActiveButton={handleActiveButton}
       activeButton={activeButton}
       isLogged={isLogged}
+      matches={matches}
     />
   )
 }
