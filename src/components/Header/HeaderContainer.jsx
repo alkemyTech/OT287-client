@@ -41,11 +41,6 @@ const HeaderContainer = ({ MenuIcon }) => {
         route: '/contacto',
         text: 'Contacto',
       },
-      {
-        id: 6,
-        route: '/contribuye',
-        text: 'Contribuye',
-      },
     ],
     buttonsAction: [
       {

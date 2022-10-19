@@ -30,12 +30,6 @@ const mockedData = {
       route: '/contacto',
       text: 'Contacto',
     },
-    {
-      id: 6,
-      route: '/contribuye',
-      text: 'Contribuye',
-    },
-
   ],
   contact: [
     {
