@@ -26,12 +26,12 @@ const Activities = ({ data, error }) => (
 
 
 Activities.propTypes = {
-  data: PropTypes.shape({
+  data: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
     image: PropTypes.string,
     content: PropTypes.string,
-  }),
+  })),
   error: PropTypes.string,
 }
 
