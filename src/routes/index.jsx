@@ -1,5 +1,7 @@
 import React from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import {
+  Routes, Route, useLocation,
+} from 'react-router-dom'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import HomeContainer from '../components/Home/HomeContainer'
 import BackOfficeContainer from '../components/BackOffice/BackOfficeContainer'
@@ -93,6 +95,8 @@ const Router = () => {
               <Route path="slides/:id/edit" element={<SlidesFormContainer />} />
               <Route path="slides/create" element={<SlidesFormContainer />} />
             </Route>
+            {/* redirection for invalid routes */}
+            <Route path="*" element={<PrivateRoute><BackOfficeContainer /></PrivateRoute>} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>
