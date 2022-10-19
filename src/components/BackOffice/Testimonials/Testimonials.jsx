@@ -55,10 +55,8 @@ const Testimonials = (
                   </TableCell>
                   <TableCell
                     sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}
-                  >
-                    {elem.content}
-
-                  </TableCell>
+                    dangerouslySetInnerHTML={{ __html: elem.content.length < 80 ? elem.content : `${elem.content.substring(0, 80)}...` }}
+                  />
                   <TableCell sx={{ padding: '0', width: '3.75rem' }} align="center">
                     <>
                       <EditIcon

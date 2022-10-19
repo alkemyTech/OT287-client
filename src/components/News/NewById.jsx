@@ -42,10 +42,13 @@ const NewById = ({ data }) => (
           <Typography className="newByIdTitle" variant="h3" color="inherit" gutterBottom>
             {data.name}
           </Typography>
-          <Typography className="newByIdParagraph" variant="h6" color="inherit" paragraph>
-            {data.content}
-          </Typography>
-
+          <Typography
+            className="newByIdParagraph"
+            variant="h6"
+            color="inherit"
+            paragraph
+            dangerouslySetInnerHTML={{ __html: data.content }}
+          />
         </Box>
       </Grid>
     </Grid>

@@ -84,9 +84,8 @@ const News = (
                     sx={{
                       width: '45%', textOverflow: 'ellipsis',
                     }}
-                  >
-                    {elem.content.length < 80 ? elem.content : `${elem.content.substring(0, 80)}...` }
-                  </TableCell>
+                    dangerouslySetInnerHTML={{ __html: elem.content.length < 80 ? elem.content : `${elem.content.substring(0, 80)}...` }}
+                  />
                   <TableCell
                     sx={{ width: '15%', overflow: 'hidden', textOverflow: 'ellipsis' }}
                   >
