@@ -7,10 +7,12 @@ import './newById.css'
 
 const NewById = ({ data }) => (
 
-  <Grid item xs={12} height="100vh" width="100%">
+  <Grid item xs={12} height="100%" width="100%" maxWidth="1600px">
     <Paper
       sx={{
-        height: '60%',
+        height: '30vw',
+        minHeight: '240px',
+        minWidth: '250px',
         position: 'relative',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -34,17 +36,20 @@ const NewById = ({ data }) => (
       <Grid item md={12}>
         <Box
           sx={{
-            position: 'relative',
-            p: { xs: 1, md: 2 },
-            pr: { md: 0 },
+            margin: '30px 0 10px 0',
+            minWidth: '250px',
           }}
         >
-          <Typography className="newByIdTitle" variant="h3" color="inherit" gutterBottom>
+          <Typography
+            className="newByIdTitle"
+            color="inherit"
+            sx={{ typography: { lg: 'h4', xs: 'h5' }, margin: '10px 0' }}
+          >
             {data.name}
           </Typography>
           <Typography
             className="newByIdParagraph"
-            variant="h6"
+            sx={{ typography: { lg: 'h6', xs: 'p' } }}
             color="inherit"
             paragraph
             dangerouslySetInnerHTML={{ __html: data.content }}
