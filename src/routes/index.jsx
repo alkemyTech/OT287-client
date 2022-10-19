@@ -18,6 +18,7 @@ import NewsFormContainer from '../components/Forms/NewsForm/NewsFormContainer'
 import BackofficeUsers from '../components/BackOffice/users/UsersContainer'
 import BackofficeNews from '../components/BackOffice/news/NewsContainer'
 import ActivityContainer from '../components/Activity/ActivityContainer'
+import ActivitiesContainer from '../components/Activity/ActivitiesContainer'
 import BackofficeTestimonials from '../components/BackOffice/Testimonials/TestimonialsContainer'
 import Logout from '../components/Logout/Logout'
 import EditUserProfileContainer from '../components/Forms/EditUserProfile/EditUserProfileContainer'
@@ -65,6 +66,7 @@ const Router = () => {
               <Route path="/contacto" element={<ContactScreen />} />
               <Route path="/sobre-nosotros" element={<MembersContainer />} />
               <Route path="/testimonios" element={<TestimonialsContainer />} />
+              <Route path="/actividades" element={<ActivitiesContainer />} />
               <Route path="/actividades/:id" element={<ActivityContainer />} />
             </Route>
             {/* Back-Office Routes for Admin access only */}
