@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Formik, Form, ErrorMessage } from 'formik'
 import PropTypes from 'prop-types'
+import { useNavigate } from 'react-router-dom'
+
 import {
   Container, CssBaseline, Box, Typography, Grid, Button,
 } from '@mui/material'
@@ -18,6 +20,7 @@ const NewsForm = ({
     const data = editor.getData()
     setNewContent(data)
   }
+  const navigate = useNavigate()
 
   return (
     <Container component="main" maxWidth="sm">
@@ -73,11 +76,16 @@ const NewsForm = ({
                   <Grid item xs={12}>
                     <Button
                       type="submit"
-                      fullWidth
                       variant="contained"
-                      sx={{ mt: 3, mb: 2, h: 10 }}
+                      sx={{ margin: '5px 15px 0 0', h: 14 }}
                     >
-                      Grabar
+                      Guardar cambios
+                    </Button>
+                    <Button
+                      onClick={() => { navigate('/back-office/news') }}
+                      sx={{ margin: '5px 15px 0 0', h: 14 }}
+                    >
+                      Cancelar
                     </Button>
                     {error && (
                       <Box component="span" color="red">{error === 409 ? 'El email ingresado ya existe en la base de datos para otro usuario' : errorMessage}</Box>

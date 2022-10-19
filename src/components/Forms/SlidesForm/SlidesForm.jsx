@@ -3,7 +3,9 @@ import { Formik, Form } from 'formik'
 import PropTypes from 'prop-types'
 import {
   Container, CssBaseline, Box, Typography, Grid, Button,
+
 } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 import FormInputField from '../../Layout/FormInputField'
 import FormInputImage from '../../Layout/FormInputImage'
 import AWSFileUpload from '../../Layout/AWSFileUpload'
@@ -11,7 +13,7 @@ import AWSFileUpload from '../../Layout/AWSFileUpload'
 const SlidesForm = ({
   id, initialValues, validationSchema, onSubmitForm, error, errorMessage,
 }) => {
-
+  const navigate = useNavigate()
   return (
     <Container component="main" maxWidth="sm">
       <CssBaseline />
@@ -36,10 +38,9 @@ const SlidesForm = ({
             }
             onSubmitForm(values, id)
           }}
-          
         >
           {(formProps) => (
-            <Box sx={{width:{xs:'50%', sm:'80%', md:'100%'}}}>
+            <Box sx={{ width: { xs: '50%', sm: '80%', md: '100%' } }}>
               <Form>
                 <Grid container spacing={2}>
                   <Grid item xs={12}>
@@ -61,14 +62,19 @@ const SlidesForm = ({
                   <Grid item xs={12}>
                     <Button
                       type="submit"
-                      fullWidth
                       variant="contained"
-                      sx={{ mt: 3, mb: 2, h: 10 }}
+                      sx={{ margin: '5px 15px 0 0', h: 14 }}
                     >
-                      Grabar
+                      Guardar cambios
+                    </Button>
+                    <Button
+                      onClick={() => { navigate('/back-office/slides') }}
+                      sx={{ margin: '5px 15px 0 0', h: 14 }}
+                    >
+                      Cancelar
                     </Button>
                     {error && (
-                      <Box component="span" color="red">{error === 409 ? 'El email ingresado ya existe en la base de datos para otro usuario' : errorMessage}</Box>
+                    <Box component="span" color="red">{errorMessage}</Box>
                     )}
                   </Grid>
                 </Grid>
@@ -80,7 +86,6 @@ const SlidesForm = ({
     </Container>
   )
 }
-
 SlidesForm.propTypes = {
   id: PropTypes.string,
   initialValues: PropTypes.shape({

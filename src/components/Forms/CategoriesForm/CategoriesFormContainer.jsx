@@ -55,6 +55,7 @@ const CategoriesFormContainer = () => {
       } else {
         setErrorStatus(data.response)
       }
+      setTimeout(() => navigate('/back-office/categories'), 400)
     } catch (error) {
       setErrorMessage(error.response)
     }
