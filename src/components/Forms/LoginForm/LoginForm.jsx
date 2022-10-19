@@ -13,18 +13,14 @@ const LoginForm = ({
   <Box
     component="main"
     sx={{
-      position: 'relative',
-      top: '-48px',
-      bottom: '-120px',
-      padding: '0',
       width: '100vw',
       display: 'flex',
-      flexDirection: 'row',
     }}
   >
     <CssBaseline />
     <Container
       sx={{
+        width: '50%',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -80,16 +76,17 @@ const LoginForm = ({
     <Box
       sx={{
         width: '50%',
-        maxHeight: '100vh',
+        height: '100vh',
+        backgroundColor: 'red',
         overflow: 'hidden',
-        display: { xs: 'none', lg: 'flex' },
+        display: { xs: 'none', lg: 'block' },
       }}
     >
       <img
         src={`${process.env.PUBLIC_URL}images/login-img.png`}
         alt="login"
         style={{
-          alignSelf: 'flex-end', width: '100%', minHeight: '100vh', objectFit: 'cover',
+          position: 'absolute', top: '-20px', alignSelf: 'flex-end', minWidth: '100%', height: '120vh', objectFit: 'cover',
         }}
       />
     </Box>
