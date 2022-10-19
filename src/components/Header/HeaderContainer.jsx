@@ -44,6 +44,11 @@ const HeaderContainer = ({ MenuIcon }) => {
         route: '/contacto',
         text: 'Contacto',
       },
+      {
+        id: 6,
+        route: '/actividades',
+        text: 'Actividades',
+      },
     ],
     buttonsAction: [
       {

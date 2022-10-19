@@ -8,7 +8,7 @@ const ActivitiesCard = ({ data }) => (
   <Card sx={{
     width: '450px',
     padding: '5px',
-    backgroundColor: '#bacffc',
+    backgroundColor: '#ed706b',
     borderRadius: '20px',
     borde: 'solid 1px #0038FF',
     boxSizing: 'border-box',
@@ -27,10 +27,10 @@ const ActivitiesCard = ({ data }) => (
     </Box>
     <Box display="flex" flexDirection="column">
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="div" color="white">
           {data.name}
         </Typography>
-        <Typography className="contentNewAbstract" color="#000000" sx={{ fontSize: '12px' }}>
+        <Typography  color="white" sx={{ fontSize: '12px' }}>
           {data.content}
         </Typography>
       </CardContent>
@@ -39,7 +39,7 @@ const ActivitiesCard = ({ data }) => (
       }}
       >
         <Link href={`/actividades/${data.id}`} style={{ textDecoration: 'none' }}>
-          <Button variant="contained" color="secondary" sx={{ fontSize: { xs: '.6rem', md: '.8rem', lg: '.8rem' }, border: '1px solid', borderColor: '#0038FF' }}>Ver Más</Button>
+          <Button variant="contained" color="secondary" sx={{ fontSize: { xs: '.6rem', md: '.8rem', lg: '.8rem' }, border: '1px solid', borderColor: '#ad4440', backgroundColor:'#ad4440', '&:hover': {backgroundColor: "#781713", borderColor: '#781713'} }}>Ver Más</Button>
         </Link>
       </CardActions>
     </Box>
