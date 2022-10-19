@@ -23,27 +23,23 @@ const News = (
   } = props
   return (
     <>
-      <Box>
+      <Box sx={{ mx: { xs: 2.5, md: 0 } }}>
         <Typography
           component="h1"
           variant="h5"
-          sx={{ marginY: { lg: '40px', xs: '10px' }, fontWeight: 'bold' }}
+          sx={{ my: { lg: '1rem', xs: '0.63rem' }, fontWeight: 'bold' }}
         >
           Lista de Novedades
         </Typography>
         <TableContainer
           sx={{
-            position: 'absolute',
-            top: '180px',
-            height: '400px',
             overflow: 'auto',
-            width: { lg: '80%', xs: '100%' },
           }}
           component={Paper}
         >
-          <Table stickyHeader>
+          <Table>
             <TableHead>
-              <TableRow>
+              <TableRow sx={{ backgroundColor: 'rgb(240,240,240)' }}>
                 <TableCell><b>Nombre</b></TableCell>
                 <TableCell align="center"><b>Imagen</b></TableCell>
                 <TableCell><b>Contenido</b></TableCell>
