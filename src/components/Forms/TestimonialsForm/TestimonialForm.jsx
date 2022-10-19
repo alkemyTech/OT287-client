@@ -72,16 +72,14 @@ const TestimonialForm = ({
                   <Grid item xs={12}>
                     <Button
                       type="submit"
-                      fullWidth
                       variant="contained"
-                      sx={{ mt: 3, mb: 2, h: 10 }}
+                      sx={{ margin: '5px 15px 0 0', h: 14 }}
                     >
-                      Guardar
+                      Guardar cambios
                     </Button>
                     <Button
                       onClick={() => { navigate('/back-office/testimonials') }}
-                      fullWidth
-                      sx={{ mt: 2, mb: 2, h: 10 }}
+                      sx={{ margin: '5px 15px 0 0', h: 14 }}
                     >
                       Cancelar
                     </Button>

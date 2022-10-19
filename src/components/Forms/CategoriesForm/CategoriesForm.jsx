@@ -47,11 +47,16 @@ const CategoriesForm = (props) => {
                     <Grid item xs={12}>
                       <Button
                         type="submit"
-                        fullWidth
                         variant="contained"
-                        sx={{ mt: 3, mb: 2, h: 10 }}
+                        sx={{ margin: '5px 15px 0 0', h: 14 }}
                       >
-                        Grabar
+                        Guardar cambios
+                      </Button>
+                      <Button
+                        onClick={() => { navigate('/back-office/categories') }}
+                        sx={{ margin: '5px 15px 0 0', h: 14 }}
+                      >
+                        Cancelar
                       </Button>
                       {succesMessage ? (
                         <Alert

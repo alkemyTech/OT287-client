@@ -12,9 +12,6 @@ const EditOrganizationForm = ({
   onSubmitForm, initialValues, validationSchema, error, errorMessage,
 }) => {
   const navigate = useNavigate()
-  const handleClose = () => {
-    navigate('/back-office')
-  }
 
   return (
     <Box component="main" sx={{ width: '100%' }}>
@@ -59,14 +56,15 @@ const EditOrganizationForm = ({
               <DialogActions>
                 <Button
                   type="submit"
-                  onClick={() => handleClose()}
+                  variant="contained"
                 >
-                  Cancelar
+                  Guardar Cambios
                 </Button>
                 <Button
                   type="submit"
+                  onClick={() => { navigate('/back-office/organizations') }}
                 >
-                  Enviar
+                  Cancelar
                 </Button>
               </DialogActions>
               {error && (

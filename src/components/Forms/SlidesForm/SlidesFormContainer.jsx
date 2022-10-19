@@ -24,7 +24,7 @@ const SlidesFormContainer = () => {
         try {
           const getData = await httpService('get', `slides/${id}`)
           const uploadedImage = getData.body.imageUrl.split('com/')
-        
+
           setInitialValues({
             imageUrl: getData.body.imageUrl,
             uploadedImage: uploadedImage[1],
@@ -57,8 +57,8 @@ const SlidesFormContainer = () => {
         order: values.order,
         organizationId: values.organizationId,
       })
-      if (data.code === 200) {
-        navigate('/')
+      if (data.code === 200 || data.code === 201 || data.code === 209) {
+        setTimeout(() => navigate('/back-office/slides'), 800)
       } else {
         setErrorStatus(data.response.status)
         setErrorMessage(data.response.statusText)
