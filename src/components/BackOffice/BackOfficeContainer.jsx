@@ -201,6 +201,7 @@ const BackOfficeContainer = () => {
   const user = useSelector((state) => state.auth.userData);
 
   const hiddenAddButton = [
+    'back-office',
     'create',
     'edit',
     'organizations',
