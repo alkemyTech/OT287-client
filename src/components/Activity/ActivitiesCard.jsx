@@ -21,7 +21,11 @@ const ActivitiesCard = ({ data }) => (
         src={data.image}
         alt="new image"
         sx={{
-          margin: { sm: '10px', xs: '0 auto' }, borderRadius: '20px', width: { xs: '40px', sm: '120px', md: '196px' }, height: { xs: '45px', sm: '135px', md: '233px' }, opacity: { xs: 1, sm: 1 },
+          margin: { sm: '10px', xs: '0 auto' },
+          borderRadius: '20px',
+          width: { xs: '40px', sm: '120px', md: '196px' },
+          height: { xs: '45px', sm: '135px', md: '233px' },
+          opacity: { xs: 1, sm: 1 },
         }}
       />
     </Box>
@@ -30,35 +34,47 @@ const ActivitiesCard = ({ data }) => (
         <Typography gutterBottom variant="h5" component="div" color="white">
           {data.name}
         </Typography>
-        <Typography  color="white" sx={{ fontSize: '12px' }}>
-          {data.content}
-        </Typography>
+        <Typography
+          color="white"
+          sx={{ fontSize: '12px' }}
+          dangerouslySetInnerHTML={{ __html: data.content.length < 80 ? data.content : `${data.content.substring(0, 80)}...` }}
+        />
       </CardContent>
       <CardActions sx={{
         height: '100%', justifyContent: 'flex-end', alignItems: 'flex-end',
       }}
       >
         <Link href={`/actividades/${data.id}`} style={{ textDecoration: 'none' }}>
-          <Button variant="contained" color="secondary" sx={{ fontSize: { xs: '.6rem', md: '.8rem', lg: '.8rem' }, border: '1px solid', borderColor: '#ad4440', backgroundColor:'#ad4440', '&:hover': {backgroundColor: "#781713", borderColor: '#781713'} }}>Ver Más</Button>
+          <Button
+            variant="contained"
+            color="secondary"
+            sx={{
+              fontSize: { xs: '.6rem', md: '.8rem', lg: '.8rem' },
+              border: '1px solid',
+              borderColor: '#ad4440',
+              backgroundColor: '#ad4440',
+              '&:hover': { backgroundColor: '#781713', borderColor: '#781713' },
+            }}
+          >
+            Ver Más
+          </Button>
         </Link>
       </CardActions>
     </Box>
   </Card>
- 
 )
 
 ActivitiesCard.propTypes = {
-    data: PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-      image: PropTypes.string,
-      content: PropTypes.string,
-    }),
-  }
-  
-  ActivitiesCard.defaultProps = {
-    data: null,
-    error: null,
-  }
+  data: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    image: PropTypes.string,
+    content: PropTypes.string,
+  }),
+}
 
-  export default ActivitiesCard
+ActivitiesCard.defaultProps = {
+  data: null,
+}
+
+export default ActivitiesCard
