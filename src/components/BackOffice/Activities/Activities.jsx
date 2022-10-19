@@ -56,10 +56,9 @@ const Activities = (
                     {elem.image}
                   </TableCell>
                   <TableCell
-                  sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                  >
-                    {elem.content}
-                  </TableCell>
+                    sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    dangerouslySetInnerHTML={{ __html: elem.content.length < 80 ? elem.content : `${elem.content.substring(0, 80)}...` }}
+                  />
                   <TableCell
                   sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
                   >

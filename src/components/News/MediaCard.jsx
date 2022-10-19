@@ -31,9 +31,12 @@ const MediaCard = ({ data }) => (
         <Typography gutterBottom variant="h5" component="div">
           {data.name}
         </Typography>
-        <Typography className="contentNewAbstract" color="#000000" sx={{ fontSize: '12px' }}>
-          {data.content}
-        </Typography>
+        <Typography
+          className="contentNewAbstract"
+          color="#000000"
+          sx={{ fontSize: '12px' }}
+          dangerouslySetInnerHTML={{ __html: data.content.length < 80 ? data.content : `${data.content.substring(0, 80)}...` }}
+        />
       </CardContent>
       <CardActions sx={{
         height: '100%', justifyContent: 'flex-end', alignItems: 'flex-end',
@@ -45,7 +48,6 @@ const MediaCard = ({ data }) => (
       </CardActions>
     </Box>
   </Card>
- 
 )
 
 MediaCard.propTypes = {

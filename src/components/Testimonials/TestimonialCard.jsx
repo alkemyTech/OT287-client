@@ -26,20 +26,22 @@ export default function TestimonialCard({ testimonial }) {
             </Typography>
           </Grid>
           <Grid item container>
-            <Typography fontSize="12px" fontWeight="light">
-              {readMore ? content : content.substr(0, 100)}
-              {content.length > 120 && (
-              <Button
-                size="small"
-                style={{
-                  textTransform: 'lowercase', padding: '0', lineHeight: '0', fontWeight: '400', verticalAlign: 'inherit', fontSize: '12px',
-                }}
-                onClick={() => setReadMore((prev) => !prev)}
-              >
-                {readMore ? '...ver menos' : '...ver más'}
-              </Button>
-              )}
-            </Typography>
+            <Typography
+              fontSize="12px"
+              fontWeight="light"
+              dangerouslySetInnerHTML={{ __html: readMore ? content : content.substr(0, 100) }}
+            />
+            {content.length > 120 && (
+            <Button
+              size="small"
+              style={{
+                textTransform: 'lowercase', padding: '0', lineHeight: '0', fontWeight: '400', verticalAlign: 'inherit', fontSize: '12px',
+              }}
+              onClick={() => setReadMore((prev) => !prev)}
+            >
+              {readMore ? '...ver menos' : '...ver más'}
+            </Button>
+            )}
           </Grid>
         </Grid>
 

@@ -42,7 +42,12 @@ const Activity = ({ data, loading, error }) => {
       <Grid container justifyContent="center">
         <Grid item md={5} sx={{ mr: { md: 5 } }}>
           <Typography variant="h2" sx={{ fontSize: '1.5rem', fontWeight: 600, maxWidth: '37.5rem' }}>{ data.name }</Typography>
-          <Typography variant="body2" component="p" sx={{ mt: 1, mb: 2, maxWidth: '37.5rem' }}>{ data.content }</Typography>
+          <Typography
+            variant="body2"
+            component="p"
+            sx={{ mt: 1, mb: 2, maxWidth: '37.5rem' }}
+            dangerouslySetInnerHTML={{ __html: data.content }}
+          />
         </Grid>
         <Grid item md={4}>
           <Box
