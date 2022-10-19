@@ -74,6 +74,7 @@ const Router = () => {
               <Route path="organizations/create" element={<EditOrganizationContainer />} />
               <Route path="users" element={<BackofficeUsers />} />
               <Route path="users/:id/edit" element={<EditUserContainer />} />
+              <Route path="users/create" element={<EditUserContainer />} />
               <Route path="news" element={<BackofficeNews />} />
               <Route path="testimonials" element={<BackofficeTestimonials />} />
               <Route path="testimonials/:id/edit" element={<TestimonialFormContainer />} />

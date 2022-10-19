@@ -8,26 +8,40 @@ import Loader from '../../Loader/Loader'
 const EditUserContainer = () => {
   const [errorStatus, setErrorStatus] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
-  const [user, setUser] = useState([])
   const [loading, setLoading] = useState(false)
   const [role, setRole] = useState('')
   const [editSucces, setEditSucces] = useState(false)
+  const [initialValues, setInitialValues] = useState({
+    firstName: '',
+    lastName: '',
+    email:'',
+    password:'',
+    image:'',
+    roleId:'',
+    uploadedImage: '',
+  })
 
   const { id } = useParams()
   const navigate = useNavigate()
 
-  const handleRole = (event) => {
-    setRole(event.target.value);
-  };
+
 
   // Get user byId
   useEffect(() => {
+    if (id) {
     const getUser = async () => {
       setLoading(true)
       try {
         const res = await httpService('get', `users/${id}`)
+        const uploadedImage = res.body.image.split('com/')[1]
         if (res.code === 200) {
-          setUser(res.body)
+          setInitialValues({
+            firstName: res.body.firstName,
+            lastName: res.body.lastName,
+            email: res.body.email,
+            roleId: res.body.roleId,
+            uploadedImage: uploadedImage,
+          })
           setRole(res.body.roleId)
           setLoading(false)
         } else {
@@ -39,7 +53,12 @@ const EditUserContainer = () => {
       }
     }
     getUser()
+    }
   }, [id])
+
+  const handleRole = (event) => {
+    setRole(event.target.value);
+  };
 
   // Update user byId
 
@@ -48,11 +67,20 @@ const EditUserContainer = () => {
       navigate('/back-office/users')
     }, 2000)
   }
-  const onSubmitForm = async (values) => {
+  const onSubmitForm = async (values, idToEdit) => {
+    let action = 'post'
+    let endpoint = 'auth/register'
+    if(idToEdit){
+      action = 'put'
+      endpoint = `users/ ${id}`
+    }
     try {
-      await httpService('put', `users/${id}`, {
+      await httpService(action, endpoint, {
         firstName: values.firstName,
         lastName: values.lastName,
+        email: values.email,
+        password: values.password,
+        image: values.image.name,
         roleId: role,
       })
       setEditSucces(true)
@@ -61,12 +89,6 @@ const EditUserContainer = () => {
       setErrorStatus(error.response.status)
       setErrorMessage(error.response.statusText)
     }
-  }
-
-  const initialValues = {
-    firstName: user.firstName,
-    lastName: user.lastName,
-    roleId: user.roleId,
   }
 
   if (loading) return <Loader />
@@ -82,6 +104,7 @@ const EditUserContainer = () => {
       role={role}
       handleRole={handleRole}
       editSucces={editSucces}
+      id={id}
     />
 
   )
