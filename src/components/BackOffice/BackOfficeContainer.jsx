@@ -197,10 +197,14 @@ const BackOfficeContainer = () => {
   const [activeSection, setActiveSection] = React.useState(null);
   const [isAdmin, setIsAdmin] = React.useState(false);
   const location = useLocation();
+  const relativeLocation = location.pathname.split('/').pop()
   const user = useSelector((state) => state.auth.userData);
 
   const hiddenAddButton = [
-    '/back-office', '/back-office/contacts',
+    'create',
+    'edit',
+    'organizations',
+    'contacts',
   ]
 
   React.useEffect(() => {
@@ -239,6 +243,7 @@ const BackOfficeContainer = () => {
       handleAction={() => {}}
       nestedRoutes={nestedRoutes[activeSection]}
       location={location.pathname}
+      relativeLocation={relativeLocation}
       hiddenAddButton={hiddenAddButton}
     />
   )

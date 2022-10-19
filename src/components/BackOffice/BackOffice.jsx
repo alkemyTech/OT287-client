@@ -21,9 +21,11 @@ const BackOffice = ({
   handleAction,
   nestedRoutes,
   location,
+  relativeLocation,
   hiddenAddButton,
 }) => {
   const MenuIcon = mobileOpen ? KeyboardDoubleArrowLeftIcon : KeyboardDoubleArrowRightIcon
+  // eslint-disable-next-line no-console
 
   return (
     <>
@@ -48,7 +50,7 @@ const BackOffice = ({
                 )}
             </Box>
           </Box>
-          {hiddenAddButton[0] === location || hiddenAddButton[1] === location
+          {hiddenAddButton.includes(relativeLocation)
             ? null : (<AddButton handleAction={handleAction} />)}
         </Box>
         <FooterContainer />
@@ -84,6 +86,7 @@ BackOffice.propTypes = {
     delete: PropTypes.string,
   }).isRequired,
   location: PropTypes.string.isRequired,
+  relativeLocation: PropTypes.string.isRequired,
 }
 
 export default BackOffice
