@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { useField } from 'formik'
 import PropTypes from 'prop-types'
-import { Button, Typography, FormHelperText } from '@mui/material'
+import {
+  Button, Typography, FormHelperText, Box,
+} from '@mui/material'
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 
 const FormInputImage = ({ label, formProps, ...props }) => {
@@ -16,7 +18,7 @@ const FormInputImage = ({ label, formProps, ...props }) => {
   }
 
   return (
-    <>
+    <Box marginTop="5px">
       <Button variant="contained" component="label" startIcon={<PhotoCameraIcon />}>
         { label }
         <input id={props.name} name={props.name} hidden accept="image/*" type="file" onChange={handleOnChange} />
@@ -25,7 +27,7 @@ const FormInputImage = ({ label, formProps, ...props }) => {
         { fileName }
       </Typography>
       <FormHelperText error={meta.touched && Boolean(meta.error)}>{meta.touched ? meta.error : ''}</FormHelperText>
-    </>
+    </Box>
   )
 }
 

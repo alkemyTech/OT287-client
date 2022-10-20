@@ -47,26 +47,26 @@ const UsersContainer = () => {
     getUsersData()
   }, [getUsersData])
 
-
-
   if (loading) {
-    return <Loader color={'#DB5752'} height={'30%'} width={'50vw'} />
+    return <Loader color="#DB5752" height="30%" width="50vw" />
   }
   if (errorStatus === 404) {
     return <Alert severity="error">No se encontraron usuarios</Alert>
   }
-  return  <Users 
-  users={users}
-  handleModal={handleModal}
-  setHandleModal={setHandleModal}
-  setElementToDelete={setElementToDelete}
-  elementToDelete={elementToDelete}
-  deleteElement={deleteElement}
-  deletedSuccess={deletedSuccess}
-  errorStatus={errorStatus}
-  errorStatusUsers={errorStatusUsers}
-  setDeletedSuccess={setDeletedSuccess}
-  />
+  return (
+    <Users
+      users={users}
+      handleModal={handleModal}
+      setHandleModal={setHandleModal}
+      setElementToDelete={setElementToDelete}
+      elementToDelete={elementToDelete}
+      deleteElement={deleteElement}
+      deletedSuccess={deletedSuccess}
+      errorStatus={errorStatus}
+      errorStatusUsers={errorStatusUsers}
+      setDeletedSuccess={setDeletedSuccess}
+    />
+  )
 }
 
 export default UsersContainer
