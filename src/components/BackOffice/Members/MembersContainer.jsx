@@ -4,7 +4,7 @@ import httpService from '../../../services/httpService'
 import Members from './Members'
 import Loader from '../../Loader/Loader'
 
-const MembersContainer = () => {
+const MembersContainer = () => { 
   const [handleModal, setHandleModal] = useState(false)
   const [elementToDelete, setElementToDelete] = useState({})
   const [errorStatus, setErrorStatus] = useState('')
