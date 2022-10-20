@@ -71,7 +71,7 @@ const EditOrganizationForm = ({
                 </Button>
                 <Button
                   type="submit"
-                  onClick={() => { navigate('/back-office/organizations') }}
+                  onClick={() => { navigate('/back-office/organization') }}
                 >
                   Cancelar
                 </Button>
