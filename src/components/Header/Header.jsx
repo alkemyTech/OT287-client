@@ -65,7 +65,7 @@ const Header = (props) => {
               }}
             >
               <Typography
-                fontSize={{ xs: '.5rem', md: '.8rem', lg: '1rem' }}
+                fontSize={{ xs: '.8rem', md: '.8rem', lg: '1rem' }}
               >
                 {buttonsAction[0].text}
 
@@ -78,7 +78,7 @@ const Header = (props) => {
                 mx: 1.3,
                 color: 'black',
                 borderColor: 'black',
-                fontSize: { xs: '.1rem', md: '.8rem', lg: '1rem' },
+                fontSize: { xs: '.8rem', lg: '1rem' },
                 border: 'solid 0px',
                 padding: '0px',
                 height: '40px',
@@ -93,7 +93,7 @@ const Header = (props) => {
             <Button
               variant="contained"
               color="primary"
-              sx={{ fontSize: { xs: '.5rem', md: '.8rem', lg: '1rem' } }}
+              sx={{ minWidth: '82px', fontSize: { xs: '.8rem', lg: '1rem' } }}
               onClick={() => {
                 handleActiveButton(buttonsAction[1].route)
                 navigate(buttonsAction[1].route)
