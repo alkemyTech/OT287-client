@@ -34,6 +34,9 @@ const EditOrganizationForm = ({
                   <FormInputField label="Texto de bienvenida" name="welcomeText" type="text" variant="outlined" sx={{ h: 10 }} />
                 </Grid>
                 <Grid item xs={12}>
+                  <FormInputField label="URL Imagen" name="image" type="text" variant="outlined" sx={{ h: 10 }} />
+                </Grid>
+                <Grid item xs={12}>
                   <FormInputField label="About" name="aboutUsText" type="text" variant="outlined" sx={{ h: 10 }} />
                 </Grid>
                 <Grid item xs={12}>

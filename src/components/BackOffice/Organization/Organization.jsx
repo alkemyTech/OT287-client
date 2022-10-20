@@ -14,12 +14,12 @@ function isImage(url) {
   return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
 }
 
-const Organizations = (
+const Organization = (
   props,
 ) => {
   const {
-    organizations, handleModal, setHandleModal, setElementToDelete, elementToDelete,
-    deleteElement, deletedSuccess, errorStatus, errorStatusOrganizations, setDeletedSuccess,
+    organization, handleModal, setHandleModal, setElementToDelete, elementToDelete,
+    deleteElement, deletedSuccess, errorStatus, errorStatusOrganization, setDeletedSuccess,
   } = props
 
   return (
@@ -38,23 +38,23 @@ const Organizations = (
           <Table>
             <TableHead>
               <TableRow sx={{ backgroundColor: 'rgb(240,240,240)' }}>
-                <TableCell sx={{ lineHeight: '1' }}><b>Nombre</b></TableCell>
-                <TableCell sx={{ lineHeight: '1' }}><b>Imagen</b></TableCell>
-                <TableCell sx={{ lineHeight: '1' }}><b>welcomeText</b></TableCell>
-                <TableCell sx={{ lineHeight: '1' }}><b>Sobre Nosotros</b></TableCell>
-                <TableCell sx={{ lineHeight: '1' }}><b>Domicilio</b></TableCell>
-                <TableCell sx={{ lineHeight: '1' }}><b>Telefono</b></TableCell>
-                <TableCell sx={{ lineHeight: '1' }}><b>email</b></TableCell>
-                <TableCell sx={{ lineHeight: '1' }}><b>fbUrl</b></TableCell>
-                <TableCell sx={{ lineHeight: '1' }}><b>igUrl</b></TableCell>
-                <TableCell sx={{ lineHeight: '1' }}><b>ldUrl</b></TableCell>
+                <TableCell><b>Nombre</b></TableCell>
+                <TableCell><b>Imagen</b></TableCell>
+                <TableCell><b>Texto Bienvenida</b></TableCell>
+                <TableCell><b>Texto Sobre Nosotros</b></TableCell>
+                <TableCell><b>Domicilio</b></TableCell>
+                <TableCell><b>Telefono</b></TableCell>
+                <TableCell><b>email</b></TableCell>
+                <TableCell><b>Facebook</b></TableCell>
+                <TableCell><b>Instagram</b></TableCell>
+                <TableCell><b>Linkedin</b></TableCell>
 
-                <TableCell sx={{ lineHeight: '1' }} align="center"><b>Acciones</b></TableCell>
+                <TableCell align="center"><b>Acciones</b></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
 
-              {organizations && organizations.map((elem) => (
+              {organization && organization.map((elem) => (
 
                 <TableRow key={elem.id}>
                   <TableCell
@@ -168,7 +168,7 @@ const Organizations = (
                   </TableCell>
                 </TableRow>
               )) }
-              {errorStatusOrganizations ? 'Error al traer Organizaciones' : null}
+              {errorStatusOrganization ? 'Error al traer Organizaciones' : null}
             </TableBody>
           </Table>
         </TableContainer>
@@ -187,8 +187,8 @@ const Organizations = (
   )
 }
 
-Organizations.propTypes = {
-  organizations: PropTypes.arrayOf(PropTypes.shape({
+Organization.propTypes = {
+  organization: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
     image: PropTypes.string,
@@ -208,7 +208,7 @@ Organizations.propTypes = {
   deleteElement: PropTypes.func.isRequired,
   deletedSuccess: PropTypes.bool.isRequired,
   errorStatus: PropTypes.string.isRequired,
-  errorStatusOrganizations: PropTypes.string.isRequired,
+  errorStatusOrganization: PropTypes.string.isRequired,
   setDeletedSuccess: PropTypes.func.isRequired,
 }
-export default Organizations
+export default Organization

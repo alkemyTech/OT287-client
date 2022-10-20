@@ -39,7 +39,7 @@ const array = {
       image: 'https://via.placeholder.com/500x500.png',
     },
   ],
-  organizations: [
+  organization: [
     {
       id: 1,
       name: 'Lorem Ipsum',
@@ -102,7 +102,7 @@ const drawerOptions = {
       id: 5,
       text: 'organization',
       icon: <AccountTreeIcon />,
-      route: 'organizations',
+      route: 'organization',
     },
     {
       id: 6,
@@ -160,7 +160,7 @@ const cardFields = {
     content: 'content',
     imageUrl: 'image',
   },
-  organizations: {
+  organization: {
     title: 'name',
     content: 'welcomeText',
     imageUrl: 'image',
@@ -183,8 +183,8 @@ const cardFields = {
 }
 
 const nestedRoutes = {
-  organizations: {
-    edit: 'organizations/:id/edit',
+  organization: {
+    edit: 'organization/:id/edit',
   },
   news: {
     create: 'news/create',
@@ -204,7 +204,7 @@ const BackOfficeContainer = () => {
     'back-office',
     'create',
     'edit',
-    'organizations',
+    'organization',
     'contacts',
   ]
 
