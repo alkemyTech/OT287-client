@@ -40,7 +40,7 @@ const Slider = ({ items }) => (
     {items
       && items.map((item) => (
         <Box key={item.id} sx={{ maxHeight: '31.25rem', marginTop: '2rem' }}>
-          <Box component="img" src={item.imageUrl} alt={item.text} sx={{ width: '100%', height: { xs: '250px', md: '500px' }, objectFit: 'cover' }} />
+          <Box component="img" src={item.imageUrl} alt={item.text} sx={{ width: '100%', height: { xs: '250px', md: '500px' }, objectFit: 'cover'}} />
           <Box
             sx={{
               position: 'absolute',
@@ -53,13 +53,13 @@ const Slider = ({ items }) => (
           />
           {item.text ? (
             <Typography
-              fontSize={{ xs: '.5rem', md: '.8rem', lg: '1.3rem' }}
+              fontSize={{ xs: '.75rem', lg: '1.2rem' }}
               style={{
                 position: 'absolute',
                 color: 'white',
-                bottom: 120,
-                left: '47%',
-                transform: 'translateX(-50%)',
+                top: '40%',
+                left: '50%',
+                transform: 'translate(-50%,-40%)',
                 textAlign: 'left',
                 width: '80%',
               }}
