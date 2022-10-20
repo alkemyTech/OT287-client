@@ -12,7 +12,7 @@ const NewByIdContainer = () => {
       .then((response) => { setData(response.body) })
   }, [id])
   return (
-    <Box sx={{ m: '60px 50px 10px 50px' }}>
+    <Box sx={{ m: { lg: '60px 50px 10px 50px', xs: '30px 25px 5px 25px' } }}>
       <NewById data={data} />
     </Box>
   )
