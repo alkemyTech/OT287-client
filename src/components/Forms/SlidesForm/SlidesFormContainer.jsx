@@ -11,8 +11,8 @@ const SlidesFormContainer = () => {
     uploadedImage: '',
     text: '',
     order: '',
-    organizationId: '',
-    organization: '',
+    organizationId: '1',
+    organization: 'ONG',
   })
   const [errorStatus, setErrorStatus] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
