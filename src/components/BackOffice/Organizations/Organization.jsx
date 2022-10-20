@@ -4,6 +4,7 @@ import {
   Box, Table, TableRow, TableHead, TableContainer,
   TableCell, TableBody, Paper, Typography,
 } from '@mui/material'
+// eslint-disable-next-line no-unused-vars
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
 import { Link } from 'react-router-dom';

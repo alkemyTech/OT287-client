@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Alert } from '@mui/material'
 import httpService from '../../../services/httpService'
-import Organizations from './Organizatios'
+import Organizations from './Organization'
 import Loader from '../../Loader/Loader'
 
 const OrganizationsContainer = () => {
