@@ -5,7 +5,7 @@ import {
 import PropTypes from 'prop-types';
 
 const MediaCard = ({ data }) => {
-  const roles = [ 
+  const roles = [
     'CEO', 'Fundador/a', 'Publicista', 'Organizador/a', 'Partner recruitment', 'Web Designer', 'Media manager', 'Customer care', 'Voluntario/a', 'Voluntario/a', 'Voluntario/a',
     'Publicista', 'Organizador/a', 'Partner recruitment', 'Web Designer', 'Media manager', 'Customer care', 'Voluntario/a', 'Voluntario/a', 'Voluntario/a',
   ]
