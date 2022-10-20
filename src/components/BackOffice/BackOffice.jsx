@@ -25,7 +25,6 @@ const BackOffice = ({
   hiddenAddButton,
 }) => {
   const MenuIcon = mobileOpen ? KeyboardDoubleArrowLeftIcon : KeyboardDoubleArrowRightIcon
-  // eslint-disable-next-line no-console
 
   return (
     <>
