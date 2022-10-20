@@ -34,7 +34,7 @@ import ScrollToTop from '../pages/ScrollToTop'
 import BackofficeMembers from '../components/BackOffice/Members/MembersContainer'
 import MembersFormContainer from '../components/Forms/MembersForm/MembersFormContainer'
 import TestimonialsContainer from '../components/Testimonials/TestimonialsContainer'
-import BackofficeOrganizations from '../components/BackOffice/Organizations/OrganizationsContainer'
+import BackofficeOrganization from '../components/BackOffice/Organization/OrganizationContainer'
 import BackofficeSlides from '../components/BackOffice/Slides/SlidesContainer'
 import SlidesFormContainer from '../components/Forms/SlidesForm/SlidesFormContainer'
 
@@ -71,9 +71,9 @@ const Router = () => {
             </Route>
             {/* Back-Office Routes for Admin access only */}
             <Route path="/back-office" element={<PrivateRoute><BackOfficeContainer /></PrivateRoute>}>
-              <Route path="organizations" element={<BackofficeOrganizations />} />
-              <Route path="organizations/:id/edit" element={<EditOrganizationContainer />} />
-              <Route path="organizations/create" element={<EditOrganizationContainer />} />
+              <Route path="organization" element={<BackofficeOrganization />} />
+              <Route path="organization/:id/edit" element={<EditOrganizationContainer />} />
+              <Route path="organization/create" element={<EditOrganizationContainer />} />
               <Route path="users" element={<BackofficeUsers />} />
               <Route path="users/:id/edit" element={<EditUserContainer />} />
               <Route path="users/create" element={<EditUserContainer />} />

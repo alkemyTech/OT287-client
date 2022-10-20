@@ -31,6 +31,15 @@ const EditOrganizationForm = ({
                   <FormInputField label="Nombre" name="name" type="text" variant="outlined" sx={{ h: 10 }} />
                 </Grid>
                 <Grid item xs={12}>
+                  <FormInputField label="Texto de bienvenida" name="welcomeText" type="text" variant="outlined" sx={{ h: 10 }} />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormInputField label="URL Imagen" name="image" type="text" variant="outlined" sx={{ h: 10 }} />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormInputField label="About" name="aboutUsText" type="text" variant="outlined" sx={{ h: 10 }} />
+                </Grid>
+                <Grid item xs={12}>
                   <FormInputField label="Direccion" name="address" type="text" variant="outlined" sx={{ h: 10 }} />
                 </Grid>
                 <Grid item xs={12}>
@@ -62,7 +71,7 @@ const EditOrganizationForm = ({
                 </Button>
                 <Button
                   type="submit"
-                  onClick={() => { navigate('/back-office/organizations') }}
+                  onClick={() => { navigate('/back-office/organization') }}
                 >
                   Cancelar
                 </Button>
