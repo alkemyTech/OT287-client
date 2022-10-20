@@ -100,7 +100,7 @@ const drawerOptions = {
     },
     {
       id: 5,
-      text: 'organizations',
+      text: 'organization',
       icon: <AccountTreeIcon />,
       route: 'organizations',
     },

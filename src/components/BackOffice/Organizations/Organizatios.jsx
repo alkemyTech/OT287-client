@@ -29,7 +29,7 @@ const Organizations = (
           variant="h5"
           sx={{ marginY: { lg: '40px', xs: '10px' }, fontWeight: 'bold' }}
         >
-          Lista de Organizaciones
+          Organizacion
         </Typography>
         <TableContainer
           component={Paper}
