@@ -73,7 +73,7 @@ const HeaderContainer = ({ MenuIcon }) => {
             }}
           />
         )),
-        text: (isLogged ? 'Log out' : 'Log in'),
+        text: (isLogged ? 'Salir' : 'Entrar'),
       },
       {
         id: 8,
