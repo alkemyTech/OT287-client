@@ -36,8 +36,8 @@ const Members = (
           <Table>
             <TableHead>
               <TableRow sx={{ backgroundColor: 'rgb(240,240,240)' }}>
-                <TableCell sx={{ lineHeight: '1' }}><b>Nombre</b></TableCell>
                 <TableCell sx={{ lineHeight: '1', textAlign: 'center' }}><b>Imagen</b></TableCell>
+                <TableCell sx={{ lineHeight: '1' }}><b>Nombre</b></TableCell>
                 <TableCell sx={{ lineHeight: '1' }}><b>Rol</b></TableCell>
                 <TableCell sx={{ lineHeight: '1' }}><b>Fecha creacion</b></TableCell>
                 <TableCell sx={{ lineHeight: '1' }} align="center"><b>Acciones</b></TableCell>
@@ -54,12 +54,6 @@ const Members = (
                 elem.role = roles[random]
                 return (
                   <TableRow key={elem.id}>
-                    <TableCell
-                      sx={{ width: '12%', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                    >
-                      {elem.name}
-
-                    </TableCell>
                     <TableCell
                       align="center"
                       sx={{
@@ -82,11 +76,17 @@ const Members = (
                     <TableCell
                       sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}
                     >
+                      {elem.name}
+
+                    </TableCell>
+                    <TableCell
+                      sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    >
                       {elem.role ? elem.role : 'DNP'}
 
                     </TableCell>
                     <TableCell
-                      sx={{ width: '15%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                      sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}
                     >
                       {elem.createdAt ? elem.createdAt : 'DNP'}
 
