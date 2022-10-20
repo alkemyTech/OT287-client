@@ -11,15 +11,16 @@ import DeleteModal from '../../Layout/DeleteModal'
 
 const Users = (
   props,
-  ) => { 
-    const {users, handleModal, setHandleModal, setElementToDelete, elementToDelete,
+) => {
+  const {
+    users, handleModal, setHandleModal, setElementToDelete, elementToDelete,
     deleteElement, deletedSuccess, errorStatus, errorStatusUsers,
     setDeletedSuccess,
-  } = props 
-   
+  } = props
+
   return (
-  <>
-    <Box>
+    <>
+      <Box>
         <Typography
           component="h1"
           variant="h5"
@@ -29,10 +30,6 @@ const Users = (
         </Typography>
         <TableContainer
           sx={{
-            position: 'absolute',
-            top: '180px',
-            height: '400px',
-            overflow: 'auto',
             width: { lg: '80%', xs: '100%' },
           }}
           component={Paper}
@@ -40,51 +37,78 @@ const Users = (
           <Table>
             <TableHead>
               <TableRow sx={{ backgroundColor: 'rgb(240,240,240)' }}>
-                 <TableCell>Id</TableCell>
-                 <TableCell>Nombre</TableCell>
-                 <TableCell>Apellido</TableCell>
-                 <TableCell>Email</TableCell>
-                 <TableCell align="center"><b>Acciones</b></TableCell>
+                <TableCell align="center"><b>Id</b></TableCell>
+                <TableCell align="center"><b>Imagen</b></TableCell>
+                <TableCell><b>Nombre</b></TableCell>
+                <TableCell><b>Apellido</b></TableCell>
+                <TableCell><b>Email</b></TableCell>
+                <TableCell align="center"><b>Acciones</b></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {users && users.map((elem) => (
                 <TableRow key={elem.id}>
                   <TableCell
-                  sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                  >{elem.id}
+                    align="center"
+                    sx={{ width: '5%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >
+                    {elem.id}
                   </TableCell>
                   <TableCell
-                  sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                  >{elem.firstName}
-                  </TableCell>
-                  <TableCell
-                  sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                  >{elem.lastName}
-                  </TableCell>
-                  <TableCell
-                  sx={{ width: '25%', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                  >{elem.email}
-                  </TableCell>
-                  <TableCell sx={{width: '25%', padding: '0'}} align="center">
-                    <>
-                    <Link to={`${elem.id}/edit`}>
-                      <EditIcon sx={{
-                        opacity: '0.5',
-                        padding: '1px',
-                        border: '1px solid red',
-                        borderRadius: '5px',
-                        backgroundColor: 'white',
-                        color: 'red',
-                        fontSize: '1.8rem',
-                        margin: '0 5px',
-                        cursor: 'pointer',
-                        '&:hover': { opacity: '1' },
+                    align="center"
+                    sx={{
+                      margin: '1px', padding: '0', width: '10%',
+                    }}
+                  >
+                    <Box
+                      component="img"
+                      align="center"
+                      sx={{
+                        margin: '3px auto',
+                        height: '60px',
+                        width: '60px',
+                        objectFit: 'cover',
+                        borderRadius: '50%',
                       }}
-                      />
-                    </Link>
-                      
-                    <HighlightOffIcon
+                      src={elem.image}
+                      alt="user image"
+                    />
+                  </TableCell>
+
+                  <TableCell
+                    sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >
+                    {elem.firstName}
+                  </TableCell>
+                  <TableCell
+                    sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >
+                    {elem.lastName}
+                  </TableCell>
+                  <TableCell
+                    sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >
+                    {elem.email}
+                  </TableCell>
+                  <TableCell sx={{ width: '10%', padding: '0' }} align="center">
+                    <>
+                      <Link to={`${elem.id}/edit`}>
+                        <EditIcon sx={{
+                          opacity: '0.5',
+                          padding: '1px',
+                          border: '1px solid red',
+                          borderRadius: '5px',
+                          backgroundColor: 'white',
+                          color: 'red',
+                          fontSize: '1.8rem',
+                          margin: '0 5px',
+                          cursor: 'pointer',
+                          '&:hover': { opacity: '1' },
+                        }}
+                        />
+                      </Link>
+
+                      <HighlightOffIcon
                         sx={{
                           opacity: '0.5',
                           padding: '1px',
@@ -101,36 +125,46 @@ const Users = (
                           setElementToDelete(elem)
                         }}
                       />
-                      
+
                     </>
                   </TableCell>
                 </TableRow>
               )) }
-                {errorStatusUsers ? 'Error al traer Usuarios' : null}
+              {errorStatusUsers ? 'Error al traer Usuarios' : null}
             </TableBody>
           </Table>
         </TableContainer>
       </Box>
-       <DeleteModal
-       openModal={handleModal}
-       setHandleModal={setHandleModal}
-       elementToDelete={elementToDelete}
-       deleteElement={deleteElement}
-       deletedSuccess={deletedSuccess}
-       errorStatus={errorStatus}
-       setElementToDelete={setElementToDelete}
-       setDeletedSuccess={setDeletedSuccess}
-     />
-     </>
+      <DeleteModal
+        openModal={handleModal}
+        setHandleModal={setHandleModal}
+        elementToDelete={elementToDelete}
+        deleteElement={deleteElement}
+        deletedSuccess={deletedSuccess}
+        errorStatus={errorStatus}
+        setElementToDelete={setElementToDelete}
+        setDeletedSuccess={setDeletedSuccess}
+      />
+    </>
   )
 }
 Users.propTypes = {
   users: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
+    image: PropTypes.string,
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     email: PropTypes.string,
   })).isRequired,
+  handleModal: PropTypes.bool.isRequired,
+  setHandleModal: PropTypes.func.isRequired,
+  setElementToDelete: PropTypes.func.isRequired,
+  elementToDelete: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  deleteElement: PropTypes.func.isRequired,
+  deletedSuccess: PropTypes.bool.isRequired,
+  errorStatus: PropTypes.string.isRequired,
+  errorStatusUsers: PropTypes.string.isRequired,
+  setDeletedSuccess: PropTypes.func.isRequired,
 }
 
 export default Users

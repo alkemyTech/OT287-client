@@ -14,45 +14,43 @@ const EditUserContainer = () => {
   const [initialValues, setInitialValues] = useState({
     firstName: '',
     lastName: '',
-    email:'',
-    password:'',
-    image:'',
-    roleId:'',
+    email: '',
+    password: '',
+    image: '',
+    roleId: '',
     uploadedImage: '',
   })
 
   const { id } = useParams()
   const navigate = useNavigate()
 
-
-
   // Get user byId
   useEffect(() => {
     if (id) {
-    const getUser = async () => {
-      setLoading(true)
-      try {
-        const res = await httpService('get', `users/${id}`)
-        const uploadedImage = res.body.image.split('com/')[1]
-        if (res.code === 200) {
-          setInitialValues({
-            firstName: res.body.firstName,
-            lastName: res.body.lastName,
-            email: res.body.email,
-            roleId: res.body.roleId,
-            uploadedImage: uploadedImage,
-          })
-          setRole(res.body.roleId)
+      const getUser = async () => {
+        setLoading(true)
+        try {
+          const res = await httpService('get', `users/${id}`)
+          if (res.code === 200) {
+            setInitialValues({
+              firstName: res.body.firstName,
+              lastName: res.body.lastName,
+              email: res.body.email,
+              roleId: res.body.roleId,
+              image: res.body.image,
+            })
+            setRole(res.body.roleId)
+            setLoading(false)
+          } else {
+            setErrorStatus(res.response.status)
+          }
           setLoading(false)
-        } else {
-          setErrorStatus(res.response.status)
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.log(error)
         }
-        setLoading(false)
-      } catch (error) {
-        console.log(error)
       }
-    }
-    getUser()
+      getUser()
     }
   }, [id])
 
@@ -70,7 +68,7 @@ const EditUserContainer = () => {
   const onSubmitForm = async (values, idToEdit) => {
     let action = 'post'
     let endpoint = 'auth/register'
-    if(idToEdit){
+    if (idToEdit) {
       action = 'put'
       endpoint = `users/ ${id}`
     }
