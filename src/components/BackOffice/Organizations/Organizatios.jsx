@@ -143,8 +143,9 @@ const Organizations = (
                         }}
                         />
                       </Link>
+                      {/* No se deberia poder borrar la info de la Organizacion */}
 
-                      <HighlightOffIcon
+                      {/* <HighlightOffIcon
                         sx={{
                           opacity: '0.5',
                           padding: '1px',
@@ -160,7 +161,7 @@ const Organizations = (
                           setHandleModal(true)
                           setElementToDelete(elem)
                         }}
-                      />
+                      /> */}
 
                     </>
                   </TableCell>
