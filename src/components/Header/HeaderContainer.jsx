@@ -22,7 +22,7 @@ const HeaderContainer = ({ MenuIcon }) => {
       {
         id: 1,
         route: '/',
-        text: 'Inicio',
+        text: 'inicio',
       },
       {
         id: 2,
@@ -36,18 +36,18 @@ const HeaderContainer = ({ MenuIcon }) => {
       },
       {
         id: 4,
+        route: '/actividades',
+        text: 'Actividades',
+      },
+      {
+        id: 5,
         route: '/testimonios',
         text: 'Testimonios',
       },
       {
-        id: 5,
+        id: 6,
         route: '/contacto',
         text: 'Contacto',
-      },
-      {
-        id: 6,
-        route: '/actividades',
-        text: 'Actividades',
       },
     ],
     buttonsAction: [

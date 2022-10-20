@@ -22,18 +22,18 @@ const mockedData = {
     },
     {
       id: 4,
+      route: '/actividades',
+      text: 'Actividades',
+    },
+    {
+      id: 5,
       route: '/testimonios',
       text: 'Testimonios',
     },
     {
-      id: 5,
+      id: 6,
       route: '/contacto',
       text: 'Contacto',
-    },
-    {
-      id: 6,
-      route: '/actividades',
-      text: 'Actividades',
     },
   ],
   contact: [
@@ -65,6 +65,8 @@ const mockedData = {
   ],
 
 }
+
+
 
 const FooterContainer = () => {
   const [data, setData] = useState({
