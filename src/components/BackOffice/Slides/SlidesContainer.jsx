@@ -1,9 +1,8 @@
-
 import React, { useCallback, useEffect, useState } from 'react'
+import { Alert } from '@mui/material'
 import httpService from '../../../services/httpService'
 import Slides from './Slides'
 import Loader from '../../Loader/Loader'
-import { Alert } from '@mui/material'
 
 const SlidesContainer = () => {
   const [handleModal, setHandleModal] = useState(false)
@@ -48,28 +47,28 @@ const SlidesContainer = () => {
   }, [getSlidesData])
 
   if (loading) {
-    return <Loader color={'#DB5752'} height={'30%'} width={'50vw'} />
+    return <Loader color="#DB5752" height="30%" width="50vw" />
   }
   if (errorStatus === 404) {
     return <Alert severity="error">No se encontraron usuarios</Alert>
   }
   return (
-  <>
-    <div>
-      <Slides
-        slides={dataSlides}
-        handleModal={handleModal}
-        setHandleModal={setHandleModal}
-        setElementToDelete={setElementToDelete}
-        elementToDelete={elementToDelete}
-        deleteElement={deleteElement}
-        deletedSuccess={deletedSuccess}
-        errorStatus={errorStatus}
-        errorStatusSlides={errorStatusSlides}
-        setDeletedSuccess={setDeletedSuccess}
-      />
-    </div>
-  </>
+    <>
+      <div>
+        <Slides
+          slides={dataSlides}
+          handleModal={handleModal}
+          setHandleModal={setHandleModal}
+          setElementToDelete={setElementToDelete}
+          elementToDelete={elementToDelete}
+          deleteElement={deleteElement}
+          deletedSuccess={deletedSuccess}
+          errorStatus={errorStatus}
+          errorStatusSlides={errorStatusSlides}
+          setDeletedSuccess={setDeletedSuccess}
+        />
+      </div>
+    </>
   )
 }
 

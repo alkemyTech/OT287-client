@@ -4,6 +4,7 @@ import {
   Box, Table, TableRow, TableHead, TableContainer,
   TableCell, TableBody, Paper, Typography,
 } from '@mui/material'
+// eslint-disable-next-line no-unused-vars
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
 import { Link } from 'react-router-dom';
@@ -13,12 +14,12 @@ function isImage(url) {
   return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
 }
 
-const Slides = (
+const Organization = (
   props,
 ) => {
   const {
-    slides, handleModal, setHandleModal, setElementToDelete, elementToDelete,
-    deleteElement, deletedSuccess, errorStatus, errorStatusSlides, setDeletedSuccess,
+    organization, handleModal, setHandleModal, setElementToDelete, elementToDelete,
+    deleteElement, deletedSuccess, errorStatus, errorStatusOrganization, setDeletedSuccess,
   } = props
 
   return (
@@ -29,7 +30,7 @@ const Slides = (
           variant="h5"
           sx={{ marginY: { lg: '40px', xs: '10px' }, fontWeight: 'bold' }}
         >
-          Lista de Slides
+          Organizacion
         </Typography>
         <TableContainer
           component={Paper}
@@ -37,22 +38,35 @@ const Slides = (
           <Table>
             <TableHead>
               <TableRow sx={{ backgroundColor: 'rgb(240,240,240)' }}>
+                <TableCell><b>Nombre</b></TableCell>
                 <TableCell><b>Imagen</b></TableCell>
-                <TableCell><b>Texto</b></TableCell>
-                <TableCell><b>Orden</b></TableCell>
-                {/* <TableCell><b>Organizacion</b></TableCell> */}
+                <TableCell><b>Texto Bienvenida</b></TableCell>
+                <TableCell><b>Texto Sobre Nosotros</b></TableCell>
+                <TableCell><b>Domicilio</b></TableCell>
+                <TableCell><b>Telefono</b></TableCell>
+                <TableCell><b>email</b></TableCell>
+                <TableCell><b>Facebook</b></TableCell>
+                <TableCell><b>Instagram</b></TableCell>
+                <TableCell><b>Linkedin</b></TableCell>
+
                 <TableCell align="center"><b>Acciones</b></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
 
-              {slides && slides.map((elem) => (
+              {organization && organization.map((elem) => (
 
                 <TableRow key={elem.id}>
                   <TableCell
+                    sx={{ width: '9,09%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >
+                    {elem.name}
+
+                  </TableCell>
+                  <TableCell
                     align="center"
                     sx={{
-                      margin: '1px', padding: '0', width: '8%',
+                      margin: '1px', padding: '0', width: '9,09%',
                     }}
                   >
                     <Box
@@ -64,28 +78,55 @@ const Slides = (
                         objectFit: 'cover',
                         borderRadius: '50%',
                       }}
-                      src={isImage(elem.imageUrl) || elem.imageUrl.length > 10 ? elem.imageUrl : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKH2cSl_mcI1heNKNhcs7Qpg0OVCh8AsiD5A&usqp=CAU'}
+                      src={isImage(elem.image) || elem.image.length > 10 ? elem.image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKH2cSl_mcI1heNKNhcs7Qpg0OVCh8AsiD5A&usqp=CAU'}
                       alt="news image"
                     />
                   </TableCell>
                   <TableCell
-                    sx={{ width: '70%', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                  >
-                    {elem.text}
-                  </TableCell>
-                  <TableCell
-                    align="center"
-                    sx={{ width: '5%', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                  >
-                    {elem.order}
-
-                  </TableCell>
-                  {/* <TableCell
                     sx={{ width: '20%', overflow: 'hidden', textOverflow: 'ellipsis' }}
                   >
-                    {elem.organization.name}
+                    {`${elem.welcomeText.substring(0, 15)}...`}
+                  </TableCell>
+                  <TableCell
+                    sx={{ width: '15%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >
+                    {`${elem.aboutUsText.substring(0, 15)}...`}
+                  </TableCell>
+                  <TableCell
+                    sx={{ width: '10%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >
+                    {`${elem.address.substring(0, 15)}...`}
+                  </TableCell>
+                  <TableCell
+                    sx={{ width: '10%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >
+                    {elem.phone}
 
-                  </TableCell> */}
+                  </TableCell>
+                  <TableCell
+                    sx={{ width: '10%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >
+                    {elem.email}
+
+                  </TableCell>
+                  <TableCell
+                    sx={{ width: '5%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >
+                    {elem.fbUrl.split('/').pop()}
+
+                  </TableCell>
+                  <TableCell
+                    sx={{ width: '5%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >
+                    {elem.igUrl.split('/').pop()}
+
+                  </TableCell>
+                  <TableCell
+                    sx={{ width: '5%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  >
+                    {elem.ldUrl.split('/').pop()}
+
+                  </TableCell>
                   <TableCell sx={{ padding: '0', width: '10%' }} align="center">
                     <>
                       <Link to={`${elem.id}/edit`}>
@@ -103,8 +144,9 @@ const Slides = (
                         }}
                         />
                       </Link>
+                      {/* No se deberia poder borrar la info de la Organizacion */}
 
-                      <HighlightOffIcon
+                      {/* <HighlightOffIcon
                         sx={{
                           opacity: '0.5',
                           padding: '1px',
@@ -120,13 +162,13 @@ const Slides = (
                           setHandleModal(true)
                           setElementToDelete(elem)
                         }}
-                      />
+                      /> */}
 
                     </>
                   </TableCell>
                 </TableRow>
               )) }
-              {errorStatusSlides ? 'Error al traer Slides' : null}
+              {errorStatusOrganization ? 'Error al traer Organizaciones' : null}
             </TableBody>
           </Table>
         </TableContainer>
@@ -145,13 +187,19 @@ const Slides = (
   )
 }
 
-Slides.propTypes = {
-  slides: PropTypes.arrayOf(PropTypes.shape({
+Organization.propTypes = {
+  organization: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
-    imageUrl: PropTypes.string,
-    text: PropTypes.string,
-    order: PropTypes.string,
-    organizationId: PropTypes.string,
+    name: PropTypes.string,
+    image: PropTypes.string,
+    address: PropTypes.string,
+    phone: PropTypes.string,
+    email: PropTypes.string,
+    fbUrl: PropTypes.string,
+    igUrl: PropTypes.string,
+    ldUrl: PropTypes.string,
+    welcomeText: PropTypes.string,
+    aboutUsText: PropTypes.string,
   })).isRequired,
   handleModal: PropTypes.bool.isRequired,
   setHandleModal: PropTypes.func.isRequired,
@@ -160,7 +208,7 @@ Slides.propTypes = {
   deleteElement: PropTypes.func.isRequired,
   deletedSuccess: PropTypes.bool.isRequired,
   errorStatus: PropTypes.string.isRequired,
-  errorStatusSlides: PropTypes.string.isRequired,
+  errorStatusOrganization: PropTypes.string.isRequired,
   setDeletedSuccess: PropTypes.func.isRequired,
 }
-export default Slides
+export default Organization

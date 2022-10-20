@@ -58,7 +58,7 @@ const SlidesFormContainer = () => {
         organizationId: values.organizationId,
       })
       if (data.code === 200 || data.code === 201 || data.code === 209) {
-        setTimeout(() => navigate('/back-office/slides'), 800)
+        setTimeout(() => navigate('/back-office/slides'), 500)
       } else {
         setErrorStatus(data.response.status)
         setErrorMessage(data.response.statusText)
