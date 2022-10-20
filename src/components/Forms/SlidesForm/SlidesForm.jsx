@@ -25,7 +25,7 @@ const SlidesForm = ({
           alignItems: 'center',
         }}
       >
-        <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold' }}>Slides!</Typography>
+        <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold', mb: 2 }}>Editar Slide</Typography>
         <Formik
           enableReinitialize
           initialValues={initialValues}
@@ -43,11 +43,11 @@ const SlidesForm = ({
             <Box sx={{ width: { xs: '50%', sm: '80%', md: '100%' } }}>
               <Form>
                 <Grid container spacing={2}>
-                  <Grid item xs={12}>
+                  <Grid item xs={12} display="none">
                     <FormInputField label="Nombre Organización" name="organization" type="text" variant="outlined" autoFocus sx={{ h: 10 }} disabled />
                   </Grid>
-                  <Grid item xs={12}>
-                    <FormInputField label="ID Organización" name="organizationId" type="number" variant="outlined" autoFocus sx={{ h: 10 }} />
+                  <Grid item xs={12} display="none">
+                    <FormInputField label="ID Organización" name="organizationId" type="number" variant="outlined" autoFocus sx={{ h: 10 }} disabled />
                   </Grid>
                   <Grid item xs={12}>
                     <FormInputField label="Texto" name="text" type="text" variant="outlined" autoFocus sx={{ h: 10 }} />
@@ -56,7 +56,7 @@ const SlidesForm = ({
                     <FormInputField label="Orden" name="order" type="number" variant="outlined" autoFocus sx={{ h: 10 }} />
                   </Grid>
                   <Grid item xs={12}>
-                    <FormInputField label="Imagen actual:" name="uploadedImage" type="text" variant="standard" disabled />
+                    <FormInputField label="Imagen actual:" name="uploadedImage" type="text" variant="standard" sx={{ mb: '10px' }} />
                     <FormInputImage label="Upload" id="image" name="imageUrl" formProps={formProps} />
                   </Grid>
                   <Grid item xs={12}>
