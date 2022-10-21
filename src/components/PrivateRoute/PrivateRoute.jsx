@@ -1,19 +1,22 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 const PrivateRoute = ({ children }) => {
   const user = useSelector((state) => state.auth.userData)
   const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
-    if (!user || user.roleId !== 1) {
+    if (!user ) {
       navigate('/');
     }
-  }, [user, navigate]);
-
-  if (user && user.roleId === 1) return children;
-  return children;
+    if (location.pathname.includes("back-office") && user?.roleId !== 1) {
+      navigate('/');
+    }
+  }, [user, navigate,location.pathname]);
+  if ((user && user.roleId === 1) || (user && user.roleId === 2)) return children;
+  return null
 }
 
 export default PrivateRoute
