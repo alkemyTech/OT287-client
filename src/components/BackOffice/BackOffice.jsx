@@ -4,22 +4,19 @@ import Box from '@mui/material/Box';
 import { Outlet } from 'react-router-dom'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
-import Items from './Items'
 import DrawerMenu from './DrawerMenu';
 import AddButton from './AddButton'
 import HeaderContainer from '../Header/HeaderContainer'
 import FooterContainer from '../footer/FooterContainer'
+import BackOfficeLanding from './BackOfficeLanding';
 
 const BackOffice = ({
-  data,
   options,
   mobileOpen,
   activeSection,
   handleFilterList,
   handleDrawerToggle,
-  cardFields,
   handleAction,
-  nestedRoutes,
   location,
   relativeLocation,
   hiddenAddButton,
@@ -44,7 +41,7 @@ const BackOffice = ({
             />
             <Box sx={{ mt: 10, mx: { md: 4 }, width: '100%' }}>
               { location === '/back-office'
-                ? <Items array={data} cardFields={cardFields} nestedRoutes={nestedRoutes} />
+                ? <BackOfficeLanding />
                 : (
                   <Outlet />
                 )}
