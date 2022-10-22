@@ -34,8 +34,8 @@ export default function TestimonialCard({ testimonial }) {
             {content.length > 120 && (
             <Button
               size="small"
-              style={{
-                textTransform: 'lowercase', padding: '0', lineHeight: '0', fontWeight: '400', verticalAlign: 'inherit', fontSize: '12px',
+              sx={{
+                textTransform: 'lowercase', fontWeight: '400', fontSize: '12px',
               }}
               onClick={() => setReadMore((prev) => !prev)}
             >
