@@ -15,7 +15,7 @@ const PrivateRoute = ({ children }) => {
       navigate('/');
     }
   }, [user, navigate,location.pathname]);
-  if ((user && user.roleId === 1) || (user && user.roleId === 2)) return children;
+  if (user) return children;
   return null
 }
 
