@@ -130,7 +130,7 @@ const drawerOptions = {
     },
     {
       id: 10,
-      text: 'edit profile',
+      text: 'Profile',
       icon: <AccountCircleIcon />,
       route: 'profile',
     },
@@ -138,7 +138,7 @@ const drawerOptions = {
   standard: [
     {
       id: 1,
-      text: 'edit profile',
+      text: 'Profile',
       icon: <AccountCircleIcon />,
     },
   ],
