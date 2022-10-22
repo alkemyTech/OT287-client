@@ -11,8 +11,9 @@ const AWSFileUpload = async (file, folder) => {
   }
 
   const getName = (async () => {
+    const name = file.name.replace(' ', '_')
     const date = new Date()
-    const fullName = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}${date.getHours()}${date.getMinutes()}${date.getSeconds()}_${file.name}`
+    const fullName = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}${date.getHours()}${date.getMinutes()}${date.getSeconds()}_${name}`
     return fullName
   })
 
