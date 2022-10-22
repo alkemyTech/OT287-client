@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 
 const MediaCard = ({ data }) => {
   const roles = [
-    'CEO', 'Fundador/a', 'Publicista', 'Organizador/a', 'Partner recruitment', 'Web Designer', 'Media manager', 'Customer care',
+    'CEO', 'Fundador/a', 'Publicista', 'Organizador/a', 'Partner recruitment', 'Web Designer', 'Media manager', 'Customer care', 'Voluntario/a', 'Voluntario/a', 'Voluntario/a',
+    'Publicista', 'Organizador/a', 'Partner recruitment', 'Web Designer', 'Media manager', 'Customer care', 'Voluntario/a', 'Voluntario/a', 'Voluntario/a',
   ]
   const random = Math.floor(Math.random() * (roles.length - 1))
   data.role = roles[random];
