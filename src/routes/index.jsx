@@ -58,7 +58,8 @@ const Router = () => {
               <Route path="/logout" element={<Logout />} />
               <Route path="/login" element={<LoginFormContainer />} />
               <Route path="/registrate" element={<RegisterFormContainer />} />
-              <Route path="/mi-perfil/editar" element={<PrivateRoute><EditUserProfileContainer /></PrivateRoute>} />
+              <Route path="/mi-perfil" element={<MyProfileContainer />} />
+              <Route path="/mi-perfil/editar" element={<EditUserProfileContainer />} />
               <Route path="/mi-perfil" element={<PrivateRoute><MyProfileContainer /></PrivateRoute>} />
               <Route path="/novedades" element={<NewsContainer />} />
               <Route path="/novedades/:id" element={<NewsByIdContainer />} />
