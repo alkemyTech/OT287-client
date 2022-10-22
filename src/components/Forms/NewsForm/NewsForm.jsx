@@ -57,7 +57,7 @@ const NewsForm = ({
                     <FormInputField label="Título" name="name" type="text" variant="outlined" autoFocus sx={{ h: 10 }} />
                   </Grid>
                   <Grid item xs={12}>
-                    <FormInputField label="Imagen actual:" name="uploadedImage" type="text" variant="standard" />
+                    <FormInputField label="Imagen actual:" name="uploadedImage" type="text" variant="standard" disabled />
                     <FormInputImage label="Upload" id="image" name="image" formProps={formProps} marginTop="10px" />
                   </Grid>
                   <Grid item xs={12}>
