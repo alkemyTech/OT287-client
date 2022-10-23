@@ -40,7 +40,12 @@ const Slider = ({ items }) => (
     {items
       && items.map((item) => (
         <Box key={item.id} sx={{ maxHeight: '31.25rem', marginTop: '2rem' }}>
-          <Box component="img" src={item.imageUrl} alt={item.text} sx={{ width: '100%', height: { xs: '250px', md: '500px' }, objectFit: 'cover'}} />
+          <Box
+            component="img"
+            src={item.imageUrl}
+            alt={item.text}
+            sx={{ width: '100%', height: { xs: '250px', md: '500px' }, objectFit: 'cover' }}
+          />
           <Box
             sx={{
               position: 'absolute',
@@ -80,7 +85,10 @@ Slider.propTypes = {
     text: PropTypes.string,
     order: PropTypes.number,
     imageUrl: PropTypes.string,
-  })).isRequired,
+  })),
+}
+Slider.defaultProps = {
+  items: null,
 }
 
 export default Slider

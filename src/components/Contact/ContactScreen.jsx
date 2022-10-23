@@ -46,7 +46,7 @@ const ContactScreen = () => (
           </Typography>
           <Typography variant="subtitle" fontWeight="bold">Dejanos tu mensaje y te responderemos lo antes posible.</Typography>
           <br />
-          <Typography variant="subtitle" text fontWeight="bold" marginBottom=".5rem">Otros medios de contacto</Typography>
+          <Typography variant="subtitle" fontWeight="bold" marginBottom=".5rem">Otros medios de contacto</Typography>
           <Grid item container flexDirection="column">
             <Grid item>
               <Link href="https://www.facebook.com/profile.php?id=100077792335889" target="_blank" rel="noopener noreferrer" underline="none" color="inherit">

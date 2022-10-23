@@ -8,7 +8,7 @@ import {
 const MemberBanner = ({ data }) => (
   <>
     {data && (
-      <Grid container xs={12} width="100%" display="flex" flexDirection="row" justifyContent="center" spacing={2}>
+      <Grid container width="100%" display="flex" flexDirection="row" justifyContent="center" spacing={2}>
         <Grid item container xs={12} md={5} display="flex" flexDirection="column" justifyContent="center">
           <Typography style={{
             fontWeight: 700,
