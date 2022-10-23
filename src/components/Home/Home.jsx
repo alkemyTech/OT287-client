@@ -122,7 +122,7 @@ Home.propTypes = {
     text: PropTypes.string,
     order: PropTypes.number,
     imageUrl: PropTypes.string,
-  })).isRequired,
+  })),
   members: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
@@ -145,5 +145,6 @@ Home.defaultProps = {
   members: null,
   error: null,
   errorMessage: null,
+  slider: null,
 }
 export default Home

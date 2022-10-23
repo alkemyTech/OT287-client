@@ -125,7 +125,7 @@ Header.propTypes = {
     id: PropTypes.number,
     text: PropTypes.string,
     route: PropTypes.string,
-    icon: PropTypes.instanceOf(Element),
+    icon: PropTypes.instanceOf(Object),
   })).isRequired,
   MenuIcon: PropTypes.instanceOf(Element),
 }
