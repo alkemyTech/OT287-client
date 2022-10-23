@@ -4,10 +4,15 @@ import {
   Box, IconButton, Paper, Table, TableBody, TableCell,
   TableContainer, TableHead, TableRow, Typography,
 } from '@mui/material'
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff'
+import DeleteModal from '../../Layout/DeleteModal'
 
 const Contacts = (props) => {
-  const { contacts, errorStatus } = props
+  const {
+    contacts, errorStatusContact, handleModal, setHandleModal,
+    setElementToDelete, elementToDelete, deleteElement, deletedSuccess,
+    errorStatus, setDeletedSuccess,
+  } = props
   return (
     <>
       <Box>
@@ -77,12 +82,22 @@ const Contacts = (props) => {
                 </TableRow>
               )) }
 
-              {errorStatus ? 'No hay contactos para mostrar' : null}
+              {errorStatusContact ? 'No hay contactos para mostrar' : null}
 
             </TableBody>
           </Table>
         </TableContainer>
       </Box>
+      <DeleteModal
+        openModal={handleModal}
+        setHandleModal={setHandleModal}
+        elementToDelete={elementToDelete}
+        deleteElement={deleteElement}
+        deletedSuccess={deletedSuccess}
+        errorStatus={errorStatus}
+        setElementToDelete={setElementToDelete}
+        setDeletedSuccess={setDeletedSuccess}
+      />
     </>
   )
 }
@@ -93,12 +108,21 @@ Contacts.propTypes = {
     email: PropTypes.string,
     message: PropTypes.string,
   })),
-  errorStatus: PropTypes.string,
+  errorStatusContact: PropTypes.string,
+  handleModal: PropTypes.bool.isRequired,
+  setHandleModal: PropTypes.func.isRequired,
+  setElementToDelete: PropTypes.func.isRequired,
+  elementToDelete: PropTypes.oneOfType([PropTypes.object]),
+  deleteElement: PropTypes.func.isRequired,
+  deletedSuccess: PropTypes.bool.isRequired,
+  errorStatus: PropTypes.string.isRequired,
+  setDeletedSuccess: PropTypes.func.isRequired,
 }
 
 Contacts.defaultProps = {
-  errorStatus: null,
+  errorStatusContact: null,
   contacts: null,
+  elementToDelete: null,
 }
 
 export default Contacts

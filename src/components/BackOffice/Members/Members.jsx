@@ -160,10 +160,15 @@ Members.propTypes = {
   setHandleModal: PropTypes.func.isRequired,
   setElementToDelete: PropTypes.func.isRequired,
   elementToDelete: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  deleteElement: PropTypes.func.isRequired,
+  deleteElement: PropTypes.func,
   deletedSuccess: PropTypes.bool.isRequired,
   errorStatus: PropTypes.string.isRequired,
   errorStatusMembers: PropTypes.string.isRequired,
   setDeletedSuccess: PropTypes.func.isRequired,
 }
+
+Members.defaultProps = {
+  deleteElement: null,
+}
+
 export default Members

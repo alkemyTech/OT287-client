@@ -32,7 +32,7 @@ const MyProfile = (props) => {
           </Typography>
         </Grid>
         {data.map((row) => (
-          <Grid item width="100%">
+          <Grid item width="100%" key={row.id}>
             <TextField
               color="grey"
               variant="standard"
@@ -67,15 +67,19 @@ const MyProfile = (props) => {
 }
 
 MyProfile.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.objectOf({
+  data: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     label: PropTypes.string,
     text: PropTypes.string,
   })).isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   userDelete: PropTypes.bool.isRequired,
-  errorStatus: PropTypes.string.isRequired,
+  errorStatus: PropTypes.string,
   handleDeleteUser: PropTypes.func.isRequired,
+}
+
+MyProfile.defaultProps = {
+  errorStatus: null,
 }
 
 export default MyProfile

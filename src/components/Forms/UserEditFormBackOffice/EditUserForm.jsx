@@ -53,7 +53,7 @@ const EditUserForm = ({
             }
                 <material.Grid item xs={12}>
                   { location.pathname === `/back-office/users/${id}/edit`
-                    ? <FormInputField label="Imagen actual:" name="uploadedImage" type="text" variant="standard" /> : null}
+                    ? <FormInputField label="Imagen actual:" name="uploadedImage" type="text" variant="standard" disabled /> : null}
                   <FormInputImage label="Upload" id="image" name="image" formProps={formProps} />
                 </material.Grid>
                 { location.pathname === `/back-office/users/${id}/edit`
@@ -108,7 +108,7 @@ EditUserForm.propTypes = {
     firstName: PropTypes.string,
     lastName: PropTypes.string,
   }).isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   onSubmitForm: PropTypes.func.isRequired,
   validationSchema: PropTypes.oneOfType([PropTypes.object]).isRequired,
   error: PropTypes.number,
