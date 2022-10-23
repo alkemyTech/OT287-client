@@ -70,8 +70,8 @@ const NewsForm = ({
                     />
                     <ErrorMessage name="signator_text" />
                   </Grid>
-                  <Grid item xs={12} display="none">
-                    <FormInputField label="Categoría" name="categoryId" variant="outlined" disabled />
+                  <Grid item xs={12}>
+                    <FormInputField label="Categoría" name="categoryId" variant="outlined" select disabled />
                   </Grid>
                   <Grid item xs={12}>
                     <Button

@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { useField } from 'formik'
 import PropTypes from 'prop-types'
 import {
-  TextField, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton, FormHelperText,
+  TextField, FormControl, InputLabel, OutlinedInput,
+  InputAdornment, IconButton, FormHelperText, MenuItem,
 } from '@mui/material'
 import { VisibilityOff, Visibility } from '@mui/icons-material';
 // import CKEditorInput from './CKEditorInput'
@@ -64,7 +65,13 @@ const FormInputField = ({ label, ...props }) => {
           </FormControl>
         </>
       )
-      : <TextField id={props.id || props.name} label={label} helperText={meta.touched ? meta.error : ''} error={meta.touched && Boolean(meta.error)} fullWidth {...field} {...props} />
+      : (
+        <TextField id={props.id || props.name} label={label} helperText={meta.touched ? meta.error : ''} error={meta.touched && Boolean(meta.error)} fullWidth {...field} {...props}>
+          <MenuItem key="1" value="1">
+            Noticias
+          </MenuItem>
+        </TextField>
+      )
   )
 }
 
