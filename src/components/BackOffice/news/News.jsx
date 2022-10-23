@@ -49,85 +49,87 @@ const News = (
             </TableHead>
             <TableBody>
 
-              {news && news.map((elem) => (
-
-                <TableRow key={elem.id} height="60px">
-                  <TableCell
-                    sx={{ width: '15%', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                  >
-                    {elem.name}
-                  </TableCell>
-                  <TableCell
-                    align="center"
-                    sx={{
-                      margin: '1px', padding: '0', width: '10%',
-                    }}
-                  >
-                    <Box
-                      component="img"
+              {news && news.map((elem) => {
+                const date = new Date(elem.createdAt)
+                const realDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} - ${date.getHours() - 3}:${date.getMinutes()}:${date.getSeconds()}`
+                return (
+                  <TableRow key={elem.id} height="60px">
+                    <TableCell
+                      sx={{ width: '15%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    >
+                      {elem.name}
+                    </TableCell>
+                    <TableCell
+                      align="center"
                       sx={{
-                        margin: '3px auto',
-                        height: '60px',
-                        width: '60px',
-                        objectFit: 'cover',
-                        borderRadius: '50%',
+                        margin: '1px', padding: '0', width: '10%',
                       }}
-                      src={isImage(elem.image) || elem.image.length > 10 ? elem.image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKH2cSl_mcI1heNKNhcs7Qpg0OVCh8AsiD5A&usqp=CAU'}
-                      alt="news image"
-                    />
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      width: '45%', textOverflow: 'ellipsis',
-                    }}
-                    dangerouslySetInnerHTML={{ __html: elem.content.length < 80 ? elem.content : `${elem.content.substring(0, 80)}...` }}
-                  />
-                  <TableCell
-                    sx={{ width: '15%', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                  >
-                    {elem.createdAt}
-
-                  </TableCell>
-                  <TableCell sx={{ padding: '0', width: '10 %' }} align="center">
-                    <>
-                      <Link to={`${elem.id}/edit`}>
-                        <EditIcon sx={{
-                          opacity: '0.5',
-                          padding: '1px',
-                          border: '1px solid #DB5752',
-                          borderRadius: '5px',
-                          backgroundColor: 'white',
-                          color: '#DB5752',
-                          fontSize: '1.8rem',
-                          margin: '0 5px',
-                          cursor: 'pointer',
-                          '&:hover': { opacity: '1' },
-                        }}
-                        />
-                      </Link>
-
-                      <HighlightOffIcon
+                    >
+                      <Box
+                        component="img"
                         sx={{
-                          opacity: '0.5',
-                          padding: '1px',
-                          borderRadius: '5px',
-                          backgroundColor: '#DB5752',
-                          color: 'white',
-                          fontSize: '1.8rem',
-                          margin: '0 5px',
-                          cursor: 'pointer',
-                          '&:hover': { opacity: '1' },
+                          margin: '3px auto',
+                          height: '60px',
+                          width: '60px',
+                          objectFit: 'cover',
+                          borderRadius: '50%',
                         }}
-                        onClick={() => {
-                          setHandleModal(true)
-                          setElementToDelete(elem)
-                        }}
+                        src={isImage(elem.image) || elem.image.length > 10 ? elem.image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKH2cSl_mcI1heNKNhcs7Qpg0OVCh8AsiD5A&usqp=CAU'}
+                        alt="news image"
                       />
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        width: '45%', textOverflow: 'ellipsis',
+                      }}
+                      dangerouslySetInnerHTML={{ __html: elem.content.length < 80 ? elem.content : `${elem.content.substring(0, 80)}...` }}
+                    />
+                    <TableCell
+                      sx={{ width: '15%', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    >
+                      {realDate}
+                    </TableCell>
+                    <TableCell sx={{ padding: '0', width: '10 %' }} align="center">
+                      <>
+                        <Link to={`${elem.id}/edit`}>
+                          <EditIcon sx={{
+                            opacity: '0.5',
+                            padding: '1px',
+                            border: '1px solid #DB5752',
+                            borderRadius: '5px',
+                            backgroundColor: 'white',
+                            color: '#DB5752',
+                            fontSize: '1.8rem',
+                            margin: '0 5px',
+                            cursor: 'pointer',
+                            '&:hover': { opacity: '1' },
+                          }}
+                          />
+                        </Link>
 
-                    </>
-                  </TableCell>
-                </TableRow>
-              ))}
+                        <HighlightOffIcon
+                          sx={{
+                            opacity: '0.5',
+                            padding: '1px',
+                            borderRadius: '5px',
+                            backgroundColor: '#DB5752',
+                            color: 'white',
+                            fontSize: '1.8rem',
+                            margin: '0 5px',
+                            cursor: 'pointer',
+                            '&:hover': { opacity: '1' },
+                          }}
+                          onClick={() => {
+                            setHandleModal(true)
+                            setElementToDelete(elem)
+                          }}
+                        />
+
+                      </>
+                    </TableCell>
+                  </TableRow>
+                )
+              })}
               {errorStatusNews ? 'Error al traer Novedades' : null}
             </TableBody>
           </Table>
