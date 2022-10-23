@@ -7,7 +7,18 @@ import httpService from '../../../services/httpService';
 const EditOrganizationContainer = () => {
   const [errorStatus, setErrorStatus] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
-  const [dataOrg, setDataOrg] = useState({})
+  const [initialValues, setInitialValues] = useState({
+    name: '',
+    image: '',
+    address: '',
+    phone: '',
+    email: '',
+    fbUrl: '',
+    igUrl: '',
+    ldUrl: '',
+    welcomeText: '',
+    aboutUsText: '',
+  })
 
   const navigate = useNavigate()
   const { id } = useParams()
@@ -16,7 +27,18 @@ const EditOrganizationContainer = () => {
     try {
       const data = await httpService('get', `organizations/${id}/public`)
       if (data.code === 200) {
-        setDataOrg(data.body)
+        setInitialValues({
+          name: data.body.name,
+          image: data.body.image,
+          address: data.body.address,
+          phone: data.body.phone,
+          email: data.body.email,
+          fbUrl: data.body.fbUrl,
+          igUrl: data.body.igUrl,
+          ldUrl: data.body.ldUrl,
+          welcomeText: data.body.welcomeText,
+          aboutUsText: data.body.aboutUsText,
+        })
       } else {
         setErrorStatus(data.code)
       }
@@ -33,19 +55,6 @@ const EditOrganizationContainer = () => {
       setErrorStatus(error.response.status)
       setErrorMessage(error.response.statusText)
     }
-  }
-
-  const initialValues = {
-    name: dataOrg.name,
-    image: dataOrg.image,
-    address: dataOrg.address,
-    phone: dataOrg.phone,
-    email: dataOrg.email,
-    fbUrl: dataOrg.fbUrl,
-    igUrl: dataOrg.igUrl,
-    ldUrl: dataOrg.ldUrl,
-    welcomeText: dataOrg.welcomeText,
-    aboutUsText: dataOrg.aboutUsText,
   }
 
   useEffect(() => {

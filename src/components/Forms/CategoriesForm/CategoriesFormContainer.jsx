@@ -30,7 +30,9 @@ const CategoriesFormContainer = () => {
   }, [id])
 
   useEffect(() => {
-    findCategoryById(id)
+    if (id) {
+      findCategoryById(id)
+    }
   }, [id, findCategoryById])
 
   const onSubmitForm = async (values, idToEdit) => {

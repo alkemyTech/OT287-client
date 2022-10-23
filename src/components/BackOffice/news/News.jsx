@@ -158,7 +158,7 @@ News.propTypes = {
   handleModal: PropTypes.bool.isRequired,
   setHandleModal: PropTypes.func.isRequired,
   setElementToDelete: PropTypes.func.isRequired,
-  elementToDelete: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  elementToDelete: PropTypes.oneOfType([PropTypes.object]),
   deleteElement: PropTypes.func.isRequired,
   deletedSuccess: PropTypes.bool.isRequired,
   errorStatus: PropTypes.string.isRequired,
@@ -166,4 +166,9 @@ News.propTypes = {
   errorStatusNews: PropTypes.string.isRequired,
   setDeletedSuccess: PropTypes.func.isRequired,
 }
+
+News.defaultProps = {
+  elementToDelete: null,
+}
+
 export default News

@@ -125,7 +125,7 @@ const HeaderContainer = ({ MenuIcon }) => {
 }
 
 HeaderContainer.propTypes = {
-  MenuIcon: PropTypes.instanceOf(Element),
+  MenuIcon: PropTypes.instanceOf(Object),
 }
 
 HeaderContainer.defaultProps = {

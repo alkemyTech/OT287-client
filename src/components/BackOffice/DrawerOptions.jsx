@@ -36,7 +36,11 @@ DrawerOptions.propTypes = {
     icon: PropTypes.element,
   })).isRequired,
   filter: PropTypes.func.isRequired,
-  activeSection: PropTypes.string.isRequired,
+  activeSection: PropTypes.string,
+}
+
+DrawerOptions.defaultProps = {
+  activeSection: null,
 }
 
 export default DrawerOptions;

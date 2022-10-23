@@ -88,7 +88,7 @@ BurgerMenu.propTypes = {
   handleOpenMenu: PropTypes.func.isRequired,
   handleCloseMenu: PropTypes.func.isRequired,
   menuIsOpen: PropTypes.bool.isRequired,
-  MenuIcon: PropTypes.instanceOf(Element),
+  MenuIcon: PropTypes.instanceOf(Object),
 }
 
 BurgerMenu.defaultProps = {

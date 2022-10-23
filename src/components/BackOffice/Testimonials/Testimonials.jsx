@@ -119,14 +119,14 @@ const Testimonials = (
 
 Testimonials.propTypes = {
   testimonials: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string,
+    id: PropTypes.number,
     name: PropTypes.string,
     content: PropTypes.string,
   })).isRequired,
   handleModal: PropTypes.bool.isRequired,
   setHandleModal: PropTypes.func.isRequired,
   setElementToDelete: PropTypes.func.isRequired,
-  elementToDelete: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  elementToDelete: PropTypes.oneOfType([PropTypes.object]),
   deleteElement: PropTypes.func.isRequired,
   deletedSuccess: PropTypes.bool.isRequired,
   errorStatus: PropTypes.string.isRequired,
@@ -134,4 +134,9 @@ Testimonials.propTypes = {
   errorStatusTestimonials: PropTypes.string.isRequired,
   setDeletedSuccess: PropTypes.func.isRequired,
 }
+
+Testimonials.defaultProps = {
+  elementToDelete: null,
+}
+
 export default Testimonials
