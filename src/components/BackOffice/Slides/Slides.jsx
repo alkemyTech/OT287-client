@@ -150,17 +150,22 @@ Slides.propTypes = {
     id: PropTypes.number,
     imageUrl: PropTypes.string,
     text: PropTypes.string,
-    order: PropTypes.string,
-    organizationId: PropTypes.string,
+    order: PropTypes.number,
+    organizationId: PropTypes.number,
   })).isRequired,
   handleModal: PropTypes.bool.isRequired,
   setHandleModal: PropTypes.func.isRequired,
   setElementToDelete: PropTypes.func.isRequired,
-  elementToDelete: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  elementToDelete: PropTypes.oneOfType([PropTypes.object]),
   deleteElement: PropTypes.func.isRequired,
   deletedSuccess: PropTypes.bool.isRequired,
   errorStatus: PropTypes.string.isRequired,
   errorStatusSlides: PropTypes.string.isRequired,
   setDeletedSuccess: PropTypes.func.isRequired,
 }
+
+Slides.defaultProps = {
+  elementToDelete: null,
+}
+
 export default Slides

@@ -4,12 +4,13 @@ import { Alert } from '@mui/material'
 import httpService from '../../../services/httpService'
 import EditUserForm from './EditUserForm'
 import Loader from '../../Loader/Loader'
+import validationSchema from '../../../schemas/users'
 
 const EditUserContainer = () => {
   const [errorStatus, setErrorStatus] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
   const [loading, setLoading] = useState(false)
-  const [role, setRole] = useState('')
+  const [role, setRole] = useState(null)
   const [editSucces, setEditSucces] = useState(false)
   const [initialValues, setInitialValues] = useState({
     firstName: '',
@@ -17,7 +18,6 @@ const EditUserContainer = () => {
     email: '',
     password: '',
     image: '',
-    roleId: '',
     uploadedImage: '',
   })
 
@@ -55,7 +55,7 @@ const EditUserContainer = () => {
   }, [id])
 
   const handleRole = (event) => {
-    setRole(event.target.value);
+    setRole(Number(event.target.value));
   };
 
   // Update user byId
@@ -96,6 +96,7 @@ const EditUserContainer = () => {
 
     <EditUserForm
       initialValues={initialValues}
+      validationSchema={validationSchema}
       onSubmitForm={onSubmitForm}
       error={errorStatus}
       errorMessage={errorMessage}
@@ -104,7 +105,6 @@ const EditUserContainer = () => {
       editSucces={editSucces}
       id={id}
     />
-
   )
 }
 

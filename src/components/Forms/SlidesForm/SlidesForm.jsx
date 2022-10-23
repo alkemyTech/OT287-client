@@ -43,10 +43,10 @@ const SlidesForm = ({
             <Box sx={{ width: { xs: '50%', sm: '80%', md: '100%' } }}>
               <Form>
                 <Grid container spacing={2}>
-                  <Grid item xs={12} display="none">
+                  <Grid item xs={12}>
                     <FormInputField label="Nombre Organización" name="organization" type="text" variant="outlined" autoFocus sx={{ h: 10 }} disabled />
                   </Grid>
-                  <Grid item xs={12} display="none">
+                  <Grid item xs={12}>
                     <FormInputField label="ID Organización" name="organizationId" type="number" variant="outlined" autoFocus sx={{ h: 10 }} disabled />
                   </Grid>
                   <Grid item xs={12}>
@@ -56,7 +56,7 @@ const SlidesForm = ({
                     <FormInputField label="Orden" name="order" type="number" variant="outlined" autoFocus sx={{ h: 10 }} />
                   </Grid>
                   <Grid item xs={12}>
-                    <FormInputField label="Imagen actual:" name="uploadedImage" type="text" variant="standard" sx={{ mb: '10px' }} />
+                    <FormInputField label="Imagen actual:" name="uploadedImage" type="text" variant="standard" sx={{ mb: '10px' }} disabled />
                     <FormInputImage label="Upload" id="image" name="imageUrl" formProps={formProps} />
                   </Grid>
                   <Grid item xs={12}>

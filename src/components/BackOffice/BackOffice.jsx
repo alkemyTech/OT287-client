@@ -60,29 +60,18 @@ BackOffice.propTypes = {
     text: PropTypes.string,
     icon: PropTypes.element,
   })).isRequired,
-  data: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    content: PropTypes.string,
-    image: PropTypes.string,
-  })).isRequired,
   mobileOpen: PropTypes.bool.isRequired,
-  activeSection: PropTypes.string.isRequired,
+  activeSection: PropTypes.string,
   handleFilterList: PropTypes.func.isRequired,
   handleDrawerToggle: PropTypes.func.isRequired,
   hiddenAddButton: PropTypes.arrayOf(PropTypes.string).isRequired,
-  cardFields: PropTypes.shape({
-    title: PropTypes.string,
-    content: PropTypes.string,
-    imageUrl: PropTypes.string,
-  }).isRequired,
   handleAction: PropTypes.func.isRequired,
-  nestedRoutes: PropTypes.shape({
-    edit: PropTypes.string,
-    delete: PropTypes.string,
-  }).isRequired,
   location: PropTypes.string.isRequired,
   relativeLocation: PropTypes.string.isRequired,
+}
+
+BackOffice.defaultProps = {
+  activeSection: null,
 }
 
 export default BackOffice

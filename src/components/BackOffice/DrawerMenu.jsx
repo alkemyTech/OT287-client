@@ -59,9 +59,13 @@ DrawerMenu.propTypes = {
     icon: PropTypes.element,
   })).isRequired,
   mobileOpen: PropTypes.bool.isRequired,
-  activeSection: PropTypes.string.isRequired,
+  activeSection: PropTypes.string,
   handleFilterList: PropTypes.func.isRequired,
   handleDrawerToggle: PropTypes.func.isRequired,
-};
+}
+
+DrawerMenu.defaultProps = {
+  activeSection: null,
+}
 
 export default DrawerMenu;

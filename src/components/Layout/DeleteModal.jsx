@@ -78,13 +78,17 @@ const DeleteModal = (props) => {
 DeleteModal.propTypes = {
   openModal: PropTypes.bool.isRequired,
   setHandleModal: PropTypes.func.isRequired,
-  elementToDelete: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  elementToDelete: PropTypes.oneOfType([PropTypes.object]),
   deleteElement: PropTypes.func.isRequired,
   deletedSuccess: PropTypes.bool.isRequired,
-  errorStatus: PropTypes.string.isRequired,
+  errorStatus: PropTypes.string,
   setElementToDelete: PropTypes.func.isRequired,
   setDeletedSuccess: PropTypes.func.isRequired,
+}
 
+DeleteModal.defaultProps = {
+  elementToDelete: null,
+  errorStatus: null,
 }
 
 export default DeleteModal

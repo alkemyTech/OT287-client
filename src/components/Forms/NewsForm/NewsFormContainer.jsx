@@ -31,7 +31,7 @@ const NewsFormContainer = () => {
             name: getData.body.name,
             content: getData.body.content,
             image: getData.body.image,
-            uploadedImage: previousImage,
+            uploadedImage: previousImage || '',
             categoryId: getData.body.categoryId,
           })
         } catch (error) {

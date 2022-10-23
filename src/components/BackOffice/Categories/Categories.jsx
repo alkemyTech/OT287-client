@@ -130,12 +130,17 @@ Categories.propTypes = {
   handleModal: PropTypes.bool.isRequired,
   setHandleModal: PropTypes.func.isRequired,
   setElementToDelete: PropTypes.func.isRequired,
-  elementToDelete: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  elementToDelete: PropTypes.oneOfType([PropTypes.object]),
   deleteElement: PropTypes.func.isRequired,
   deletedSuccess: PropTypes.bool.isRequired,
   errorStatus: PropTypes.string.isRequired,
-  error: PropTypes.string.isRequired,
+  error: PropTypes.string,
   setDeletedSuccess: PropTypes.func.isRequired,
+}
+
+Categories.defaultProps = {
+  error: null,
+  elementToDelete: null,
 }
 
 export default Categories
