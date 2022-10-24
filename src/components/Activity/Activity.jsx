@@ -38,7 +38,7 @@ const Activity = ({ data, loading, error }) => {
   }
 
   return (
-    <Container sx={{ my: { xs: 10, md: 14 } }}>
+    <Container sx={{ my: { xs: 10, md: 14 } }} maxWidth="1400px" margin="auto">
       <Grid container justifyContent="center">
         <Grid item md={5} sx={{ mr: { md: 5 } }}>
           <Typography variant="h2" sx={{ fontSize: '1.5rem', fontWeight: 600, maxWidth: '37.5rem' }}>{ data.name }</Typography>

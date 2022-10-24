@@ -22,7 +22,11 @@ const MediaCard = ({ data }) => (
         src={data.image}
         alt="new image"
         sx={{
-          margin: { sm: '10px', xs: '0 auto' }, borderRadius: '20px', width: { xs: '40px', sm: '120px', md: '196px' }, height: { xs: '45px', sm: '135px', md: '233px' }, opacity: { xs: 1, sm: 1 },
+          margin: { sm: '10px', xs: '15px auto 0' },
+          borderRadius: { lg: '20px', sm: '10px', xs: '50%' },
+          width: { xs: '50px', sm: '120px', md: '196px' },
+          height: { xs: '50px', sm: '135px', md: '233px' },
+          opacity: { xs: 1, sm: 1 },
         }}
       />
     </Box>
