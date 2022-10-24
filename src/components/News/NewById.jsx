@@ -13,7 +13,7 @@ const NewById = ({ data }) => {
     <Grid item xs={12} height="100%" width="100%" minwidth="250px" maxWidth="1000px" margin="0 auto 120px auto">
       <Paper
         sx={{
-          height: '30vw',
+          height: '25vw',
           minHeight: '240px',
           position: 'relative',
           backgroundSize: 'cover',
@@ -45,13 +45,13 @@ const NewById = ({ data }) => {
             <Typography
               className="newByIdTitle"
               color="inherit"
-              sx={{ typography: { lg: 'h4', xs: 'h5' }, margin: '10px 0' }}
+              sx={{ typography: { lg: 'h5', xs: 'h6' }, margin: '10px 0' }}
             >
               {data.name}
             </Typography>
             <Typography
               className="newByIdParagraph"
-              sx={{ typography: { lg: 'h6', xs: 'p' } }}
+              sx={{ typography: { lg: 'p', xs: 'body1' } }}
               color="inherit"
               paragraph
               dangerouslySetInnerHTML={{ __html: data.content }}
@@ -66,7 +66,7 @@ const NewById = ({ data }) => {
                 variant="contained"
                 color="primary"
                 sx={{
-                  fontSize: { xs: '.8rem', md: '1rem', lg: '1.4rem' },
+                  fontSize: { xs: '.8rem', md: '0.8rem', lg: '0.9rem' },
                 }}
                 onClick={() => { navigate('/novedades') }}
               >

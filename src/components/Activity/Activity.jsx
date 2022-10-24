@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import {
-  Typography, Container, Box, Grid,
+  Typography, Container, Box, Grid, Button,
 } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 import Loader from '../Loader/Loader'
 
 const Spinner = () => (
@@ -27,6 +28,8 @@ const NotFound = () => (
 )
 
 const Activity = ({ data, loading, error }) => {
+  const navigate = useNavigate()
+
   if (loading) {
     return <Spinner />
   }
@@ -60,6 +63,24 @@ const Activity = ({ data, loading, error }) => {
           />
         </Grid>
       </Grid>
+      <Box
+        width="100%"
+        display="flex"
+        justifyContent="center"
+        margin="60px 0 0 0"
+      >
+        <Button
+          variant="contained"
+          color="primary"
+          sx={{
+            fontSize: { xs: '.8rem', md: '1rem', lg: '1rem' },
+          }}
+          onClick={() => { navigate('/actividades') }}
+        >
+          Volver
+
+        </Button>
+      </Box>
     </Container>
   )
 }
