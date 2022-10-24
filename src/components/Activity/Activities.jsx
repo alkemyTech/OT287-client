@@ -10,7 +10,7 @@ const Activities = ({ data, error }) => (
     {error && (
     <Box component="span" color="red">{error === 409 ? 'Error server conexion' : error}</Box>
     )}
-    <Grid container display="flex" justifyContent="center" sx={{ width: { xs: '300px', sm: '100%' } }}>
+    <Grid container display="flex" justifyContent="center" sx={{ width: { xs: '300px', sm: '100%' } }} margin="auto">
       { data && data.map((d) => (
         <Grid item display="flex" justifyContent="center" m={2} xs={10} sm={8} md={6} lg={4} xl={4} key={d.id}>
           <ActivitiesCard
@@ -22,8 +22,6 @@ const Activities = ({ data, error }) => (
 
   </>
 )
-
-
 
 Activities.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({

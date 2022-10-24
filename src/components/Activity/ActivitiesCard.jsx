@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const ActivitiesCard = ({ data }) => (
   <Card sx={{
-    width: '450px',
+    width: '850px',
     padding: '5px',
     backgroundColor: '#ed706b',
     borderRadius: '20px',
@@ -21,10 +21,10 @@ const ActivitiesCard = ({ data }) => (
         src={data.image}
         alt="new image"
         sx={{
-          margin: { sm: '10px', xs: '0 auto' },
-          borderRadius: '20px',
-          width: { xs: '40px', sm: '120px', md: '196px' },
-          height: { xs: '45px', sm: '135px', md: '233px' },
+          margin: { sm: '10px', xs: '15px auto 0' },
+          borderRadius: { lg: '20px', sm: '10px', xs: '50%' },
+          width: { xs: '60px', sm: '120px', md: '196px' },
+          height: { xs: '60px', sm: '135px', md: '233px' },
           opacity: { xs: 1, sm: 1 },
         }}
       />
