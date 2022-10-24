@@ -73,7 +73,7 @@ const Activity = ({ data, loading, error }) => {
           variant="contained"
           color="primary"
           sx={{
-            fontSize: { xs: '.8rem', md: '1rem', lg: '1rem' },
+            fontSize: { xs: '.8rem', md: '0.8rem', lg: '0.9rem' },
           }}
           onClick={() => { navigate('/actividades') }}
         >
